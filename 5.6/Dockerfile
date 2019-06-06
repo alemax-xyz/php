@@ -91,6 +91,7 @@ RUN apt-get download \
         libhunspell-1.6-0 \
         libhx509-5-heimdal \
         libicu60 \
+        libicu64 \
         libidn11 \
         libidn2-0 \
         libjbig0 \
