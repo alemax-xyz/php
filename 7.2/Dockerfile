@@ -351,10 +351,13 @@ RUN mkdir -p \
         -e 's,^[[:space:]]*[#;]+.*$,,g' \
         -e 's,[[:space:]]+, ,g' \
         -e '/^[[:space:]]*$/d' \
-        %
+        % \
+ && sed -i -r \
+        -e 's,extension=gmagick.so,;extension=gmagick.so,g' \
+        etc/php/7.2/mods-available/gmagick.ini
 
 COPY --from=base /etc/group /etc/gshadow /etc/passwd /etc/shadow etc/
-COPY init.sh etc/
+COPY init/ etc/init/
 
 WORKDIR /
 
@@ -364,7 +367,5 @@ FROM clover/common
 ENV LANG=C.UTF-8
 
 COPY --from=build /rootfs /
-
-CMD ["sh", "/etc/init.sh"]
 
 EXPOSE 9000

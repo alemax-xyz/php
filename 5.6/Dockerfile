@@ -62,7 +62,7 @@ RUN apt-get download \
         libedit2 \
         libenchant1c2a \
         libevent-1.4-2 \
-#        libevent-2.1-6 \
+        libevent-2.1-6 \
         libexpat1 \
         libfbclient2 \
         libffi6 \
@@ -198,7 +198,7 @@ RUN apt-get download \
         php-gmagick \
         php5.6-gmp \
         php-gnupg \
-#        php-http \
+        php-http \
         php-igbinary \
         php-imagick \
         php5.6-imap \
@@ -358,10 +358,14 @@ RUN mkdir -p \
         -e 's,^[[:space:]]*[#;]+.*$,,g' \
         -e 's,[[:space:]]+, ,g' \
         -e '/^[[:space:]]*$/d' \
-        %
+        % \
+ && sed -i -r \
+        -e 's,extension=gmagick.so,;extension=gmagick.so,g' \
+        etc/php/5.6/mods-available/gmagick.ini
+
 
 COPY --from=base /etc/group /etc/gshadow /etc/passwd /etc/shadow etc/
-COPY init.sh etc/
+COPY init/ etc/init/
 
 WORKDIR /
 
@@ -371,7 +375,5 @@ FROM clover/common
 ENV LANG=C.UTF-8
 
 COPY --from=build /rootfs /
-
-CMD ["sh", "/etc/init.sh"]
 
 EXPOSE 9000
