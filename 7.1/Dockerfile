@@ -20,12 +20,15 @@ ENV LANG=C.UTF-8
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get update \
  && apt-get install -y \
-         python3-software-properties \
-         software-properties-common \
-         apt-utils
+        wget \
+        python3-software-properties \
+        software-properties-common \
+        apt-utils
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && add-apt-repository -y ppa:ondrej/php \
+ && wget -qO - https://packages.blackfire.io/gpg.key | apt-key add - \
+ && add-apt-repository -y "deb http://packages.blackfire.io/debian any main" \
  && apt-get update
 
 RUN mkdir -p /build /rootfs
@@ -252,7 +255,8 @@ RUN apt-get download \
         php-yac \
         php-yaml \
         php7.1-zip \
-        php-zmq
+        php-zmq \
+        blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
 WORKDIR /rootfs
@@ -266,6 +270,8 @@ RUN mkdir -p \
  && mv usr/lib/php/7.1/php.ini-production etc/php/7.1/fpm/php.ini \
  && mv usr/lib/php/7.1/php.ini-production.cli etc/php/7.1/cli/php.ini \
  && mv usr/share/php7.1-*/*/*.ini etc/php/7.1/mods-available \
+ && mv usr/lib/blackfire-php/amd64/blackfire-20160303.so usr/lib/php/20160303/blackfire.so \
+ && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/7.1/mods-available/blackfire.ini \
  && rm -rf \
         etc/X11 \
         etc/apache2 \
@@ -295,6 +301,7 @@ RUN mkdir -p \
         usr/lib/php/20131226 \
         usr/lib/php/20151012 \
         usr/lib/php/20160303/*.la \
+        usr/lib/blackfire-php \
         usr/lib/php/20160731 \
         usr/lib/php/20170718 \
         usr/lib/php/20180731 \
