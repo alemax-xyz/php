@@ -291,6 +291,7 @@ RUN mkdir -p \
         etc/php/7.1 \
         etc/php/7.2 \
         etc/php/7.3 \
+        etc/php/7.4 \
         lib/systemd \
         lib/udev \
         usr/bin/gpg2 \
