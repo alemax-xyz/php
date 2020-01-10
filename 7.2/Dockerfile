@@ -255,6 +255,10 @@ RUN apt-get download \
         php-yaml \
         php7.2-zip \
         php-zmq \
+        php-pcov \
+        php-pinba \
+        php-psr \
+        libprotobuf-c1 \
         blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
@@ -302,8 +306,9 @@ RUN mkdir -p \
         usr/lib/php/20151012 \
         usr/lib/php/20160303 \
         usr/lib/php/20160731 \
-        usr/lib/php/20180731 \
         usr/lib/php/20170718/*.la \
+        usr/lib/php/20180731 \
+        usr/lib/php/20190902 \
         usr/sbin/addgnupghome \
         usr/sbin/applygnupgdefaults \
         usr/share/X11/locale \

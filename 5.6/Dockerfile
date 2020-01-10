@@ -310,6 +310,7 @@ RUN mkdir -p \
         usr/lib/php/20160731 \
         usr/lib/php/20170718 \
         usr/lib/php/20180731 \
+        usr/lib/php/20190902 \
         usr/sbin/addgnupghome \
         usr/sbin/applygnupgdefaults \
         usr/share/X11/locale \
