@@ -375,4 +375,6 @@ ENV LANG=C.UTF-8
 
 COPY --from=build /rootfs /
 
+WORKDIR /var/www
+
 EXPOSE 9000
