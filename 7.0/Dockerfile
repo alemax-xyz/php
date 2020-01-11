@@ -35,8 +35,6 @@ RUN mkdir -p /build /rootfs
 WORKDIR /build
 RUN apt-get download \
         firebird3.0-common \
-        fontconfig \
-        fontconfig-config \
         freetds-common \
         gnupg2 \
         gnupg-agent \
@@ -259,6 +257,16 @@ RUN apt-get download \
         php-pinba \
         php-psr \
         libprotobuf-c1 \
+        php-smbclient \
+        libsmbclient \
+        samba-libs \
+        libtalloc2 \
+        libtevent0 \
+        libwbclient0 \
+        libtdb1 \
+        libcap2 \
+        libldb1 \
+        libjansson4 \
         blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
@@ -294,10 +302,10 @@ RUN mkdir -p \
         lib/udev \
         usr/bin/gpg2 \
         usr/include \
-        usr/lib/aspell/x86_64-linux-gnu/*.la \
+        usr/lib/aspell/*-linux-gnu*/*.la \
         usr/lib/blackfire-php \
-        usr/lib/x86_64-linux-gnu/ImageMagick-6.9.7/modules-Q16/coders/*.la \
-        usr/lib/x86_64-linux-gnu/ImageMagick-6.9.7/modules-Q16/filters/*.la \
+        usr/lib/*-linux-gnu*/ImageMagick-6.9.7/modules-Q16/coders/*.la \
+        usr/lib/*-linux-gnu*/ImageMagick-6.9.7/modules-Q16/filters/*.la \
         usr/lib/odbc \
         usr/lib/tmpfiles.d \
         usr/lib/php/7.0 \
@@ -318,6 +326,7 @@ RUN mkdir -p \
         usr/share/info \
         usr/share/apport \
         usr/share/bug \
+        usr/share/locale \
         usr/share/doc-base \
         usr/share/lintian \
         usr/share/upstart \
