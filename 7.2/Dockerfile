@@ -267,13 +267,18 @@ RUN apt-get download \
         libcap2 \
         libldb1 \
         libjansson4 \
+        php7.2-snmp \
+        libsnmp30 \
         blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
 WORKDIR /rootfs
 
 RUN mkdir -p \
+        etc/snmp \
         var/lib/php/sessions \
+        var/lib/snmp/mibs \
+        var/lib/snmp/mib_indexes \
         var/log \
         var/www \
         run/php \
@@ -283,6 +288,8 @@ RUN mkdir -p \
  && mv usr/share/php7.2-*/*/*.ini etc/php/7.2/mods-available \
  && mv usr/lib/blackfire-php/amd64/blackfire-20170718.so usr/lib/php/20170718/blackfire.so \
  && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/7.2/mods-available/blackfire.ini \
+ && ln -s /var/lib/snmp usr/share/snmp \
+ && echo 'mibs :' > etc/snmp/snmp.conf \
  && rm -rf \
         etc/X11 \
         etc/apache2 \

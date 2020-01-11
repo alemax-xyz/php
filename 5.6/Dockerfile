@@ -62,7 +62,6 @@ RUN apt-get download \
         libdevmapper1.02.1 \
         libedit2 \
         libenchant1c2a \
-        libevent-1.4-2 \
         libevent-2.1-6 \
         libexpat1 \
         libfbclient2 \
@@ -199,7 +198,7 @@ RUN apt-get download \
         php-gmagick \
         php5.6-gmp \
         php-gnupg \
-        php-http \
+#        php-http \
         php-igbinary \
         php-imagick \
         php5.6-imap \
@@ -267,13 +266,18 @@ RUN apt-get download \
         libldb1 \
         libjansson4 \
         blackfire-php \
+        php5.6-snmp \
+        libsnmp30 \
         pinentry-curses
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
 WORKDIR /rootfs
 
 RUN mkdir -p \
+        etc/snmp \
         var/lib/php/sessions \
+        var/lib/snmp/mibs \
+        var/lib/snmp/mib_indexes \
         var/log \
         var/www \
         run/php \
@@ -285,6 +289,8 @@ RUN mkdir -p \
  && mv usr/share/php5.6-*/*/*.ini etc/php/5.6/mods-available \
  && mv usr/lib/blackfire-php/amd64/blackfire-20131226.so usr/lib/php/20131226/blackfire.so \
  && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/5.6/mods-available/blackfire.ini \
+ && ln -s /var/lib/snmp usr/share/snmp \
+ && echo 'mibs :' > etc/snmp/snmp.conf \
  && rm -rf \
         etc/X11 \
         etc/apache2 \
