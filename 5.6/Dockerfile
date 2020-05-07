@@ -38,6 +38,9 @@ RUN apt-get download \
         freetds-common \
         gnupg2 \
         gnupg-agent \
+        gpg \
+        gpg-agent \
+        pinentry-tty \
         imagemagick-6-common \
         libapparmor1 \
         libasn1-8-heimdal \
@@ -90,8 +93,7 @@ RUN apt-get download \
         libhogweed4 \
         libhunspell-1.6-0 \
         libhx509-5-heimdal \
-        libicu60 \
-        libicu64 \
+        libicu65 \
         libidn11 \
         libidn2-0 \
         libjbig0 \
@@ -267,8 +269,7 @@ RUN apt-get download \
         libjansson4 \
         blackfire-php \
         php5.6-snmp \
-        libsnmp30 \
-        pinentry-curses
+        libsnmp30
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
 WORKDIR /rootfs
@@ -290,6 +291,7 @@ RUN mkdir -p \
  && mv usr/lib/blackfire-php/amd64/blackfire-20131226.so usr/lib/php/20131226/blackfire.so \
  && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/5.6/mods-available/blackfire.ini \
  && ln -s /var/lib/snmp usr/share/snmp \
+ && ln -s pinentry-tty usr/bin/pinentry \
  && echo 'mibs :' > etc/snmp/snmp.conf \
  && rm -rf \
         etc/X11 \
@@ -299,6 +301,7 @@ RUN mkdir -p \
         etc/gss \
         etc/init \
         etc/init.d \
+        etc/logcheck \
         etc/logrotate.d \
         etc/php/5.5 \
         etc/php/7.0 \

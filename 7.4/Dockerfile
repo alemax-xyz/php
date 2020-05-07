@@ -43,6 +43,7 @@ RUN apt-get download \
         pinentry-tty \
         imagemagick-6-common \
         libapparmor1 \
+        libargon2-0 \
         libasn1-8-heimdal \
         libaspell15 \
         libassuan0 \
@@ -117,7 +118,6 @@ RUN apt-get download \
         libmagickcore-6.q16-3 \
         libmagickcore-6.q16-3-extra \
         libmagickwand-6.q16-3 \
-        libmcrypt4 \
         libmemcached11 \
         libnettle6 \
         libnl-3-200 \
@@ -126,6 +126,7 @@ RUN apt-get download \
         libnpth0 \
         libnuma1 \
         libodbc1 \
+        libpcre2-8-0 \
         libp11-kit0 \
         libpango-1.0-0 \
         libpangocairo-1.0-0 \
@@ -182,79 +183,78 @@ RUN apt-get download \
         libzip4 \
         libzmq5 \
         libnorm1 \
+        libonig4 \
         mlock \
         php-amqp \
         php-apcu \
         php-apcu-bc \
         php-ast \
-        php7.1-bcmath \
-        php7.1-bz2 \
-        php7.1-cli \
-        php7.1-common \
-        php7.1-curl \
-        php7.1-dba \
+        php7.4-bcmath \
+        php7.4-bz2 \
+        php7.4-cli \
+        php7.4-common \
+        php7.4-curl \
+        php7.4-dba \
         php-ds \
-        php7.1-enchant \
-        php7.1-fpm \
-        php7.1-gd \
+        php7.4-enchant \
+        php7.4-fpm \
+        php7.4-gd \
         php-gearman \
         php-geoip \
         php-gmagick \
-        php7.1-gmp \
+        php7.4-gmp \
         php-gnupg \
         php-http \
         php-igbinary \
         php-imagick \
-        php7.1-imap \
-        php7.1-interbase \
-        php7.1-intl \
-        php7.1-json \
-        php7.1-ldap \
+        php7.4-imap \
+        php7.4-interbase \
+        php7.4-intl \
+        php7.4-json \
+        php7.4-ldap \
         php-lua \
         liblua5.2-0 \
         php-sodium \
         php-libvirt-php \
         php-mailparse \
-        php7.1-mbstring \
-        php7.1-mcrypt \
+        php7.4-mbstring \
         php-memcache \
         php-memcached \
         php-mongodb \
         php-msgpack \
-        php7.1-mysql \
+        php7.4-mysql \
         php-oauth \
-        php7.1-odbc \
-        php7.1-opcache \
-        php7.1-pgsql \
+        php7.4-odbc \
+        php7.4-opcache \
+        php7.4-pgsql \
         php-phalcon \
         php-propro \
-        php7.1-pspell \
+        php7.4-pspell \
         php-radius \
         php-raphf \
-        php7.1-readline \
-        php7.1-recode \
+        php7.4-readline \
         php-redis \
         php-rrd \
         php-sass \
         libsass0 \
-        php7.1-soap \
+        php7.4-soap \
         php-solr \
-        php7.1-sqlite \
-        php7.1-sqlite3 \
+        php7.4-sqlite \
+        php7.4-sqlite3 \
         php-ssh2 \
         php-stomp \
-        php7.1-sybase \
+        php7.4-sybase \
         php-tideways \
-        php7.1-tidy \
+        php7.4-tidy \
         php-uploadprogress \
         php-uuid \
         php-xdebug \
-        php7.1-xml \
-        php7.1-xmlrpc \
-        php7.1-xsl \
+        php7.4-xml \
+        php7.4-xmlrpc \
+        php7.4-xsl \
         php-yac \
         php-yaml \
-        php7.1-zip \
+        php7.4-zip \
         php-zmq \
         php-pcov \
         php-pinba \
@@ -270,7 +270,7 @@ RUN apt-get download \
         libcap2 \
         libldb1 \
         libjansson4 \
-        php7.1-snmp \
+        php7.4-snmp \
         libsnmp30 \
         blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
@@ -286,11 +286,11 @@ RUN mkdir -p \
         var/www \
         run/php \
  && chmod 1777 var/lib/php/sessions \
- && mv usr/lib/php/7.1/php.ini-production etc/php/7.1/fpm/php.ini \
- && mv usr/lib/php/7.1/php.ini-production.cli etc/php/7.1/cli/php.ini \
- && mv usr/share/php7.1-*/*/*.ini etc/php/7.1/mods-available \
- && mv usr/lib/blackfire-php/amd64/blackfire-20160303.so usr/lib/php/20160303/blackfire.so \
- && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/7.1/mods-available/blackfire.ini \
+ && mv usr/lib/php/7.4/php.ini-production etc/php/7.4/fpm/php.ini \
+ && mv usr/lib/php/7.4/php.ini-production.cli etc/php/7.4/cli/php.ini \
+ && mv usr/share/php7.4-*/*/*.ini etc/php/7.4/mods-available \
+ && mv usr/lib/blackfire-php/amd64/blackfire-20190902.so usr/lib/php/20190902/blackfire.so \
+ && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/7.4/mods-available/blackfire.ini \
  && ln -s /var/lib/snmp usr/share/snmp \
  && ln -s pinentry-tty usr/bin/pinentry \
  && echo 'mibs :' > etc/snmp/snmp.conf \
@@ -307,29 +307,29 @@ RUN mkdir -p \
         etc/php/5.5 \
         etc/php/5.6 \
         etc/php/7.0 \
+        etc/php/7.1 \
         etc/php/7.2 \
         etc/php/7.3 \
-        etc/php/7.4 \
         lib/systemd \
         lib/udev \
         usr/bin/gpg2 \
         usr/include \
         usr/lib/aspell/*-linux-gnu*/*.la \
+        usr/lib/blackfire-php \
         usr/lib/*-linux-gnu*/ImageMagick-6.9.7/modules-Q16/coders/*.la \
         usr/lib/*-linux-gnu*/ImageMagick-6.9.7/modules-Q16/filters/*.la \
         usr/lib/odbc \
         usr/lib/tmpfiles.d \
-        usr/lib/php/7.1 \
-        usr/lib/php/php7.1-fpm-reopenlogs \
-        usr/lib/blackfire-php \
+        usr/lib/php/7.4 \
+        usr/lib/php/php7.4-fpm-reopenlogs \
         usr/lib/php/20121212 \
         usr/lib/php/20131226 \
         usr/lib/php/20151012 \
-        usr/lib/php/20160303/*.la \
+        usr/lib/php/20160303 \
         usr/lib/php/20160731 \
         usr/lib/php/20170718 \
         usr/lib/php/20180731 \
-        usr/lib/php/20190902 \
+        usr/lib/php/20190902/*.la \
         usr/sbin/addgnupghome \
         usr/sbin/applygnupgdefaults \
         usr/share/X11/locale \
@@ -347,35 +347,35 @@ RUN mkdir -p \
         usr/share/gdb \
         usr/share/gnupg2/*.txt \
         usr/share/gnupg2/gpg-conf.skel \
-        usr/share/php7.1-* \
- && ln -s php7.1 usr/bin/php \
- && ln -s phar7.1 usr/bin/phar \
- && ln -s phar.phar7.1 usr/bin/phar.phar \
- && ln -s php-fpm7.1 usr/sbin/php-fpm \
- && ln -s /dev/stderr var/log/php7.1-fpm.log \
+        usr/share/php7.4-* \
+ && ln -s php7.4 usr/bin/php \
+ && ln -s phar7.4 usr/bin/phar \
+ && ln -s phar.phar7.4 usr/bin/phar.phar \
+ && ln -s php-fpm7.4 usr/sbin/php-fpm \
+ && ln -s /dev/stderr var/log/php7.4-fpm.log \
  && sed -i -r \
         -e 's, *listen *= *.*,listen = 9000,g' \
         -e 's, *user *= *.*,user = www,g' \
         -e 's, *group *= *.*,group = www,g' \
         -e 's, *listen\.owner *= *.*,listen.owner = www,g' \
         -e 's, *listen\.group *= *.*,listen.group = www,g' \
-        etc/php/7.1/fpm/pool.d/www.conf \
+        etc/php/7.4/fpm/pool.d/www.conf \
  && sed -i -r \
         's,[ ;]*systemd_interval *= *.*,systemd_interval = 0,g' \
-        etc/php/7.1/fpm/php-fpm.conf \
+        etc/php/7.4/fpm/php-fpm.conf \
  && sed -i -r \
         -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
-        etc/php/7.1/fpm/php.ini \
+        etc/php/7.4/fpm/php.ini \
  && sed -i -r \
         -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
-        etc/php/7.1/cli/php.ini \
- && for file in etc/php/7.1/mods-available/*.ini; do \
+        etc/php/7.4/cli/php.ini \
+ && for file in etc/php/7.4/mods-available/*.ini; do \
         priority=$(grep -E " *; *priority=" ${file} | sed -r "s/ *; *priority *= *([0-9]+.*)/\1/g"); \
         if [ -z "${priority}" ]; then priority=20; fi; \
-        ln -s "../../mods-available/$(basename ${file})" etc/php/7.1/cli/conf.d/${priority}-$(basename ${file}); \
-        ln -s "../../mods-available/$(basename ${file})" etc/php/7.1/fpm/conf.d/${priority}-$(basename ${file}); \
+        ln -s "../../mods-available/$(basename ${file})" etc/php/7.4/cli/conf.d/${priority}-$(basename ${file}); \
+        ln -s "../../mods-available/$(basename ${file})" etc/php/7.4/fpm/conf.d/${priority}-$(basename ${file}); \
     done \
  && find \
         etc/firebird/3.0/firebird.conf \
@@ -388,7 +388,7 @@ RUN mkdir -p \
         % \
  && sed -i -r \
         -e 's,extension=gmagick.so,;extension=gmagick.so,g' \
-        etc/php/7.1/mods-available/gmagick.ini
+        etc/php/7.4/mods-available/gmagick.ini
 
 COPY --from=base /etc/group /etc/gshadow /etc/passwd /etc/shadow etc/
 COPY init/ etc/init/
