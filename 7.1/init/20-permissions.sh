@@ -1,3 +1,3 @@
 #!/bin/sh
 
-chown -R $PUID:$PGID /var/lib/php/sessions /var/www || exit 2
+test -z "$CHOWN" || chown -R $PUID:$PGID $CHOWN

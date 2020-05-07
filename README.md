@@ -7,3 +7,23 @@ PHP FPM pool is pre-configured in `/etc/php/{7.x,5.6}/fpm/pool.d/www.conf` to us
 ### Available PHP modules
 amqp, apcu, apcu-bc, ast, bcmath, blackfire, bz2, calendar, ctype, curl, dba, dom, ds, enchant, exif, ffi, fileinfo, ftp, gd, gearman, geoip, gettext, gmagick, gmp, gnupg, http, iconv, igbinary, imagick, imap, interbase, intl, json, lua, ldap, libvirt-php, mailparse, mbstring, mcrypt, memcache, memcached, mongo, mongodb, msgpack, mssql, mysql, mysqli, mysqlnd, oauth, odbc, opcache, pinba, psr, pconv, pdo, pdo-dblib, pdo-firebird, pdo-mysql, pdo-odbc, pdo-pgsql, pdo-sqlite, pgsql, phalcon, phar, posix, propro, pspell, radius, raphf, readline, recode, redis, rrd, sass, shmop, simplexml, smbclient, snmp, soap, sodium, sockets, solr, sqlite3, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways, tidy, tokenizer, uploadprogress, uuid, wddx, xcache, xdebug, xhprof, xml, xmlreader, xmlwriter, xmlrpc, xsl, yac, yaml, zip, zmq.
 See [MODULES.md](https://github.com/alemax-xyz/php/blob/master/MODULES.md) for more details.
+
+### Data volumes
+| Location | Description |
+|---|---|
+| `/var/lib/php/sessions` | PHP sessions |
+
+### Exposed ports
+| Port | Description |
+|---|---|
+| 9000 | TCP port _php-fpm_ is listening on |
+
+### Enviroment variables
+| Name | Default value | Description |
+|---|---|---|
+| `PUID` | `50` | Desired _UID_ of the process owner _*_ |
+| `PGID` | primary group id of the _UID_ user (`50`) | Desired _GID_ of the process owner _*_ |
+| `CRON` | _not set_ | Will start _cron_ inside the container if set to `1` |
+| `CHOWN` | `/var/lib/php/sessions /var/www` | Space-separated list of directories to _chown_ with `PUID`/`PGID` on start |
+
+_*_ `PUID`/`PGID` could be used to preserve data volume ownership on host.

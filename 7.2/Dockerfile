@@ -398,9 +398,12 @@ WORKDIR /
 FROM clover/common
 
 ENV LANG=C.UTF-8
+ENV CHOWN="/var/lib/php/sessions /var/www"
 
 COPY --from=build /rootfs /
 
 WORKDIR /var/www
+
+VOLUME ["/var/lib/php/sessions"]
 
 EXPOSE 9000
