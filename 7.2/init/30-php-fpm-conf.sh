@@ -1,7 +1,6 @@
 #!/bin/sh
 
 (
-	echo "include=/etc/php/7.2/fpm/pool.d/*.conf"
 	echo "[global]"
 	echo "pid=\"${PHP_FPM_PID:-/run/php/php7.2-fpm.pid}\""
 	if [ -n "${PHP_FPM_ERROR_LOG+1}" ]; then 
@@ -17,4 +16,6 @@
 	[ -n "${PHP_FPM_PROCESS_PRIORITY+1}" ] && echo "process.priority=\"${PHP_FPM_PROCESS_PRIORITY}\""
 	[ -n "${PHP_FPM_RLIMIT_FILES+1}" ] && echo "rlimit_files=\"${PHP_FPM_RLIMIT_FILES}\""
 	[ -n "${PHP_FPM_RLIMIT_CORE+1}" ] && echo "rlimit_core=\"${PHP_FPM_RLIMIT_CORE}\""
+	echo "systemd_interval=0"
+	echo "include=/etc/php/7.2/fpm/pool.d/*.conf"
 ) > /etc/php/7.2/fpm/php-fpm.conf
