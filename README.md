@@ -25,5 +25,18 @@ See [MODULES.md](https://github.com/alemax-xyz/php/blob/master/MODULES.md) for m
 | `PGID` | primary group id of the _UID_ user (`50`) | Desired _GID_ of the process owner _*_ |
 | `CRON` | _not set_ | Will start _cron_ inside the container if set to `1` |
 | `CHOWN` | `/var/lib/php/sessions /var/www` | Space-separated list of directories to _chown_ with `PUID`/`PGID` on start |
+| `PHP_*` | _not set_ | Allows setting any `php.ini` setting(s). Applies to both FPM and CLI. `PHP_CLI_*` and `PHP_FPM_*` take precedence if set _**_ |
+| `PHP_CLI_*` | _not set_ | Allows setting any `php.ini` CLI setting(s). Will be set in `/etc/php/{7.x,5.6}/cli/conf.d/99-custom.ini` file _**_ |
+| `PHP_FPM_*` | _not set_ | Allows setting any `php.ini` FPM or `php-fpm.conf` setting(s). Will be set in `/etc/php/{7.x,5.6}/fpm/conf.d/99-custom.ini` or `/etc/php/{7.x,5.6}/fpm/php-fpm.conf` files _**_ |
+| `PHP_FPM_POOL_*` | _not set_ | Allows setting any FPM pool setting(s). Will be set in `/etc/php/{7.x,5.6}/fpm/pool.d/www.conf` file |
+| `PHP_MODULES_ALL` | `1` | Wether all modules should be enabled by default. Applies to both FPM and CLI. Enabled modules are symlinks in `/etc/php/{7.x,5.6}/{cli,fpm}/conf.d/` directory. `PHP_CLI_MODULES_ALL` and `PHP_FPM_MODULES_ALL` take precedence if set |
+| `PHP_CLI_MODULES_ALL` | _not set_ | Wether all CLI modules should be enabled by default |
+| `PHP_FPM_MODULES_ALL` | _not set_ | Wether all FPM modules should be enabled by default |
+| `PHP_MODULE_*` | `1` | Wether to enable or disable specific module. Applies to both FPM and CLI. `PHP_CLI_MODULE_*` and `PHP_FPM_MODULE_*` take precedence if set _**_ |
+| `PHP_CLI_MODULE_*` | `1` | Wether to enable or disable specific CLI module _**_ |
+| `PHP_FPM_MODULE_*` | `1` | Wether to enable or disable specific FPM module _**_ |
 
 _*_ `PUID`/`PGID` could be used to preserve data volume ownership on host.
+
+_**_ The name of the `PHP_*` variable is an uppercased version of the corresponding setting with all non-alphanumeric characters replaced by `_` (underscore).
+For example, to set `session.save_path` INI setting for FPM use `PHP_FPM_SESSION_SAVE_PATH` environment variable.

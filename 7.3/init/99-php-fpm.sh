@@ -1,3 +1,6 @@
 #!/bin/sh
 
-exec php-fpm -F
+trap 'kill -TERM $PID; wait $PID' INT
+php-fpm -F &
+PID=$!
+wait $PID
