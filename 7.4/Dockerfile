@@ -43,7 +43,7 @@ RUN apt-get download \
         pinentry-tty \
         imagemagick-6-common \
         libapparmor1 \
-        libargon2-0 \
+        libargon2-1 \
         libasn1-8-heimdal \
         libaspell15 \
         libassuan0 \
@@ -185,76 +185,100 @@ RUN apt-get download \
         libnorm1 \
         libonig4 \
         mlock \
-        php-amqp \
-        php-apcu \
-        php-apcu-bc \
-        php-ast \
+        php7.4-amqp \
+        php7.4-apcu \
+        php7.4-ast \
         php7.4-bcmath \
         php7.4-bz2 \
         php7.4-cli \
         php7.4-common \
         php7.4-curl \
         php7.4-dba \
-        php-ds \
         php7.4-enchant \
         php7.4-fpm \
         php7.4-gd \
-        php-gearman \
-        php-geoip \
-        php-gmagick \
         php7.4-gmp \
-        php-gnupg \
-        php-http \
-        php-igbinary \
-        php-imagick \
+        php7.4-http \
+        php7.4-igbinary \
+        php7.4-imagick \
         php7.4-imap \
         php7.4-interbase \
         php7.4-intl \
         php7.4-json \
         php7.4-ldap \
+        php7.4-mailparse \
+        php7.4-mbstring \
+        php7.4-memcached \
+        php7.4-mongodb \
+        php7.4-msgpack \
+        php7.4-mysql \
+        php7.4-oauth \
+        php7.4-odbc \
+        php7.4-opcache \
+        php7.4-pgsql \
+        php7.4-propro \
+        php7.4-pspell \
+        php7.4-psr \
+        php7.4-raphf \
+        php7.4-readline \
+        php7.4-redis \
+        php7.4-rrd \
+        php7.4-smbclient \
+        php7.4-snmp \
+        php7.4-soap \
+        php7.4-sqlite3 \
+        php7.4-ssh2 \
+        php7.4-sybase \
+        php7.4-tidy \
+        php7.4-uuid \
+        php7.4-xdebug \
+        php7.4-xhprof \
+        php7.4-xml \
+        php7.4-xmlrpc \
+        php7.4-xsl \
+        php7.4-yac \
+        php7.4-yaml \
+        php7.4-zip \
+        php7.4-zmq \
+        php-amqp \
+        php-apcu \
+        php-apcu-bc \
+        php-ast \
+        php-ds \
+        php-gearman \
+        php-geoip \
+        php-gmagick \
+        php-gnupg \
+        php-http \
+        php-igbinary \
+        php-imagick \
         php-lua \
         liblua5.2-0 \
         php-sodium \
         php-libvirt-php \
         php-mailparse \
-        php7.4-mbstring \
         php-memcache \
         php-memcached \
         php-mongodb \
         php-msgpack \
-        php7.4-mysql \
         php-oauth \
-        php7.4-odbc \
-        php7.4-opcache \
-        php7.4-pgsql \
         php-phalcon \
         php-propro \
-        php7.4-pspell \
         php-radius \
         php-raphf \
-        php7.4-readline \
         php-redis \
         php-rrd \
         php-sass \
         libsass0 \
-        php7.4-soap \
         php-solr \
-        php7.4-sqlite \
-        php7.4-sqlite3 \
         php-ssh2 \
         php-stomp \
-        php7.4-sybase \
         php-tideways \
-        php7.4-tidy \
         php-uploadprogress \
         php-uuid \
         php-xdebug \
-        php7.4-xml \
-        php7.4-xmlrpc \
-        php7.4-xsl \
         php-yac \
         php-yaml \
-        php7.4-zip \
         php-zmq \
         php-pcov \
         php-pinba \

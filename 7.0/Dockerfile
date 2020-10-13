@@ -183,78 +183,103 @@ RUN apt-get download \
         libzmq5 \
         libnorm1 \
         mlock \
-        php-amqp \
-        php-apcu \
-        php-apcu-bc \
-        php-ast \
+        php7.0-amqp \
+        php7.0-apcu \
+        php7.0-ast \
         php7.0-bcmath \
         php7.0-bz2 \
         php7.0-cli \
         php7.0-common \
         php7.0-curl \
         php7.0-dba \
-        php-ds \
         php7.0-enchant \
         php7.0-fpm \
         php7.0-gd \
-        php-gearman \
-        php-geoip \
-        php-gmagick \
         php7.0-gmp \
-        php-gnupg \
-        php-http \
-        php-igbinary \
-        php-imagick \
+        php7.0-http \
+        php7.0-igbinary \
+        php7.0-imagick \
         php7.0-imap \
         php7.0-interbase \
         php7.0-intl \
         php7.0-json \
         php7.0-ldap \
+        php7.0-mailparse \
+        php7.0-mbstring \
+        php7.0-mcrypt \
+        php7.0-memcached \
+        php7.0-mongodb \
+        php7.0-msgpack \
+        php7.0-mysql \
+        php7.0-oauth \
+        php7.0-odbc \
+        php7.0-opcache \
+        php7.0-pgsql \
+        php7.0-propro \
+        php7.0-pspell \
+        php7.0-psr \
+        php7.0-raphf \
+        php7.0-readline \
+        php7.0-recode \
+        php7.0-redis \
+        php7.0-rrd \
+        php7.0-smbclient \
+        php7.0-snmp \
+        php7.0-soap \
+        php7.0-sqlite3 \
+        php7.0-ssh2 \
+        php7.0-sybase \
+        php7.0-tidy \
+        php7.0-uuid \
+        php7.0-xdebug \
+        php7.0-xhprof \
+        php7.0-xml \
+        php7.0-xmlrpc \
+        php7.0-xsl \
+        php7.0-yac \
+        php7.0-yaml \
+        php7.0-zip \
+        php7.0-zmq \
+
+        php-amqp \
+        php-apcu \
+        php-apcu-bc \
+        php-ast \
+        php-ds \
+        php-gearman \
+        php-geoip \
+        php-gmagick \
+        php-gnupg \
+        php-http \
+        php-igbinary \
+        php-imagick \
         php-lua \
         liblua5.2-0 \
         php-sodium \
         php-libvirt-php \
         php-mailparse \
-        php7.0-mbstring \
-        php7.0-mcrypt \
         php-memcache \
         php-memcached \
         php-mongodb \
         php-msgpack \
-        php7.0-mysql \
         php-oauth \
-        php7.0-odbc \
-        php7.0-opcache \
-        php7.0-pgsql \
         php-phalcon \
         php-propro \
-        php7.0-pspell \
         php-radius \
         php-raphf \
-        php7.0-readline \
-        php7.0-recode \
         php-redis \
         php-rrd \
         php-sass \
         libsass0 \
-        php7.0-soap \
         php-solr \
-        php7.0-sqlite \
-        php7.0-sqlite3 \
         php-ssh2 \
         php-stomp \
-        php7.0-sybase \
         php-tideways \
-        php7.0-tidy \
         php-uploadprogress \
         php-uuid \
         php-xdebug \
-        php7.0-xml \
-        php7.0-xmlrpc \
-        php7.0-xsl \
         php-yac \
         php-yaml \
-        php7.0-zip \
         php-zmq \
         php-pinba \
         php-psr \
@@ -269,7 +294,6 @@ RUN apt-get download \
         libcap2 \
         libldb1 \
         libjansson4 \
-        php7.0-snmp \
         libsnmp30 \
         blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs

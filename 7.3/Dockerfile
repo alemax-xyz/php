@@ -43,7 +43,7 @@ RUN apt-get download \
         pinentry-tty \
         imagemagick-6-common \
         libapparmor1 \
-        libargon2-0 \
+        libargon2-1 \
         libasn1-8-heimdal \
         libaspell15 \
         libassuan0 \
@@ -184,77 +184,101 @@ RUN apt-get download \
         libzmq5 \
         libnorm1 \
         mlock \
-        php-amqp \
-        php-apcu \
-        php-apcu-bc \
-        php-ast \
+        php7.3-amqp \
+        php7.3-apcu \
+        php7.3-ast \
         php7.3-bcmath \
         php7.3-bz2 \
         php7.3-cli \
         php7.3-common \
         php7.3-curl \
         php7.3-dba \
-        php-ds \
         php7.3-enchant \
         php7.3-fpm \
         php7.3-gd \
-        php-gearman \
-        php-geoip \
-        php-gmagick \
         php7.3-gmp \
-        php-gnupg \
-        php-http \
-        php-igbinary \
-        php-imagick \
+        php7.3-http \
+        php7.3-igbinary \
+        php7.3-imagick \
         php7.3-imap \
         php7.3-interbase \
         php7.3-intl \
         php7.3-json \
         php7.3-ldap \
+        php7.3-mailparse \
+        php7.3-mbstring \
+        php7.3-memcached \
+        php7.3-mongodb \
+        php7.3-msgpack \
+        php7.3-mysql \
+        php7.3-oauth \
+        php7.3-odbc \
+        php7.3-opcache \
+        php7.3-pgsql \
+        php7.3-propro \
+        php7.3-pspell \
+        php7.3-psr \
+        php7.3-raphf \
+        php7.3-readline \
+        php7.3-recode \
+        php7.3-redis \
+        php7.3-rrd \
+        php7.3-smbclient \
+        php7.3-snmp \
+        php7.3-soap \
+        php7.3-sqlite3 \
+        php7.3-ssh2 \
+        php7.3-sybase \
+        php7.3-tidy \
+        php7.3-uuid \
+        php7.3-xdebug \
+        php7.3-xhprof \
+        php7.3-xml \
+        php7.3-xmlrpc \
+        php7.3-xsl \
+        php7.3-yac \
+        php7.3-yaml \
+        php7.3-zip \
+        php7.3-zmq \
+        php-amqp \
+        php-apcu \
+        php-apcu-bc \
+        php-ast \
+        php-ds \
+        php-gearman \
+        php-geoip \
+        php-gmagick \
+        php-gnupg \
+        php-http \
+        php-igbinary \
+        php-imagick \
         php-lua \
         liblua5.2-0 \
         php-sodium \
         php-libvirt-php \
         php-mailparse \
-        php7.3-mbstring \
         php-memcache \
         php-memcached \
         php-mongodb \
         php-msgpack \
-        php7.3-mysql \
         php-oauth \
-        php7.3-odbc \
-        php7.3-opcache \
-        php7.3-pgsql \
         php-phalcon \
         php-propro \
-        php7.3-pspell \
         php-radius \
         php-raphf \
-        php7.3-readline \
-        php7.3-recode \
         php-redis \
         php-rrd \
         php-sass \
         libsass0 \
-        php7.3-soap \
         php-solr \
-        php7.3-sqlite \
-        php7.3-sqlite3 \
         php-ssh2 \
         php-stomp \
-        php7.3-sybase \
         php-tideways \
-        php7.3-tidy \
         php-uploadprogress \
         php-uuid \
         php-xdebug \
-        php7.3-xml \
-        php7.3-xmlrpc \
-        php7.3-xsl \
         php-yac \
         php-yaml \
-        php7.3-zip \
         php-zmq \
         php-pcov \
         php-pinba \
@@ -270,7 +294,6 @@ RUN apt-get download \
         libcap2 \
         libldb1 \
         libjansson4 \
-        php7.3-snmp \
         libsnmp30 \
         blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs

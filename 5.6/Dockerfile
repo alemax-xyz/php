@@ -183,8 +183,8 @@ RUN apt-get download \
         libzmq5 \
         libnorm1 \
         mlock \
-        php-amqp \
-        php-apcu \
+        php5.6-amqp \
+        php5.6-apcu \
         php5.6-bcmath \
         php5.6-bz2 \
         php5.6-cli \
@@ -194,68 +194,89 @@ RUN apt-get download \
         php5.6-enchant \
         php5.6-fpm \
         php5.6-gd \
-        php-gearman \
-        php-geoip \
-        php-gettext \
-        php-gmagick \
         php5.6-gmp \
-        php-gnupg \
-#        php-http \
-        php-igbinary \
-        php-imagick \
+#        php5.6-http \
+        php5.6-igbinary \
+        php5.6-imagick \
         php5.6-imap \
         php5.6-interbase \
         php5.6-intl \
         php5.6-json \
         php5.6-ldap \
+        php5.6-mailparse \
+        php5.6-mbstring \
+        php5.6-mcrypt \
+        php5.6-memcached \
+        php5.6-msgpack \
+        php5.6-mysql \
+        php5.6-oauth \
+        php5.6-odbc \
+        php5.6-opcache \
+        php5.6-pgsql \
+        php5.6-propro \
+        php5.6-pspell \
+        php5.6-raphf \
+        php5.6-readline \
+        php5.6-recode \
+        php5.6-redis \
+        php5.6-rrd \
+        php5.6-smbclient \
+        php5.6-snmp \
+        php5.6-soap \
+        php5.6-sqlite3 \
+        php5.6-ssh2 \
+        php5.6-sybase \
+        php5.6-tidy \
+        php5.6-xdebug \
+        php5.6-xhprof \
+        php5.6-xml \
+        php5.6-xmlrpc \
+        php5.6-xsl \
+        php5.6-yac \
+        php5.6-yaml \
+        php5.6-zip \
+        php5.6-zmq \
+        php-amqp \
+        php-apcu \
+        php-gearman \
+        php-geoip \
+        php-gettext \
+        php-gmagick \
+        php-gnupg \
+#        php-http \
+        php-igbinary \
+        php-imagick \
         php-lua \
         liblua5.2-0 \
         php-sodium \
         php-libvirt-php \
         php-mailparse \
-        php5.6-mbstring \
-        php5.6-mcrypt \
         php-memcache \
         php-memcached \
         php-mongo \
         php-mongodb \
         php-msgpack \
-        php5.6-mysql \
         php-oauth \
-        php5.6-odbc \
-        php5.6-opcache \
         php-pgsql \
         php-phalcon \
         php-propro \
-        php5.6-pspell \
         php-radius \
         php-raphf \
-        php5.6-readline \
-        php5.6-recode \
         php-redis \
         php-rrd \
         php-sass \
         libsass0 \
-        php5.6-soap \
         php-solr \
-        php5.6-sqlite \
-        php5.6-sqlite3 \
         php-ssh2 \
         php-stomp \
-        php5.6-sybase \
         php-tideways \
-        php5.6-tidy \
         php-uploadprogress \
         php-uuid \
         php-xcache \
         php-xdebug \
         php-xhprof \
-        php5.6-xml \
-        php5.6-xmlrpc \
-        php5.6-xsl \
         php-yac \
         php-yaml \
-        php5.6-zip \
         php-zmq \
         php-smbclient \
         libsmbclient \
@@ -268,7 +289,6 @@ RUN apt-get download \
         libldb1 \
         libjansson4 \
         blackfire-php \
-        php5.6-snmp \
         libsnmp30
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 

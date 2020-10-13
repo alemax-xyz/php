@@ -43,7 +43,7 @@
 	fi
 	[ -n "${PHP_FPM_POOL_CHROOT+1}" ] && echo "chroot=\"${PHP_FPM_POOL_CHROOT}\""
 	[ -n "${PHP_FPM_POOL_CHDIR+1}" ] && echo "chdir=\"${PHP_FPM_POOL_CHDIR}\""
-	[ -n "${PHP_FPM_POOL_CATCH_WORKERS_OUTPUT+1}" ] && echo "catch_workers_output=\"${PHP_FPM_POOL_CATCH_WORKERS_OUTPUT}\""
-	[ -n "${PHP_FPM_POOL_CLEAR_ENV+1}" ] && echo "clear_env=\"${PHP_FPM_POOL_CLEAR_ENV}\""
+	[ -n "${PHP_FPM_POOL_CATCH_WORKERS_OUTPUT+1}" ] && echo "catch_workers_output=${PHP_FPM_POOL_CATCH_WORKERS_OUTPUT}"
+	[ -n "${PHP_FPM_POOL_CLEAR_ENV+1}" ] && echo "clear_env=${PHP_FPM_POOL_CLEAR_ENV}"
 	[ -n "${PHP_FPM_POOL_SECURITY_LIMIT_EXTENSIONS+1}" ] && echo "security.limit_extensions=\"${PHP_FPM_POOL_SECURITY_LIMIT_EXTENSIONS}\""
 ) > /etc/php/5.6/fpm/pool.d/www.conf
