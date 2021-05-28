@@ -11,11 +11,6 @@
 	elif [ -n "${PHP_ALLOW_URL_INCLUDE+1}" ]; then
 		echo "allow_url_include=${PHP_ALLOW_URL_INCLUDE}"
 	fi
-	if [ -n "${PHP_FPM_ALWAYS_POPULATE_RAW_POST_DATA+1}" ]; then
-		echo "always_populate_raw_post_data=${PHP_FPM_ALWAYS_POPULATE_RAW_POST_DATA}"
-	elif [ -n "${PHP_ALWAYS_POPULATE_RAW_POST_DATA+1}" ]; then
-		echo "always_populate_raw_post_data=${PHP_ALWAYS_POPULATE_RAW_POST_DATA}"
-	fi
 	if [ -n "${PHP_FPM_AMQP_AUTO_ACK+1}" ]; then
 		echo "amqp.auto_ack=${PHP_FPM_AMQP_AUTO_ACK}"
 	elif [ -n "${PHP_AMQP_AUTO_ACK+1}" ]; then
@@ -166,31 +161,6 @@
 	elif [ -n "${PHP_APC_PRELOAD_PATH+1}" ]; then
 		echo "apc.preload_path=${PHP_APC_PRELOAD_PATH}"
 	fi
-	if [ -n "${PHP_FPM_APC_RFC1867+1}" ]; then
-		echo "apc.rfc1867=${PHP_FPM_APC_RFC1867}"
-	elif [ -n "${PHP_APC_RFC1867+1}" ]; then
-		echo "apc.rfc1867=${PHP_APC_RFC1867}"
-	fi
-	if [ -n "${PHP_FPM_APC_RFC1867_FREQ+1}" ]; then
-		echo "apc.rfc1867_freq=${PHP_FPM_APC_RFC1867_FREQ}"
-	elif [ -n "${PHP_APC_RFC1867_FREQ+1}" ]; then
-		echo "apc.rfc1867_freq=${PHP_APC_RFC1867_FREQ}"
-	fi
-	if [ -n "${PHP_FPM_APC_RFC1867_NAME+1}" ]; then
-		echo "apc.rfc1867_name=${PHP_FPM_APC_RFC1867_NAME}"
-	elif [ -n "${PHP_APC_RFC1867_NAME+1}" ]; then
-		echo "apc.rfc1867_name=${PHP_APC_RFC1867_NAME}"
-	fi
-	if [ -n "${PHP_FPM_APC_RFC1867_PREFIX+1}" ]; then
-		echo "apc.rfc1867_prefix=${PHP_FPM_APC_RFC1867_PREFIX}"
-	elif [ -n "${PHP_APC_RFC1867_PREFIX+1}" ]; then
-		echo "apc.rfc1867_prefix=${PHP_APC_RFC1867_PREFIX}"
-	fi
-	if [ -n "${PHP_FPM_APC_RFC1867_TTL+1}" ]; then
-		echo "apc.rfc1867_ttl=${PHP_FPM_APC_RFC1867_TTL}"
-	elif [ -n "${PHP_APC_RFC1867_TTL+1}" ]; then
-		echo "apc.rfc1867_ttl=${PHP_APC_RFC1867_TTL}"
-	fi
 	if [ -n "${PHP_FPM_APC_SERIALIZER+1}" ]; then
 		echo "apc.serializer=${PHP_FPM_APC_SERIALIZER}"
 	elif [ -n "${PHP_APC_SERIALIZER+1}" ]; then
@@ -226,11 +196,6 @@
 	elif [ -n "${PHP_APC_USE_REQUEST_TIME+1}" ]; then
 		echo "apc.use_request_time=${PHP_APC_USE_REQUEST_TIME}"
 	fi
-	if [ -n "${PHP_FPM_APC_WRITABLE+1}" ]; then
-		echo "apc.writable=${PHP_FPM_APC_WRITABLE}"
-	elif [ -n "${PHP_APC_WRITABLE+1}" ]; then
-		echo "apc.writable=${PHP_APC_WRITABLE}"
-	fi
 	if [ -n "${PHP_FPM_ARG_SEPARATOR_INPUT+1}" ]; then
 		echo "arg_separator.input=${PHP_FPM_ARG_SEPARATOR_INPUT}"
 	elif [ -n "${PHP_ARG_SEPARATOR_INPUT+1}" ]; then
@@ -240,11 +205,6 @@
 		echo "arg_separator.output=${PHP_FPM_ARG_SEPARATOR_OUTPUT}"
 	elif [ -n "${PHP_ARG_SEPARATOR_OUTPUT+1}" ]; then
 		echo "arg_separator.output=${PHP_ARG_SEPARATOR_OUTPUT}"
-	fi
-	if [ -n "${PHP_FPM_ASP_TAGS+1}" ]; then
-		echo "asp_tags=${PHP_FPM_ASP_TAGS}"
-	elif [ -n "${PHP_ASP_TAGS+1}" ]; then
-		echo "asp_tags=${PHP_ASP_TAGS}"
 	fi
 	if [ -n "${PHP_FPM_ASSERT_ACTIVE+1}" ]; then
 		echo "assert.active=${PHP_FPM_ASSERT_ACTIVE}"
@@ -261,10 +221,10 @@
 	elif [ -n "${PHP_ASSERT_CALLBACK+1}" ]; then
 		echo "assert.callback=${PHP_ASSERT_CALLBACK}"
 	fi
-	if [ -n "${PHP_FPM_ASSERT_QUIET_EVAL+1}" ]; then
-		echo "assert.quiet_eval=${PHP_FPM_ASSERT_QUIET_EVAL}"
-	elif [ -n "${PHP_ASSERT_QUIET_EVAL+1}" ]; then
-		echo "assert.quiet_eval=${PHP_ASSERT_QUIET_EVAL}"
+	if [ -n "${PHP_FPM_ASSERT_EXCEPTION+1}" ]; then
+		echo "assert.exception=${PHP_FPM_ASSERT_EXCEPTION}"
+	elif [ -n "${PHP_ASSERT_EXCEPTION+1}" ]; then
+		echo "assert.exception=${PHP_ASSERT_EXCEPTION}"
 	fi
 	if [ -n "${PHP_FPM_ASSERT_WARNING+1}" ]; then
 		echo "assert.warning=${PHP_FPM_ASSERT_WARNING}"
@@ -300,6 +260,31 @@
 		echo "blackfire.agent_socket=${PHP_FPM_BLACKFIRE_AGENT_SOCKET}"
 	elif [ -n "${PHP_BLACKFIRE_AGENT_SOCKET+1}" ]; then
 		echo "blackfire.agent_socket=${PHP_BLACKFIRE_AGENT_SOCKET}"
+	fi
+	if [ -n "${PHP_FPM_BLACKFIRE_APM_BROWSER_KEY+1}" ]; then
+		echo "blackfire.apm_browser_key=${PHP_FPM_BLACKFIRE_APM_BROWSER_KEY}"
+	elif [ -n "${PHP_BLACKFIRE_APM_BROWSER_KEY+1}" ]; then
+		echo "blackfire.apm_browser_key=${PHP_BLACKFIRE_APM_BROWSER_KEY}"
+	fi
+	if [ -n "${PHP_FPM_BLACKFIRE_APM_CONNECT_AT_STARTUP+1}" ]; then
+		echo "blackfire.apm_connect_at_startup=${PHP_FPM_BLACKFIRE_APM_CONNECT_AT_STARTUP}"
+	elif [ -n "${PHP_BLACKFIRE_APM_CONNECT_AT_STARTUP+1}" ]; then
+		echo "blackfire.apm_connect_at_startup=${PHP_BLACKFIRE_APM_CONNECT_AT_STARTUP}"
+	fi
+	if [ -n "${PHP_FPM_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE+1}" ]; then
+		echo "blackfire.apm_enable_automatic_browser_probe=${PHP_FPM_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE}"
+	elif [ -n "${PHP_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE+1}" ]; then
+		echo "blackfire.apm_enable_automatic_browser_probe=${PHP_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE}"
+	fi
+	if [ -n "${PHP_FPM_BLACKFIRE_APM_ENABLED+1}" ]; then
+		echo "blackfire.apm_enabled=${PHP_FPM_BLACKFIRE_APM_ENABLED}"
+	elif [ -n "${PHP_BLACKFIRE_APM_ENABLED+1}" ]; then
+		echo "blackfire.apm_enabled=${PHP_BLACKFIRE_APM_ENABLED}"
+	fi
+	if [ -n "${PHP_FPM_BLACKFIRE_APM_LOCK_DURATION+1}" ]; then
+		echo "blackfire.apm_lock_duration=${PHP_FPM_BLACKFIRE_APM_LOCK_DURATION}"
+	elif [ -n "${PHP_BLACKFIRE_APM_LOCK_DURATION+1}" ]; then
+		echo "blackfire.apm_lock_duration=${PHP_BLACKFIRE_APM_LOCK_DURATION}"
 	fi
 	if [ -n "${PHP_FPM_BLACKFIRE_ENV_ID+1}" ]; then
 		echo "blackfire.env_id=${PHP_FPM_BLACKFIRE_ENV_ID}"
@@ -496,11 +481,6 @@
 	elif [ -n "${PHP_EXIF_ENCODE_UNICODE+1}" ]; then
 		echo "exif.encode_unicode=${PHP_EXIF_ENCODE_UNICODE}"
 	fi
-	if [ -n "${PHP_FPM_EXIT_ON_TIMEOUT+1}" ]; then
-		echo "exit_on_timeout=${PHP_FPM_EXIT_ON_TIMEOUT}"
-	elif [ -n "${PHP_EXIT_ON_TIMEOUT+1}" ]; then
-		echo "exit_on_timeout=${PHP_EXIT_ON_TIMEOUT}"
-	fi
 	if [ -n "${PHP_FPM_EXPOSE_PHP+1}" ]; then
 		echo "expose_php=${PHP_FPM_EXPOSE_PHP}"
 	elif [ -n "${PHP_EXPOSE_PHP+1}" ]; then
@@ -510,6 +490,16 @@
 		echo "extension_dir=${PHP_FPM_EXTENSION_DIR}"
 	elif [ -n "${PHP_EXTENSION_DIR+1}" ]; then
 		echo "extension_dir=${PHP_EXTENSION_DIR}"
+	fi
+	if [ -n "${PHP_FPM_FFI_ENABLE+1}" ]; then
+		echo "ffi.enable=${PHP_FPM_FFI_ENABLE}"
+	elif [ -n "${PHP_FFI_ENABLE+1}" ]; then
+		echo "ffi.enable=${PHP_FFI_ENABLE}"
+	fi
+	if [ -n "${PHP_FPM_FFI_PRELOAD+1}" ]; then
+		echo "ffi.preload=${PHP_FPM_FFI_PRELOAD}"
+	elif [ -n "${PHP_FFI_PRELOAD+1}" ]; then
+		echo "ffi.preload=${PHP_FFI_PRELOAD}"
 	fi
 	if [ -n "${PHP_FPM_FILE_UPLOADS+1}" ]; then
 		echo "file_uploads=${PHP_FPM_FILE_UPLOADS}"
@@ -536,11 +526,6 @@
 	elif [ -n "${PHP_GD_JPEG_IGNORE_WARNING+1}" ]; then
 		echo "gd.jpeg_ignore_warning=${PHP_GD_JPEG_IGNORE_WARNING}"
 	fi
-	if [ -n "${PHP_FPM_GEOIP_CUSTOM_DIRECTORY+1}" ]; then
-		echo "geoip.custom_directory=${PHP_FPM_GEOIP_CUSTOM_DIRECTORY}"
-	elif [ -n "${PHP_GEOIP_CUSTOM_DIRECTORY+1}" ]; then
-		echo "geoip.custom_directory=${PHP_GEOIP_CUSTOM_DIRECTORY}"
-	fi
 	if [ -n "${PHP_FPM_GRPC_ENABLE_FORK_SUPPORT+1}" ]; then
 		echo "grpc.enable_fork_support=${PHP_FPM_GRPC_ENABLE_FORK_SUPPORT}"
 	elif [ -n "${PHP_GRPC_ENABLE_FORK_SUPPORT+1}" ]; then
@@ -565,6 +550,11 @@
 		echo "grpc.poll_strategy=${PHP_FPM_GRPC_POLL_STRATEGY}"
 	elif [ -n "${PHP_GRPC_POLL_STRATEGY+1}" ]; then
 		echo "grpc.poll_strategy=${PHP_GRPC_POLL_STRATEGY}"
+	fi
+	if [ -n "${PHP_FPM_HARD_TIMEOUT+1}" ]; then
+		echo "hard_timeout=${PHP_FPM_HARD_TIMEOUT}"
+	elif [ -n "${PHP_HARD_TIMEOUT+1}" ]; then
+		echo "hard_timeout=${PHP_HARD_TIMEOUT}"
 	fi
 	if [ -n "${PHP_FPM_HIGHLIGHT_COMMENT+1}" ]; then
 		echo "highlight.comment=${PHP_FPM_HIGHLIGHT_COMMENT}"
@@ -596,55 +586,10 @@
 	elif [ -n "${PHP_HTML_ERRORS+1}" ]; then
 		echo "html_errors=${PHP_HTML_ERRORS}"
 	fi
-	if [ -n "${PHP_FPM_IBASE_ALLOW_PERSISTENT+1}" ]; then
-		echo "ibase.allow_persistent=${PHP_FPM_IBASE_ALLOW_PERSISTENT}"
-	elif [ -n "${PHP_IBASE_ALLOW_PERSISTENT+1}" ]; then
-		echo "ibase.allow_persistent=${PHP_IBASE_ALLOW_PERSISTENT}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_DATEFORMAT+1}" ]; then
-		echo "ibase.dateformat=${PHP_FPM_IBASE_DATEFORMAT}"
-	elif [ -n "${PHP_IBASE_DATEFORMAT+1}" ]; then
-		echo "ibase.dateformat=${PHP_IBASE_DATEFORMAT}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_DEFAULT_CHARSET+1}" ]; then
-		echo "ibase.default_charset=${PHP_FPM_IBASE_DEFAULT_CHARSET}"
-	elif [ -n "${PHP_IBASE_DEFAULT_CHARSET+1}" ]; then
-		echo "ibase.default_charset=${PHP_IBASE_DEFAULT_CHARSET}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_DEFAULT_DB+1}" ]; then
-		echo "ibase.default_db=${PHP_FPM_IBASE_DEFAULT_DB}"
-	elif [ -n "${PHP_IBASE_DEFAULT_DB+1}" ]; then
-		echo "ibase.default_db=${PHP_IBASE_DEFAULT_DB}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_DEFAULT_PASSWORD+1}" ]; then
-		echo "ibase.default_password=${PHP_FPM_IBASE_DEFAULT_PASSWORD}"
-	elif [ -n "${PHP_IBASE_DEFAULT_PASSWORD+1}" ]; then
-		echo "ibase.default_password=${PHP_IBASE_DEFAULT_PASSWORD}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_DEFAULT_USER+1}" ]; then
-		echo "ibase.default_user=${PHP_FPM_IBASE_DEFAULT_USER}"
-	elif [ -n "${PHP_IBASE_DEFAULT_USER+1}" ]; then
-		echo "ibase.default_user=${PHP_IBASE_DEFAULT_USER}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_MAX_LINKS+1}" ]; then
-		echo "ibase.max_links=${PHP_FPM_IBASE_MAX_LINKS}"
-	elif [ -n "${PHP_IBASE_MAX_LINKS+1}" ]; then
-		echo "ibase.max_links=${PHP_IBASE_MAX_LINKS}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_MAX_PERSISTENT+1}" ]; then
-		echo "ibase.max_persistent=${PHP_FPM_IBASE_MAX_PERSISTENT}"
-	elif [ -n "${PHP_IBASE_MAX_PERSISTENT+1}" ]; then
-		echo "ibase.max_persistent=${PHP_IBASE_MAX_PERSISTENT}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_TIMEFORMAT+1}" ]; then
-		echo "ibase.timeformat=${PHP_FPM_IBASE_TIMEFORMAT}"
-	elif [ -n "${PHP_IBASE_TIMEFORMAT+1}" ]; then
-		echo "ibase.timeformat=${PHP_IBASE_TIMEFORMAT}"
-	fi
-	if [ -n "${PHP_FPM_IBASE_TIMESTAMPFORMAT+1}" ]; then
-		echo "ibase.timestampformat=${PHP_FPM_IBASE_TIMESTAMPFORMAT}"
-	elif [ -n "${PHP_IBASE_TIMESTAMPFORMAT+1}" ]; then
-		echo "ibase.timestampformat=${PHP_IBASE_TIMESTAMPFORMAT}"
+	if [ -n "${PHP_FPM_HTTP_ETAG_MODE+1}" ]; then
+		echo "http.etag.mode=${PHP_FPM_HTTP_ETAG_MODE}"
+	elif [ -n "${PHP_HTTP_ETAG_MODE+1}" ]; then
+		echo "http.etag.mode=${PHP_HTTP_ETAG_MODE}"
 	fi
 	if [ -n "${PHP_FPM_ICONV_INPUT_ENCODING+1}" ]; then
 		echo "iconv.input_encoding=${PHP_FPM_ICONV_INPUT_ENCODING}"
@@ -690,6 +635,16 @@
 		echo "imagick.progress_monitor=${PHP_FPM_IMAGICK_PROGRESS_MONITOR}"
 	elif [ -n "${PHP_IMAGICK_PROGRESS_MONITOR+1}" ]; then
 		echo "imagick.progress_monitor=${PHP_IMAGICK_PROGRESS_MONITOR}"
+	fi
+	if [ -n "${PHP_FPM_IMAGICK_SET_SINGLE_THREAD+1}" ]; then
+		echo "imagick.set_single_thread=${PHP_FPM_IMAGICK_SET_SINGLE_THREAD}"
+	elif [ -n "${PHP_IMAGICK_SET_SINGLE_THREAD+1}" ]; then
+		echo "imagick.set_single_thread=${PHP_IMAGICK_SET_SINGLE_THREAD}"
+	fi
+	if [ -n "${PHP_FPM_IMAGICK_SHUTDOWN_SLEEP_COUNT+1}" ]; then
+		echo "imagick.shutdown_sleep_count=${PHP_FPM_IMAGICK_SHUTDOWN_SLEEP_COUNT}"
+	elif [ -n "${PHP_IMAGICK_SHUTDOWN_SLEEP_COUNT+1}" ]; then
+		echo "imagick.shutdown_sleep_count=${PHP_IMAGICK_SHUTDOWN_SLEEP_COUNT}"
 	fi
 	if [ -n "${PHP_FPM_IMAGICK_SKIP_VERSION_CHECK+1}" ]; then
 		echo "imagick.skip_version_check=${PHP_FPM_IMAGICK_SKIP_VERSION_CHECK}"
@@ -740,26 +695,6 @@
 		echo "ldap.max_links=${PHP_FPM_LDAP_MAX_LINKS}"
 	elif [ -n "${PHP_LDAP_MAX_LINKS+1}" ]; then
 		echo "ldap.max_links=${PHP_LDAP_MAX_LINKS}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_FPM_LIBVIRT_IMAGE_PATH}"
-	elif [ -n "${PHP_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_LIBVIRT_IMAGE_PATH}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_FPM_LIBVIRT_ISO_PATH}"
-	elif [ -n "${PHP_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_LIBVIRT_ISO_PATH}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_FPM_LIBVIRT_LONGLONG_TO_STRING}"
-	elif [ -n "${PHP_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_LIBVIRT_LONGLONG_TO_STRING}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_FPM_LIBVIRT_MAX_CONNECTIONS}"
-	elif [ -n "${PHP_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_LIBVIRT_MAX_CONNECTIONS}"
 	fi
 	if [ -n "${PHP_FPM_LOG_ERRORS+1}" ]; then
 		echo "log_errors=${PHP_FPM_LOG_ERRORS}"
@@ -826,11 +761,6 @@
 	elif [ -n "${PHP_MBSTRING_ENCODING_TRANSLATION+1}" ]; then
 		echo "mbstring.encoding_translation=${PHP_MBSTRING_ENCODING_TRANSLATION}"
 	fi
-	if [ -n "${PHP_FPM_MBSTRING_FUNC_OVERLOAD+1}" ]; then
-		echo "mbstring.func_overload=${PHP_FPM_MBSTRING_FUNC_OVERLOAD}"
-	elif [ -n "${PHP_MBSTRING_FUNC_OVERLOAD+1}" ]; then
-		echo "mbstring.func_overload=${PHP_MBSTRING_FUNC_OVERLOAD}"
-	fi
 	if [ -n "${PHP_FPM_MBSTRING_HTTP_INPUT+1}" ]; then
 		echo "mbstring.http_input=${PHP_FPM_MBSTRING_HTTP_INPUT}"
 	elif [ -n "${PHP_MBSTRING_HTTP_INPUT+1}" ]; then
@@ -855,6 +785,16 @@
 		echo "mbstring.language=${PHP_FPM_MBSTRING_LANGUAGE}"
 	elif [ -n "${PHP_MBSTRING_LANGUAGE+1}" ]; then
 		echo "mbstring.language=${PHP_MBSTRING_LANGUAGE}"
+	fi
+	if [ -n "${PHP_FPM_MBSTRING_REGEX_RETRY_LIMIT+1}" ]; then
+		echo "mbstring.regex_retry_limit=${PHP_FPM_MBSTRING_REGEX_RETRY_LIMIT}"
+	elif [ -n "${PHP_MBSTRING_REGEX_RETRY_LIMIT+1}" ]; then
+		echo "mbstring.regex_retry_limit=${PHP_MBSTRING_REGEX_RETRY_LIMIT}"
+	fi
+	if [ -n "${PHP_FPM_MBSTRING_REGEX_STACK_LIMIT+1}" ]; then
+		echo "mbstring.regex_stack_limit=${PHP_FPM_MBSTRING_REGEX_STACK_LIMIT}"
+	elif [ -n "${PHP_MBSTRING_REGEX_STACK_LIMIT+1}" ]; then
+		echo "mbstring.regex_stack_limit=${PHP_MBSTRING_REGEX_STACK_LIMIT}"
 	fi
 	if [ -n "${PHP_FPM_MBSTRING_STRICT_DETECTION+1}" ]; then
 		echo "mbstring.strict_detection=${PHP_FPM_MBSTRING_STRICT_DETECTION}"
@@ -916,6 +856,26 @@
 	elif [ -n "${PHP_MEMCACHE_MAX_FAILOVER_ATTEMPTS+1}" ]; then
 		echo "memcache.max_failover_attempts=${PHP_MEMCACHE_MAX_FAILOVER_ATTEMPTS}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.prefix_host_key=${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.prefix_host_key=${PHP_MEMCACHE_PREFIX_HOST_KEY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.prefix_host_key_remove_subdomain=${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.prefix_host_key_remove_subdomain=${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.prefix_host_key_remove_www=${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.prefix_host_key_remove_www=${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.prefix_static_key=${PHP_FPM_MEMCACHE_PREFIX_STATIC_KEY}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.prefix_static_key=${PHP_MEMCACHE_PREFIX_STATIC_KEY}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHE_PROTOCOL+1}" ]; then
 		echo "memcache.protocol=${PHP_FPM_MEMCACHE_PROTOCOL}"
 	elif [ -n "${PHP_MEMCACHE_PROTOCOL+1}" ]; then
@@ -926,10 +886,35 @@
 	elif [ -n "${PHP_MEMCACHE_REDUNDANCY+1}" ]; then
 		echo "memcache.redundancy=${PHP_MEMCACHE_REDUNDANCY}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.session_prefix_host_key=${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.session_prefix_host_key=${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_subdomain=${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_subdomain=${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_www=${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_www=${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.session_prefix_static_key=${PHP_FPM_MEMCACHE_SESSION_PREFIX_STATIC_KEY}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.session_prefix_static_key=${PHP_MEMCACHE_SESSION_PREFIX_STATIC_KEY}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHE_SESSION_REDUNDANCY+1}" ]; then
 		echo "memcache.session_redundancy=${PHP_FPM_MEMCACHE_SESSION_REDUNDANCY}"
 	elif [ -n "${PHP_MEMCACHE_SESSION_REDUNDANCY+1}" ]; then
 		echo "memcache.session_redundancy=${PHP_MEMCACHE_SESSION_REDUNDANCY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_SAVE_PATH+1}" ]; then
+		echo "memcache.session_save_path=${PHP_FPM_MEMCACHE_SESSION_SAVE_PATH}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_SAVE_PATH+1}" ]; then
+		echo "memcache.session_save_path=${PHP_MEMCACHE_SESSION_SAVE_PATH}"
 	fi
 	if [ -n "${PHP_FPM_MEMCACHED_COMPRESSION_FACTOR+1}" ]; then
 		echo "memcached.compression_factor=${PHP_FPM_MEMCACHED_COMPRESSION_FACTOR}"
@@ -946,15 +931,30 @@
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_TYPE+1}" ]; then
 		echo "memcached.compression_type=${PHP_MEMCACHED_COMPRESSION_TYPE}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHED_DEFAULT_BINARY_PROTOCOL+1}" ]; then
+		echo "memcached.default_binary_protocol=${PHP_FPM_MEMCACHED_DEFAULT_BINARY_PROTOCOL}"
+	elif [ -n "${PHP_MEMCACHED_DEFAULT_BINARY_PROTOCOL+1}" ]; then
+		echo "memcached.default_binary_protocol=${PHP_MEMCACHED_DEFAULT_BINARY_PROTOCOL}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHED_DEFAULT_CONNECT_TIMEOUT+1}" ]; then
+		echo "memcached.default_connect_timeout=${PHP_FPM_MEMCACHED_DEFAULT_CONNECT_TIMEOUT}"
+	elif [ -n "${PHP_MEMCACHED_DEFAULT_CONNECT_TIMEOUT+1}" ]; then
+		echo "memcached.default_connect_timeout=${PHP_MEMCACHED_DEFAULT_CONNECT_TIMEOUT}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHED_DEFAULT_CONSISTENT_HASH+1}" ]; then
+		echo "memcached.default_consistent_hash=${PHP_FPM_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
+	elif [ -n "${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH+1}" ]; then
+		echo "memcached.default_consistent_hash=${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SERIALIZER+1}" ]; then
 		echo "memcached.serializer=${PHP_FPM_MEMCACHED_SERIALIZER}"
 	elif [ -n "${PHP_MEMCACHED_SERIALIZER+1}" ]; then
 		echo "memcached.serializer=${PHP_MEMCACHED_SERIALIZER}"
 	fi
-	if [ -n "${PHP_FPM_MEMCACHED_SESS_BINARY+1}" ]; then
-		echo "memcached.sess_binary=${PHP_FPM_MEMCACHED_SESS_BINARY}"
-	elif [ -n "${PHP_MEMCACHED_SESS_BINARY+1}" ]; then
-		echo "memcached.sess_binary=${PHP_MEMCACHED_SESS_BINARY}"
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_BINARY_PROTOCOL+1}" ]; then
+		echo "memcached.sess_binary_protocol=${PHP_FPM_MEMCACHED_SESS_BINARY_PROTOCOL}"
+	elif [ -n "${PHP_MEMCACHED_SESS_BINARY_PROTOCOL+1}" ]; then
+		echo "memcached.sess_binary_protocol=${PHP_MEMCACHED_SESS_BINARY_PROTOCOL}"
 	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SESS_CONNECT_TIMEOUT+1}" ]; then
 		echo "memcached.sess_connect_timeout=${PHP_FPM_MEMCACHED_SESS_CONNECT_TIMEOUT}"
@@ -966,6 +966,11 @@
 	elif [ -n "${PHP_MEMCACHED_SESS_CONSISTENT_HASH+1}" ]; then
 		echo "memcached.sess_consistent_hash=${PHP_MEMCACHED_SESS_CONSISTENT_HASH}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_CONSISTENT_HASH_TYPE+1}" ]; then
+		echo "memcached.sess_consistent_hash_type=${PHP_FPM_MEMCACHED_SESS_CONSISTENT_HASH_TYPE}"
+	elif [ -n "${PHP_MEMCACHED_SESS_CONSISTENT_HASH_TYPE+1}" ]; then
+		echo "memcached.sess_consistent_hash_type=${PHP_MEMCACHED_SESS_CONSISTENT_HASH_TYPE}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SESS_LOCK_EXPIRE+1}" ]; then
 		echo "memcached.sess_lock_expire=${PHP_FPM_MEMCACHED_SESS_LOCK_EXPIRE}"
 	elif [ -n "${PHP_MEMCACHED_SESS_LOCK_EXPIRE+1}" ]; then
@@ -976,10 +981,25 @@
 	elif [ -n "${PHP_MEMCACHED_SESS_LOCK_MAX_WAIT+1}" ]; then
 		echo "memcached.sess_lock_max_wait=${PHP_MEMCACHED_SESS_LOCK_MAX_WAIT}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_LOCK_RETRIES+1}" ]; then
+		echo "memcached.sess_lock_retries=${PHP_FPM_MEMCACHED_SESS_LOCK_RETRIES}"
+	elif [ -n "${PHP_MEMCACHED_SESS_LOCK_RETRIES+1}" ]; then
+		echo "memcached.sess_lock_retries=${PHP_MEMCACHED_SESS_LOCK_RETRIES}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SESS_LOCK_WAIT+1}" ]; then
 		echo "memcached.sess_lock_wait=${PHP_FPM_MEMCACHED_SESS_LOCK_WAIT}"
 	elif [ -n "${PHP_MEMCACHED_SESS_LOCK_WAIT+1}" ]; then
 		echo "memcached.sess_lock_wait=${PHP_MEMCACHED_SESS_LOCK_WAIT}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_LOCK_WAIT_MAX+1}" ]; then
+		echo "memcached.sess_lock_wait_max=${PHP_FPM_MEMCACHED_SESS_LOCK_WAIT_MAX}"
+	elif [ -n "${PHP_MEMCACHED_SESS_LOCK_WAIT_MAX+1}" ]; then
+		echo "memcached.sess_lock_wait_max=${PHP_MEMCACHED_SESS_LOCK_WAIT_MAX}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_LOCK_WAIT_MIN+1}" ]; then
+		echo "memcached.sess_lock_wait_min=${PHP_FPM_MEMCACHED_SESS_LOCK_WAIT_MIN}"
+	elif [ -n "${PHP_MEMCACHED_SESS_LOCK_WAIT_MIN+1}" ]; then
+		echo "memcached.sess_lock_wait_min=${PHP_MEMCACHED_SESS_LOCK_WAIT_MIN}"
 	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SESS_LOCKING+1}" ]; then
 		echo "memcached.sess_locking=${PHP_FPM_MEMCACHED_SESS_LOCKING}"
@@ -991,6 +1011,11 @@
 	elif [ -n "${PHP_MEMCACHED_SESS_NUMBER_OF_REPLICAS+1}" ]; then
 		echo "memcached.sess_number_of_replicas=${PHP_MEMCACHED_SESS_NUMBER_OF_REPLICAS}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_PERSISTENT+1}" ]; then
+		echo "memcached.sess_persistent=${PHP_FPM_MEMCACHED_SESS_PERSISTENT}"
+	elif [ -n "${PHP_MEMCACHED_SESS_PERSISTENT+1}" ]; then
+		echo "memcached.sess_persistent=${PHP_MEMCACHED_SESS_PERSISTENT}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SESS_PREFIX+1}" ]; then
 		echo "memcached.sess_prefix=${PHP_FPM_MEMCACHED_SESS_PREFIX}"
 	elif [ -n "${PHP_MEMCACHED_SESS_PREFIX+1}" ]; then
@@ -1001,10 +1026,10 @@
 	elif [ -n "${PHP_MEMCACHED_SESS_RANDOMIZE_REPLICA_READ+1}" ]; then
 		echo "memcached.sess_randomize_replica_read=${PHP_MEMCACHED_SESS_RANDOMIZE_REPLICA_READ}"
 	fi
-	if [ -n "${PHP_FPM_MEMCACHED_SESS_REMOVE_FAILED+1}" ]; then
-		echo "memcached.sess_remove_failed=${PHP_FPM_MEMCACHED_SESS_REMOVE_FAILED}"
-	elif [ -n "${PHP_MEMCACHED_SESS_REMOVE_FAILED+1}" ]; then
-		echo "memcached.sess_remove_failed=${PHP_MEMCACHED_SESS_REMOVE_FAILED}"
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_REMOVE_FAILED_SERVERS+1}" ]; then
+		echo "memcached.sess_remove_failed_servers=${PHP_FPM_MEMCACHED_SESS_REMOVE_FAILED_SERVERS}"
+	elif [ -n "${PHP_MEMCACHED_SESS_REMOVE_FAILED_SERVERS+1}" ]; then
+		echo "memcached.sess_remove_failed_servers=${PHP_MEMCACHED_SESS_REMOVE_FAILED_SERVERS}"
 	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SESS_SASL_PASSWORD+1}" ]; then
 		echo "memcached.sess_sasl_password=${PHP_FPM_MEMCACHED_SESS_SASL_PASSWORD}"
@@ -1016,65 +1041,20 @@
 	elif [ -n "${PHP_MEMCACHED_SESS_SASL_USERNAME+1}" ]; then
 		echo "memcached.sess_sasl_username=${PHP_MEMCACHED_SESS_SASL_USERNAME}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHED_SESS_SERVER_FAILURE_LIMIT+1}" ]; then
+		echo "memcached.sess_server_failure_limit=${PHP_FPM_MEMCACHED_SESS_SERVER_FAILURE_LIMIT}"
+	elif [ -n "${PHP_MEMCACHED_SESS_SERVER_FAILURE_LIMIT+1}" ]; then
+		echo "memcached.sess_server_failure_limit=${PHP_MEMCACHED_SESS_SERVER_FAILURE_LIMIT}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_STORE_RETRY_COUNT+1}" ]; then
 		echo "memcached.store_retry_count=${PHP_FPM_MEMCACHED_STORE_RETRY_COUNT}"
 	elif [ -n "${PHP_MEMCACHED_STORE_RETRY_COUNT+1}" ]; then
 		echo "memcached.store_retry_count=${PHP_MEMCACHED_STORE_RETRY_COUNT}"
 	fi
-	if [ -n "${PHP_FPM_MEMCACHED_USE_SASL+1}" ]; then
-		echo "memcached.use_sasl=${PHP_FPM_MEMCACHED_USE_SASL}"
-	elif [ -n "${PHP_MEMCACHED_USE_SASL+1}" ]; then
-		echo "memcached.use_sasl=${PHP_MEMCACHED_USE_SASL}"
-	fi
 	if [ -n "${PHP_FPM_MEMORY_LIMIT+1}" ]; then
 		echo "memory_limit=${PHP_FPM_MEMORY_LIMIT}"
 	elif [ -n "${PHP_MEMORY_LIMIT+1}" ]; then
 		echo "memory_limit=${PHP_MEMORY_LIMIT}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_ALLOW_EMPTY_KEYS+1}" ]; then
-		echo "mongo.allow_empty_keys=${PHP_FPM_MONGO_ALLOW_EMPTY_KEYS}"
-	elif [ -n "${PHP_MONGO_ALLOW_EMPTY_KEYS+1}" ]; then
-		echo "mongo.allow_empty_keys=${PHP_MONGO_ALLOW_EMPTY_KEYS}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_CHUNK_SIZE+1}" ]; then
-		echo "mongo.chunk_size=${PHP_FPM_MONGO_CHUNK_SIZE}"
-	elif [ -n "${PHP_MONGO_CHUNK_SIZE+1}" ]; then
-		echo "mongo.chunk_size=${PHP_MONGO_CHUNK_SIZE}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_CMD+1}" ]; then
-		echo "mongo.cmd=${PHP_FPM_MONGO_CMD}"
-	elif [ -n "${PHP_MONGO_CMD+1}" ]; then
-		echo "mongo.cmd=${PHP_MONGO_CMD}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_DEFAULT_HOST+1}" ]; then
-		echo "mongo.default_host=${PHP_FPM_MONGO_DEFAULT_HOST}"
-	elif [ -n "${PHP_MONGO_DEFAULT_HOST+1}" ]; then
-		echo "mongo.default_host=${PHP_MONGO_DEFAULT_HOST}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_DEFAULT_PORT+1}" ]; then
-		echo "mongo.default_port=${PHP_FPM_MONGO_DEFAULT_PORT}"
-	elif [ -n "${PHP_MONGO_DEFAULT_PORT+1}" ]; then
-		echo "mongo.default_port=${PHP_MONGO_DEFAULT_PORT}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_IS_MASTER_INTERVAL+1}" ]; then
-		echo "mongo.is_master_interval=${PHP_FPM_MONGO_IS_MASTER_INTERVAL}"
-	elif [ -n "${PHP_MONGO_IS_MASTER_INTERVAL+1}" ]; then
-		echo "mongo.is_master_interval=${PHP_MONGO_IS_MASTER_INTERVAL}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_LONG_AS_OBJECT+1}" ]; then
-		echo "mongo.long_as_object=${PHP_FPM_MONGO_LONG_AS_OBJECT}"
-	elif [ -n "${PHP_MONGO_LONG_AS_OBJECT+1}" ]; then
-		echo "mongo.long_as_object=${PHP_MONGO_LONG_AS_OBJECT}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_NATIVE_LONG+1}" ]; then
-		echo "mongo.native_long=${PHP_FPM_MONGO_NATIVE_LONG}"
-	elif [ -n "${PHP_MONGO_NATIVE_LONG+1}" ]; then
-		echo "mongo.native_long=${PHP_MONGO_NATIVE_LONG}"
-	fi
-	if [ -n "${PHP_FPM_MONGO_PING_INTERVAL+1}" ]; then
-		echo "mongo.ping_interval=${PHP_FPM_MONGO_PING_INTERVAL}"
-	elif [ -n "${PHP_MONGO_PING_INTERVAL+1}" ]; then
-		echo "mongo.ping_interval=${PHP_MONGO_PING_INTERVAL}"
 	fi
 	if [ -n "${PHP_FPM_MONGODB_DEBUG+1}" ]; then
 		echo "mongodb.debug=${PHP_FPM_MONGODB_DEBUG}"
@@ -1100,141 +1080,6 @@
 		echo "msgpack.use_str8_serialization=${PHP_FPM_MSGPACK_USE_STR8_SERIALIZATION}"
 	elif [ -n "${PHP_MSGPACK_USE_STR8_SERIALIZATION+1}" ]; then
 		echo "msgpack.use_str8_serialization=${PHP_MSGPACK_USE_STR8_SERIALIZATION}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_ALLOW_PERSISTENT+1}" ]; then
-		echo "mssql.allow_persistent=${PHP_FPM_MSSQL_ALLOW_PERSISTENT}"
-	elif [ -n "${PHP_MSSQL_ALLOW_PERSISTENT+1}" ]; then
-		echo "mssql.allow_persistent=${PHP_MSSQL_ALLOW_PERSISTENT}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_BATCHSIZE+1}" ]; then
-		echo "mssql.batchsize=${PHP_FPM_MSSQL_BATCHSIZE}"
-	elif [ -n "${PHP_MSSQL_BATCHSIZE+1}" ]; then
-		echo "mssql.batchsize=${PHP_MSSQL_BATCHSIZE}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_CHARSET+1}" ]; then
-		echo "mssql.charset=${PHP_FPM_MSSQL_CHARSET}"
-	elif [ -n "${PHP_MSSQL_CHARSET+1}" ]; then
-		echo "mssql.charset=${PHP_MSSQL_CHARSET}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_COMPATABILITY_MODE+1}" ]; then
-		echo "mssql.compatability_mode=${PHP_FPM_MSSQL_COMPATABILITY_MODE}"
-	elif [ -n "${PHP_MSSQL_COMPATABILITY_MODE+1}" ]; then
-		echo "mssql.compatability_mode=${PHP_MSSQL_COMPATABILITY_MODE}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_COMPATIBILITY_MODE+1}" ]; then
-		echo "mssql.compatibility_mode=${PHP_FPM_MSSQL_COMPATIBILITY_MODE}"
-	elif [ -n "${PHP_MSSQL_COMPATIBILITY_MODE+1}" ]; then
-		echo "mssql.compatibility_mode=${PHP_MSSQL_COMPATIBILITY_MODE}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_CONNECT_TIMEOUT+1}" ]; then
-		echo "mssql.connect_timeout=${PHP_FPM_MSSQL_CONNECT_TIMEOUT}"
-	elif [ -n "${PHP_MSSQL_CONNECT_TIMEOUT+1}" ]; then
-		echo "mssql.connect_timeout=${PHP_MSSQL_CONNECT_TIMEOUT}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_DATETIMECONVERT+1}" ]; then
-		echo "mssql.datetimeconvert=${PHP_FPM_MSSQL_DATETIMECONVERT}"
-	elif [ -n "${PHP_MSSQL_DATETIMECONVERT+1}" ]; then
-		echo "mssql.datetimeconvert=${PHP_MSSQL_DATETIMECONVERT}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_MAX_LINKS+1}" ]; then
-		echo "mssql.max_links=${PHP_FPM_MSSQL_MAX_LINKS}"
-	elif [ -n "${PHP_MSSQL_MAX_LINKS+1}" ]; then
-		echo "mssql.max_links=${PHP_MSSQL_MAX_LINKS}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_MAX_PERSISTENT+1}" ]; then
-		echo "mssql.max_persistent=${PHP_FPM_MSSQL_MAX_PERSISTENT}"
-	elif [ -n "${PHP_MSSQL_MAX_PERSISTENT+1}" ]; then
-		echo "mssql.max_persistent=${PHP_MSSQL_MAX_PERSISTENT}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_MAX_PROCS+1}" ]; then
-		echo "mssql.max_procs=${PHP_FPM_MSSQL_MAX_PROCS}"
-	elif [ -n "${PHP_MSSQL_MAX_PROCS+1}" ]; then
-		echo "mssql.max_procs=${PHP_MSSQL_MAX_PROCS}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_MIN_ERROR_SEVERITY+1}" ]; then
-		echo "mssql.min_error_severity=${PHP_FPM_MSSQL_MIN_ERROR_SEVERITY}"
-	elif [ -n "${PHP_MSSQL_MIN_ERROR_SEVERITY+1}" ]; then
-		echo "mssql.min_error_severity=${PHP_MSSQL_MIN_ERROR_SEVERITY}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_MIN_MESSAGE_SEVERITY+1}" ]; then
-		echo "mssql.min_message_severity=${PHP_FPM_MSSQL_MIN_MESSAGE_SEVERITY}"
-	elif [ -n "${PHP_MSSQL_MIN_MESSAGE_SEVERITY+1}" ]; then
-		echo "mssql.min_message_severity=${PHP_MSSQL_MIN_MESSAGE_SEVERITY}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_SECURE_CONNECTION+1}" ]; then
-		echo "mssql.secure_connection=${PHP_FPM_MSSQL_SECURE_CONNECTION}"
-	elif [ -n "${PHP_MSSQL_SECURE_CONNECTION+1}" ]; then
-		echo "mssql.secure_connection=${PHP_MSSQL_SECURE_CONNECTION}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_TEXTLIMIT+1}" ]; then
-		echo "mssql.textlimit=${PHP_FPM_MSSQL_TEXTLIMIT}"
-	elif [ -n "${PHP_MSSQL_TEXTLIMIT+1}" ]; then
-		echo "mssql.textlimit=${PHP_MSSQL_TEXTLIMIT}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_TEXTSIZE+1}" ]; then
-		echo "mssql.textsize=${PHP_FPM_MSSQL_TEXTSIZE}"
-	elif [ -n "${PHP_MSSQL_TEXTSIZE+1}" ]; then
-		echo "mssql.textsize=${PHP_MSSQL_TEXTSIZE}"
-	fi
-	if [ -n "${PHP_FPM_MSSQL_TIMEOUT+1}" ]; then
-		echo "mssql.timeout=${PHP_FPM_MSSQL_TIMEOUT}"
-	elif [ -n "${PHP_MSSQL_TIMEOUT+1}" ]; then
-		echo "mssql.timeout=${PHP_MSSQL_TIMEOUT}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_ALLOW_LOCAL_INFILE+1}" ]; then
-		echo "mysql.allow_local_infile=${PHP_FPM_MYSQL_ALLOW_LOCAL_INFILE}"
-	elif [ -n "${PHP_MYSQL_ALLOW_LOCAL_INFILE+1}" ]; then
-		echo "mysql.allow_local_infile=${PHP_MYSQL_ALLOW_LOCAL_INFILE}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_ALLOW_PERSISTENT+1}" ]; then
-		echo "mysql.allow_persistent=${PHP_FPM_MYSQL_ALLOW_PERSISTENT}"
-	elif [ -n "${PHP_MYSQL_ALLOW_PERSISTENT+1}" ]; then
-		echo "mysql.allow_persistent=${PHP_MYSQL_ALLOW_PERSISTENT}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_CONNECT_TIMEOUT+1}" ]; then
-		echo "mysql.connect_timeout=${PHP_FPM_MYSQL_CONNECT_TIMEOUT}"
-	elif [ -n "${PHP_MYSQL_CONNECT_TIMEOUT+1}" ]; then
-		echo "mysql.connect_timeout=${PHP_MYSQL_CONNECT_TIMEOUT}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_DEFAULT_HOST+1}" ]; then
-		echo "mysql.default_host=${PHP_FPM_MYSQL_DEFAULT_HOST}"
-	elif [ -n "${PHP_MYSQL_DEFAULT_HOST+1}" ]; then
-		echo "mysql.default_host=${PHP_MYSQL_DEFAULT_HOST}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_DEFAULT_PASSWORD+1}" ]; then
-		echo "mysql.default_password=${PHP_FPM_MYSQL_DEFAULT_PASSWORD}"
-	elif [ -n "${PHP_MYSQL_DEFAULT_PASSWORD+1}" ]; then
-		echo "mysql.default_password=${PHP_MYSQL_DEFAULT_PASSWORD}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_DEFAULT_PORT+1}" ]; then
-		echo "mysql.default_port=${PHP_FPM_MYSQL_DEFAULT_PORT}"
-	elif [ -n "${PHP_MYSQL_DEFAULT_PORT+1}" ]; then
-		echo "mysql.default_port=${PHP_MYSQL_DEFAULT_PORT}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_DEFAULT_SOCKET+1}" ]; then
-		echo "mysql.default_socket=${PHP_FPM_MYSQL_DEFAULT_SOCKET}"
-	elif [ -n "${PHP_MYSQL_DEFAULT_SOCKET+1}" ]; then
-		echo "mysql.default_socket=${PHP_MYSQL_DEFAULT_SOCKET}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_DEFAULT_USER+1}" ]; then
-		echo "mysql.default_user=${PHP_FPM_MYSQL_DEFAULT_USER}"
-	elif [ -n "${PHP_MYSQL_DEFAULT_USER+1}" ]; then
-		echo "mysql.default_user=${PHP_MYSQL_DEFAULT_USER}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_MAX_LINKS+1}" ]; then
-		echo "mysql.max_links=${PHP_FPM_MYSQL_MAX_LINKS}"
-	elif [ -n "${PHP_MYSQL_MAX_LINKS+1}" ]; then
-		echo "mysql.max_links=${PHP_MYSQL_MAX_LINKS}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_MAX_PERSISTENT+1}" ]; then
-		echo "mysql.max_persistent=${PHP_FPM_MYSQL_MAX_PERSISTENT}"
-	elif [ -n "${PHP_MYSQL_MAX_PERSISTENT+1}" ]; then
-		echo "mysql.max_persistent=${PHP_MYSQL_MAX_PERSISTENT}"
-	fi
-	if [ -n "${PHP_FPM_MYSQL_TRACE_MODE+1}" ]; then
-		echo "mysql.trace_mode=${PHP_FPM_MYSQL_TRACE_MODE}"
-	elif [ -n "${PHP_MYSQL_TRACE_MODE+1}" ]; then
-		echo "mysql.trace_mode=${PHP_MYSQL_TRACE_MODE}"
 	fi
 	if [ -n "${PHP_FPM_MYSQLI_ALLOW_LOCAL_INFILE+1}" ]; then
 		echo "mysqli.allow_local_infile=${PHP_FPM_MYSQLI_ALLOW_LOCAL_INFILE}"
@@ -1431,10 +1276,20 @@
 	elif [ -n "${PHP_OPCACHE_ERROR_LOG+1}" ]; then
 		echo "opcache.error_log=${PHP_OPCACHE_ERROR_LOG}"
 	fi
-	if [ -n "${PHP_FPM_OPCACHE_FAST_SHUTDOWN+1}" ]; then
-		echo "opcache.fast_shutdown=${PHP_FPM_OPCACHE_FAST_SHUTDOWN}"
-	elif [ -n "${PHP_OPCACHE_FAST_SHUTDOWN+1}" ]; then
-		echo "opcache.fast_shutdown=${PHP_OPCACHE_FAST_SHUTDOWN}"
+	if [ -n "${PHP_FPM_OPCACHE_FILE_CACHE+1}" ]; then
+		echo "opcache.file_cache=${PHP_FPM_OPCACHE_FILE_CACHE}"
+	elif [ -n "${PHP_OPCACHE_FILE_CACHE+1}" ]; then
+		echo "opcache.file_cache=${PHP_OPCACHE_FILE_CACHE}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_FILE_CACHE_CONSISTENCY_CHECKS+1}" ]; then
+		echo "opcache.file_cache_consistency_checks=${PHP_FPM_OPCACHE_FILE_CACHE_CONSISTENCY_CHECKS}"
+	elif [ -n "${PHP_OPCACHE_FILE_CACHE_CONSISTENCY_CHECKS+1}" ]; then
+		echo "opcache.file_cache_consistency_checks=${PHP_OPCACHE_FILE_CACHE_CONSISTENCY_CHECKS}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_FILE_CACHE_ONLY+1}" ]; then
+		echo "opcache.file_cache_only=${PHP_FPM_OPCACHE_FILE_CACHE_ONLY}"
+	elif [ -n "${PHP_OPCACHE_FILE_CACHE_ONLY+1}" ]; then
+		echo "opcache.file_cache_only=${PHP_OPCACHE_FILE_CACHE_ONLY}"
 	fi
 	if [ -n "${PHP_FPM_OPCACHE_FILE_UPDATE_PROTECTION+1}" ]; then
 		echo "opcache.file_update_protection=${PHP_FPM_OPCACHE_FILE_UPDATE_PROTECTION}"
@@ -1446,20 +1301,105 @@
 	elif [ -n "${PHP_OPCACHE_FORCE_RESTART_TIMEOUT+1}" ]; then
 		echo "opcache.force_restart_timeout=${PHP_OPCACHE_FORCE_RESTART_TIMEOUT}"
 	fi
-	if [ -n "${PHP_FPM_OPCACHE_INHERITED_HACK+1}" ]; then
-		echo "opcache.inherited_hack=${PHP_FPM_OPCACHE_INHERITED_HACK}"
-	elif [ -n "${PHP_OPCACHE_INHERITED_HACK+1}" ]; then
-		echo "opcache.inherited_hack=${PHP_OPCACHE_INHERITED_HACK}"
+	if [ -n "${PHP_FPM_OPCACHE_HUGE_CODE_PAGES+1}" ]; then
+		echo "opcache.huge_code_pages=${PHP_FPM_OPCACHE_HUGE_CODE_PAGES}"
+	elif [ -n "${PHP_OPCACHE_HUGE_CODE_PAGES+1}" ]; then
+		echo "opcache.huge_code_pages=${PHP_OPCACHE_HUGE_CODE_PAGES}"
 	fi
 	if [ -n "${PHP_FPM_OPCACHE_INTERNED_STRINGS_BUFFER+1}" ]; then
 		echo "opcache.interned_strings_buffer=${PHP_FPM_OPCACHE_INTERNED_STRINGS_BUFFER}"
 	elif [ -n "${PHP_OPCACHE_INTERNED_STRINGS_BUFFER+1}" ]; then
 		echo "opcache.interned_strings_buffer=${PHP_OPCACHE_INTERNED_STRINGS_BUFFER}"
 	fi
-	if [ -n "${PHP_FPM_OPCACHE_LOAD_COMMENTS+1}" ]; then
-		echo "opcache.load_comments=${PHP_FPM_OPCACHE_LOAD_COMMENTS}"
-	elif [ -n "${PHP_OPCACHE_LOAD_COMMENTS+1}" ]; then
-		echo "opcache.load_comments=${PHP_OPCACHE_LOAD_COMMENTS}"
+	if [ -n "${PHP_FPM_OPCACHE_JIT+1}" ]; then
+		echo "opcache.jit=${PHP_FPM_OPCACHE_JIT}"
+	elif [ -n "${PHP_OPCACHE_JIT+1}" ]; then
+		echo "opcache.jit=${PHP_OPCACHE_JIT}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_BISECT_LIMIT+1}" ]; then
+		echo "opcache.jit_bisect_limit=${PHP_FPM_OPCACHE_JIT_BISECT_LIMIT}"
+	elif [ -n "${PHP_OPCACHE_JIT_BISECT_LIMIT+1}" ]; then
+		echo "opcache.jit_bisect_limit=${PHP_OPCACHE_JIT_BISECT_LIMIT}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_BLACKLIST_ROOT_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_root_trace=${PHP_FPM_OPCACHE_JIT_BLACKLIST_ROOT_TRACE}"
+	elif [ -n "${PHP_OPCACHE_JIT_BLACKLIST_ROOT_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_root_trace=${PHP_OPCACHE_JIT_BLACKLIST_ROOT_TRACE}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_BLACKLIST_SIDE_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_side_trace=${PHP_FPM_OPCACHE_JIT_BLACKLIST_SIDE_TRACE}"
+	elif [ -n "${PHP_OPCACHE_JIT_BLACKLIST_SIDE_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_side_trace=${PHP_OPCACHE_JIT_BLACKLIST_SIDE_TRACE}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_BUFFER_SIZE+1}" ]; then
+		echo "opcache.jit_buffer_size=${PHP_FPM_OPCACHE_JIT_BUFFER_SIZE}"
+	elif [ -n "${PHP_OPCACHE_JIT_BUFFER_SIZE+1}" ]; then
+		echo "opcache.jit_buffer_size=${PHP_OPCACHE_JIT_BUFFER_SIZE}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_DEBUG+1}" ]; then
+		echo "opcache.jit_debug=${PHP_FPM_OPCACHE_JIT_DEBUG}"
+	elif [ -n "${PHP_OPCACHE_JIT_DEBUG+1}" ]; then
+		echo "opcache.jit_debug=${PHP_OPCACHE_JIT_DEBUG}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_HOT_FUNC+1}" ]; then
+		echo "opcache.jit_hot_func=${PHP_FPM_OPCACHE_JIT_HOT_FUNC}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_FUNC+1}" ]; then
+		echo "opcache.jit_hot_func=${PHP_OPCACHE_JIT_HOT_FUNC}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_HOT_LOOP+1}" ]; then
+		echo "opcache.jit_hot_loop=${PHP_FPM_OPCACHE_JIT_HOT_LOOP}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_LOOP+1}" ]; then
+		echo "opcache.jit_hot_loop=${PHP_OPCACHE_JIT_HOT_LOOP}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_HOT_RETURN+1}" ]; then
+		echo "opcache.jit_hot_return=${PHP_FPM_OPCACHE_JIT_HOT_RETURN}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_RETURN+1}" ]; then
+		echo "opcache.jit_hot_return=${PHP_OPCACHE_JIT_HOT_RETURN}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_HOT_SIDE_EXIT+1}" ]; then
+		echo "opcache.jit_hot_side_exit=${PHP_FPM_OPCACHE_JIT_HOT_SIDE_EXIT}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_SIDE_EXIT+1}" ]; then
+		echo "opcache.jit_hot_side_exit=${PHP_OPCACHE_JIT_HOT_SIDE_EXIT}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_MAX_EXIT_COUNTERS+1}" ]; then
+		echo "opcache.jit_max_exit_counters=${PHP_FPM_OPCACHE_JIT_MAX_EXIT_COUNTERS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_EXIT_COUNTERS+1}" ]; then
+		echo "opcache.jit_max_exit_counters=${PHP_OPCACHE_JIT_MAX_EXIT_COUNTERS}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_MAX_LOOP_UNROLLS+1}" ]; then
+		echo "opcache.jit_max_loop_unrolls=${PHP_FPM_OPCACHE_JIT_MAX_LOOP_UNROLLS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_LOOP_UNROLLS+1}" ]; then
+		echo "opcache.jit_max_loop_unrolls=${PHP_OPCACHE_JIT_MAX_LOOP_UNROLLS}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS+1}" ]; then
+		echo "opcache.jit_max_polymorphic_calls=${PHP_FPM_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS+1}" ]; then
+		echo "opcache.jit_max_polymorphic_calls=${PHP_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_MAX_RECURSIVE_CALLS+1}" ]; then
+		echo "opcache.jit_max_recursive_calls=${PHP_FPM_OPCACHE_JIT_MAX_RECURSIVE_CALLS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_RECURSIVE_CALLS+1}" ]; then
+		echo "opcache.jit_max_recursive_calls=${PHP_OPCACHE_JIT_MAX_RECURSIVE_CALLS}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_MAX_RECURSIVE_RETURNS+1}" ]; then
+		echo "opcache.jit_max_recursive_returns=${PHP_FPM_OPCACHE_JIT_MAX_RECURSIVE_RETURNS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_RECURSIVE_RETURNS+1}" ]; then
+		echo "opcache.jit_max_recursive_returns=${PHP_OPCACHE_JIT_MAX_RECURSIVE_RETURNS}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_MAX_ROOT_TRACES+1}" ]; then
+		echo "opcache.jit_max_root_traces=${PHP_FPM_OPCACHE_JIT_MAX_ROOT_TRACES}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_ROOT_TRACES+1}" ]; then
+		echo "opcache.jit_max_root_traces=${PHP_OPCACHE_JIT_MAX_ROOT_TRACES}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_MAX_SIDE_TRACES+1}" ]; then
+		echo "opcache.jit_max_side_traces=${PHP_FPM_OPCACHE_JIT_MAX_SIDE_TRACES}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_SIDE_TRACES+1}" ]; then
+		echo "opcache.jit_max_side_traces=${PHP_OPCACHE_JIT_MAX_SIDE_TRACES}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_JIT_PROF_THRESHOLD+1}" ]; then
+		echo "opcache.jit_prof_threshold=${PHP_FPM_OPCACHE_JIT_PROF_THRESHOLD}"
+	elif [ -n "${PHP_OPCACHE_JIT_PROF_THRESHOLD+1}" ]; then
+		echo "opcache.jit_prof_threshold=${PHP_OPCACHE_JIT_PROF_THRESHOLD}"
 	fi
 	if [ -n "${PHP_FPM_OPCACHE_LOCKFILE_PATH+1}" ]; then
 		echo "opcache.lockfile_path=${PHP_FPM_OPCACHE_LOCKFILE_PATH}"
@@ -1491,6 +1431,11 @@
 	elif [ -n "${PHP_OPCACHE_MEMORY_CONSUMPTION+1}" ]; then
 		echo "opcache.memory_consumption=${PHP_OPCACHE_MEMORY_CONSUMPTION}"
 	fi
+	if [ -n "${PHP_FPM_OPCACHE_OPT_DEBUG_LEVEL+1}" ]; then
+		echo "opcache.opt_debug_level=${PHP_FPM_OPCACHE_OPT_DEBUG_LEVEL}"
+	elif [ -n "${PHP_OPCACHE_OPT_DEBUG_LEVEL+1}" ]; then
+		echo "opcache.opt_debug_level=${PHP_OPCACHE_OPT_DEBUG_LEVEL}"
+	fi
 	if [ -n "${PHP_FPM_OPCACHE_OPTIMIZATION_LEVEL+1}" ]; then
 		echo "opcache.optimization_level=${PHP_FPM_OPCACHE_OPTIMIZATION_LEVEL}"
 	elif [ -n "${PHP_OPCACHE_OPTIMIZATION_LEVEL+1}" ]; then
@@ -1501,10 +1446,25 @@
 	elif [ -n "${PHP_OPCACHE_PREFERRED_MEMORY_MODEL+1}" ]; then
 		echo "opcache.preferred_memory_model=${PHP_OPCACHE_PREFERRED_MEMORY_MODEL}"
 	fi
+	if [ -n "${PHP_FPM_OPCACHE_PRELOAD+1}" ]; then
+		echo "opcache.preload=${PHP_FPM_OPCACHE_PRELOAD}"
+	elif [ -n "${PHP_OPCACHE_PRELOAD+1}" ]; then
+		echo "opcache.preload=${PHP_OPCACHE_PRELOAD}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_PRELOAD_USER+1}" ]; then
+		echo "opcache.preload_user=${PHP_FPM_OPCACHE_PRELOAD_USER}"
+	elif [ -n "${PHP_OPCACHE_PRELOAD_USER+1}" ]; then
+		echo "opcache.preload_user=${PHP_OPCACHE_PRELOAD_USER}"
+	fi
 	if [ -n "${PHP_FPM_OPCACHE_PROTECT_MEMORY+1}" ]; then
 		echo "opcache.protect_memory=${PHP_FPM_OPCACHE_PROTECT_MEMORY}"
 	elif [ -n "${PHP_OPCACHE_PROTECT_MEMORY+1}" ]; then
 		echo "opcache.protect_memory=${PHP_OPCACHE_PROTECT_MEMORY}"
+	fi
+	if [ -n "${PHP_FPM_OPCACHE_RECORD_WARNINGS+1}" ]; then
+		echo "opcache.record_warnings=${PHP_FPM_OPCACHE_RECORD_WARNINGS}"
+	elif [ -n "${PHP_OPCACHE_RECORD_WARNINGS+1}" ]; then
+		echo "opcache.record_warnings=${PHP_OPCACHE_RECORD_WARNINGS}"
 	fi
 	if [ -n "${PHP_FPM_OPCACHE_RESTRICT_API+1}" ]; then
 		echo "opcache.restrict_api=${PHP_FPM_OPCACHE_RESTRICT_API}"
@@ -1576,10 +1536,40 @@
 	elif [ -n "${PHP_OUTPUT_HANDLER+1}" ]; then
 		echo "output_handler=${PHP_OUTPUT_HANDLER}"
 	fi
+	if [ -n "${PHP_FPM_PCOV_DIRECTORY+1}" ]; then
+		echo "pcov.directory=${PHP_FPM_PCOV_DIRECTORY}"
+	elif [ -n "${PHP_PCOV_DIRECTORY+1}" ]; then
+		echo "pcov.directory=${PHP_PCOV_DIRECTORY}"
+	fi
+	if [ -n "${PHP_FPM_PCOV_ENABLED+1}" ]; then
+		echo "pcov.enabled=${PHP_FPM_PCOV_ENABLED}"
+	elif [ -n "${PHP_PCOV_ENABLED+1}" ]; then
+		echo "pcov.enabled=${PHP_PCOV_ENABLED}"
+	fi
+	if [ -n "${PHP_FPM_PCOV_EXCLUDE+1}" ]; then
+		echo "pcov.exclude=${PHP_FPM_PCOV_EXCLUDE}"
+	elif [ -n "${PHP_PCOV_EXCLUDE+1}" ]; then
+		echo "pcov.exclude=${PHP_PCOV_EXCLUDE}"
+	fi
+	if [ -n "${PHP_FPM_PCOV_INITIAL_FILES+1}" ]; then
+		echo "pcov.initial.files=${PHP_FPM_PCOV_INITIAL_FILES}"
+	elif [ -n "${PHP_PCOV_INITIAL_FILES+1}" ]; then
+		echo "pcov.initial.files=${PHP_PCOV_INITIAL_FILES}"
+	fi
+	if [ -n "${PHP_FPM_PCOV_INITIAL_MEMORY+1}" ]; then
+		echo "pcov.initial.memory=${PHP_FPM_PCOV_INITIAL_MEMORY}"
+	elif [ -n "${PHP_PCOV_INITIAL_MEMORY+1}" ]; then
+		echo "pcov.initial.memory=${PHP_PCOV_INITIAL_MEMORY}"
+	fi
 	if [ -n "${PHP_FPM_PCRE_BACKTRACK_LIMIT+1}" ]; then
 		echo "pcre.backtrack_limit=${PHP_FPM_PCRE_BACKTRACK_LIMIT}"
 	elif [ -n "${PHP_PCRE_BACKTRACK_LIMIT+1}" ]; then
 		echo "pcre.backtrack_limit=${PHP_PCRE_BACKTRACK_LIMIT}"
+	fi
+	if [ -n "${PHP_FPM_PCRE_JIT+1}" ]; then
+		echo "pcre.jit=${PHP_FPM_PCRE_JIT}"
+	elif [ -n "${PHP_PCRE_JIT+1}" ]; then
+		echo "pcre.jit=${PHP_PCRE_JIT}"
 	fi
 	if [ -n "${PHP_FPM_PCRE_RECURSION_LIMIT+1}" ]; then
 		echo "pcre.recursion_limit=${PHP_FPM_PCRE_RECURSION_LIMIT}"
@@ -1620,76 +1610,6 @@
 		echo "pgsql.max_persistent=${PHP_FPM_PGSQL_MAX_PERSISTENT}"
 	elif [ -n "${PHP_PGSQL_MAX_PERSISTENT+1}" ]; then
 		echo "pgsql.max_persistent=${PHP_PGSQL_MAX_PERSISTENT}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
-		echo "phalcon.db.escape_identifiers=${PHP_FPM_PHALCON_DB_ESCAPE_IDENTIFIERS}"
-	elif [ -n "${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
-		echo "phalcon.db.escape_identifiers=${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_DB_FORCE_CASTING+1}" ]; then
-		echo "phalcon.db.force_casting=${PHP_FPM_PHALCON_DB_FORCE_CASTING}"
-	elif [ -n "${PHP_PHALCON_DB_FORCE_CASTING+1}" ]; then
-		echo "phalcon.db.force_casting=${PHP_PHALCON_DB_FORCE_CASTING}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
-		echo "phalcon.orm.cast_on_hydrate=${PHP_FPM_PHALCON_ORM_CAST_ON_HYDRATE}"
-	elif [ -n "${PHP_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
-		echo "phalcon.orm.cast_on_hydrate=${PHP_PHALCON_ORM_CAST_ON_HYDRATE}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
-		echo "phalcon.orm.column_renaming=${PHP_FPM_PHALCON_ORM_COLUMN_RENAMING}"
-	elif [ -n "${PHP_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
-		echo "phalcon.orm.column_renaming=${PHP_PHALCON_ORM_COLUMN_RENAMING}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
-		echo "phalcon.orm.disable_assign_setters=${PHP_FPM_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
-	elif [ -n "${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
-		echo "phalcon.orm.disable_assign_setters=${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
-		echo "phalcon.orm.enable_implicit_joins=${PHP_FPM_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
-	elif [ -n "${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
-		echo "phalcon.orm.enable_implicit_joins=${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
-		echo "phalcon.orm.enable_literals=${PHP_FPM_PHALCON_ORM_ENABLE_LITERALS}"
-	elif [ -n "${PHP_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
-		echo "phalcon.orm.enable_literals=${PHP_PHALCON_ORM_ENABLE_LITERALS}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_EVENTS+1}" ]; then
-		echo "phalcon.orm.events=${PHP_FPM_PHALCON_ORM_EVENTS}"
-	elif [ -n "${PHP_PHALCON_ORM_EVENTS+1}" ]; then
-		echo "phalcon.orm.events=${PHP_PHALCON_ORM_EVENTS}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_save=${PHP_FPM_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
-	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
-		echo "phalcon.orm.ignore_unknown_columns=${PHP_FPM_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
-	elif [ -n "${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
-		echo "phalcon.orm.ignore_unknown_columns=${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
-		echo "phalcon.orm.late_state_binding=${PHP_FPM_PHALCON_ORM_LATE_STATE_BINDING}"
-	elif [ -n "${PHP_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
-		echo "phalcon.orm.late_state_binding=${PHP_PHALCON_ORM_LATE_STATE_BINDING}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
-		echo "phalcon.orm.not_null_validations=${PHP_FPM_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
-	elif [ -n "${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
-		echo "phalcon.orm.not_null_validations=${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
-		echo "phalcon.orm.update_snapshot_on_save=${PHP_FPM_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
-	elif [ -n "${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
-		echo "phalcon.orm.update_snapshot_on_save=${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
-	fi
-	if [ -n "${PHP_FPM_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
-		echo "phalcon.orm.virtual_foreign_keys=${PHP_FPM_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
-	elif [ -n "${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
-		echo "phalcon.orm.virtual_foreign_keys=${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
 	fi
 	if [ -n "${PHP_FPM_PHAR_CACHE_LIST+1}" ]; then
 		echo "phar.cache_list=${PHP_FPM_PHAR_CACHE_LIST}"
@@ -1816,6 +1736,11 @@
 	elif [ -n "${PHP_REDIS_CLUSTERS_AUTH+1}" ]; then
 		echo "redis.clusters.auth=${PHP_REDIS_CLUSTERS_AUTH}"
 	fi
+	if [ -n "${PHP_FPM_REDIS_CLUSTERS_CACHE_SLOTS+1}" ]; then
+		echo "redis.clusters.cache_slots=${PHP_FPM_REDIS_CLUSTERS_CACHE_SLOTS}"
+	elif [ -n "${PHP_REDIS_CLUSTERS_CACHE_SLOTS+1}" ]; then
+		echo "redis.clusters.cache_slots=${PHP_REDIS_CLUSTERS_CACHE_SLOTS}"
+	fi
 	if [ -n "${PHP_FPM_REDIS_CLUSTERS_PERSISTENT+1}" ]; then
 		echo "redis.clusters.persistent=${PHP_FPM_REDIS_CLUSTERS_PERSISTENT}"
 	elif [ -n "${PHP_REDIS_CLUSTERS_PERSISTENT+1}" ]; then
@@ -1840,6 +1765,16 @@
 		echo "redis.pconnect.connection_limit=${PHP_FPM_REDIS_PCONNECT_CONNECTION_LIMIT}"
 	elif [ -n "${PHP_REDIS_PCONNECT_CONNECTION_LIMIT+1}" ]; then
 		echo "redis.pconnect.connection_limit=${PHP_REDIS_PCONNECT_CONNECTION_LIMIT}"
+	fi
+	if [ -n "${PHP_FPM_REDIS_PCONNECT_ECHO_CHECK_LIVENESS+1}" ]; then
+		echo "redis.pconnect.echo_check_liveness=${PHP_FPM_REDIS_PCONNECT_ECHO_CHECK_LIVENESS}"
+	elif [ -n "${PHP_REDIS_PCONNECT_ECHO_CHECK_LIVENESS+1}" ]; then
+		echo "redis.pconnect.echo_check_liveness=${PHP_REDIS_PCONNECT_ECHO_CHECK_LIVENESS}"
+	fi
+	if [ -n "${PHP_FPM_REDIS_PCONNECT_POOL_PATTERN+1}" ]; then
+		echo "redis.pconnect.pool_pattern=${PHP_FPM_REDIS_PCONNECT_POOL_PATTERN}"
+	elif [ -n "${PHP_REDIS_PCONNECT_POOL_PATTERN+1}" ]; then
+		echo "redis.pconnect.pool_pattern=${PHP_REDIS_PCONNECT_POOL_PATTERN}"
 	fi
 	if [ -n "${PHP_FPM_REDIS_PCONNECT_POOLING_ENABLED+1}" ]; then
 		echo "redis.pconnect.pooling_enabled=${PHP_FPM_REDIS_PCONNECT_POOLING_ENABLED}"
@@ -1936,20 +1871,15 @@
 	elif [ -n "${PHP_SESSION_COOKIE_PATH+1}" ]; then
 		echo "session.cookie_path=${PHP_SESSION_COOKIE_PATH}"
 	fi
+	if [ -n "${PHP_FPM_SESSION_COOKIE_SAMESITE+1}" ]; then
+		echo "session.cookie_samesite=${PHP_FPM_SESSION_COOKIE_SAMESITE}"
+	elif [ -n "${PHP_SESSION_COOKIE_SAMESITE+1}" ]; then
+		echo "session.cookie_samesite=${PHP_SESSION_COOKIE_SAMESITE}"
+	fi
 	if [ -n "${PHP_FPM_SESSION_COOKIE_SECURE+1}" ]; then
 		echo "session.cookie_secure=${PHP_FPM_SESSION_COOKIE_SECURE}"
 	elif [ -n "${PHP_SESSION_COOKIE_SECURE+1}" ]; then
 		echo "session.cookie_secure=${PHP_SESSION_COOKIE_SECURE}"
-	fi
-	if [ -n "${PHP_FPM_SESSION_ENTROPY_FILE+1}" ]; then
-		echo "session.entropy_file=${PHP_FPM_SESSION_ENTROPY_FILE}"
-	elif [ -n "${PHP_SESSION_ENTROPY_FILE+1}" ]; then
-		echo "session.entropy_file=${PHP_SESSION_ENTROPY_FILE}"
-	fi
-	if [ -n "${PHP_FPM_SESSION_ENTROPY_LENGTH+1}" ]; then
-		echo "session.entropy_length=${PHP_FPM_SESSION_ENTROPY_LENGTH}"
-	elif [ -n "${PHP_SESSION_ENTROPY_LENGTH+1}" ]; then
-		echo "session.entropy_length=${PHP_SESSION_ENTROPY_LENGTH}"
 	fi
 	if [ -n "${PHP_FPM_SESSION_GC_DIVISOR+1}" ]; then
 		echo "session.gc_divisor=${PHP_FPM_SESSION_GC_DIVISOR}"
@@ -1966,15 +1896,10 @@
 	elif [ -n "${PHP_SESSION_GC_PROBABILITY+1}" ]; then
 		echo "session.gc_probability=${PHP_SESSION_GC_PROBABILITY}"
 	fi
-	if [ -n "${PHP_FPM_SESSION_HASH_BITS_PER_CHARACTER+1}" ]; then
-		echo "session.hash_bits_per_character=${PHP_FPM_SESSION_HASH_BITS_PER_CHARACTER}"
-	elif [ -n "${PHP_SESSION_HASH_BITS_PER_CHARACTER+1}" ]; then
-		echo "session.hash_bits_per_character=${PHP_SESSION_HASH_BITS_PER_CHARACTER}"
-	fi
-	if [ -n "${PHP_FPM_SESSION_HASH_FUNCTION+1}" ]; then
-		echo "session.hash_function=${PHP_FPM_SESSION_HASH_FUNCTION}"
-	elif [ -n "${PHP_SESSION_HASH_FUNCTION+1}" ]; then
-		echo "session.hash_function=${PHP_SESSION_HASH_FUNCTION}"
+	if [ -n "${PHP_FPM_SESSION_LAZY_WRITE+1}" ]; then
+		echo "session.lazy_write=${PHP_FPM_SESSION_LAZY_WRITE}"
+	elif [ -n "${PHP_SESSION_LAZY_WRITE+1}" ]; then
+		echo "session.lazy_write=${PHP_SESSION_LAZY_WRITE}"
 	fi
 	if [ -n "${PHP_FPM_SESSION_NAME+1}" ]; then
 		echo "session.name=${PHP_FPM_SESSION_NAME}"
@@ -2000,6 +1925,26 @@
 		echo "session.serialize_handler=${PHP_FPM_SESSION_SERIALIZE_HANDLER}"
 	elif [ -n "${PHP_SESSION_SERIALIZE_HANDLER+1}" ]; then
 		echo "session.serialize_handler=${PHP_SESSION_SERIALIZE_HANDLER}"
+	fi
+	if [ -n "${PHP_FPM_SESSION_SID_BITS_PER_CHARACTER+1}" ]; then
+		echo "session.sid_bits_per_character=${PHP_FPM_SESSION_SID_BITS_PER_CHARACTER}"
+	elif [ -n "${PHP_SESSION_SID_BITS_PER_CHARACTER+1}" ]; then
+		echo "session.sid_bits_per_character=${PHP_SESSION_SID_BITS_PER_CHARACTER}"
+	fi
+	if [ -n "${PHP_FPM_SESSION_SID_LENGTH+1}" ]; then
+		echo "session.sid_length=${PHP_FPM_SESSION_SID_LENGTH}"
+	elif [ -n "${PHP_SESSION_SID_LENGTH+1}" ]; then
+		echo "session.sid_length=${PHP_SESSION_SID_LENGTH}"
+	fi
+	if [ -n "${PHP_FPM_SESSION_TRANS_SID_HOSTS+1}" ]; then
+		echo "session.trans_sid_hosts=${PHP_FPM_SESSION_TRANS_SID_HOSTS}"
+	elif [ -n "${PHP_SESSION_TRANS_SID_HOSTS+1}" ]; then
+		echo "session.trans_sid_hosts=${PHP_SESSION_TRANS_SID_HOSTS}"
+	fi
+	if [ -n "${PHP_FPM_SESSION_TRANS_SID_TAGS+1}" ]; then
+		echo "session.trans_sid_tags=${PHP_FPM_SESSION_TRANS_SID_TAGS}"
+	elif [ -n "${PHP_SESSION_TRANS_SID_TAGS+1}" ]; then
+		echo "session.trans_sid_tags=${PHP_SESSION_TRANS_SID_TAGS}"
 	fi
 	if [ -n "${PHP_FPM_SESSION_UPLOAD_PROGRESS_CLEANUP+1}" ]; then
 		echo "session.upload_progress.cleanup=${PHP_FPM_SESSION_UPLOAD_PROGRESS_CLEANUP}"
@@ -2091,11 +2036,6 @@
 	elif [ -n "${PHP_SOAP_WSDL_CACHE_TTL+1}" ]; then
 		echo "soap.wsdl_cache_ttl=${PHP_SOAP_WSDL_CACHE_TTL}"
 	fi
-	if [ -n "${PHP_FPM_SQL_SAFE_MODE+1}" ]; then
-		echo "sql.safe_mode=${PHP_FPM_SQL_SAFE_MODE}"
-	elif [ -n "${PHP_SQL_SAFE_MODE+1}" ]; then
-		echo "sql.safe_mode=${PHP_SQL_SAFE_MODE}"
-	fi
 	if [ -n "${PHP_FPM_SQLITE3_DEFENSIVE+1}" ]; then
 		echo "sqlite3.defensive=${PHP_FPM_SQLITE3_DEFENSIVE}"
 	elif [ -n "${PHP_SQLITE3_DEFENSIVE+1}" ]; then
@@ -2106,45 +2046,55 @@
 	elif [ -n "${PHP_SQLITE3_EXTENSION_DIR+1}" ]; then
 		echo "sqlite3.extension_dir=${PHP_SQLITE3_EXTENSION_DIR}"
 	fi
-	if [ -n "${PHP_FPM_STOMP_DEFAULT_BROKER+1}" ]; then
-		echo "stomp.default_broker=${PHP_FPM_STOMP_DEFAULT_BROKER}"
-	elif [ -n "${PHP_STOMP_DEFAULT_BROKER+1}" ]; then
-		echo "stomp.default_broker=${PHP_STOMP_DEFAULT_BROKER}"
+	if [ -n "${PHP_FPM_SWOOLE_DISPLAY_ERRORS+1}" ]; then
+		echo "swoole.display_errors=${PHP_FPM_SWOOLE_DISPLAY_ERRORS}"
+	elif [ -n "${PHP_SWOOLE_DISPLAY_ERRORS+1}" ]; then
+		echo "swoole.display_errors=${PHP_SWOOLE_DISPLAY_ERRORS}"
 	fi
-	if [ -n "${PHP_FPM_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_connection_timeout_sec=${PHP_FPM_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_connection_timeout_sec=${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC}"
+	if [ -n "${PHP_FPM_SWOOLE_ENABLE_COROUTINE+1}" ]; then
+		echo "swoole.enable_coroutine=${PHP_FPM_SWOOLE_ENABLE_COROUTINE}"
+	elif [ -n "${PHP_SWOOLE_ENABLE_COROUTINE+1}" ]; then
+		echo "swoole.enable_coroutine=${PHP_SWOOLE_ENABLE_COROUTINE}"
 	fi
-	if [ -n "${PHP_FPM_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_connection_timeout_usec=${PHP_FPM_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_connection_timeout_usec=${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC}"
+	if [ -n "${PHP_FPM_SWOOLE_ENABLE_LIBRARY+1}" ]; then
+		echo "swoole.enable_library=${PHP_FPM_SWOOLE_ENABLE_LIBRARY}"
+	elif [ -n "${PHP_SWOOLE_ENABLE_LIBRARY+1}" ]; then
+		echo "swoole.enable_library=${PHP_SWOOLE_ENABLE_LIBRARY}"
 	fi
-	if [ -n "${PHP_FPM_STOMP_DEFAULT_PASSWORD+1}" ]; then
-		echo "stomp.default_password=${PHP_FPM_STOMP_DEFAULT_PASSWORD}"
-	elif [ -n "${PHP_STOMP_DEFAULT_PASSWORD+1}" ]; then
-		echo "stomp.default_password=${PHP_STOMP_DEFAULT_PASSWORD}"
+	if [ -n "${PHP_FPM_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER+1}" ]; then
+		echo "swoole.enable_preemptive_scheduler=${PHP_FPM_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER}"
+	elif [ -n "${PHP_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER+1}" ]; then
+		echo "swoole.enable_preemptive_scheduler=${PHP_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER}"
 	fi
-	if [ -n "${PHP_FPM_STOMP_DEFAULT_READ_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_read_timeout_sec=${PHP_FPM_STOMP_DEFAULT_READ_TIMEOUT_SEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_READ_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_read_timeout_sec=${PHP_STOMP_DEFAULT_READ_TIMEOUT_SEC}"
+	if [ -n "${PHP_FPM_SWOOLE_UNIXSOCK_BUFFER_SIZE+1}" ]; then
+		echo "swoole.unixsock_buffer_size=${PHP_FPM_SWOOLE_UNIXSOCK_BUFFER_SIZE}"
+	elif [ -n "${PHP_SWOOLE_UNIXSOCK_BUFFER_SIZE+1}" ]; then
+		echo "swoole.unixsock_buffer_size=${PHP_SWOOLE_UNIXSOCK_BUFFER_SIZE}"
 	fi
-	if [ -n "${PHP_FPM_STOMP_DEFAULT_READ_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_read_timeout_usec=${PHP_FPM_STOMP_DEFAULT_READ_TIMEOUT_USEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_READ_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_read_timeout_usec=${PHP_STOMP_DEFAULT_READ_TIMEOUT_USEC}"
-	fi
-	if [ -n "${PHP_FPM_STOMP_DEFAULT_USERNAME+1}" ]; then
-		echo "stomp.default_username=${PHP_FPM_STOMP_DEFAULT_USERNAME}"
-	elif [ -n "${PHP_STOMP_DEFAULT_USERNAME+1}" ]; then
-		echo "stomp.default_username=${PHP_STOMP_DEFAULT_USERNAME}"
+	if [ -n "${PHP_FPM_SWOOLE_USE_SHORTNAME+1}" ]; then
+		echo "swoole.use_shortname=${PHP_FPM_SWOOLE_USE_SHORTNAME}"
+	elif [ -n "${PHP_SWOOLE_USE_SHORTNAME+1}" ]; then
+		echo "swoole.use_shortname=${PHP_SWOOLE_USE_SHORTNAME}"
 	fi
 	if [ -n "${PHP_FPM_SYS_TEMP_DIR+1}" ]; then
 		echo "sys_temp_dir=${PHP_FPM_SYS_TEMP_DIR}"
 	elif [ -n "${PHP_SYS_TEMP_DIR+1}" ]; then
 		echo "sys_temp_dir=${PHP_SYS_TEMP_DIR}"
+	fi
+	if [ -n "${PHP_FPM_SYSLOG_FACILITY+1}" ]; then
+		echo "syslog.facility=${PHP_FPM_SYSLOG_FACILITY}"
+	elif [ -n "${PHP_SYSLOG_FACILITY+1}" ]; then
+		echo "syslog.facility=${PHP_SYSLOG_FACILITY}"
+	fi
+	if [ -n "${PHP_FPM_SYSLOG_FILTER+1}" ]; then
+		echo "syslog.filter=${PHP_FPM_SYSLOG_FILTER}"
+	elif [ -n "${PHP_SYSLOG_FILTER+1}" ]; then
+		echo "syslog.filter=${PHP_SYSLOG_FILTER}"
+	fi
+	if [ -n "${PHP_FPM_SYSLOG_IDENT+1}" ]; then
+		echo "syslog.ident=${PHP_FPM_SYSLOG_IDENT}"
+	elif [ -n "${PHP_SYSLOG_IDENT+1}" ]; then
+		echo "syslog.ident=${PHP_SYSLOG_IDENT}"
 	fi
 	if [ -n "${PHP_FPM_TIDY_CLEAN_OUTPUT+1}" ]; then
 		echo "tidy.clean_output=${PHP_FPM_TIDY_CLEAN_OUTPUT}"
@@ -2156,15 +2106,15 @@
 	elif [ -n "${PHP_TIDY_DEFAULT_CONFIG+1}" ]; then
 		echo "tidy.default_config=${PHP_TIDY_DEFAULT_CONFIG}"
 	fi
-	if [ -n "${PHP_FPM_TRACK_ERRORS+1}" ]; then
-		echo "track_errors=${PHP_FPM_TRACK_ERRORS}"
-	elif [ -n "${PHP_TRACK_ERRORS+1}" ]; then
-		echo "track_errors=${PHP_TRACK_ERRORS}"
-	fi
 	if [ -n "${PHP_FPM_UNSERIALIZE_CALLBACK_FUNC+1}" ]; then
 		echo "unserialize_callback_func=${PHP_FPM_UNSERIALIZE_CALLBACK_FUNC}"
 	elif [ -n "${PHP_UNSERIALIZE_CALLBACK_FUNC+1}" ]; then
 		echo "unserialize_callback_func=${PHP_UNSERIALIZE_CALLBACK_FUNC}"
+	fi
+	if [ -n "${PHP_FPM_UNSERIALIZE_MAX_DEPTH+1}" ]; then
+		echo "unserialize_max_depth=${PHP_FPM_UNSERIALIZE_MAX_DEPTH}"
+	elif [ -n "${PHP_UNSERIALIZE_MAX_DEPTH+1}" ]; then
+		echo "unserialize_max_depth=${PHP_UNSERIALIZE_MAX_DEPTH}"
 	fi
 	if [ -n "${PHP_FPM_UPLOAD_MAX_FILESIZE+1}" ]; then
 		echo "upload_max_filesize=${PHP_FPM_UPLOAD_MAX_FILESIZE}"
@@ -2176,20 +2126,10 @@
 	elif [ -n "${PHP_UPLOAD_TMP_DIR+1}" ]; then
 		echo "upload_tmp_dir=${PHP_UPLOAD_TMP_DIR}"
 	fi
-	if [ -n "${PHP_FPM_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.contents_template=${PHP_FPM_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE}"
-	elif [ -n "${PHP_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.contents_template=${PHP_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE}"
-	fi
-	if [ -n "${PHP_FPM_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.filename_template=${PHP_FPM_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE}"
-	elif [ -n "${PHP_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.filename_template=${PHP_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE}"
-	fi
-	if [ -n "${PHP_FPM_UPLOADPROGRESS_GET_CONTENTS+1}" ]; then
-		echo "uploadprogress.get_contents=${PHP_FPM_UPLOADPROGRESS_GET_CONTENTS}"
-	elif [ -n "${PHP_UPLOADPROGRESS_GET_CONTENTS+1}" ]; then
-		echo "uploadprogress.get_contents=${PHP_UPLOADPROGRESS_GET_CONTENTS}"
+	if [ -n "${PHP_FPM_URL_REWRITER_HOSTS+1}" ]; then
+		echo "url_rewriter.hosts=${PHP_FPM_URL_REWRITER_HOSTS}"
+	elif [ -n "${PHP_URL_REWRITER_HOSTS+1}" ]; then
+		echo "url_rewriter.hosts=${PHP_URL_REWRITER_HOSTS}"
 	fi
 	if [ -n "${PHP_FPM_URL_REWRITER_TAGS+1}" ]; then
 		echo "url_rewriter.tags=${PHP_FPM_URL_REWRITER_TAGS}"
@@ -2221,151 +2161,6 @@
 	elif [ -n "${PHP_VARIABLES_ORDER+1}" ]; then
 		echo "variables_order=${PHP_VARIABLES_ORDER}"
 	fi
-	if [ -n "${PHP_FPM_XCACHE_ADMIN_ENABLE_AUTH+1}" ]; then
-		echo "xcache.admin.enable_auth=${PHP_FPM_XCACHE_ADMIN_ENABLE_AUTH}"
-	elif [ -n "${PHP_XCACHE_ADMIN_ENABLE_AUTH+1}" ]; then
-		echo "xcache.admin.enable_auth=${PHP_XCACHE_ADMIN_ENABLE_AUTH}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_ALLOCATOR+1}" ]; then
-		echo "xcache.allocator=${PHP_FPM_XCACHE_ALLOCATOR}"
-	elif [ -n "${PHP_XCACHE_ALLOCATOR+1}" ]; then
-		echo "xcache.allocator=${PHP_XCACHE_ALLOCATOR}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_CACHER+1}" ]; then
-		echo "xcache.cacher=${PHP_FPM_XCACHE_CACHER}"
-	elif [ -n "${PHP_XCACHE_CACHER+1}" ]; then
-		echo "xcache.cacher=${PHP_XCACHE_CACHER}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_COREDUMP_DIRECTORY+1}" ]; then
-		echo "xcache.coredump_directory=${PHP_FPM_XCACHE_COREDUMP_DIRECTORY}"
-	elif [ -n "${PHP_XCACHE_COREDUMP_DIRECTORY+1}" ]; then
-		echo "xcache.coredump_directory=${PHP_XCACHE_COREDUMP_DIRECTORY}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_COUNT+1}" ]; then
-		echo "xcache.count=${PHP_FPM_XCACHE_COUNT}"
-	elif [ -n "${PHP_XCACHE_COUNT+1}" ]; then
-		echo "xcache.count=${PHP_XCACHE_COUNT}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_COVERAGEDUMP_DIRECTORY+1}" ]; then
-		echo "xcache.coveragedump_directory=${PHP_FPM_XCACHE_COVERAGEDUMP_DIRECTORY}"
-	elif [ -n "${PHP_XCACHE_COVERAGEDUMP_DIRECTORY+1}" ]; then
-		echo "xcache.coveragedump_directory=${PHP_XCACHE_COVERAGEDUMP_DIRECTORY}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_COVERAGER+1}" ]; then
-		echo "xcache.coverager=${PHP_FPM_XCACHE_COVERAGER}"
-	elif [ -n "${PHP_XCACHE_COVERAGER+1}" ]; then
-		echo "xcache.coverager=${PHP_XCACHE_COVERAGER}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_COVERAGER_AUTOSTART+1}" ]; then
-		echo "xcache.coverager_autostart=${PHP_FPM_XCACHE_COVERAGER_AUTOSTART}"
-	elif [ -n "${PHP_XCACHE_COVERAGER_AUTOSTART+1}" ]; then
-		echo "xcache.coverager_autostart=${PHP_XCACHE_COVERAGER_AUTOSTART}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_DISABLE_ON_CRASH+1}" ]; then
-		echo "xcache.disable_on_crash=${PHP_FPM_XCACHE_DISABLE_ON_CRASH}"
-	elif [ -n "${PHP_XCACHE_DISABLE_ON_CRASH+1}" ]; then
-		echo "xcache.disable_on_crash=${PHP_XCACHE_DISABLE_ON_CRASH}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_EXPERIMENTAL+1}" ]; then
-		echo "xcache.experimental=${PHP_FPM_XCACHE_EXPERIMENTAL}"
-	elif [ -n "${PHP_XCACHE_EXPERIMENTAL+1}" ]; then
-		echo "xcache.experimental=${PHP_XCACHE_EXPERIMENTAL}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_GC_INTERVAL+1}" ]; then
-		echo "xcache.gc_interval=${PHP_FPM_XCACHE_GC_INTERVAL}"
-	elif [ -n "${PHP_XCACHE_GC_INTERVAL+1}" ]; then
-		echo "xcache.gc_interval=${PHP_XCACHE_GC_INTERVAL}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_MMAP_PATH+1}" ]; then
-		echo "xcache.mmap_path=${PHP_FPM_XCACHE_MMAP_PATH}"
-	elif [ -n "${PHP_XCACHE_MMAP_PATH+1}" ]; then
-		echo "xcache.mmap_path=${PHP_XCACHE_MMAP_PATH}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_OPTIMIZER+1}" ]; then
-		echo "xcache.optimizer=${PHP_FPM_XCACHE_OPTIMIZER}"
-	elif [ -n "${PHP_XCACHE_OPTIMIZER+1}" ]; then
-		echo "xcache.optimizer=${PHP_XCACHE_OPTIMIZER}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_READONLY_PROTECTION+1}" ]; then
-		echo "xcache.readonly_protection=${PHP_FPM_XCACHE_READONLY_PROTECTION}"
-	elif [ -n "${PHP_XCACHE_READONLY_PROTECTION+1}" ]; then
-		echo "xcache.readonly_protection=${PHP_XCACHE_READONLY_PROTECTION}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_SHM_SCHEME+1}" ]; then
-		echo "xcache.shm_scheme=${PHP_FPM_XCACHE_SHM_SCHEME}"
-	elif [ -n "${PHP_XCACHE_SHM_SCHEME+1}" ]; then
-		echo "xcache.shm_scheme=${PHP_XCACHE_SHM_SCHEME}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_SIZE+1}" ]; then
-		echo "xcache.size=${PHP_FPM_XCACHE_SIZE}"
-	elif [ -n "${PHP_XCACHE_SIZE+1}" ]; then
-		echo "xcache.size=${PHP_XCACHE_SIZE}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_SLOTS+1}" ]; then
-		echo "xcache.slots=${PHP_FPM_XCACHE_SLOTS}"
-	elif [ -n "${PHP_XCACHE_SLOTS+1}" ]; then
-		echo "xcache.slots=${PHP_XCACHE_SLOTS}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_STAT+1}" ]; then
-		echo "xcache.stat=${PHP_FPM_XCACHE_STAT}"
-	elif [ -n "${PHP_XCACHE_STAT+1}" ]; then
-		echo "xcache.stat=${PHP_XCACHE_STAT}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_TEST+1}" ]; then
-		echo "xcache.test=${PHP_FPM_XCACHE_TEST}"
-	elif [ -n "${PHP_XCACHE_TEST+1}" ]; then
-		echo "xcache.test=${PHP_XCACHE_TEST}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_TTL+1}" ]; then
-		echo "xcache.ttl=${PHP_FPM_XCACHE_TTL}"
-	elif [ -n "${PHP_XCACHE_TTL+1}" ]; then
-		echo "xcache.ttl=${PHP_XCACHE_TTL}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_ALLOCATOR+1}" ]; then
-		echo "xcache.var_allocator=${PHP_FPM_XCACHE_VAR_ALLOCATOR}"
-	elif [ -n "${PHP_XCACHE_VAR_ALLOCATOR+1}" ]; then
-		echo "xcache.var_allocator=${PHP_XCACHE_VAR_ALLOCATOR}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_COUNT+1}" ]; then
-		echo "xcache.var_count=${PHP_FPM_XCACHE_VAR_COUNT}"
-	elif [ -n "${PHP_XCACHE_VAR_COUNT+1}" ]; then
-		echo "xcache.var_count=${PHP_XCACHE_VAR_COUNT}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_GC_INTERVAL+1}" ]; then
-		echo "xcache.var_gc_interval=${PHP_FPM_XCACHE_VAR_GC_INTERVAL}"
-	elif [ -n "${PHP_XCACHE_VAR_GC_INTERVAL+1}" ]; then
-		echo "xcache.var_gc_interval=${PHP_XCACHE_VAR_GC_INTERVAL}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_MAXTTL+1}" ]; then
-		echo "xcache.var_maxttl=${PHP_FPM_XCACHE_VAR_MAXTTL}"
-	elif [ -n "${PHP_XCACHE_VAR_MAXTTL+1}" ]; then
-		echo "xcache.var_maxttl=${PHP_XCACHE_VAR_MAXTTL}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_NAMESPACE+1}" ]; then
-		echo "xcache.var_namespace=${PHP_FPM_XCACHE_VAR_NAMESPACE}"
-	elif [ -n "${PHP_XCACHE_VAR_NAMESPACE+1}" ]; then
-		echo "xcache.var_namespace=${PHP_XCACHE_VAR_NAMESPACE}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_NAMESPACE_MODE+1}" ]; then
-		echo "xcache.var_namespace_mode=${PHP_FPM_XCACHE_VAR_NAMESPACE_MODE}"
-	elif [ -n "${PHP_XCACHE_VAR_NAMESPACE_MODE+1}" ]; then
-		echo "xcache.var_namespace_mode=${PHP_XCACHE_VAR_NAMESPACE_MODE}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_SIZE+1}" ]; then
-		echo "xcache.var_size=${PHP_FPM_XCACHE_VAR_SIZE}"
-	elif [ -n "${PHP_XCACHE_VAR_SIZE+1}" ]; then
-		echo "xcache.var_size=${PHP_XCACHE_VAR_SIZE}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_SLOTS+1}" ]; then
-		echo "xcache.var_slots=${PHP_FPM_XCACHE_VAR_SLOTS}"
-	elif [ -n "${PHP_XCACHE_VAR_SLOTS+1}" ]; then
-		echo "xcache.var_slots=${PHP_XCACHE_VAR_SLOTS}"
-	fi
-	if [ -n "${PHP_FPM_XCACHE_VAR_TTL+1}" ]; then
-		echo "xcache.var_ttl=${PHP_FPM_XCACHE_VAR_TTL}"
-	elif [ -n "${PHP_XCACHE_VAR_TTL+1}" ]; then
-		echo "xcache.var_ttl=${PHP_XCACHE_VAR_TTL}"
-	fi
 	if [ -n "${PHP_FPM_XDEBUG_AUTO_TRACE+1}" ]; then
 		echo "xdebug.auto_trace=${PHP_FPM_XDEBUG_AUTO_TRACE}"
 	elif [ -n "${PHP_XDEBUG_AUTO_TRACE+1}" ]; then
@@ -2375,6 +2170,26 @@
 		echo "xdebug.cli_color=${PHP_FPM_XDEBUG_CLI_COLOR}"
 	elif [ -n "${PHP_XDEBUG_CLI_COLOR+1}" ]; then
 		echo "xdebug.cli_color=${PHP_XDEBUG_CLI_COLOR}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_CLIENT_DISCOVERY_HEADER+1}" ]; then
+		echo "xdebug.client_discovery_header=${PHP_FPM_XDEBUG_CLIENT_DISCOVERY_HEADER}"
+	elif [ -n "${PHP_XDEBUG_CLIENT_DISCOVERY_HEADER+1}" ]; then
+		echo "xdebug.client_discovery_header=${PHP_XDEBUG_CLIENT_DISCOVERY_HEADER}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_CLIENT_HOST+1}" ]; then
+		echo "xdebug.client_host=${PHP_FPM_XDEBUG_CLIENT_HOST}"
+	elif [ -n "${PHP_XDEBUG_CLIENT_HOST+1}" ]; then
+		echo "xdebug.client_host=${PHP_XDEBUG_CLIENT_HOST}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_CLIENT_PORT+1}" ]; then
+		echo "xdebug.client_port=${PHP_FPM_XDEBUG_CLIENT_PORT}"
+	elif [ -n "${PHP_XDEBUG_CLIENT_PORT+1}" ]; then
+		echo "xdebug.client_port=${PHP_XDEBUG_CLIENT_PORT}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_CLOUD_ID+1}" ]; then
+		echo "xdebug.cloud_id=${PHP_FPM_XDEBUG_CLOUD_ID}"
+	elif [ -n "${PHP_XDEBUG_CLOUD_ID+1}" ]; then
+		echo "xdebug.cloud_id=${PHP_XDEBUG_CLOUD_ID}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_COLLECT_ASSIGNMENTS+1}" ]; then
 		echo "xdebug.collect_assignments=${PHP_FPM_XDEBUG_COLLECT_ASSIGNMENTS}"
@@ -2401,6 +2216,11 @@
 	elif [ -n "${PHP_XDEBUG_COLLECT_VARS+1}" ]; then
 		echo "xdebug.collect_vars=${PHP_XDEBUG_COLLECT_VARS}"
 	fi
+	if [ -n "${PHP_FPM_XDEBUG_CONNECT_TIMEOUT_MS+1}" ]; then
+		echo "xdebug.connect_timeout_ms=${PHP_FPM_XDEBUG_CONNECT_TIMEOUT_MS}"
+	elif [ -n "${PHP_XDEBUG_CONNECT_TIMEOUT_MS+1}" ]; then
+		echo "xdebug.connect_timeout_ms=${PHP_XDEBUG_CONNECT_TIMEOUT_MS}"
+	fi
 	if [ -n "${PHP_FPM_XDEBUG_COVERAGE_ENABLE+1}" ]; then
 		echo "xdebug.coverage_enable=${PHP_FPM_XDEBUG_COVERAGE_ENABLE}"
 	elif [ -n "${PHP_XDEBUG_COVERAGE_ENABLE+1}" ]; then
@@ -2410,6 +2230,11 @@
 		echo "xdebug.default_enable=${PHP_FPM_XDEBUG_DEFAULT_ENABLE}"
 	elif [ -n "${PHP_XDEBUG_DEFAULT_ENABLE+1}" ]; then
 		echo "xdebug.default_enable=${PHP_XDEBUG_DEFAULT_ENABLE}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_DISCOVER_CLIENT_HOST+1}" ]; then
+		echo "xdebug.discover_client_host=${PHP_FPM_XDEBUG_DISCOVER_CLIENT_HOST}"
+	elif [ -n "${PHP_XDEBUG_DISCOVER_CLIENT_HOST+1}" ]; then
+		echo "xdebug.discover_client_host=${PHP_XDEBUG_DISCOVER_CLIENT_HOST}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_DUMP_COOKIE+1}" ]; then
 		echo "xdebug.dump.COOKIE=${PHP_FPM_XDEBUG_DUMP_COOKIE}"
@@ -2466,15 +2291,15 @@
 	elif [ -n "${PHP_XDEBUG_DUMP_UNDEFINED+1}" ]; then
 		echo "xdebug.dump_undefined=${PHP_XDEBUG_DUMP_UNDEFINED}"
 	fi
-	if [ -n "${PHP_FPM_XDEBUG_EXTENDED_INFO+1}" ]; then
-		echo "xdebug.extended_info=${PHP_FPM_XDEBUG_EXTENDED_INFO}"
-	elif [ -n "${PHP_XDEBUG_EXTENDED_INFO+1}" ]; then
-		echo "xdebug.extended_info=${PHP_XDEBUG_EXTENDED_INFO}"
-	fi
 	if [ -n "${PHP_FPM_XDEBUG_FILE_LINK_FORMAT+1}" ]; then
 		echo "xdebug.file_link_format=${PHP_FPM_XDEBUG_FILE_LINK_FORMAT}"
 	elif [ -n "${PHP_XDEBUG_FILE_LINK_FORMAT+1}" ]; then
 		echo "xdebug.file_link_format=${PHP_XDEBUG_FILE_LINK_FORMAT}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_FILENAME_FORMAT+1}" ]; then
+		echo "xdebug.filename_format=${PHP_FPM_XDEBUG_FILENAME_FORMAT}"
+	elif [ -n "${PHP_XDEBUG_FILENAME_FORMAT+1}" ]; then
+		echo "xdebug.filename_format=${PHP_XDEBUG_FILENAME_FORMAT}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_FORCE_DISPLAY_ERRORS+1}" ]; then
 		echo "xdebug.force_display_errors=${PHP_FPM_XDEBUG_FORCE_DISPLAY_ERRORS}"
@@ -2486,6 +2311,21 @@
 	elif [ -n "${PHP_XDEBUG_FORCE_ERROR_REPORTING+1}" ]; then
 		echo "xdebug.force_error_reporting=${PHP_XDEBUG_FORCE_ERROR_REPORTING}"
 	fi
+	if [ -n "${PHP_FPM_XDEBUG_GC_STATS_ENABLE+1}" ]; then
+		echo "xdebug.gc_stats_enable=${PHP_FPM_XDEBUG_GC_STATS_ENABLE}"
+	elif [ -n "${PHP_XDEBUG_GC_STATS_ENABLE+1}" ]; then
+		echo "xdebug.gc_stats_enable=${PHP_XDEBUG_GC_STATS_ENABLE}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_GC_STATS_OUTPUT_DIR+1}" ]; then
+		echo "xdebug.gc_stats_output_dir=${PHP_FPM_XDEBUG_GC_STATS_OUTPUT_DIR}"
+	elif [ -n "${PHP_XDEBUG_GC_STATS_OUTPUT_DIR+1}" ]; then
+		echo "xdebug.gc_stats_output_dir=${PHP_XDEBUG_GC_STATS_OUTPUT_DIR}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_GC_STATS_OUTPUT_NAME+1}" ]; then
+		echo "xdebug.gc_stats_output_name=${PHP_FPM_XDEBUG_GC_STATS_OUTPUT_NAME}"
+	elif [ -n "${PHP_XDEBUG_GC_STATS_OUTPUT_NAME+1}" ]; then
+		echo "xdebug.gc_stats_output_name=${PHP_XDEBUG_GC_STATS_OUTPUT_NAME}"
+	fi
 	if [ -n "${PHP_FPM_XDEBUG_HALT_LEVEL+1}" ]; then
 		echo "xdebug.halt_level=${PHP_FPM_XDEBUG_HALT_LEVEL}"
 	elif [ -n "${PHP_XDEBUG_HALT_LEVEL+1}" ]; then
@@ -2495,6 +2335,16 @@
 		echo "xdebug.idekey=${PHP_FPM_XDEBUG_IDEKEY}"
 	elif [ -n "${PHP_XDEBUG_IDEKEY+1}" ]; then
 		echo "xdebug.idekey=${PHP_XDEBUG_IDEKEY}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_LOG+1}" ]; then
+		echo "xdebug.log=${PHP_FPM_XDEBUG_LOG}"
+	elif [ -n "${PHP_XDEBUG_LOG+1}" ]; then
+		echo "xdebug.log=${PHP_XDEBUG_LOG}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_LOG_LEVEL+1}" ]; then
+		echo "xdebug.log_level=${PHP_FPM_XDEBUG_LOG_LEVEL}"
+	elif [ -n "${PHP_XDEBUG_LOG_LEVEL+1}" ]; then
+		echo "xdebug.log_level=${PHP_XDEBUG_LOG_LEVEL}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_MAX_NESTING_LEVEL+1}" ]; then
 		echo "xdebug.max_nesting_level=${PHP_FPM_XDEBUG_MAX_NESTING_LEVEL}"
@@ -2506,15 +2356,20 @@
 	elif [ -n "${PHP_XDEBUG_MAX_STACK_FRAMES+1}" ]; then
 		echo "xdebug.max_stack_frames=${PHP_XDEBUG_MAX_STACK_FRAMES}"
 	fi
+	if [ -n "${PHP_FPM_XDEBUG_MODE+1}" ]; then
+		echo "xdebug.mode=${PHP_FPM_XDEBUG_MODE}"
+	elif [ -n "${PHP_XDEBUG_MODE+1}" ]; then
+		echo "xdebug.mode=${PHP_XDEBUG_MODE}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_OUTPUT_DIR+1}" ]; then
+		echo "xdebug.output_dir=${PHP_FPM_XDEBUG_OUTPUT_DIR}"
+	elif [ -n "${PHP_XDEBUG_OUTPUT_DIR+1}" ]; then
+		echo "xdebug.output_dir=${PHP_XDEBUG_OUTPUT_DIR}"
+	fi
 	if [ -n "${PHP_FPM_XDEBUG_OVERLOAD_VAR_DUMP+1}" ]; then
 		echo "xdebug.overload_var_dump=${PHP_FPM_XDEBUG_OVERLOAD_VAR_DUMP}"
 	elif [ -n "${PHP_XDEBUG_OVERLOAD_VAR_DUMP+1}" ]; then
 		echo "xdebug.overload_var_dump=${PHP_XDEBUG_OVERLOAD_VAR_DUMP}"
-	fi
-	if [ -n "${PHP_FPM_XDEBUG_PROFILER_AGGREGATE+1}" ]; then
-		echo "xdebug.profiler_aggregate=${PHP_FPM_XDEBUG_PROFILER_AGGREGATE}"
-	elif [ -n "${PHP_XDEBUG_PROFILER_AGGREGATE+1}" ]; then
-		echo "xdebug.profiler_aggregate=${PHP_XDEBUG_PROFILER_AGGREGATE}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_PROFILER_APPEND+1}" ]; then
 		echo "xdebug.profiler_append=${PHP_FPM_XDEBUG_PROFILER_APPEND}"
@@ -2546,11 +2401,6 @@
 	elif [ -n "${PHP_XDEBUG_PROFILER_OUTPUT_NAME+1}" ]; then
 		echo "xdebug.profiler_output_name=${PHP_XDEBUG_PROFILER_OUTPUT_NAME}"
 	fi
-	if [ -n "${PHP_FPM_XDEBUG_REMOTE_ADDR_HEADER+1}" ]; then
-		echo "xdebug.remote_addr_header=${PHP_FPM_XDEBUG_REMOTE_ADDR_HEADER}"
-	elif [ -n "${PHP_XDEBUG_REMOTE_ADDR_HEADER+1}" ]; then
-		echo "xdebug.remote_addr_header=${PHP_XDEBUG_REMOTE_ADDR_HEADER}"
-	fi
 	if [ -n "${PHP_FPM_XDEBUG_REMOTE_AUTOSTART+1}" ]; then
 		echo "xdebug.remote_autostart=${PHP_FPM_XDEBUG_REMOTE_AUTOSTART}"
 	elif [ -n "${PHP_XDEBUG_REMOTE_AUTOSTART+1}" ]; then
@@ -2561,20 +2411,10 @@
 	elif [ -n "${PHP_XDEBUG_REMOTE_CONNECT_BACK+1}" ]; then
 		echo "xdebug.remote_connect_back=${PHP_XDEBUG_REMOTE_CONNECT_BACK}"
 	fi
-	if [ -n "${PHP_FPM_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME+1}" ]; then
-		echo "xdebug.remote_cookie_expire_time=${PHP_FPM_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME}"
-	elif [ -n "${PHP_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME+1}" ]; then
-		echo "xdebug.remote_cookie_expire_time=${PHP_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME}"
-	fi
 	if [ -n "${PHP_FPM_XDEBUG_REMOTE_ENABLE+1}" ]; then
 		echo "xdebug.remote_enable=${PHP_FPM_XDEBUG_REMOTE_ENABLE}"
 	elif [ -n "${PHP_XDEBUG_REMOTE_ENABLE+1}" ]; then
 		echo "xdebug.remote_enable=${PHP_XDEBUG_REMOTE_ENABLE}"
-	fi
-	if [ -n "${PHP_FPM_XDEBUG_REMOTE_HANDLER+1}" ]; then
-		echo "xdebug.remote_handler=${PHP_FPM_XDEBUG_REMOTE_HANDLER}"
-	elif [ -n "${PHP_XDEBUG_REMOTE_HANDLER+1}" ]; then
-		echo "xdebug.remote_handler=${PHP_XDEBUG_REMOTE_HANDLER}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_REMOTE_HOST+1}" ]; then
 		echo "xdebug.remote_host=${PHP_FPM_XDEBUG_REMOTE_HOST}"
@@ -2586,6 +2426,11 @@
 	elif [ -n "${PHP_XDEBUG_REMOTE_LOG+1}" ]; then
 		echo "xdebug.remote_log=${PHP_XDEBUG_REMOTE_LOG}"
 	fi
+	if [ -n "${PHP_FPM_XDEBUG_REMOTE_LOG_LEVEL+1}" ]; then
+		echo "xdebug.remote_log_level=${PHP_FPM_XDEBUG_REMOTE_LOG_LEVEL}"
+	elif [ -n "${PHP_XDEBUG_REMOTE_LOG_LEVEL+1}" ]; then
+		echo "xdebug.remote_log_level=${PHP_XDEBUG_REMOTE_LOG_LEVEL}"
+	fi
 	if [ -n "${PHP_FPM_XDEBUG_REMOTE_MODE+1}" ]; then
 		echo "xdebug.remote_mode=${PHP_FPM_XDEBUG_REMOTE_MODE}"
 	elif [ -n "${PHP_XDEBUG_REMOTE_MODE+1}" ]; then
@@ -2595,6 +2440,11 @@
 		echo "xdebug.remote_port=${PHP_FPM_XDEBUG_REMOTE_PORT}"
 	elif [ -n "${PHP_XDEBUG_REMOTE_PORT+1}" ]; then
 		echo "xdebug.remote_port=${PHP_XDEBUG_REMOTE_PORT}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_REMOTE_TIMEOUT+1}" ]; then
+		echo "xdebug.remote_timeout=${PHP_FPM_XDEBUG_REMOTE_TIMEOUT}"
+	elif [ -n "${PHP_XDEBUG_REMOTE_TIMEOUT+1}" ]; then
+		echo "xdebug.remote_timeout=${PHP_XDEBUG_REMOTE_TIMEOUT}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_SCREAM+1}" ]; then
 		echo "xdebug.scream=${PHP_FPM_XDEBUG_SCREAM}"
@@ -2620,6 +2470,16 @@
 		echo "xdebug.show_mem_delta=${PHP_FPM_XDEBUG_SHOW_MEM_DELTA}"
 	elif [ -n "${PHP_XDEBUG_SHOW_MEM_DELTA+1}" ]; then
 		echo "xdebug.show_mem_delta=${PHP_XDEBUG_SHOW_MEM_DELTA}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_START_UPON_ERROR+1}" ]; then
+		echo "xdebug.start_upon_error=${PHP_FPM_XDEBUG_START_UPON_ERROR}"
+	elif [ -n "${PHP_XDEBUG_START_UPON_ERROR+1}" ]; then
+		echo "xdebug.start_upon_error=${PHP_XDEBUG_START_UPON_ERROR}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_START_WITH_REQUEST+1}" ]; then
+		echo "xdebug.start_with_request=${PHP_FPM_XDEBUG_START_WITH_REQUEST}"
+	elif [ -n "${PHP_XDEBUG_START_WITH_REQUEST+1}" ]; then
+		echo "xdebug.start_with_request=${PHP_XDEBUG_START_WITH_REQUEST}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_TRACE_ENABLE_TRIGGER+1}" ]; then
 		echo "xdebug.trace_enable_trigger=${PHP_FPM_XDEBUG_TRACE_ENABLE_TRIGGER}"
@@ -2651,6 +2511,11 @@
 	elif [ -n "${PHP_XDEBUG_TRACE_OUTPUT_NAME+1}" ]; then
 		echo "xdebug.trace_output_name=${PHP_XDEBUG_TRACE_OUTPUT_NAME}"
 	fi
+	if [ -n "${PHP_FPM_XDEBUG_TRIGGER_VALUE+1}" ]; then
+		echo "xdebug.trigger_value=${PHP_FPM_XDEBUG_TRIGGER_VALUE}"
+	elif [ -n "${PHP_XDEBUG_TRIGGER_VALUE+1}" ]; then
+		echo "xdebug.trigger_value=${PHP_XDEBUG_TRIGGER_VALUE}"
+	fi
 	if [ -n "${PHP_FPM_XDEBUG_VAR_DISPLAY_MAX_CHILDREN+1}" ]; then
 		echo "xdebug.var_display_max_children=${PHP_FPM_XDEBUG_VAR_DISPLAY_MAX_CHILDREN}"
 	elif [ -n "${PHP_XDEBUG_VAR_DISPLAY_MAX_CHILDREN+1}" ]; then
@@ -2666,10 +2531,25 @@
 	elif [ -n "${PHP_XDEBUG_VAR_DISPLAY_MAX_DEPTH+1}" ]; then
 		echo "xdebug.var_display_max_depth=${PHP_XDEBUG_VAR_DISPLAY_MAX_DEPTH}"
 	fi
+	if [ -n "${PHP_FPM_XHPROF_COLLECT_ADDITIONAL_INFO+1}" ]; then
+		echo "xhprof.collect_additional_info=${PHP_FPM_XHPROF_COLLECT_ADDITIONAL_INFO}"
+	elif [ -n "${PHP_XHPROF_COLLECT_ADDITIONAL_INFO+1}" ]; then
+		echo "xhprof.collect_additional_info=${PHP_XHPROF_COLLECT_ADDITIONAL_INFO}"
+	fi
 	if [ -n "${PHP_FPM_XHPROF_OUTPUT_DIR+1}" ]; then
 		echo "xhprof.output_dir=${PHP_FPM_XHPROF_OUTPUT_DIR}"
 	elif [ -n "${PHP_XHPROF_OUTPUT_DIR+1}" ]; then
 		echo "xhprof.output_dir=${PHP_XHPROF_OUTPUT_DIR}"
+	fi
+	if [ -n "${PHP_FPM_XHPROF_SAMPLING_DEPTH+1}" ]; then
+		echo "xhprof.sampling_depth=${PHP_FPM_XHPROF_SAMPLING_DEPTH}"
+	elif [ -n "${PHP_XHPROF_SAMPLING_DEPTH+1}" ]; then
+		echo "xhprof.sampling_depth=${PHP_XHPROF_SAMPLING_DEPTH}"
+	fi
+	if [ -n "${PHP_FPM_XHPROF_SAMPLING_INTERVAL+1}" ]; then
+		echo "xhprof.sampling_interval=${PHP_FPM_XHPROF_SAMPLING_INTERVAL}"
+	elif [ -n "${PHP_XHPROF_SAMPLING_INTERVAL+1}" ]; then
+		echo "xhprof.sampling_interval=${PHP_XHPROF_SAMPLING_INTERVAL}"
 	fi
 	if [ -n "${PHP_FPM_XMLRPC_ERROR_NUMBER+1}" ]; then
 		echo "xmlrpc_error_number=${PHP_FPM_XMLRPC_ERROR_NUMBER}"
@@ -2680,11 +2560,6 @@
 		echo "xmlrpc_errors=${PHP_FPM_XMLRPC_ERRORS}"
 	elif [ -n "${PHP_XMLRPC_ERRORS+1}" ]; then
 		echo "xmlrpc_errors=${PHP_XMLRPC_ERRORS}"
-	fi
-	if [ -n "${PHP_FPM_XSL_SECURITY_PREFS+1}" ]; then
-		echo "xsl.security_prefs=${PHP_FPM_XSL_SECURITY_PREFS}"
-	elif [ -n "${PHP_XSL_SECURITY_PREFS+1}" ]; then
-		echo "xsl.security_prefs=${PHP_XSL_SECURITY_PREFS}"
 	fi
 	if [ -n "${PHP_FPM_YAC_COMPRESS_THRESHOLD+1}" ]; then
 		echo "yac.compress_threshold=${PHP_FPM_YAC_COMPRESS_THRESHOLD}"
@@ -2710,6 +2585,11 @@
 		echo "yac.keys_memory_size=${PHP_FPM_YAC_KEYS_MEMORY_SIZE}"
 	elif [ -n "${PHP_YAC_KEYS_MEMORY_SIZE+1}" ]; then
 		echo "yac.keys_memory_size=${PHP_YAC_KEYS_MEMORY_SIZE}"
+	fi
+	if [ -n "${PHP_FPM_YAC_SERIALIZER+1}" ]; then
+		echo "yac.serializer=${PHP_FPM_YAC_SERIALIZER}"
+	elif [ -n "${PHP_YAC_SERIALIZER+1}" ]; then
+		echo "yac.serializer=${PHP_YAC_SERIALIZER}"
 	fi
 	if [ -n "${PHP_FPM_YAC_VALUES_MEMORY_SIZE+1}" ]; then
 		echo "yac.values_memory_size=${PHP_FPM_YAC_VALUES_MEMORY_SIZE}"
@@ -2746,6 +2626,11 @@
 	elif [ -n "${PHP_YAML_OUTPUT_WIDTH+1}" ]; then
 		echo "yaml.output_width=${PHP_YAML_OUTPUT_WIDTH}"
 	fi
+	if [ -n "${PHP_FPM_ZEND_ASSERTIONS+1}" ]; then
+		echo "zend.assertions=${PHP_FPM_ZEND_ASSERTIONS}"
+	elif [ -n "${PHP_ZEND_ASSERTIONS+1}" ]; then
+		echo "zend.assertions=${PHP_ZEND_ASSERTIONS}"
+	fi
 	if [ -n "${PHP_FPM_ZEND_DETECT_UNICODE+1}" ]; then
 		echo "zend.detect_unicode=${PHP_FPM_ZEND_DETECT_UNICODE}"
 	elif [ -n "${PHP_ZEND_DETECT_UNICODE+1}" ]; then
@@ -2756,6 +2641,16 @@
 	elif [ -n "${PHP_ZEND_ENABLE_GC+1}" ]; then
 		echo "zend.enable_gc=${PHP_ZEND_ENABLE_GC}"
 	fi
+	if [ -n "${PHP_FPM_ZEND_EXCEPTION_IGNORE_ARGS+1}" ]; then
+		echo "zend.exception_ignore_args=${PHP_FPM_ZEND_EXCEPTION_IGNORE_ARGS}"
+	elif [ -n "${PHP_ZEND_EXCEPTION_IGNORE_ARGS+1}" ]; then
+		echo "zend.exception_ignore_args=${PHP_ZEND_EXCEPTION_IGNORE_ARGS}"
+	fi
+	if [ -n "${PHP_FPM_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN+1}" ]; then
+		echo "zend.exception_string_param_max_len=${PHP_FPM_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN}"
+	elif [ -n "${PHP_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN+1}" ]; then
+		echo "zend.exception_string_param_max_len=${PHP_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN}"
+	fi
 	if [ -n "${PHP_FPM_ZEND_MULTIBYTE+1}" ]; then
 		echo "zend.multibyte=${PHP_FPM_ZEND_MULTIBYTE}"
 	elif [ -n "${PHP_ZEND_MULTIBYTE+1}" ]; then
@@ -2765,6 +2660,11 @@
 		echo "zend.script_encoding=${PHP_FPM_ZEND_SCRIPT_ENCODING}"
 	elif [ -n "${PHP_ZEND_SCRIPT_ENCODING+1}" ]; then
 		echo "zend.script_encoding=${PHP_ZEND_SCRIPT_ENCODING}"
+	fi
+	if [ -n "${PHP_FPM_ZEND_SIGNAL_CHECK+1}" ]; then
+		echo "zend.signal_check=${PHP_FPM_ZEND_SIGNAL_CHECK}"
+	elif [ -n "${PHP_ZEND_SIGNAL_CHECK+1}" ]; then
+		echo "zend.signal_check=${PHP_ZEND_SIGNAL_CHECK}"
 	fi
 	if [ -n "${PHP_FPM_ZLIB_OUTPUT_COMPRESSION+1}" ]; then
 		echo "zlib.output_compression=${PHP_FPM_ZLIB_OUTPUT_COMPRESSION}"
@@ -2781,4 +2681,4 @@
 	elif [ -n "${PHP_ZLIB_OUTPUT_HANDLER+1}" ]; then
 		echo "zlib.output_handler=${PHP_ZLIB_OUTPUT_HANDLER}"
 	fi
-) > /etc/php/5.6/fpm/conf.d/99-custom.ini
+) > /etc/php/8.0/fpm/conf.d/99-custom.ini

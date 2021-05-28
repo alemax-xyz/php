@@ -29,6 +29,6 @@ RUN rm -rf \
  && ln -s /usr/bin/git-shell usr/lib/git-core/git-shell
 
 
-FROM clover/php:5.6
+FROM clover/php:8.0
 
 COPY --from=build /rootfs /

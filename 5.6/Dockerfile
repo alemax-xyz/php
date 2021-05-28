@@ -13,7 +13,7 @@ RUN groupadd \
         --gid 50 \
         www
 
-FROM library/ubuntu:bionic AS build
+FROM library/ubuntu:focal AS build
 
 ENV LANG=C.UTF-8
 
@@ -56,7 +56,6 @@ RUN apt-get download \
         libcap-ng0 \
         libc-client2007e \
         libcom-err2 \
-        libcurl3 \
         libcurl3-gnutls \
         libcurl4 \
         libdatrie1 \
@@ -64,11 +63,11 @@ RUN apt-get download \
         libdbus-1-3 \
         libdevmapper1.02.1 \
         libedit2 \
-        libenchant1c2a \
-        libevent-2.1-6 \
+        libenchant-2-2 \
+#        libevent-2.1-7 \
         libexpat1 \
         libfbclient2 \
-        libffi6 \
+        libffi7 \
         libfftw3-double3 \
         libfontconfig1 \
         libfreetype6 \
@@ -90,13 +89,14 @@ RUN apt-get download \
         libhcrypto4-heimdal \
         libheimbase1-heimdal \
         libheimntlm0-heimdal \
-        libhogweed4 \
-        libhunspell-1.6-0 \
+        libhogweed5 \
+        libhunspell-1.7-0 \
         libhx509-5-heimdal \
-        libicu65 \
+        libicu66 \
         libidn11 \
         libidn2-0 \
         libjbig0 \
+        libgif7 \
         libjpeg8 \
         libjpeg-turbo8 \
         libk5crypto3 \
@@ -114,12 +114,12 @@ RUN apt-get download \
         liblz4-1 \
         libmagic1 \
         libmagic-mgc \
-        libmagickcore-6.q16-3 \
-        libmagickcore-6.q16-3-extra \
-        libmagickwand-6.q16-3 \
+        libmagickcore-6.q16-6 \
+        libmagickcore-6.q16-6-extra \
+        libmagickwand-6.q16-6 \
         libmcrypt4 \
         libmemcached11 \
-        libnettle6 \
+        libnettle7 \
         libnl-3-200 \
         libnghttp2-14 \
         libtommath1 \
@@ -145,6 +145,7 @@ RUN apt-get download \
         libsasl2-modules-db \
         libsodium23 \
         libsqlite3-0 \
+        libssh-4 \
         libssh2-1 \
         libssl1.1 \
         libsybdb5 \
@@ -169,7 +170,6 @@ RUN apt-get download \
         libxcb-render0 \
         libxcb-shm0 \
         libxdmcp6 \
-        libxen-4.9 \
         libxenstore3.0 \
         libxext6 \
         libxml2 \
@@ -195,14 +195,16 @@ RUN apt-get download \
         php5.6-fpm \
         php5.6-gd \
         php5.6-gmp \
-#        php5.6-http \
+        php5.6-grpc \
         php5.6-igbinary \
         php5.6-imagick \
         php5.6-imap \
+        php5.6-inotify \
         php5.6-interbase \
         php5.6-intl \
         php5.6-json \
         php5.6-ldap \
+        php5.6-lz4 \
         php5.6-mailparse \
         php5.6-mbstring \
         php5.6-mcrypt \
@@ -214,6 +216,8 @@ RUN apt-get download \
         php5.6-opcache \
         php5.6-pgsql \
         php5.6-propro \
+        php5.6-protobuf \
+        php5.6-ps \
         php5.6-pspell \
         php5.6-raphf \
         php5.6-readline \
@@ -236,49 +240,45 @@ RUN apt-get download \
         php5.6-yaml \
         php5.6-zip \
         php5.6-zmq \
-        php-amqp \
-        php-apcu \
-        php-gearman \
-        php-geoip \
-        php-gettext \
-        php-gmagick \
-        php-gnupg \
-#        php-http \
-        php-igbinary \
-        php-imagick \
-        php-lua \
+        php5.6-gearman \
+        php5.6-geoip \
+        php5.6-gmagick \
+        php5.6-gnupg \
+#        php5.6-http \
+        php5.6-igbinary \
+        php5.6-imagick \
+        php5.6-lua \
         liblua5.2-0 \
-        php-sodium \
         php-libvirt-php \
-        php-mailparse \
-        php-memcache \
-        php-memcached \
-        php-mongo \
-        php-mongodb \
-        php-msgpack \
-        php-oauth \
-        php-pgsql \
-        php-phalcon \
-        php-propro \
-        php-radius \
-        php-raphf \
-        php-redis \
-        php-rrd \
-        php-sass \
-        libsass0 \
-        php-solr \
-        php-ssh2 \
-        php-stomp \
-        php-tideways \
-        php-uploadprogress \
-        php-uuid \
-        php-xcache \
-        php-xdebug \
-        php-xhprof \
-        php-yac \
-        php-yaml \
-        php-zmq \
-        php-smbclient \
+        php5.6-memcache \
+        php5.6-memcached \
+        php5.6-mongo \
+        php5.6-mongodb \
+        php5.6-msgpack \
+        php5.6-oauth \
+        php5.6-pgsql \
+        php5.6-phalcon3 \
+        php5.6-radius \
+        php5.6-raphf \
+        php5.6-redis \
+        php5.6-rrd \
+        php5.6-solr \
+        php5.6-ssh2 \
+        php5.6-stomp \
+        php5.6-uploadprogress \
+        php5.6-xcache \
+        php5.6-xdebug \
+        php5.6-xhprof \
+        php5.6-yac \
+        php5.6-yaml \
+        php5.6-zstd \
+        php5.6-smbclient \
+        pslib1 \
+        libzstd1 \
+        libbrotli1 \
+        libfribidi0 \
+        libmount1 \
+        libblkid1 \
         libsmbclient \
         samba-libs \
         libtalloc2 \
@@ -286,10 +286,10 @@ RUN apt-get download \
         libwbclient0 \
         libtdb1 \
         libcap2 \
-        libldb1 \
+        libldb2 \
         libjansson4 \
         blackfire-php \
-        libsnmp30
+        libsnmp35
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
 WORKDIR /rootfs
@@ -329,14 +329,15 @@ RUN mkdir -p \
         etc/php/7.2 \
         etc/php/7.3 \
         etc/php/7.4 \
+        etc/php/8.0 \
         lib/systemd \
         lib/udev \
         usr/bin/gpg2 \
         usr/include \
         usr/lib/aspell/*-linux-gnu*/*.la \
         usr/lib/blackfire-php \
-        usr/lib/*-linux-gnu*/ImageMagick-6.9.7/modules-Q16/coders/*.la \
-        usr/lib/*-linux-gnu*/ImageMagick-6.9.7/modules-Q16/filters/*.la \
+        usr/lib/*-linux-gnu*/ImageMagick-*/modules-*/coders/*.la \
+        usr/lib/*-linux-gnu*/ImageMagick-*/modules-*/filters/*.la \
         usr/lib/odbc \
         usr/lib/tmpfiles.d \
         usr/lib/php/5.6 \
@@ -349,6 +350,9 @@ RUN mkdir -p \
         usr/lib/php/20170718 \
         usr/lib/php/20180731 \
         usr/lib/php/20190902 \
+        usr/lib/php/20200930 \
+        usr/lib/systemd \
+        usr/lib/*-linux-gnu/glib-2.0/gio-launch-desktop \
         usr/sbin/addgnupghome \
         usr/sbin/applygnupgdefaults \
         usr/share/X11/locale \
@@ -360,6 +364,7 @@ RUN mkdir -p \
         usr/share/bug \
         usr/share/locale \
         usr/share/doc-base \
+        usr/share/libvirt/test-screenshot.png \
         usr/share/lintian \
         usr/share/upstart \
         usr/share/firebird3.0-common \
@@ -392,24 +397,24 @@ RUN mkdir -p \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
         etc/php/5.6/cli/php.ini \
  && for file in etc/php/5.6/mods-available/*.ini; do \
-        priority=$(grep -E " *; *priority=" ${file} | sed -r "s/ *; *priority *= *([0-9]+.*)/\1/g"); \
-        if [ -z "${priority}" ]; then priority=20; fi; \
-        ln -s "../../mods-available/$(basename ${file})" etc/php/5.6/cli/conf.d/${priority}-$(basename ${file}); \
-        ln -s "../../mods-available/$(basename ${file})" etc/php/5.6/fpm/conf.d/${priority}-$(basename ${file}); \
+        module=$(basename ${file}); \
+        if [ "${module}" != "gmagick.ini" ]; then \
+            priority=$(grep -E " *; *priority=" ${file} | sed -r "s/ *; *priority *= *([0-9]+.*)/\1/g"); \
+            if [ -z "${priority}" ]; then priority=20; fi; \
+            ln -s "/etc/php/5.6/mods-available/${module}" etc/php/5.6/cli/conf.d/${priority}-${module}; \
+            ln -s "/etc/php/5.6/mods-available/${module}" etc/php/5.6/fpm/conf.d/${priority}-${module}; \
+        fi \
     done \
  && find \
         etc/firebird/3.0/firebird.conf \
         etc/libnl-3/* \
         etc/magic* \
+        etc/xattr.conf \
     | xargs -I % sed -i -r \
         -e 's,^[[:space:]]*[#;]+.*$,,g' \
         -e 's,[[:space:]]+, ,g' \
         -e '/^[[:space:]]*$/d' \
-        % \
- && sed -i -r \
-        -e 's,extension=gmagick.so,;extension=gmagick.so,g' \
-        etc/php/5.6/mods-available/gmagick.ini
-
+        %
 
 COPY --from=base /etc/group /etc/gshadow /etc/passwd /etc/shadow etc/
 COPY init/ etc/init/

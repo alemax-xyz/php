@@ -1,3 +1,3 @@
 #!/bin/sh
 
-[ -n "$CHOWN" ] && chown -R $PUID:$PGID $CHOWN
+[ -n "$CHOWN" ] && chown -Rf $PUID:$PGID $CHOWN

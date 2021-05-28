@@ -226,11 +226,6 @@
 	elif [ -n "${PHP_ASSERT_EXCEPTION+1}" ]; then
 		echo "assert.exception=${PHP_ASSERT_EXCEPTION}"
 	fi
-	if [ -n "${PHP_CLI_ASSERT_QUIET_EVAL+1}" ]; then
-		echo "assert.quiet_eval=${PHP_CLI_ASSERT_QUIET_EVAL}"
-	elif [ -n "${PHP_ASSERT_QUIET_EVAL+1}" ]; then
-		echo "assert.quiet_eval=${PHP_ASSERT_QUIET_EVAL}"
-	fi
 	if [ -n "${PHP_CLI_ASSERT_WARNING+1}" ]; then
 		echo "assert.warning=${PHP_CLI_ASSERT_WARNING}"
 	elif [ -n "${PHP_ASSERT_WARNING+1}" ]; then
@@ -486,11 +481,6 @@
 	elif [ -n "${PHP_EXIF_ENCODE_UNICODE+1}" ]; then
 		echo "exif.encode_unicode=${PHP_EXIF_ENCODE_UNICODE}"
 	fi
-	if [ -n "${PHP_CLI_EXIT_ON_TIMEOUT+1}" ]; then
-		echo "exit_on_timeout=${PHP_CLI_EXIT_ON_TIMEOUT}"
-	elif [ -n "${PHP_EXIT_ON_TIMEOUT+1}" ]; then
-		echo "exit_on_timeout=${PHP_EXIT_ON_TIMEOUT}"
-	fi
 	if [ -n "${PHP_CLI_EXPOSE_PHP+1}" ]; then
 		echo "expose_php=${PHP_CLI_EXPOSE_PHP}"
 	elif [ -n "${PHP_EXPOSE_PHP+1}" ]; then
@@ -501,10 +491,15 @@
 	elif [ -n "${PHP_EXTENSION_DIR+1}" ]; then
 		echo "extension_dir=${PHP_EXTENSION_DIR}"
 	fi
-	if [ -n "${PHP_CLI_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_CLI_FACEDETECT_CASCADE}"
-	elif [ -n "${PHP_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_FACEDETECT_CASCADE}"
+	if [ -n "${PHP_CLI_FFI_ENABLE+1}" ]; then
+		echo "ffi.enable=${PHP_CLI_FFI_ENABLE}"
+	elif [ -n "${PHP_FFI_ENABLE+1}" ]; then
+		echo "ffi.enable=${PHP_FFI_ENABLE}"
+	fi
+	if [ -n "${PHP_CLI_FFI_PRELOAD+1}" ]; then
+		echo "ffi.preload=${PHP_CLI_FFI_PRELOAD}"
+	elif [ -n "${PHP_FFI_PRELOAD+1}" ]; then
+		echo "ffi.preload=${PHP_FFI_PRELOAD}"
 	fi
 	if [ -n "${PHP_CLI_FILE_UPLOADS+1}" ]; then
 		echo "file_uploads=${PHP_CLI_FILE_UPLOADS}"
@@ -531,11 +526,6 @@
 	elif [ -n "${PHP_GD_JPEG_IGNORE_WARNING+1}" ]; then
 		echo "gd.jpeg_ignore_warning=${PHP_GD_JPEG_IGNORE_WARNING}"
 	fi
-	if [ -n "${PHP_CLI_GEOIP_CUSTOM_DIRECTORY+1}" ]; then
-		echo "geoip.custom_directory=${PHP_CLI_GEOIP_CUSTOM_DIRECTORY}"
-	elif [ -n "${PHP_GEOIP_CUSTOM_DIRECTORY+1}" ]; then
-		echo "geoip.custom_directory=${PHP_GEOIP_CUSTOM_DIRECTORY}"
-	fi
 	if [ -n "${PHP_CLI_GRPC_ENABLE_FORK_SUPPORT+1}" ]; then
 		echo "grpc.enable_fork_support=${PHP_CLI_GRPC_ENABLE_FORK_SUPPORT}"
 	elif [ -n "${PHP_GRPC_ENABLE_FORK_SUPPORT+1}" ]; then
@@ -560,6 +550,11 @@
 		echo "grpc.poll_strategy=${PHP_CLI_GRPC_POLL_STRATEGY}"
 	elif [ -n "${PHP_GRPC_POLL_STRATEGY+1}" ]; then
 		echo "grpc.poll_strategy=${PHP_GRPC_POLL_STRATEGY}"
+	fi
+	if [ -n "${PHP_CLI_HARD_TIMEOUT+1}" ]; then
+		echo "hard_timeout=${PHP_CLI_HARD_TIMEOUT}"
+	elif [ -n "${PHP_HARD_TIMEOUT+1}" ]; then
+		echo "hard_timeout=${PHP_HARD_TIMEOUT}"
 	fi
 	if [ -n "${PHP_CLI_HIGHLIGHT_COMMENT+1}" ]; then
 		echo "highlight.comment=${PHP_CLI_HIGHLIGHT_COMMENT}"
@@ -595,56 +590,6 @@
 		echo "http.etag.mode=${PHP_CLI_HTTP_ETAG_MODE}"
 	elif [ -n "${PHP_HTTP_ETAG_MODE+1}" ]; then
 		echo "http.etag.mode=${PHP_HTTP_ETAG_MODE}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_ALLOW_PERSISTENT+1}" ]; then
-		echo "ibase.allow_persistent=${PHP_CLI_IBASE_ALLOW_PERSISTENT}"
-	elif [ -n "${PHP_IBASE_ALLOW_PERSISTENT+1}" ]; then
-		echo "ibase.allow_persistent=${PHP_IBASE_ALLOW_PERSISTENT}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_DATEFORMAT+1}" ]; then
-		echo "ibase.dateformat=${PHP_CLI_IBASE_DATEFORMAT}"
-	elif [ -n "${PHP_IBASE_DATEFORMAT+1}" ]; then
-		echo "ibase.dateformat=${PHP_IBASE_DATEFORMAT}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_DEFAULT_CHARSET+1}" ]; then
-		echo "ibase.default_charset=${PHP_CLI_IBASE_DEFAULT_CHARSET}"
-	elif [ -n "${PHP_IBASE_DEFAULT_CHARSET+1}" ]; then
-		echo "ibase.default_charset=${PHP_IBASE_DEFAULT_CHARSET}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_DEFAULT_DB+1}" ]; then
-		echo "ibase.default_db=${PHP_CLI_IBASE_DEFAULT_DB}"
-	elif [ -n "${PHP_IBASE_DEFAULT_DB+1}" ]; then
-		echo "ibase.default_db=${PHP_IBASE_DEFAULT_DB}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_DEFAULT_PASSWORD+1}" ]; then
-		echo "ibase.default_password=${PHP_CLI_IBASE_DEFAULT_PASSWORD}"
-	elif [ -n "${PHP_IBASE_DEFAULT_PASSWORD+1}" ]; then
-		echo "ibase.default_password=${PHP_IBASE_DEFAULT_PASSWORD}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_DEFAULT_USER+1}" ]; then
-		echo "ibase.default_user=${PHP_CLI_IBASE_DEFAULT_USER}"
-	elif [ -n "${PHP_IBASE_DEFAULT_USER+1}" ]; then
-		echo "ibase.default_user=${PHP_IBASE_DEFAULT_USER}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_MAX_LINKS+1}" ]; then
-		echo "ibase.max_links=${PHP_CLI_IBASE_MAX_LINKS}"
-	elif [ -n "${PHP_IBASE_MAX_LINKS+1}" ]; then
-		echo "ibase.max_links=${PHP_IBASE_MAX_LINKS}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_MAX_PERSISTENT+1}" ]; then
-		echo "ibase.max_persistent=${PHP_CLI_IBASE_MAX_PERSISTENT}"
-	elif [ -n "${PHP_IBASE_MAX_PERSISTENT+1}" ]; then
-		echo "ibase.max_persistent=${PHP_IBASE_MAX_PERSISTENT}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_TIMEFORMAT+1}" ]; then
-		echo "ibase.timeformat=${PHP_CLI_IBASE_TIMEFORMAT}"
-	elif [ -n "${PHP_IBASE_TIMEFORMAT+1}" ]; then
-		echo "ibase.timeformat=${PHP_IBASE_TIMEFORMAT}"
-	fi
-	if [ -n "${PHP_CLI_IBASE_TIMESTAMPFORMAT+1}" ]; then
-		echo "ibase.timestampformat=${PHP_CLI_IBASE_TIMESTAMPFORMAT}"
-	elif [ -n "${PHP_IBASE_TIMESTAMPFORMAT+1}" ]; then
-		echo "ibase.timestampformat=${PHP_IBASE_TIMESTAMPFORMAT}"
 	fi
 	if [ -n "${PHP_CLI_ICONV_INPUT_ENCODING+1}" ]; then
 		echo "iconv.input_encoding=${PHP_CLI_ICONV_INPUT_ENCODING}"
@@ -690,6 +635,16 @@
 		echo "imagick.progress_monitor=${PHP_CLI_IMAGICK_PROGRESS_MONITOR}"
 	elif [ -n "${PHP_IMAGICK_PROGRESS_MONITOR+1}" ]; then
 		echo "imagick.progress_monitor=${PHP_IMAGICK_PROGRESS_MONITOR}"
+	fi
+	if [ -n "${PHP_CLI_IMAGICK_SET_SINGLE_THREAD+1}" ]; then
+		echo "imagick.set_single_thread=${PHP_CLI_IMAGICK_SET_SINGLE_THREAD}"
+	elif [ -n "${PHP_IMAGICK_SET_SINGLE_THREAD+1}" ]; then
+		echo "imagick.set_single_thread=${PHP_IMAGICK_SET_SINGLE_THREAD}"
+	fi
+	if [ -n "${PHP_CLI_IMAGICK_SHUTDOWN_SLEEP_COUNT+1}" ]; then
+		echo "imagick.shutdown_sleep_count=${PHP_CLI_IMAGICK_SHUTDOWN_SLEEP_COUNT}"
+	elif [ -n "${PHP_IMAGICK_SHUTDOWN_SLEEP_COUNT+1}" ]; then
+		echo "imagick.shutdown_sleep_count=${PHP_IMAGICK_SHUTDOWN_SLEEP_COUNT}"
 	fi
 	if [ -n "${PHP_CLI_IMAGICK_SKIP_VERSION_CHECK+1}" ]; then
 		echo "imagick.skip_version_check=${PHP_CLI_IMAGICK_SKIP_VERSION_CHECK}"
@@ -740,26 +695,6 @@
 		echo "ldap.max_links=${PHP_CLI_LDAP_MAX_LINKS}"
 	elif [ -n "${PHP_LDAP_MAX_LINKS+1}" ]; then
 		echo "ldap.max_links=${PHP_LDAP_MAX_LINKS}"
-	fi
-	if [ -n "${PHP_CLI_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_CLI_LIBVIRT_IMAGE_PATH}"
-	elif [ -n "${PHP_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_LIBVIRT_IMAGE_PATH}"
-	fi
-	if [ -n "${PHP_CLI_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_CLI_LIBVIRT_ISO_PATH}"
-	elif [ -n "${PHP_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_LIBVIRT_ISO_PATH}"
-	fi
-	if [ -n "${PHP_CLI_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_CLI_LIBVIRT_LONGLONG_TO_STRING}"
-	elif [ -n "${PHP_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_LIBVIRT_LONGLONG_TO_STRING}"
-	fi
-	if [ -n "${PHP_CLI_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_CLI_LIBVIRT_MAX_CONNECTIONS}"
-	elif [ -n "${PHP_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_LIBVIRT_MAX_CONNECTIONS}"
 	fi
 	if [ -n "${PHP_CLI_LOG_ERRORS+1}" ]; then
 		echo "log_errors=${PHP_CLI_LOG_ERRORS}"
@@ -826,11 +761,6 @@
 	elif [ -n "${PHP_MBSTRING_ENCODING_TRANSLATION+1}" ]; then
 		echo "mbstring.encoding_translation=${PHP_MBSTRING_ENCODING_TRANSLATION}"
 	fi
-	if [ -n "${PHP_CLI_MBSTRING_FUNC_OVERLOAD+1}" ]; then
-		echo "mbstring.func_overload=${PHP_CLI_MBSTRING_FUNC_OVERLOAD}"
-	elif [ -n "${PHP_MBSTRING_FUNC_OVERLOAD+1}" ]; then
-		echo "mbstring.func_overload=${PHP_MBSTRING_FUNC_OVERLOAD}"
-	fi
 	if [ -n "${PHP_CLI_MBSTRING_HTTP_INPUT+1}" ]; then
 		echo "mbstring.http_input=${PHP_CLI_MBSTRING_HTTP_INPUT}"
 	elif [ -n "${PHP_MBSTRING_HTTP_INPUT+1}" ]; then
@@ -855,6 +785,16 @@
 		echo "mbstring.language=${PHP_CLI_MBSTRING_LANGUAGE}"
 	elif [ -n "${PHP_MBSTRING_LANGUAGE+1}" ]; then
 		echo "mbstring.language=${PHP_MBSTRING_LANGUAGE}"
+	fi
+	if [ -n "${PHP_CLI_MBSTRING_REGEX_RETRY_LIMIT+1}" ]; then
+		echo "mbstring.regex_retry_limit=${PHP_CLI_MBSTRING_REGEX_RETRY_LIMIT}"
+	elif [ -n "${PHP_MBSTRING_REGEX_RETRY_LIMIT+1}" ]; then
+		echo "mbstring.regex_retry_limit=${PHP_MBSTRING_REGEX_RETRY_LIMIT}"
+	fi
+	if [ -n "${PHP_CLI_MBSTRING_REGEX_STACK_LIMIT+1}" ]; then
+		echo "mbstring.regex_stack_limit=${PHP_CLI_MBSTRING_REGEX_STACK_LIMIT}"
+	elif [ -n "${PHP_MBSTRING_REGEX_STACK_LIMIT+1}" ]; then
+		echo "mbstring.regex_stack_limit=${PHP_MBSTRING_REGEX_STACK_LIMIT}"
 	fi
 	if [ -n "${PHP_CLI_MBSTRING_STRICT_DETECTION+1}" ]; then
 		echo "mbstring.strict_detection=${PHP_CLI_MBSTRING_STRICT_DETECTION}"
@@ -1336,11 +1276,6 @@
 	elif [ -n "${PHP_OPCACHE_ERROR_LOG+1}" ]; then
 		echo "opcache.error_log=${PHP_OPCACHE_ERROR_LOG}"
 	fi
-	if [ -n "${PHP_CLI_OPCACHE_FAST_SHUTDOWN+1}" ]; then
-		echo "opcache.fast_shutdown=${PHP_CLI_OPCACHE_FAST_SHUTDOWN}"
-	elif [ -n "${PHP_OPCACHE_FAST_SHUTDOWN+1}" ]; then
-		echo "opcache.fast_shutdown=${PHP_OPCACHE_FAST_SHUTDOWN}"
-	fi
 	if [ -n "${PHP_CLI_OPCACHE_FILE_CACHE+1}" ]; then
 		echo "opcache.file_cache=${PHP_CLI_OPCACHE_FILE_CACHE}"
 	elif [ -n "${PHP_OPCACHE_FILE_CACHE+1}" ]; then
@@ -1371,15 +1306,100 @@
 	elif [ -n "${PHP_OPCACHE_HUGE_CODE_PAGES+1}" ]; then
 		echo "opcache.huge_code_pages=${PHP_OPCACHE_HUGE_CODE_PAGES}"
 	fi
-	if [ -n "${PHP_CLI_OPCACHE_INHERITED_HACK+1}" ]; then
-		echo "opcache.inherited_hack=${PHP_CLI_OPCACHE_INHERITED_HACK}"
-	elif [ -n "${PHP_OPCACHE_INHERITED_HACK+1}" ]; then
-		echo "opcache.inherited_hack=${PHP_OPCACHE_INHERITED_HACK}"
-	fi
 	if [ -n "${PHP_CLI_OPCACHE_INTERNED_STRINGS_BUFFER+1}" ]; then
 		echo "opcache.interned_strings_buffer=${PHP_CLI_OPCACHE_INTERNED_STRINGS_BUFFER}"
 	elif [ -n "${PHP_OPCACHE_INTERNED_STRINGS_BUFFER+1}" ]; then
 		echo "opcache.interned_strings_buffer=${PHP_OPCACHE_INTERNED_STRINGS_BUFFER}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT+1}" ]; then
+		echo "opcache.jit=${PHP_CLI_OPCACHE_JIT}"
+	elif [ -n "${PHP_OPCACHE_JIT+1}" ]; then
+		echo "opcache.jit=${PHP_OPCACHE_JIT}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_BISECT_LIMIT+1}" ]; then
+		echo "opcache.jit_bisect_limit=${PHP_CLI_OPCACHE_JIT_BISECT_LIMIT}"
+	elif [ -n "${PHP_OPCACHE_JIT_BISECT_LIMIT+1}" ]; then
+		echo "opcache.jit_bisect_limit=${PHP_OPCACHE_JIT_BISECT_LIMIT}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_BLACKLIST_ROOT_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_root_trace=${PHP_CLI_OPCACHE_JIT_BLACKLIST_ROOT_TRACE}"
+	elif [ -n "${PHP_OPCACHE_JIT_BLACKLIST_ROOT_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_root_trace=${PHP_OPCACHE_JIT_BLACKLIST_ROOT_TRACE}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_BLACKLIST_SIDE_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_side_trace=${PHP_CLI_OPCACHE_JIT_BLACKLIST_SIDE_TRACE}"
+	elif [ -n "${PHP_OPCACHE_JIT_BLACKLIST_SIDE_TRACE+1}" ]; then
+		echo "opcache.jit_blacklist_side_trace=${PHP_OPCACHE_JIT_BLACKLIST_SIDE_TRACE}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_BUFFER_SIZE+1}" ]; then
+		echo "opcache.jit_buffer_size=${PHP_CLI_OPCACHE_JIT_BUFFER_SIZE}"
+	elif [ -n "${PHP_OPCACHE_JIT_BUFFER_SIZE+1}" ]; then
+		echo "opcache.jit_buffer_size=${PHP_OPCACHE_JIT_BUFFER_SIZE}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_DEBUG+1}" ]; then
+		echo "opcache.jit_debug=${PHP_CLI_OPCACHE_JIT_DEBUG}"
+	elif [ -n "${PHP_OPCACHE_JIT_DEBUG+1}" ]; then
+		echo "opcache.jit_debug=${PHP_OPCACHE_JIT_DEBUG}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_HOT_FUNC+1}" ]; then
+		echo "opcache.jit_hot_func=${PHP_CLI_OPCACHE_JIT_HOT_FUNC}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_FUNC+1}" ]; then
+		echo "opcache.jit_hot_func=${PHP_OPCACHE_JIT_HOT_FUNC}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_HOT_LOOP+1}" ]; then
+		echo "opcache.jit_hot_loop=${PHP_CLI_OPCACHE_JIT_HOT_LOOP}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_LOOP+1}" ]; then
+		echo "opcache.jit_hot_loop=${PHP_OPCACHE_JIT_HOT_LOOP}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_HOT_RETURN+1}" ]; then
+		echo "opcache.jit_hot_return=${PHP_CLI_OPCACHE_JIT_HOT_RETURN}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_RETURN+1}" ]; then
+		echo "opcache.jit_hot_return=${PHP_OPCACHE_JIT_HOT_RETURN}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_HOT_SIDE_EXIT+1}" ]; then
+		echo "opcache.jit_hot_side_exit=${PHP_CLI_OPCACHE_JIT_HOT_SIDE_EXIT}"
+	elif [ -n "${PHP_OPCACHE_JIT_HOT_SIDE_EXIT+1}" ]; then
+		echo "opcache.jit_hot_side_exit=${PHP_OPCACHE_JIT_HOT_SIDE_EXIT}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_MAX_EXIT_COUNTERS+1}" ]; then
+		echo "opcache.jit_max_exit_counters=${PHP_CLI_OPCACHE_JIT_MAX_EXIT_COUNTERS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_EXIT_COUNTERS+1}" ]; then
+		echo "opcache.jit_max_exit_counters=${PHP_OPCACHE_JIT_MAX_EXIT_COUNTERS}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_MAX_LOOP_UNROLLS+1}" ]; then
+		echo "opcache.jit_max_loop_unrolls=${PHP_CLI_OPCACHE_JIT_MAX_LOOP_UNROLLS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_LOOP_UNROLLS+1}" ]; then
+		echo "opcache.jit_max_loop_unrolls=${PHP_OPCACHE_JIT_MAX_LOOP_UNROLLS}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS+1}" ]; then
+		echo "opcache.jit_max_polymorphic_calls=${PHP_CLI_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS+1}" ]; then
+		echo "opcache.jit_max_polymorphic_calls=${PHP_OPCACHE_JIT_MAX_POLYMORPHIC_CALLS}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_MAX_RECURSIVE_CALLS+1}" ]; then
+		echo "opcache.jit_max_recursive_calls=${PHP_CLI_OPCACHE_JIT_MAX_RECURSIVE_CALLS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_RECURSIVE_CALLS+1}" ]; then
+		echo "opcache.jit_max_recursive_calls=${PHP_OPCACHE_JIT_MAX_RECURSIVE_CALLS}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_MAX_RECURSIVE_RETURNS+1}" ]; then
+		echo "opcache.jit_max_recursive_returns=${PHP_CLI_OPCACHE_JIT_MAX_RECURSIVE_RETURNS}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_RECURSIVE_RETURNS+1}" ]; then
+		echo "opcache.jit_max_recursive_returns=${PHP_OPCACHE_JIT_MAX_RECURSIVE_RETURNS}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_MAX_ROOT_TRACES+1}" ]; then
+		echo "opcache.jit_max_root_traces=${PHP_CLI_OPCACHE_JIT_MAX_ROOT_TRACES}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_ROOT_TRACES+1}" ]; then
+		echo "opcache.jit_max_root_traces=${PHP_OPCACHE_JIT_MAX_ROOT_TRACES}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_MAX_SIDE_TRACES+1}" ]; then
+		echo "opcache.jit_max_side_traces=${PHP_CLI_OPCACHE_JIT_MAX_SIDE_TRACES}"
+	elif [ -n "${PHP_OPCACHE_JIT_MAX_SIDE_TRACES+1}" ]; then
+		echo "opcache.jit_max_side_traces=${PHP_OPCACHE_JIT_MAX_SIDE_TRACES}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_JIT_PROF_THRESHOLD+1}" ]; then
+		echo "opcache.jit_prof_threshold=${PHP_CLI_OPCACHE_JIT_PROF_THRESHOLD}"
+	elif [ -n "${PHP_OPCACHE_JIT_PROF_THRESHOLD+1}" ]; then
+		echo "opcache.jit_prof_threshold=${PHP_OPCACHE_JIT_PROF_THRESHOLD}"
 	fi
 	if [ -n "${PHP_CLI_OPCACHE_LOCKFILE_PATH+1}" ]; then
 		echo "opcache.lockfile_path=${PHP_CLI_OPCACHE_LOCKFILE_PATH}"
@@ -1411,6 +1431,11 @@
 	elif [ -n "${PHP_OPCACHE_MEMORY_CONSUMPTION+1}" ]; then
 		echo "opcache.memory_consumption=${PHP_OPCACHE_MEMORY_CONSUMPTION}"
 	fi
+	if [ -n "${PHP_CLI_OPCACHE_OPT_DEBUG_LEVEL+1}" ]; then
+		echo "opcache.opt_debug_level=${PHP_CLI_OPCACHE_OPT_DEBUG_LEVEL}"
+	elif [ -n "${PHP_OPCACHE_OPT_DEBUG_LEVEL+1}" ]; then
+		echo "opcache.opt_debug_level=${PHP_OPCACHE_OPT_DEBUG_LEVEL}"
+	fi
 	if [ -n "${PHP_CLI_OPCACHE_OPTIMIZATION_LEVEL+1}" ]; then
 		echo "opcache.optimization_level=${PHP_CLI_OPCACHE_OPTIMIZATION_LEVEL}"
 	elif [ -n "${PHP_OPCACHE_OPTIMIZATION_LEVEL+1}" ]; then
@@ -1421,10 +1446,25 @@
 	elif [ -n "${PHP_OPCACHE_PREFERRED_MEMORY_MODEL+1}" ]; then
 		echo "opcache.preferred_memory_model=${PHP_OPCACHE_PREFERRED_MEMORY_MODEL}"
 	fi
+	if [ -n "${PHP_CLI_OPCACHE_PRELOAD+1}" ]; then
+		echo "opcache.preload=${PHP_CLI_OPCACHE_PRELOAD}"
+	elif [ -n "${PHP_OPCACHE_PRELOAD+1}" ]; then
+		echo "opcache.preload=${PHP_OPCACHE_PRELOAD}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_PRELOAD_USER+1}" ]; then
+		echo "opcache.preload_user=${PHP_CLI_OPCACHE_PRELOAD_USER}"
+	elif [ -n "${PHP_OPCACHE_PRELOAD_USER+1}" ]; then
+		echo "opcache.preload_user=${PHP_OPCACHE_PRELOAD_USER}"
+	fi
 	if [ -n "${PHP_CLI_OPCACHE_PROTECT_MEMORY+1}" ]; then
 		echo "opcache.protect_memory=${PHP_CLI_OPCACHE_PROTECT_MEMORY}"
 	elif [ -n "${PHP_OPCACHE_PROTECT_MEMORY+1}" ]; then
 		echo "opcache.protect_memory=${PHP_OPCACHE_PROTECT_MEMORY}"
+	fi
+	if [ -n "${PHP_CLI_OPCACHE_RECORD_WARNINGS+1}" ]; then
+		echo "opcache.record_warnings=${PHP_CLI_OPCACHE_RECORD_WARNINGS}"
+	elif [ -n "${PHP_OPCACHE_RECORD_WARNINGS+1}" ]; then
+		echo "opcache.record_warnings=${PHP_OPCACHE_RECORD_WARNINGS}"
 	fi
 	if [ -n "${PHP_CLI_OPCACHE_RESTRICT_API+1}" ]; then
 		echo "opcache.restrict_api=${PHP_CLI_OPCACHE_RESTRICT_API}"
@@ -1496,6 +1536,31 @@
 	elif [ -n "${PHP_OUTPUT_HANDLER+1}" ]; then
 		echo "output_handler=${PHP_OUTPUT_HANDLER}"
 	fi
+	if [ -n "${PHP_CLI_PCOV_DIRECTORY+1}" ]; then
+		echo "pcov.directory=${PHP_CLI_PCOV_DIRECTORY}"
+	elif [ -n "${PHP_PCOV_DIRECTORY+1}" ]; then
+		echo "pcov.directory=${PHP_PCOV_DIRECTORY}"
+	fi
+	if [ -n "${PHP_CLI_PCOV_ENABLED+1}" ]; then
+		echo "pcov.enabled=${PHP_CLI_PCOV_ENABLED}"
+	elif [ -n "${PHP_PCOV_ENABLED+1}" ]; then
+		echo "pcov.enabled=${PHP_PCOV_ENABLED}"
+	fi
+	if [ -n "${PHP_CLI_PCOV_EXCLUDE+1}" ]; then
+		echo "pcov.exclude=${PHP_CLI_PCOV_EXCLUDE}"
+	elif [ -n "${PHP_PCOV_EXCLUDE+1}" ]; then
+		echo "pcov.exclude=${PHP_PCOV_EXCLUDE}"
+	fi
+	if [ -n "${PHP_CLI_PCOV_INITIAL_FILES+1}" ]; then
+		echo "pcov.initial.files=${PHP_CLI_PCOV_INITIAL_FILES}"
+	elif [ -n "${PHP_PCOV_INITIAL_FILES+1}" ]; then
+		echo "pcov.initial.files=${PHP_PCOV_INITIAL_FILES}"
+	fi
+	if [ -n "${PHP_CLI_PCOV_INITIAL_MEMORY+1}" ]; then
+		echo "pcov.initial.memory=${PHP_CLI_PCOV_INITIAL_MEMORY}"
+	elif [ -n "${PHP_PCOV_INITIAL_MEMORY+1}" ]; then
+		echo "pcov.initial.memory=${PHP_PCOV_INITIAL_MEMORY}"
+	fi
 	if [ -n "${PHP_CLI_PCRE_BACKTRACK_LIMIT+1}" ]; then
 		echo "pcre.backtrack_limit=${PHP_CLI_PCRE_BACKTRACK_LIMIT}"
 	elif [ -n "${PHP_PCRE_BACKTRACK_LIMIT+1}" ]; then
@@ -1546,76 +1611,6 @@
 	elif [ -n "${PHP_PGSQL_MAX_PERSISTENT+1}" ]; then
 		echo "pgsql.max_persistent=${PHP_PGSQL_MAX_PERSISTENT}"
 	fi
-	if [ -n "${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
-		echo "phalcon.db.escape_identifiers=${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS}"
-	elif [ -n "${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
-		echo "phalcon.db.escape_identifiers=${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_DB_FORCE_CASTING+1}" ]; then
-		echo "phalcon.db.force_casting=${PHP_CLI_PHALCON_DB_FORCE_CASTING}"
-	elif [ -n "${PHP_PHALCON_DB_FORCE_CASTING+1}" ]; then
-		echo "phalcon.db.force_casting=${PHP_PHALCON_DB_FORCE_CASTING}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
-		echo "phalcon.orm.cast_on_hydrate=${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE}"
-	elif [ -n "${PHP_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
-		echo "phalcon.orm.cast_on_hydrate=${PHP_PHALCON_ORM_CAST_ON_HYDRATE}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
-		echo "phalcon.orm.column_renaming=${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING}"
-	elif [ -n "${PHP_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
-		echo "phalcon.orm.column_renaming=${PHP_PHALCON_ORM_COLUMN_RENAMING}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
-		echo "phalcon.orm.disable_assign_setters=${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
-	elif [ -n "${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
-		echo "phalcon.orm.disable_assign_setters=${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
-		echo "phalcon.orm.enable_implicit_joins=${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
-	elif [ -n "${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
-		echo "phalcon.orm.enable_implicit_joins=${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
-		echo "phalcon.orm.enable_literals=${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS}"
-	elif [ -n "${PHP_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
-		echo "phalcon.orm.enable_literals=${PHP_PHALCON_ORM_ENABLE_LITERALS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_EVENTS+1}" ]; then
-		echo "phalcon.orm.events=${PHP_CLI_PHALCON_ORM_EVENTS}"
-	elif [ -n "${PHP_PHALCON_ORM_EVENTS+1}" ]; then
-		echo "phalcon.orm.events=${PHP_PHALCON_ORM_EVENTS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_save=${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
-	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
-		echo "phalcon.orm.ignore_unknown_columns=${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
-	elif [ -n "${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
-		echo "phalcon.orm.ignore_unknown_columns=${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
-		echo "phalcon.orm.late_state_binding=${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING}"
-	elif [ -n "${PHP_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
-		echo "phalcon.orm.late_state_binding=${PHP_PHALCON_ORM_LATE_STATE_BINDING}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
-		echo "phalcon.orm.not_null_validations=${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
-	elif [ -n "${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
-		echo "phalcon.orm.not_null_validations=${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
-		echo "phalcon.orm.update_snapshot_on_save=${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
-	elif [ -n "${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
-		echo "phalcon.orm.update_snapshot_on_save=${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
-		echo "phalcon.orm.virtual_foreign_keys=${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
-	elif [ -n "${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
-		echo "phalcon.orm.virtual_foreign_keys=${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
-	fi
 	if [ -n "${PHP_CLI_PHAR_CACHE_LIST+1}" ]; then
 		echo "phar.cache_list=${PHP_CLI_PHAR_CACHE_LIST}"
 	elif [ -n "${PHP_PHAR_CACHE_LIST+1}" ]; then
@@ -1630,26 +1625,6 @@
 		echo "phar.require_hash=${PHP_CLI_PHAR_REQUIRE_HASH}"
 	elif [ -n "${PHP_PHAR_REQUIRE_HASH+1}" ]; then
 		echo "phar.require_hash=${PHP_PHAR_REQUIRE_HASH}"
-	fi
-	if [ -n "${PHP_CLI_PINBA_AUTO_FLUSH+1}" ]; then
-		echo "pinba.auto_flush=${PHP_CLI_PINBA_AUTO_FLUSH}"
-	elif [ -n "${PHP_PINBA_AUTO_FLUSH+1}" ]; then
-		echo "pinba.auto_flush=${PHP_PINBA_AUTO_FLUSH}"
-	fi
-	if [ -n "${PHP_CLI_PINBA_ENABLED+1}" ]; then
-		echo "pinba.enabled=${PHP_CLI_PINBA_ENABLED}"
-	elif [ -n "${PHP_PINBA_ENABLED+1}" ]; then
-		echo "pinba.enabled=${PHP_PINBA_ENABLED}"
-	fi
-	if [ -n "${PHP_CLI_PINBA_RESOLVE_INTERVAL+1}" ]; then
-		echo "pinba.resolve_interval=${PHP_CLI_PINBA_RESOLVE_INTERVAL}"
-	elif [ -n "${PHP_PINBA_RESOLVE_INTERVAL+1}" ]; then
-		echo "pinba.resolve_interval=${PHP_PINBA_RESOLVE_INTERVAL}"
-	fi
-	if [ -n "${PHP_CLI_PINBA_SERVER+1}" ]; then
-		echo "pinba.server=${PHP_CLI_PINBA_SERVER}"
-	elif [ -n "${PHP_PINBA_SERVER+1}" ]; then
-		echo "pinba.server=${PHP_PINBA_SERVER}"
 	fi
 	if [ -n "${PHP_CLI_POST_MAX_SIZE+1}" ]; then
 		echo "post_max_size=${PHP_CLI_POST_MAX_SIZE}"
@@ -1896,20 +1871,15 @@
 	elif [ -n "${PHP_SESSION_COOKIE_PATH+1}" ]; then
 		echo "session.cookie_path=${PHP_SESSION_COOKIE_PATH}"
 	fi
+	if [ -n "${PHP_CLI_SESSION_COOKIE_SAMESITE+1}" ]; then
+		echo "session.cookie_samesite=${PHP_CLI_SESSION_COOKIE_SAMESITE}"
+	elif [ -n "${PHP_SESSION_COOKIE_SAMESITE+1}" ]; then
+		echo "session.cookie_samesite=${PHP_SESSION_COOKIE_SAMESITE}"
+	fi
 	if [ -n "${PHP_CLI_SESSION_COOKIE_SECURE+1}" ]; then
 		echo "session.cookie_secure=${PHP_CLI_SESSION_COOKIE_SECURE}"
 	elif [ -n "${PHP_SESSION_COOKIE_SECURE+1}" ]; then
 		echo "session.cookie_secure=${PHP_SESSION_COOKIE_SECURE}"
-	fi
-	if [ -n "${PHP_CLI_SESSION_ENTROPY_FILE+1}" ]; then
-		echo "session.entropy_file=${PHP_CLI_SESSION_ENTROPY_FILE}"
-	elif [ -n "${PHP_SESSION_ENTROPY_FILE+1}" ]; then
-		echo "session.entropy_file=${PHP_SESSION_ENTROPY_FILE}"
-	fi
-	if [ -n "${PHP_CLI_SESSION_ENTROPY_LENGTH+1}" ]; then
-		echo "session.entropy_length=${PHP_CLI_SESSION_ENTROPY_LENGTH}"
-	elif [ -n "${PHP_SESSION_ENTROPY_LENGTH+1}" ]; then
-		echo "session.entropy_length=${PHP_SESSION_ENTROPY_LENGTH}"
 	fi
 	if [ -n "${PHP_CLI_SESSION_GC_DIVISOR+1}" ]; then
 		echo "session.gc_divisor=${PHP_CLI_SESSION_GC_DIVISOR}"
@@ -1925,16 +1895,6 @@
 		echo "session.gc_probability=${PHP_CLI_SESSION_GC_PROBABILITY}"
 	elif [ -n "${PHP_SESSION_GC_PROBABILITY+1}" ]; then
 		echo "session.gc_probability=${PHP_SESSION_GC_PROBABILITY}"
-	fi
-	if [ -n "${PHP_CLI_SESSION_HASH_BITS_PER_CHARACTER+1}" ]; then
-		echo "session.hash_bits_per_character=${PHP_CLI_SESSION_HASH_BITS_PER_CHARACTER}"
-	elif [ -n "${PHP_SESSION_HASH_BITS_PER_CHARACTER+1}" ]; then
-		echo "session.hash_bits_per_character=${PHP_SESSION_HASH_BITS_PER_CHARACTER}"
-	fi
-	if [ -n "${PHP_CLI_SESSION_HASH_FUNCTION+1}" ]; then
-		echo "session.hash_function=${PHP_CLI_SESSION_HASH_FUNCTION}"
-	elif [ -n "${PHP_SESSION_HASH_FUNCTION+1}" ]; then
-		echo "session.hash_function=${PHP_SESSION_HASH_FUNCTION}"
 	fi
 	if [ -n "${PHP_CLI_SESSION_LAZY_WRITE+1}" ]; then
 		echo "session.lazy_write=${PHP_CLI_SESSION_LAZY_WRITE}"
@@ -1965,6 +1925,26 @@
 		echo "session.serialize_handler=${PHP_CLI_SESSION_SERIALIZE_HANDLER}"
 	elif [ -n "${PHP_SESSION_SERIALIZE_HANDLER+1}" ]; then
 		echo "session.serialize_handler=${PHP_SESSION_SERIALIZE_HANDLER}"
+	fi
+	if [ -n "${PHP_CLI_SESSION_SID_BITS_PER_CHARACTER+1}" ]; then
+		echo "session.sid_bits_per_character=${PHP_CLI_SESSION_SID_BITS_PER_CHARACTER}"
+	elif [ -n "${PHP_SESSION_SID_BITS_PER_CHARACTER+1}" ]; then
+		echo "session.sid_bits_per_character=${PHP_SESSION_SID_BITS_PER_CHARACTER}"
+	fi
+	if [ -n "${PHP_CLI_SESSION_SID_LENGTH+1}" ]; then
+		echo "session.sid_length=${PHP_CLI_SESSION_SID_LENGTH}"
+	elif [ -n "${PHP_SESSION_SID_LENGTH+1}" ]; then
+		echo "session.sid_length=${PHP_SESSION_SID_LENGTH}"
+	fi
+	if [ -n "${PHP_CLI_SESSION_TRANS_SID_HOSTS+1}" ]; then
+		echo "session.trans_sid_hosts=${PHP_CLI_SESSION_TRANS_SID_HOSTS}"
+	elif [ -n "${PHP_SESSION_TRANS_SID_HOSTS+1}" ]; then
+		echo "session.trans_sid_hosts=${PHP_SESSION_TRANS_SID_HOSTS}"
+	fi
+	if [ -n "${PHP_CLI_SESSION_TRANS_SID_TAGS+1}" ]; then
+		echo "session.trans_sid_tags=${PHP_CLI_SESSION_TRANS_SID_TAGS}"
+	elif [ -n "${PHP_SESSION_TRANS_SID_TAGS+1}" ]; then
+		echo "session.trans_sid_tags=${PHP_SESSION_TRANS_SID_TAGS}"
 	fi
 	if [ -n "${PHP_CLI_SESSION_UPLOAD_PROGRESS_CLEANUP+1}" ]; then
 		echo "session.upload_progress.cleanup=${PHP_CLI_SESSION_UPLOAD_PROGRESS_CLEANUP}"
@@ -2056,11 +2036,6 @@
 	elif [ -n "${PHP_SOAP_WSDL_CACHE_TTL+1}" ]; then
 		echo "soap.wsdl_cache_ttl=${PHP_SOAP_WSDL_CACHE_TTL}"
 	fi
-	if [ -n "${PHP_CLI_SQL_SAFE_MODE+1}" ]; then
-		echo "sql.safe_mode=${PHP_CLI_SQL_SAFE_MODE}"
-	elif [ -n "${PHP_SQL_SAFE_MODE+1}" ]; then
-		echo "sql.safe_mode=${PHP_SQL_SAFE_MODE}"
-	fi
 	if [ -n "${PHP_CLI_SQLITE3_DEFENSIVE+1}" ]; then
 		echo "sqlite3.defensive=${PHP_CLI_SQLITE3_DEFENSIVE}"
 	elif [ -n "${PHP_SQLITE3_DEFENSIVE+1}" ]; then
@@ -2071,50 +2046,55 @@
 	elif [ -n "${PHP_SQLITE3_EXTENSION_DIR+1}" ]; then
 		echo "sqlite3.extension_dir=${PHP_SQLITE3_EXTENSION_DIR}"
 	fi
-	if [ -n "${PHP_CLI_STOMP_DEFAULT_BROKER+1}" ]; then
-		echo "stomp.default_broker=${PHP_CLI_STOMP_DEFAULT_BROKER}"
-	elif [ -n "${PHP_STOMP_DEFAULT_BROKER+1}" ]; then
-		echo "stomp.default_broker=${PHP_STOMP_DEFAULT_BROKER}"
+	if [ -n "${PHP_CLI_SWOOLE_DISPLAY_ERRORS+1}" ]; then
+		echo "swoole.display_errors=${PHP_CLI_SWOOLE_DISPLAY_ERRORS}"
+	elif [ -n "${PHP_SWOOLE_DISPLAY_ERRORS+1}" ]; then
+		echo "swoole.display_errors=${PHP_SWOOLE_DISPLAY_ERRORS}"
 	fi
-	if [ -n "${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_connection_timeout_sec=${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_connection_timeout_sec=${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC}"
+	if [ -n "${PHP_CLI_SWOOLE_ENABLE_COROUTINE+1}" ]; then
+		echo "swoole.enable_coroutine=${PHP_CLI_SWOOLE_ENABLE_COROUTINE}"
+	elif [ -n "${PHP_SWOOLE_ENABLE_COROUTINE+1}" ]; then
+		echo "swoole.enable_coroutine=${PHP_SWOOLE_ENABLE_COROUTINE}"
 	fi
-	if [ -n "${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_connection_timeout_usec=${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_connection_timeout_usec=${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC}"
+	if [ -n "${PHP_CLI_SWOOLE_ENABLE_LIBRARY+1}" ]; then
+		echo "swoole.enable_library=${PHP_CLI_SWOOLE_ENABLE_LIBRARY}"
+	elif [ -n "${PHP_SWOOLE_ENABLE_LIBRARY+1}" ]; then
+		echo "swoole.enable_library=${PHP_SWOOLE_ENABLE_LIBRARY}"
 	fi
-	if [ -n "${PHP_CLI_STOMP_DEFAULT_PASSWORD+1}" ]; then
-		echo "stomp.default_password=${PHP_CLI_STOMP_DEFAULT_PASSWORD}"
-	elif [ -n "${PHP_STOMP_DEFAULT_PASSWORD+1}" ]; then
-		echo "stomp.default_password=${PHP_STOMP_DEFAULT_PASSWORD}"
+	if [ -n "${PHP_CLI_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER+1}" ]; then
+		echo "swoole.enable_preemptive_scheduler=${PHP_CLI_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER}"
+	elif [ -n "${PHP_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER+1}" ]; then
+		echo "swoole.enable_preemptive_scheduler=${PHP_SWOOLE_ENABLE_PREEMPTIVE_SCHEDULER}"
 	fi
-	if [ -n "${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_read_timeout_sec=${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_SEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_READ_TIMEOUT_SEC+1}" ]; then
-		echo "stomp.default_read_timeout_sec=${PHP_STOMP_DEFAULT_READ_TIMEOUT_SEC}"
+	if [ -n "${PHP_CLI_SWOOLE_UNIXSOCK_BUFFER_SIZE+1}" ]; then
+		echo "swoole.unixsock_buffer_size=${PHP_CLI_SWOOLE_UNIXSOCK_BUFFER_SIZE}"
+	elif [ -n "${PHP_SWOOLE_UNIXSOCK_BUFFER_SIZE+1}" ]; then
+		echo "swoole.unixsock_buffer_size=${PHP_SWOOLE_UNIXSOCK_BUFFER_SIZE}"
 	fi
-	if [ -n "${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_read_timeout_usec=${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_USEC}"
-	elif [ -n "${PHP_STOMP_DEFAULT_READ_TIMEOUT_USEC+1}" ]; then
-		echo "stomp.default_read_timeout_usec=${PHP_STOMP_DEFAULT_READ_TIMEOUT_USEC}"
-	fi
-	if [ -n "${PHP_CLI_STOMP_DEFAULT_USERNAME+1}" ]; then
-		echo "stomp.default_username=${PHP_CLI_STOMP_DEFAULT_USERNAME}"
-	elif [ -n "${PHP_STOMP_DEFAULT_USERNAME+1}" ]; then
-		echo "stomp.default_username=${PHP_STOMP_DEFAULT_USERNAME}"
+	if [ -n "${PHP_CLI_SWOOLE_USE_SHORTNAME+1}" ]; then
+		echo "swoole.use_shortname=${PHP_CLI_SWOOLE_USE_SHORTNAME}"
+	elif [ -n "${PHP_SWOOLE_USE_SHORTNAME+1}" ]; then
+		echo "swoole.use_shortname=${PHP_SWOOLE_USE_SHORTNAME}"
 	fi
 	if [ -n "${PHP_CLI_SYS_TEMP_DIR+1}" ]; then
 		echo "sys_temp_dir=${PHP_CLI_SYS_TEMP_DIR}"
 	elif [ -n "${PHP_SYS_TEMP_DIR+1}" ]; then
 		echo "sys_temp_dir=${PHP_SYS_TEMP_DIR}"
 	fi
-	if [ -n "${PHP_CLI_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC+1}" ]; then
-		echo "tideways_xhprof.clock_use_rdtsc=${PHP_CLI_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC}"
-	elif [ -n "${PHP_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC+1}" ]; then
-		echo "tideways_xhprof.clock_use_rdtsc=${PHP_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC}"
+	if [ -n "${PHP_CLI_SYSLOG_FACILITY+1}" ]; then
+		echo "syslog.facility=${PHP_CLI_SYSLOG_FACILITY}"
+	elif [ -n "${PHP_SYSLOG_FACILITY+1}" ]; then
+		echo "syslog.facility=${PHP_SYSLOG_FACILITY}"
+	fi
+	if [ -n "${PHP_CLI_SYSLOG_FILTER+1}" ]; then
+		echo "syslog.filter=${PHP_CLI_SYSLOG_FILTER}"
+	elif [ -n "${PHP_SYSLOG_FILTER+1}" ]; then
+		echo "syslog.filter=${PHP_SYSLOG_FILTER}"
+	fi
+	if [ -n "${PHP_CLI_SYSLOG_IDENT+1}" ]; then
+		echo "syslog.ident=${PHP_CLI_SYSLOG_IDENT}"
+	elif [ -n "${PHP_SYSLOG_IDENT+1}" ]; then
+		echo "syslog.ident=${PHP_SYSLOG_IDENT}"
 	fi
 	if [ -n "${PHP_CLI_TIDY_CLEAN_OUTPUT+1}" ]; then
 		echo "tidy.clean_output=${PHP_CLI_TIDY_CLEAN_OUTPUT}"
@@ -2126,15 +2106,15 @@
 	elif [ -n "${PHP_TIDY_DEFAULT_CONFIG+1}" ]; then
 		echo "tidy.default_config=${PHP_TIDY_DEFAULT_CONFIG}"
 	fi
-	if [ -n "${PHP_CLI_TRACK_ERRORS+1}" ]; then
-		echo "track_errors=${PHP_CLI_TRACK_ERRORS}"
-	elif [ -n "${PHP_TRACK_ERRORS+1}" ]; then
-		echo "track_errors=${PHP_TRACK_ERRORS}"
-	fi
 	if [ -n "${PHP_CLI_UNSERIALIZE_CALLBACK_FUNC+1}" ]; then
 		echo "unserialize_callback_func=${PHP_CLI_UNSERIALIZE_CALLBACK_FUNC}"
 	elif [ -n "${PHP_UNSERIALIZE_CALLBACK_FUNC+1}" ]; then
 		echo "unserialize_callback_func=${PHP_UNSERIALIZE_CALLBACK_FUNC}"
+	fi
+	if [ -n "${PHP_CLI_UNSERIALIZE_MAX_DEPTH+1}" ]; then
+		echo "unserialize_max_depth=${PHP_CLI_UNSERIALIZE_MAX_DEPTH}"
+	elif [ -n "${PHP_UNSERIALIZE_MAX_DEPTH+1}" ]; then
+		echo "unserialize_max_depth=${PHP_UNSERIALIZE_MAX_DEPTH}"
 	fi
 	if [ -n "${PHP_CLI_UPLOAD_MAX_FILESIZE+1}" ]; then
 		echo "upload_max_filesize=${PHP_CLI_UPLOAD_MAX_FILESIZE}"
@@ -2146,20 +2126,10 @@
 	elif [ -n "${PHP_UPLOAD_TMP_DIR+1}" ]; then
 		echo "upload_tmp_dir=${PHP_UPLOAD_TMP_DIR}"
 	fi
-	if [ -n "${PHP_CLI_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.contents_template=${PHP_CLI_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE}"
-	elif [ -n "${PHP_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.contents_template=${PHP_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE}"
-	fi
-	if [ -n "${PHP_CLI_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.filename_template=${PHP_CLI_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE}"
-	elif [ -n "${PHP_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE+1}" ]; then
-		echo "uploadprogress.file.filename_template=${PHP_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE}"
-	fi
-	if [ -n "${PHP_CLI_UPLOADPROGRESS_GET_CONTENTS+1}" ]; then
-		echo "uploadprogress.get_contents=${PHP_CLI_UPLOADPROGRESS_GET_CONTENTS}"
-	elif [ -n "${PHP_UPLOADPROGRESS_GET_CONTENTS+1}" ]; then
-		echo "uploadprogress.get_contents=${PHP_UPLOADPROGRESS_GET_CONTENTS}"
+	if [ -n "${PHP_CLI_URL_REWRITER_HOSTS+1}" ]; then
+		echo "url_rewriter.hosts=${PHP_CLI_URL_REWRITER_HOSTS}"
+	elif [ -n "${PHP_URL_REWRITER_HOSTS+1}" ]; then
+		echo "url_rewriter.hosts=${PHP_URL_REWRITER_HOSTS}"
 	fi
 	if [ -n "${PHP_CLI_URL_REWRITER_TAGS+1}" ]; then
 		echo "url_rewriter.tags=${PHP_CLI_URL_REWRITER_TAGS}"
@@ -2201,6 +2171,26 @@
 	elif [ -n "${PHP_XDEBUG_CLI_COLOR+1}" ]; then
 		echo "xdebug.cli_color=${PHP_XDEBUG_CLI_COLOR}"
 	fi
+	if [ -n "${PHP_CLI_XDEBUG_CLIENT_DISCOVERY_HEADER+1}" ]; then
+		echo "xdebug.client_discovery_header=${PHP_CLI_XDEBUG_CLIENT_DISCOVERY_HEADER}"
+	elif [ -n "${PHP_XDEBUG_CLIENT_DISCOVERY_HEADER+1}" ]; then
+		echo "xdebug.client_discovery_header=${PHP_XDEBUG_CLIENT_DISCOVERY_HEADER}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_CLIENT_HOST+1}" ]; then
+		echo "xdebug.client_host=${PHP_CLI_XDEBUG_CLIENT_HOST}"
+	elif [ -n "${PHP_XDEBUG_CLIENT_HOST+1}" ]; then
+		echo "xdebug.client_host=${PHP_XDEBUG_CLIENT_HOST}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_CLIENT_PORT+1}" ]; then
+		echo "xdebug.client_port=${PHP_CLI_XDEBUG_CLIENT_PORT}"
+	elif [ -n "${PHP_XDEBUG_CLIENT_PORT+1}" ]; then
+		echo "xdebug.client_port=${PHP_XDEBUG_CLIENT_PORT}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_CLOUD_ID+1}" ]; then
+		echo "xdebug.cloud_id=${PHP_CLI_XDEBUG_CLOUD_ID}"
+	elif [ -n "${PHP_XDEBUG_CLOUD_ID+1}" ]; then
+		echo "xdebug.cloud_id=${PHP_XDEBUG_CLOUD_ID}"
+	fi
 	if [ -n "${PHP_CLI_XDEBUG_COLLECT_ASSIGNMENTS+1}" ]; then
 		echo "xdebug.collect_assignments=${PHP_CLI_XDEBUG_COLLECT_ASSIGNMENTS}"
 	elif [ -n "${PHP_XDEBUG_COLLECT_ASSIGNMENTS+1}" ]; then
@@ -2226,6 +2216,11 @@
 	elif [ -n "${PHP_XDEBUG_COLLECT_VARS+1}" ]; then
 		echo "xdebug.collect_vars=${PHP_XDEBUG_COLLECT_VARS}"
 	fi
+	if [ -n "${PHP_CLI_XDEBUG_CONNECT_TIMEOUT_MS+1}" ]; then
+		echo "xdebug.connect_timeout_ms=${PHP_CLI_XDEBUG_CONNECT_TIMEOUT_MS}"
+	elif [ -n "${PHP_XDEBUG_CONNECT_TIMEOUT_MS+1}" ]; then
+		echo "xdebug.connect_timeout_ms=${PHP_XDEBUG_CONNECT_TIMEOUT_MS}"
+	fi
 	if [ -n "${PHP_CLI_XDEBUG_COVERAGE_ENABLE+1}" ]; then
 		echo "xdebug.coverage_enable=${PHP_CLI_XDEBUG_COVERAGE_ENABLE}"
 	elif [ -n "${PHP_XDEBUG_COVERAGE_ENABLE+1}" ]; then
@@ -2235,6 +2230,11 @@
 		echo "xdebug.default_enable=${PHP_CLI_XDEBUG_DEFAULT_ENABLE}"
 	elif [ -n "${PHP_XDEBUG_DEFAULT_ENABLE+1}" ]; then
 		echo "xdebug.default_enable=${PHP_XDEBUG_DEFAULT_ENABLE}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_DISCOVER_CLIENT_HOST+1}" ]; then
+		echo "xdebug.discover_client_host=${PHP_CLI_XDEBUG_DISCOVER_CLIENT_HOST}"
+	elif [ -n "${PHP_XDEBUG_DISCOVER_CLIENT_HOST+1}" ]; then
+		echo "xdebug.discover_client_host=${PHP_XDEBUG_DISCOVER_CLIENT_HOST}"
 	fi
 	if [ -n "${PHP_CLI_XDEBUG_DUMP_COOKIE+1}" ]; then
 		echo "xdebug.dump.COOKIE=${PHP_CLI_XDEBUG_DUMP_COOKIE}"
@@ -2336,6 +2336,16 @@
 	elif [ -n "${PHP_XDEBUG_IDEKEY+1}" ]; then
 		echo "xdebug.idekey=${PHP_XDEBUG_IDEKEY}"
 	fi
+	if [ -n "${PHP_CLI_XDEBUG_LOG+1}" ]; then
+		echo "xdebug.log=${PHP_CLI_XDEBUG_LOG}"
+	elif [ -n "${PHP_XDEBUG_LOG+1}" ]; then
+		echo "xdebug.log=${PHP_XDEBUG_LOG}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_LOG_LEVEL+1}" ]; then
+		echo "xdebug.log_level=${PHP_CLI_XDEBUG_LOG_LEVEL}"
+	elif [ -n "${PHP_XDEBUG_LOG_LEVEL+1}" ]; then
+		echo "xdebug.log_level=${PHP_XDEBUG_LOG_LEVEL}"
+	fi
 	if [ -n "${PHP_CLI_XDEBUG_MAX_NESTING_LEVEL+1}" ]; then
 		echo "xdebug.max_nesting_level=${PHP_CLI_XDEBUG_MAX_NESTING_LEVEL}"
 	elif [ -n "${PHP_XDEBUG_MAX_NESTING_LEVEL+1}" ]; then
@@ -2346,15 +2356,20 @@
 	elif [ -n "${PHP_XDEBUG_MAX_STACK_FRAMES+1}" ]; then
 		echo "xdebug.max_stack_frames=${PHP_XDEBUG_MAX_STACK_FRAMES}"
 	fi
+	if [ -n "${PHP_CLI_XDEBUG_MODE+1}" ]; then
+		echo "xdebug.mode=${PHP_CLI_XDEBUG_MODE}"
+	elif [ -n "${PHP_XDEBUG_MODE+1}" ]; then
+		echo "xdebug.mode=${PHP_XDEBUG_MODE}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_OUTPUT_DIR+1}" ]; then
+		echo "xdebug.output_dir=${PHP_CLI_XDEBUG_OUTPUT_DIR}"
+	elif [ -n "${PHP_XDEBUG_OUTPUT_DIR+1}" ]; then
+		echo "xdebug.output_dir=${PHP_XDEBUG_OUTPUT_DIR}"
+	fi
 	if [ -n "${PHP_CLI_XDEBUG_OVERLOAD_VAR_DUMP+1}" ]; then
 		echo "xdebug.overload_var_dump=${PHP_CLI_XDEBUG_OVERLOAD_VAR_DUMP}"
 	elif [ -n "${PHP_XDEBUG_OVERLOAD_VAR_DUMP+1}" ]; then
 		echo "xdebug.overload_var_dump=${PHP_XDEBUG_OVERLOAD_VAR_DUMP}"
-	fi
-	if [ -n "${PHP_CLI_XDEBUG_PROFILER_AGGREGATE+1}" ]; then
-		echo "xdebug.profiler_aggregate=${PHP_CLI_XDEBUG_PROFILER_AGGREGATE}"
-	elif [ -n "${PHP_XDEBUG_PROFILER_AGGREGATE+1}" ]; then
-		echo "xdebug.profiler_aggregate=${PHP_XDEBUG_PROFILER_AGGREGATE}"
 	fi
 	if [ -n "${PHP_CLI_XDEBUG_PROFILER_APPEND+1}" ]; then
 		echo "xdebug.profiler_append=${PHP_CLI_XDEBUG_PROFILER_APPEND}"
@@ -2386,11 +2401,6 @@
 	elif [ -n "${PHP_XDEBUG_PROFILER_OUTPUT_NAME+1}" ]; then
 		echo "xdebug.profiler_output_name=${PHP_XDEBUG_PROFILER_OUTPUT_NAME}"
 	fi
-	if [ -n "${PHP_CLI_XDEBUG_REMOTE_ADDR_HEADER+1}" ]; then
-		echo "xdebug.remote_addr_header=${PHP_CLI_XDEBUG_REMOTE_ADDR_HEADER}"
-	elif [ -n "${PHP_XDEBUG_REMOTE_ADDR_HEADER+1}" ]; then
-		echo "xdebug.remote_addr_header=${PHP_XDEBUG_REMOTE_ADDR_HEADER}"
-	fi
 	if [ -n "${PHP_CLI_XDEBUG_REMOTE_AUTOSTART+1}" ]; then
 		echo "xdebug.remote_autostart=${PHP_CLI_XDEBUG_REMOTE_AUTOSTART}"
 	elif [ -n "${PHP_XDEBUG_REMOTE_AUTOSTART+1}" ]; then
@@ -2401,20 +2411,10 @@
 	elif [ -n "${PHP_XDEBUG_REMOTE_CONNECT_BACK+1}" ]; then
 		echo "xdebug.remote_connect_back=${PHP_XDEBUG_REMOTE_CONNECT_BACK}"
 	fi
-	if [ -n "${PHP_CLI_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME+1}" ]; then
-		echo "xdebug.remote_cookie_expire_time=${PHP_CLI_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME}"
-	elif [ -n "${PHP_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME+1}" ]; then
-		echo "xdebug.remote_cookie_expire_time=${PHP_XDEBUG_REMOTE_COOKIE_EXPIRE_TIME}"
-	fi
 	if [ -n "${PHP_CLI_XDEBUG_REMOTE_ENABLE+1}" ]; then
 		echo "xdebug.remote_enable=${PHP_CLI_XDEBUG_REMOTE_ENABLE}"
 	elif [ -n "${PHP_XDEBUG_REMOTE_ENABLE+1}" ]; then
 		echo "xdebug.remote_enable=${PHP_XDEBUG_REMOTE_ENABLE}"
-	fi
-	if [ -n "${PHP_CLI_XDEBUG_REMOTE_HANDLER+1}" ]; then
-		echo "xdebug.remote_handler=${PHP_CLI_XDEBUG_REMOTE_HANDLER}"
-	elif [ -n "${PHP_XDEBUG_REMOTE_HANDLER+1}" ]; then
-		echo "xdebug.remote_handler=${PHP_XDEBUG_REMOTE_HANDLER}"
 	fi
 	if [ -n "${PHP_CLI_XDEBUG_REMOTE_HOST+1}" ]; then
 		echo "xdebug.remote_host=${PHP_CLI_XDEBUG_REMOTE_HOST}"
@@ -2471,6 +2471,16 @@
 	elif [ -n "${PHP_XDEBUG_SHOW_MEM_DELTA+1}" ]; then
 		echo "xdebug.show_mem_delta=${PHP_XDEBUG_SHOW_MEM_DELTA}"
 	fi
+	if [ -n "${PHP_CLI_XDEBUG_START_UPON_ERROR+1}" ]; then
+		echo "xdebug.start_upon_error=${PHP_CLI_XDEBUG_START_UPON_ERROR}"
+	elif [ -n "${PHP_XDEBUG_START_UPON_ERROR+1}" ]; then
+		echo "xdebug.start_upon_error=${PHP_XDEBUG_START_UPON_ERROR}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_START_WITH_REQUEST+1}" ]; then
+		echo "xdebug.start_with_request=${PHP_CLI_XDEBUG_START_WITH_REQUEST}"
+	elif [ -n "${PHP_XDEBUG_START_WITH_REQUEST+1}" ]; then
+		echo "xdebug.start_with_request=${PHP_XDEBUG_START_WITH_REQUEST}"
+	fi
 	if [ -n "${PHP_CLI_XDEBUG_TRACE_ENABLE_TRIGGER+1}" ]; then
 		echo "xdebug.trace_enable_trigger=${PHP_CLI_XDEBUG_TRACE_ENABLE_TRIGGER}"
 	elif [ -n "${PHP_XDEBUG_TRACE_ENABLE_TRIGGER+1}" ]; then
@@ -2500,6 +2510,11 @@
 		echo "xdebug.trace_output_name=${PHP_CLI_XDEBUG_TRACE_OUTPUT_NAME}"
 	elif [ -n "${PHP_XDEBUG_TRACE_OUTPUT_NAME+1}" ]; then
 		echo "xdebug.trace_output_name=${PHP_XDEBUG_TRACE_OUTPUT_NAME}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_TRIGGER_VALUE+1}" ]; then
+		echo "xdebug.trigger_value=${PHP_CLI_XDEBUG_TRIGGER_VALUE}"
+	elif [ -n "${PHP_XDEBUG_TRIGGER_VALUE+1}" ]; then
+		echo "xdebug.trigger_value=${PHP_XDEBUG_TRIGGER_VALUE}"
 	fi
 	if [ -n "${PHP_CLI_XDEBUG_VAR_DISPLAY_MAX_CHILDREN+1}" ]; then
 		echo "xdebug.var_display_max_children=${PHP_CLI_XDEBUG_VAR_DISPLAY_MAX_CHILDREN}"
@@ -2626,6 +2641,16 @@
 	elif [ -n "${PHP_ZEND_ENABLE_GC+1}" ]; then
 		echo "zend.enable_gc=${PHP_ZEND_ENABLE_GC}"
 	fi
+	if [ -n "${PHP_CLI_ZEND_EXCEPTION_IGNORE_ARGS+1}" ]; then
+		echo "zend.exception_ignore_args=${PHP_CLI_ZEND_EXCEPTION_IGNORE_ARGS}"
+	elif [ -n "${PHP_ZEND_EXCEPTION_IGNORE_ARGS+1}" ]; then
+		echo "zend.exception_ignore_args=${PHP_ZEND_EXCEPTION_IGNORE_ARGS}"
+	fi
+	if [ -n "${PHP_CLI_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN+1}" ]; then
+		echo "zend.exception_string_param_max_len=${PHP_CLI_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN}"
+	elif [ -n "${PHP_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN+1}" ]; then
+		echo "zend.exception_string_param_max_len=${PHP_ZEND_EXCEPTION_STRING_PARAM_MAX_LEN}"
+	fi
 	if [ -n "${PHP_CLI_ZEND_MULTIBYTE+1}" ]; then
 		echo "zend.multibyte=${PHP_CLI_ZEND_MULTIBYTE}"
 	elif [ -n "${PHP_ZEND_MULTIBYTE+1}" ]; then
@@ -2635,6 +2660,11 @@
 		echo "zend.script_encoding=${PHP_CLI_ZEND_SCRIPT_ENCODING}"
 	elif [ -n "${PHP_ZEND_SCRIPT_ENCODING+1}" ]; then
 		echo "zend.script_encoding=${PHP_ZEND_SCRIPT_ENCODING}"
+	fi
+	if [ -n "${PHP_CLI_ZEND_SIGNAL_CHECK+1}" ]; then
+		echo "zend.signal_check=${PHP_CLI_ZEND_SIGNAL_CHECK}"
+	elif [ -n "${PHP_ZEND_SIGNAL_CHECK+1}" ]; then
+		echo "zend.signal_check=${PHP_ZEND_SIGNAL_CHECK}"
 	fi
 	if [ -n "${PHP_CLI_ZLIB_OUTPUT_COMPRESSION+1}" ]; then
 		echo "zlib.output_compression=${PHP_CLI_ZLIB_OUTPUT_COMPRESSION}"
@@ -2651,4 +2681,4 @@
 	elif [ -n "${PHP_ZLIB_OUTPUT_HANDLER+1}" ]; then
 		echo "zlib.output_handler=${PHP_ZLIB_OUTPUT_HANDLER}"
 	fi
-) > /etc/php/7.0/cli/conf.d/99-custom.ini
+) > /etc/php/8.0/cli/conf.d/99-custom.ini

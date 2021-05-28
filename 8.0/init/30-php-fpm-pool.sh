@@ -47,4 +47,4 @@
 	[ -n "${PHP_FPM_POOL_DECORATE_WORKERS_OUTPUT+1}" ] && echo "decorate_workers_output=${PHP_FPM_POOL_DECORATE_WORKERS_OUTPUT}"
 	[ -n "${PHP_FPM_POOL_CLEAR_ENV+1}" ] && echo "clear_env=${PHP_FPM_POOL_CLEAR_ENV}"
 	[ -n "${PHP_FPM_POOL_SECURITY_LIMIT_EXTENSIONS+1}" ] && echo "security.limit_extensions=${PHP_FPM_POOL_SECURITY_LIMIT_EXTENSIONS}"
-) > /etc/php/7.3/fpm/pool.d/www.conf
+) > /etc/php/8.0/fpm/pool.d/www.conf

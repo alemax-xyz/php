@@ -43,6 +43,7 @@ RUN apt-get download \
         pinentry-tty \
         imagemagick-6-common \
         libapparmor1 \
+        libargon2-1 \
         libasn1-8-heimdal \
         libaspell15 \
         libassuan0 \
@@ -126,6 +127,7 @@ RUN apt-get download \
         libnpth0 \
         libnuma1 \
         libodbc1 \
+        libpcre2-8-0 \
         libp11-kit0 \
         libpango-1.0-0 \
         libpangocairo-1.0-0 \
@@ -158,7 +160,7 @@ RUN apt-get download \
         libudev1 \
         libuuid1 \
         libunistring2 \
-        libvirt0 \
+#        libvirt0 \
         libwebp6 \
         libwebpdemux2 \
         libwebpmux3 \
@@ -183,181 +185,123 @@ RUN apt-get download \
         libzip4 \
         libzmq5 \
         libnorm1 \
+        libonig5 \
         mlock \
-        php7.1-amqp \
-        php7.1-apcu \
-        php7.1-ast \
-        php7.1-bcmath \
-        php7.1-bz2 \
-        php7.1-cli \
-        php7.1-common \
-        php7.1-curl \
-        php7.1-dba \
-        php7.1-decimal \
-        php7.1-enchant \
-        php7.1-facedetect \
-        php7.1-fpm \
-        php7.1-gd \
-        php7.1-gmp \
-        php7.1-grpc \
-        php7.1-http \
-        php7.1-igbinary \
-        php7.1-imagick \
-        php7.1-imap \
-        php7.1-inotify \
-        php7.1-interbase \
-        php7.1-intl \
-        php7.1-json \
-        php7.1-lz4 \
-        php7.1-ldap \
-        php7.1-mailparse \
-        php7.1-mbstring \
-        php7.1-mcrypt \
-        php7.1-memcached \
-        php7.1-mongodb \
-        php7.1-msgpack \
-        php7.1-mysql \
-        php7.1-oauth \
-        php7.1-odbc \
-        php7.1-opcache \
-        php7.1-pgsql \
-        php7.1-propro \
-        php7.1-protobuf \
-        php7.1-ps \
-        php7.1-pspell \
-        php7.1-psr \
-        php7.1-raphf \
-        php7.1-readline \
-        php7.1-recode \
-        php7.1-redis \
-        php7.1-rrd \
-        php7.1-smbclient \
-        php7.1-snmp \
-        php7.1-soap \
-        php7.1-sqlite3 \
-        php7.1-ssh2 \
-        php7.1-sybase \
-        php7.1-tidy \
-        php7.1-uopz \
-        php7.1-uuid \
-        php7.1-vips \
-        php7.1-xdebug \
-        php7.1-xhprof \
-        php7.1-xml \
-        php7.1-xmlrpc \
-        php7.1-xsl \
-        php7.1-yac \
-        php7.1-yaml \
-        php7.1-zip \
-        php7.1-zmq \
-        php7.1-apcu-bc \
-        php7.1-ast \
-        php7.1-ds \
-        php7.1-gearman \
-        php7.1-geoip \
-        php7.1-gmagick \
-        php7.1-gnupg \
-        php7.1-igbinary \
-        php7.1-imagick \
-        php7.1-lua \
-        liblua5.2-0 \
-        php7.1-sodium \
-        php-libvirt-php \
-        php7.1-memcache \
-        php7.1-memcached \
-        php7.1-mongodb \
-        php7.1-msgpack \
-        php7.1-oauth \
-        php7.1-phalcon3 \
-        php7.1-radius \
-        php7.1-raphf \
-        php7.1-redis \
-        php7.1-rrd \
-        php7.1-solr \
-        php7.1-ssh2 \
-        php7.1-stomp \
-        php7.1-tideways \
-        php7.1-uploadprogress \
-        php7.1-xdebug \
-        php7.1-yac \
-        php7.1-yaml \
-        php7.1-pcov \
-        php7.1-pinba \
-        php7.1-psr \
+        php8.0-amqp \
+        php8.0-apcu \
+        php8.0-ast \
+        php8.0-bcmath \
+        php8.0-bz2 \
+        php8.0-cli \
+        php8.0-common \
+        php8.0-curl \
+        php8.0-dba \
+        php8.0-decimal \
+        php8.0-enchant \
+        php8.0-fpm \
+        php8.0-gd \
+        php8.0-gmp \
+        php8.0-grpc \
+        php8.0-http \
+        php8.0-igbinary \
+        php8.0-imagick \
+        php8.0-imap \
+        php8.0-inotify \
+        php8.0-interbase \
+        php8.0-intl \
+        php8.0-lz4 \
+        php8.0-ldap \
+        php8.0-mailparse \
+        php8.0-maxminddb \
+        php8.0-mbstring \
+        php8.0-mcrypt \
+        php8.0-memcached \
+        php8.0-mongodb \
+        php8.0-msgpack \
+        php8.0-mysql \
+        php8.0-oauth \
+        php8.0-odbc \
+        php8.0-opcache \
+        php8.0-pgsql \
+        php8.0-protobuf \
+        php8.0-pspell \
+        php8.0-psr \
+        php8.0-raphf \
+        php8.0-readline \
+        php8.0-redis \
+        php8.0-rrd \
+        php8.0-smbclient \
+        php8.0-snmp \
+        php8.0-soap \
+        php8.0-sqlite3 \
+        php8.0-ssh2 \
+        php8.0-sybase \
+        php8.0-tidy \
+        php8.0-uuid \
+        php8.0-vips \
+        php8.0-xdebug \
+        php8.0-xhprof \
+        php8.0-xml \
+        php8.0-xmlrpc \
+        php8.0-xsl \
+        php8.0-yac \
+        php8.0-yaml \
+        php8.0-zip \
+        php8.0-zmq \
+        php8.0-ds \
+        php8.0-gearman \
+        php8.0-gmagick \
+        php8.0-gnupg \
+        php8.0-igbinary \
+        php8.0-imagick \
+        php8.0-memcache \
+        php8.0-memcached \
+        php8.0-mongodb \
+        php8.0-msgpack \
+        php8.0-oauth \
+        php8.0-raphf \
+        php8.0-redis \
+        php8.0-rrd \
+        php-sass \
+        libsass1 \
+        php8.0-solr \
+        php8.0-ssh2 \
+        php8.0-swoole \
+        php8.0-xdebug \
+        php8.0-yac \
+        php8.0-yaml \
+        php8.0-pcov \
+        php8.0-psr \
         libprotobuf-c1 \
+        libmaxminddb0 \
         libmpdec2 \
-        pslib1 \
         libzstd1 \
         libbrotli1 \
         libfribidi0 \
         libmount1 \
         libblkid1 \
         libvips42 \
-        libcfitsio8 \
-        libexif12 \
-        libgsf-1-114 \
         libimagequant0 \
-        libmatio9 \
-        libopenexr24 \
-        libopenslide0 \
+        libgsf-1-114 \
         liborc-0.4-0 \
+        librsvg2-2 \
         libpoppler-glib8 \
         libpoppler97 \
-        libopenjp2-7 \
-        librsvg2-2 \
+        libopenexr24 \
+        libopenslide0 \
+        libcfitsio8 \
+        libmatio9 \
+        libexif12 \
         libcairo-gobject2 \
         libgdk-pixbuf2.0-0 \
-        libopencv-core4.2 \
-        libopencv-imgcodecs4.2 \
-        libopencv-imgproc4.2 \
-        libopencv-objdetect4.2 \
-        libopencv-flann4.2 \
-        libopencv-highgui4.2 \
-        libopencv-video4.2 \
-        libopencv-ml4.2 \
-        libopencv-calib3d4.2 \
-        libopencv-features2d4.2 \
-        libtbb2 \
-        libgdal26 \
-        libgdcm3.0 \
         libilmbase24 \
-        libcharls2 \
-        libjson-c4 \
+        libopenjp2-7 \
         libhdf5-103 \
-        libarmadillo9 \
         libnss3 \
         libnspr4 \
-        libfreexl1 \
         libsz2 \
-        libqhull7 \
         libaec0 \
-        libgeos-c1v5 \
-        libgeos-3.8.0 \
-        libepsilon1 \
-        odbcinst1debian2 \
-        libkmlbase1 \
-        libkmldom1 \
-        libkmlengine1 \
-        libxerces-c3.2 \
-        libnetcdf15 \
-        libhdf4-0-alt \
-        libogdi4.1 \
-        libgeotiff5 \
-        libproj15 \
-        libdapclient6v5 \
-        libdap25 \
-        libspatialite7 \
-        libfyba0 \
-        libmysqlclient21 \
-        libblas3 \
-        liblapack3 \
-        libarpack2 \
-        libsuperlu5 \
-        libminizip1 \
-        liburiparser1 \
-        libgfortran5 \
-        libquadmath0 \
-        php7.1-smbclient \
+        php8.0-smbclient \
         libsmbclient \
         samba-libs \
         libtalloc2 \
@@ -367,6 +311,7 @@ RUN apt-get download \
         libcap2 \
         libldb2 \
         libjansson4 \
+        php8.0-snmp \
         libsnmp35 \
         blackfire-php
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
@@ -382,11 +327,11 @@ RUN mkdir -p \
         var/www \
         run/php \
  && chmod 1777 var/lib/php/sessions \
- && mv usr/lib/php/7.1/php.ini-production etc/php/7.1/fpm/php.ini \
- && mv usr/lib/php/7.1/php.ini-production.cli etc/php/7.1/cli/php.ini \
- && mv usr/share/php7.1-*/*/*.ini etc/php/7.1/mods-available \
- && mv usr/lib/blackfire-php/amd64/blackfire-20160303.so usr/lib/php/20160303/blackfire.so \
- && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/7.1/mods-available/blackfire.ini \
+ && mv usr/lib/php/8.0/php.ini-production etc/php/8.0/fpm/php.ini \
+ && mv usr/lib/php/8.0/php.ini-production.cli etc/php/8.0/cli/php.ini \
+ && mv usr/share/php8.0-*/*/*.ini etc/php/8.0/mods-available \
+ && mv usr/lib/blackfire-php/amd64/blackfire-20200930.so usr/lib/php/20200930/blackfire.so \
+ && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/8.0/mods-available/blackfire.ini \
  && ln -s /var/lib/snmp usr/share/snmp \
  && ln -s pinentry-tty usr/bin/pinentry \
  && ln -s blas/libblas.so.3 usr/lib/x86_64-linux-gnu/libblas.so.3 \
@@ -405,31 +350,31 @@ RUN mkdir -p \
         etc/php/5.5 \
         etc/php/5.6 \
         etc/php/7.0 \
+        etc/php/7.1 \
         etc/php/7.2 \
         etc/php/7.3 \
         etc/php/7.4 \
-        etc/php/8.0 \
         lib/systemd \
         lib/udev \
         usr/bin/gpg2 \
         usr/include \
         usr/lib/aspell/*-linux-gnu*/*.la \
+        usr/lib/blackfire-php \
         usr/lib/*-linux-gnu*/ImageMagick-*/modules-*/coders/*.la \
         usr/lib/*-linux-gnu*/ImageMagick-*/modules-*/filters/*.la \
         usr/lib/odbc \
         usr/lib/tmpfiles.d \
-        usr/lib/php/7.1 \
-        usr/lib/php/php7.1-fpm-reopenlogs \
-        usr/lib/blackfire-php \
+        usr/lib/php/8.0 \
+        usr/lib/php/php8.0-fpm-reopenlogs \
         usr/lib/php/20121212 \
         usr/lib/php/20131226 \
         usr/lib/php/20151012 \
-        usr/lib/php/20160303/*.la \
+        usr/lib/php/20160303 \
         usr/lib/php/20160731 \
         usr/lib/php/20170718 \
         usr/lib/php/20180731 \
         usr/lib/php/20190902 \
-        usr/lib/php/20200930 \
+        usr/lib/php/20200930/*.la \
         usr/lib/systemd \
         usr/lib/*-linux-gnu/glib-2.0/gio-launch-desktop \
         usr/sbin/addgnupghome \
@@ -442,7 +387,7 @@ RUN mkdir -p \
         usr/share/bug \
         usr/share/locale \
         usr/share/doc-base \
-        usr/share/libvirt/test-screenshot.png \
+#        usr/share/libvirt/test-screenshot.png \
         usr/share/lintian \
         usr/share/upstart \
         usr/share/firebird3.0-common \
@@ -450,37 +395,37 @@ RUN mkdir -p \
         usr/share/gdb \
         usr/share/gnupg2/*.txt \
         usr/share/gnupg2/gpg-conf.skel \
-        usr/share/php7.1-* \
- && ln -s php7.1 usr/bin/php \
- && ln -s phar7.1 usr/bin/phar \
- && ln -s phar.phar7.1 usr/bin/phar.phar \
- && ln -s php-fpm7.1 usr/sbin/php-fpm \
- && ln -s /dev/stderr var/log/php7.1-fpm.log \
+        usr/share/php8.0-* \
+ && ln -s php8.0 usr/bin/php \
+ && ln -s phar8.0 usr/bin/phar \
+ && ln -s phar.phar8.0 usr/bin/phar.phar \
+ && ln -s php-fpm8.0 usr/sbin/php-fpm \
+ && ln -s /dev/stderr var/log/php8.0-fpm.log \
  && sed -i -r \
         -e 's, *listen *= *.*,listen = 9000,g' \
         -e 's, *user *= *.*,user = www,g' \
         -e 's, *group *= *.*,group = www,g' \
         -e 's, *listen\.owner *= *.*,listen.owner = www,g' \
         -e 's, *listen\.group *= *.*,listen.group = www,g' \
-        etc/php/7.1/fpm/pool.d/www.conf \
+        etc/php/8.0/fpm/pool.d/www.conf \
  && sed -i -r \
         's,[ ;]*systemd_interval *= *.*,systemd_interval = 0,g' \
-        etc/php/7.1/fpm/php-fpm.conf \
+        etc/php/8.0/fpm/php-fpm.conf \
  && sed -i -r \
         -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
-        etc/php/7.1/fpm/php.ini \
+        etc/php/8.0/fpm/php.ini \
  && sed -i -r \
         -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
-        etc/php/7.1/cli/php.ini \
- && for file in etc/php/7.1/mods-available/*.ini; do \
+        etc/php/8.0/cli/php.ini \
+ && for file in etc/php/8.0/mods-available/*.ini; do \
         module=$(basename ${file}); \
         if [ "${module}" != "gmagick.ini" ]; then \
             priority=$(grep -E " *; *priority=" ${file} | sed -r "s/ *; *priority *= *([0-9]+.*)/\1/g"); \
             if [ -z "${priority}" ]; then priority=20; fi; \
-            ln -s "/etc/php/7.1/mods-available/${module}" etc/php/7.1/cli/conf.d/${priority}-${module}; \
-            ln -s "/etc/php/7.1/mods-available/${module}" etc/php/7.1/fpm/conf.d/${priority}-${module}; \
+            ln -s "/etc/php/8.0/mods-available/${module}" etc/php/8.0/cli/conf.d/${priority}-${module}; \
+            ln -s "/etc/php/8.0/mods-available/${module}" etc/php/8.0/fpm/conf.d/${priority}-${module}; \
         fi \
     done \
  && find \
