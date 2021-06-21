@@ -476,6 +476,7 @@ RUN mkdir -p \
         -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
         etc/php/7.2/cli/php.ini \
+ && echo "uopz.disable = 1" >> etc/php/7.2/mods-available/uopz.ini \
  && for file in etc/php/7.2/mods-available/*.ini; do \
         module=$(basename ${file}); \
         if [ "${module}" != "gmagick.ini" ]; then \
