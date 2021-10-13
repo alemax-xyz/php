@@ -388,7 +388,7 @@ RUN mkdir -p \
         usr/share/bug \
         usr/share/locale \
         usr/share/doc-base \
-#        usr/share/libvirt/test-screenshot.png \
+        usr/share/libvirt/test-screenshot.png \
         usr/share/lintian \
         usr/share/upstart \
         usr/share/firebird3.0-common \
