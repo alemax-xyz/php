@@ -291,6 +291,11 @@
 	elif [ -n "${PHP_BLACKFIRE_APM_LOCK_DURATION+1}" ]; then
 		echo "blackfire.apm_lock_duration=${PHP_BLACKFIRE_APM_LOCK_DURATION}"
 	fi
+	if [ -n "${PHP_CLI_BLACKFIRE_DISABLE_FEATURES+1}" ]; then
+		echo "blackfire.disable_features=${PHP_CLI_BLACKFIRE_DISABLE_FEATURES}"
+	elif [ -n "${PHP_BLACKFIRE_DISABLE_FEATURES+1}" ]; then
+		echo "blackfire.disable_features=${PHP_BLACKFIRE_DISABLE_FEATURES}"
+	fi
 	if [ -n "${PHP_CLI_BLACKFIRE_ENV_ID+1}" ]; then
 		echo "blackfire.env_id=${PHP_CLI_BLACKFIRE_ENV_ID}"
 	elif [ -n "${PHP_BLACKFIRE_ENV_ID+1}" ]; then
@@ -681,6 +686,11 @@
 	elif [ -n "${PHP_IGNORE_USER_ABORT+1}" ]; then
 		echo "ignore_user_abort=${PHP_IGNORE_USER_ABORT}"
 	fi
+	if [ -n "${PHP_CLI_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES+1}" ]; then
+		echo "imagick.allow_zero_dimension_images=${PHP_CLI_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES}"
+	elif [ -n "${PHP_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES+1}" ]; then
+		echo "imagick.allow_zero_dimension_images=${PHP_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES}"
+	fi
 	if [ -n "${PHP_CLI_IMAGICK_LOCALE_FIX+1}" ]; then
 		echo "imagick.locale_fix=${PHP_CLI_IMAGICK_LOCALE_FIX}"
 	elif [ -n "${PHP_IMAGICK_LOCALE_FIX+1}" ]; then
@@ -690,6 +700,16 @@
 		echo "imagick.progress_monitor=${PHP_CLI_IMAGICK_PROGRESS_MONITOR}"
 	elif [ -n "${PHP_IMAGICK_PROGRESS_MONITOR+1}" ]; then
 		echo "imagick.progress_monitor=${PHP_IMAGICK_PROGRESS_MONITOR}"
+	fi
+	if [ -n "${PHP_CLI_IMAGICK_SET_SINGLE_THREAD+1}" ]; then
+		echo "imagick.set_single_thread=${PHP_CLI_IMAGICK_SET_SINGLE_THREAD}"
+	elif [ -n "${PHP_IMAGICK_SET_SINGLE_THREAD+1}" ]; then
+		echo "imagick.set_single_thread=${PHP_IMAGICK_SET_SINGLE_THREAD}"
+	fi
+	if [ -n "${PHP_CLI_IMAGICK_SHUTDOWN_SLEEP_COUNT+1}" ]; then
+		echo "imagick.shutdown_sleep_count=${PHP_CLI_IMAGICK_SHUTDOWN_SLEEP_COUNT}"
+	elif [ -n "${PHP_IMAGICK_SHUTDOWN_SLEEP_COUNT+1}" ]; then
+		echo "imagick.shutdown_sleep_count=${PHP_IMAGICK_SHUTDOWN_SLEEP_COUNT}"
 	fi
 	if [ -n "${PHP_CLI_IMAGICK_SKIP_VERSION_CHECK+1}" ]; then
 		echo "imagick.skip_version_check=${PHP_CLI_IMAGICK_SKIP_VERSION_CHECK}"

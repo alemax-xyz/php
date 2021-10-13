@@ -272,6 +272,7 @@ RUN apt-get download \
         php8.0-yaml \
         php8.0-pcov \
         php8.0-psr \
+        php8.0-uopz \
         libprotobuf-c1 \
         libmaxminddb0 \
         libmpdec2 \
@@ -419,7 +420,7 @@ RUN mkdir -p \
         -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
         etc/php/8.0/cli/php.ini \
- && echo "uopz.disable = 1" >> etc/php/7.1/mods-available/uopz.ini \
+ && echo "uopz.disable = 1" >> etc/php/8.0/mods-available/uopz.ini \
  && for file in etc/php/8.0/mods-available/*.ini; do \
         module=$(basename ${file}); \
         if [ "${module}" != "gmagick.ini" ]; then \

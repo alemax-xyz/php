@@ -87,6 +87,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_SYSVSHM:-1}" = 0 -a -z "${PHP_FPM_MODULE_SYSVSHM}" \) -o "${PHP_FPM_MODULE_SYSVSHM:-1}" = 0 ] && rm -f $CONF/20-sysvshm.ini || ln -sf $MODS/sysvshm.ini $CONF/20-sysvshm.ini
 	[ \( "${PHP_MODULE_TIDY:-1}" = 0 -a -z "${PHP_FPM_MODULE_TIDY}" \) -o "${PHP_FPM_MODULE_TIDY:-1}" = 0 ] && rm -f $CONF/20-tidy.ini || ln -sf $MODS/tidy.ini $CONF/20-tidy.ini
 	[ \( "${PHP_MODULE_TOKENIZER:-1}" = 0 -a -z "${PHP_FPM_MODULE_TOKENIZER}" \) -o "${PHP_FPM_MODULE_TOKENIZER:-1}" = 0 ] && rm -f $CONF/20-tokenizer.ini || ln -sf $MODS/tokenizer.ini $CONF/20-tokenizer.ini
+	[ \( "${PHP_MODULE_UOPZ:-1}" = 0 -a -z "${PHP_FPM_MODULE_UOPZ}" \) -o "${PHP_FPM_MODULE_UOPZ:-1}" = 0 ] && rm -f $CONF/20-uopz.ini || ln -sf $MODS/uopz.ini $CONF/20-uopz.ini
 	[ \( "${PHP_MODULE_UUID:-1}" = 0 -a -z "${PHP_FPM_MODULE_UUID}" \) -o "${PHP_FPM_MODULE_UUID:-1}" = 0 ] && rm -f $CONF/20-uuid.ini || ln -sf $MODS/uuid.ini $CONF/20-uuid.ini
 	[ \( "${PHP_MODULE_VIPS:-1}" = 0 -a -z "${PHP_FPM_MODULE_VIPS}" \) -o "${PHP_FPM_MODULE_VIPS:-1}" = 0 ] && rm -f $CONF/30-vips.ini || ln -sf $MODS/vips.ini $CONF/30-vips.ini
 	[ \( "${PHP_MODULE_XDEBUG:-1}" = 0 -a -z "${PHP_FPM_MODULE_XDEBUG}" \) -o "${PHP_FPM_MODULE_XDEBUG:-1}" = 0 ] && rm -f $CONF/20-xdebug.ini || ln -sf $MODS/xdebug.ini $CONF/20-xdebug.ini
@@ -181,6 +182,7 @@ else
 	[ \( "${PHP_MODULE_SYSVSHM:-0}" != 0 -a -z "${PHP_FPM_MODULE_SYSVSHM}" \) -o "${PHP_FPM_MODULE_SYSVSHM:-0}" != 0 ] && ln -sf $MODS/sysvshm.ini $CONF/20-sysvshm.ini || rm -f $CONF/20-sysvshm.ini
 	[ \( "${PHP_MODULE_TIDY:-0}" != 0 -a -z "${PHP_FPM_MODULE_TIDY}" \) -o "${PHP_FPM_MODULE_TIDY:-0}" != 0 ] && ln -sf $MODS/tidy.ini $CONF/20-tidy.ini || rm -f $CONF/20-tidy.ini
 	[ \( "${PHP_MODULE_TOKENIZER:-0}" != 0 -a -z "${PHP_FPM_MODULE_TOKENIZER}" \) -o "${PHP_FPM_MODULE_TOKENIZER:-0}" != 0 ] && ln -sf $MODS/tokenizer.ini $CONF/20-tokenizer.ini || rm -f $CONF/20-tokenizer.ini
+	[ \( "${PHP_MODULE_UOPZ:-0}" != 0 -a -z "${PHP_FPM_MODULE_UOPZ}" \) -o "${PHP_FPM_MODULE_UOPZ:-0}" != 0 ] && ln -sf $MODS/uopz.ini $CONF/20-uopz.ini || rm -f $CONF/20-uopz.ini
 	[ \( "${PHP_MODULE_UUID:-0}" != 0 -a -z "${PHP_FPM_MODULE_UUID}" \) -o "${PHP_FPM_MODULE_UUID:-0}" != 0 ] && ln -sf $MODS/uuid.ini $CONF/20-uuid.ini || rm -f $CONF/20-uuid.ini
 	[ \( "${PHP_MODULE_VIPS:-0}" != 0 -a -z "${PHP_FPM_MODULE_VIPS}" \) -o "${PHP_FPM_MODULE_VIPS:-0}" != 0 ] && ln -sf $MODS/vips.ini $CONF/30-vips.ini || rm -f $CONF/30-vips.ini
 	[ \( "${PHP_MODULE_XDEBUG:-0}" != 0 -a -z "${PHP_FPM_MODULE_XDEBUG}" \) -o "${PHP_FPM_MODULE_XDEBUG:-0}" != 0 ] && ln -sf $MODS/xdebug.ini $CONF/20-xdebug.ini || rm -f $CONF/20-xdebug.ini

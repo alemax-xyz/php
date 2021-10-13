@@ -286,6 +286,11 @@
 	elif [ -n "${PHP_BLACKFIRE_APM_LOCK_DURATION+1}" ]; then
 		echo "blackfire.apm_lock_duration=${PHP_BLACKFIRE_APM_LOCK_DURATION}"
 	fi
+	if [ -n "${PHP_FPM_BLACKFIRE_DISABLE_FEATURES+1}" ]; then
+		echo "blackfire.disable_features=${PHP_FPM_BLACKFIRE_DISABLE_FEATURES}"
+	elif [ -n "${PHP_BLACKFIRE_DISABLE_FEATURES+1}" ]; then
+		echo "blackfire.disable_features=${PHP_BLACKFIRE_DISABLE_FEATURES}"
+	fi
 	if [ -n "${PHP_FPM_BLACKFIRE_ENV_ID+1}" ]; then
 		echo "blackfire.env_id=${PHP_FPM_BLACKFIRE_ENV_ID}"
 	elif [ -n "${PHP_BLACKFIRE_ENV_ID+1}" ]; then
@@ -625,6 +630,11 @@
 		echo "ignore_user_abort=${PHP_FPM_IGNORE_USER_ABORT}"
 	elif [ -n "${PHP_IGNORE_USER_ABORT+1}" ]; then
 		echo "ignore_user_abort=${PHP_IGNORE_USER_ABORT}"
+	fi
+	if [ -n "${PHP_FPM_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES+1}" ]; then
+		echo "imagick.allow_zero_dimension_images=${PHP_FPM_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES}"
+	elif [ -n "${PHP_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES+1}" ]; then
+		echo "imagick.allow_zero_dimension_images=${PHP_IMAGICK_ALLOW_ZERO_DIMENSION_IMAGES}"
 	fi
 	if [ -n "${PHP_FPM_IMAGICK_LOCALE_FIX+1}" ]; then
 		echo "imagick.locale_fix=${PHP_FPM_IMAGICK_LOCALE_FIX}"
@@ -2115,6 +2125,16 @@
 		echo "unserialize_max_depth=${PHP_FPM_UNSERIALIZE_MAX_DEPTH}"
 	elif [ -n "${PHP_UNSERIALIZE_MAX_DEPTH+1}" ]; then
 		echo "unserialize_max_depth=${PHP_UNSERIALIZE_MAX_DEPTH}"
+	fi
+	if [ -n "${PHP_FPM_UOPZ_DISABLE+1}" ]; then
+		echo "uopz.disable=${PHP_FPM_UOPZ_DISABLE}"
+	elif [ -n "${PHP_UOPZ_DISABLE+1}" ]; then
+		echo "uopz.disable=${PHP_UOPZ_DISABLE}"
+	fi
+	if [ -n "${PHP_FPM_UOPZ_EXIT+1}" ]; then
+		echo "uopz.exit=${PHP_FPM_UOPZ_EXIT}"
+	elif [ -n "${PHP_UOPZ_EXIT+1}" ]; then
+		echo "uopz.exit=${PHP_UOPZ_EXIT}"
 	fi
 	if [ -n "${PHP_FPM_UPLOAD_MAX_FILESIZE+1}" ]; then
 		echo "upload_max_filesize=${PHP_FPM_UPLOAD_MAX_FILESIZE}"
