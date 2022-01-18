@@ -107,7 +107,7 @@
 | uploadprogress |  +  |  +  |  +  |  +  |  +  |  +  |  -  |  -  | Track progress of a file upload.
 | uuid           |  -  |  +  |  +  |  +  |  +  |  +  |  +  |  +  | Provides an interface to the libuuid library to generate DCE compatible Universally Unique Identifiers (128-bit number used to identify information in computer systems).
 | vips           |  -  |  +  |  +  |  +  |  +  |  +  |  +  |  +  | Uses libvips to provide image processing facilities.
-| wddx           |  +  |  +  |  +  |  +  |  +  |  -  |  -  | The Web Distributed Data Exchange is an XML-based technology that allows Web applications created with any platform to easily exchange data with one another over the Web.
+| wddx           |  +  |  +  |  +  |  +  |  +  |  -  |  -  |  -  | The Web Distributed Data Exchange is an XML-based technology that allows Web applications created with any platform to easily exchange data with one another over the Web.
 | xcache         |  +  |  -  |  -  |  -  |  -  |  -  |  -  |  -  | Opcode cacher.
 | xdebug         |  +  |  +  |  +  |  +  |  +  |  +  |  +  |  +  | Provides powerful debugging and profiling capabilities that uses the DBGp debugging protocol.
 | xhprof         |  +  |  +  |  +  |  +  |  +  |  +  |  +  |  +  | Light-weight hierarchical and instrumentation based profiler.
