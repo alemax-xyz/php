@@ -415,6 +415,7 @@ RUN mkdir -p \
         etc/php/7.2 \
         etc/php/7.3 \
         etc/php/8.0 \
+        etc/php/8.1 \
         lib/systemd \
         lib/udev \
         usr/bin/gpg2 \
@@ -436,6 +437,7 @@ RUN mkdir -p \
         usr/lib/php/20180731 \
         usr/lib/php/20190902/*.la \
         usr/lib/php/20200930 \
+        usr/lib/php/20210902 \
         usr/lib/systemd \
         usr/lib/*-linux-gnu/glib-2.0/gio-launch-desktop \
         usr/sbin/addgnupghome \
