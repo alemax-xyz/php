@@ -10,7 +10,6 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_AMQP:-1}" = 0 -a -z "${PHP_FPM_MODULE_AMQP}" \) -o "${PHP_FPM_MODULE_AMQP:-1}" = 0 ] && rm -f $CONF/20-amqp.ini || ln -sf $MODS/amqp.ini $CONF/20-amqp.ini
 	[ \( "${PHP_MODULE_APCU:-1}" = 0 -a -z "${PHP_FPM_MODULE_APCU}" \) -o "${PHP_FPM_MODULE_APCU:-1}" = 0 ] && rm -f $CONF/20-apcu.ini || ln -sf $MODS/apcu.ini $CONF/20-apcu.ini
 	[ \( "${PHP_MODULE_BCMATH:-1}" = 0 -a -z "${PHP_FPM_MODULE_BCMATH}" \) -o "${PHP_FPM_MODULE_BCMATH:-1}" = 0 ] && rm -f $CONF/20-bcmath.ini || ln -sf $MODS/bcmath.ini $CONF/20-bcmath.ini
-	[ \( "${PHP_MODULE_BLACKFIRE:-1}" = 0 -a -z "${PHP_FPM_MODULE_BLACKFIRE}" \) -o "${PHP_FPM_MODULE_BLACKFIRE:-1}" = 0 ] && rm -f $CONF/90-blackfire.ini || ln -sf $MODS/blackfire.ini $CONF/90-blackfire.ini
 	[ \( "${PHP_MODULE_BZ2:-1}" = 0 -a -z "${PHP_FPM_MODULE_BZ2}" \) -o "${PHP_FPM_MODULE_BZ2:-1}" = 0 ] && rm -f $CONF/20-bz2.ini || ln -sf $MODS/bz2.ini $CONF/20-bz2.ini
 	[ \( "${PHP_MODULE_CALENDAR:-1}" = 0 -a -z "${PHP_FPM_MODULE_CALENDAR}" \) -o "${PHP_FPM_MODULE_CALENDAR:-1}" = 0 ] && rm -f $CONF/20-calendar.ini || ln -sf $MODS/calendar.ini $CONF/20-calendar.ini
 	[ \( "${PHP_MODULE_CTYPE:-1}" = 0 -a -z "${PHP_FPM_MODULE_CTYPE}" \) -o "${PHP_FPM_MODULE_CTYPE:-1}" = 0 ] && rm -f $CONF/20-ctype.ini || ln -sf $MODS/ctype.ini $CONF/20-ctype.ini
@@ -111,7 +110,6 @@ else
 	[ \( "${PHP_MODULE_AMQP:-0}" != 0 -a -z "${PHP_FPM_MODULE_AMQP}" \) -o "${PHP_FPM_MODULE_AMQP:-0}" != 0 ] && ln -sf $MODS/amqp.ini $CONF/20-amqp.ini || rm -f $CONF/20-amqp.ini
 	[ \( "${PHP_MODULE_APCU:-0}" != 0 -a -z "${PHP_FPM_MODULE_APCU}" \) -o "${PHP_FPM_MODULE_APCU:-0}" != 0 ] && ln -sf $MODS/apcu.ini $CONF/20-apcu.ini || rm -f $CONF/20-apcu.ini
 	[ \( "${PHP_MODULE_BCMATH:-0}" != 0 -a -z "${PHP_FPM_MODULE_BCMATH}" \) -o "${PHP_FPM_MODULE_BCMATH:-0}" != 0 ] && ln -sf $MODS/bcmath.ini $CONF/20-bcmath.ini || rm -f $CONF/20-bcmath.ini
-	[ \( "${PHP_MODULE_BLACKFIRE:-0}" != 0 -a -z "${PHP_FPM_MODULE_BLACKFIRE}" \) -o "${PHP_FPM_MODULE_BLACKFIRE:-0}" != 0 ] && ln -sf $MODS/blackfire.ini $CONF/90-blackfire.ini || rm -f $CONF/90-blackfire.ini
 	[ \( "${PHP_MODULE_BZ2:-0}" != 0 -a -z "${PHP_FPM_MODULE_BZ2}" \) -o "${PHP_FPM_MODULE_BZ2:-0}" != 0 ] && ln -sf $MODS/bz2.ini $CONF/20-bz2.ini || rm -f $CONF/20-bz2.ini
 	[ \( "${PHP_MODULE_CALENDAR:-0}" != 0 -a -z "${PHP_FPM_MODULE_CALENDAR}" \) -o "${PHP_FPM_MODULE_CALENDAR:-0}" != 0 ] && ln -sf $MODS/calendar.ini $CONF/20-calendar.ini || rm -f $CONF/20-calendar.ini
 	[ \( "${PHP_MODULE_CTYPE:-0}" != 0 -a -z "${PHP_FPM_MODULE_CTYPE}" \) -o "${PHP_FPM_MODULE_CTYPE:-0}" != 0 ] && ln -sf $MODS/ctype.ini $CONF/20-ctype.ini || rm -f $CONF/20-ctype.ini

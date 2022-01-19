@@ -27,8 +27,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && add-apt-repository -y ppa:ondrej/php \
- && wget -qO - https://packages.blackfire.io/gpg.key | apt-key add - \
- && add-apt-repository -y "deb http://packages.blackfire.io/debian any main" \
  && apt-get update
 
 RUN mkdir -p /build /rootfs
@@ -143,6 +141,7 @@ RUN apt-get download \
         librtmp1 \
         libsasl2-2 \
         libsasl2-modules-db \
+        libsnappy1v5 \
         libsodium23 \
         libsqlite3-0 \
         libssh-4 \
@@ -367,8 +366,7 @@ RUN apt-get download \
         libcap2 \
         libldb2 \
         libjansson4 \
-        libsnmp35 \
-        blackfire-php
+        libsnmp35
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
 WORKDIR /rootfs
@@ -385,8 +383,6 @@ RUN mkdir -p \
  && mv usr/lib/php/7.1/php.ini-production etc/php/7.1/fpm/php.ini \
  && mv usr/lib/php/7.1/php.ini-production.cli etc/php/7.1/cli/php.ini \
  && mv usr/share/php7.1-*/*/*.ini etc/php/7.1/mods-available \
- && mv usr/lib/blackfire-php/amd64/blackfire-20160303.so usr/lib/php/20160303/blackfire.so \
- && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/7.1/mods-available/blackfire.ini \
  && ln -s /var/lib/snmp usr/share/snmp \
  && ln -s pinentry-tty usr/bin/pinentry \
  && ln -s blas/libblas.so.3 usr/lib/x86_64-linux-gnu/libblas.so.3 \
@@ -421,7 +417,6 @@ RUN mkdir -p \
         usr/lib/tmpfiles.d \
         usr/lib/php/7.1 \
         usr/lib/php/php7.1-fpm-reopenlogs \
-        usr/lib/blackfire-php \
         usr/lib/php/20121212 \
         usr/lib/php/20131226 \
         usr/lib/php/20151012 \

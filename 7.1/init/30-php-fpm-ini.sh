@@ -261,76 +261,6 @@
 	elif [ -n "${PHP_BCMATH_SCALE+1}" ]; then
 		echo "bcmath.scale=${PHP_BCMATH_SCALE}"
 	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_AGENT_SOCKET+1}" ]; then
-		echo "blackfire.agent_socket=${PHP_FPM_BLACKFIRE_AGENT_SOCKET}"
-	elif [ -n "${PHP_BLACKFIRE_AGENT_SOCKET+1}" ]; then
-		echo "blackfire.agent_socket=${PHP_BLACKFIRE_AGENT_SOCKET}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_APM_BROWSER_KEY+1}" ]; then
-		echo "blackfire.apm_browser_key=${PHP_FPM_BLACKFIRE_APM_BROWSER_KEY}"
-	elif [ -n "${PHP_BLACKFIRE_APM_BROWSER_KEY+1}" ]; then
-		echo "blackfire.apm_browser_key=${PHP_BLACKFIRE_APM_BROWSER_KEY}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_APM_CONNECT_AT_STARTUP+1}" ]; then
-		echo "blackfire.apm_connect_at_startup=${PHP_FPM_BLACKFIRE_APM_CONNECT_AT_STARTUP}"
-	elif [ -n "${PHP_BLACKFIRE_APM_CONNECT_AT_STARTUP+1}" ]; then
-		echo "blackfire.apm_connect_at_startup=${PHP_BLACKFIRE_APM_CONNECT_AT_STARTUP}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE+1}" ]; then
-		echo "blackfire.apm_enable_automatic_browser_probe=${PHP_FPM_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE}"
-	elif [ -n "${PHP_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE+1}" ]; then
-		echo "blackfire.apm_enable_automatic_browser_probe=${PHP_BLACKFIRE_APM_ENABLE_AUTOMATIC_BROWSER_PROBE}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_APM_ENABLED+1}" ]; then
-		echo "blackfire.apm_enabled=${PHP_FPM_BLACKFIRE_APM_ENABLED}"
-	elif [ -n "${PHP_BLACKFIRE_APM_ENABLED+1}" ]; then
-		echo "blackfire.apm_enabled=${PHP_BLACKFIRE_APM_ENABLED}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_APM_LOCK_DURATION+1}" ]; then
-		echo "blackfire.apm_lock_duration=${PHP_FPM_BLACKFIRE_APM_LOCK_DURATION}"
-	elif [ -n "${PHP_BLACKFIRE_APM_LOCK_DURATION+1}" ]; then
-		echo "blackfire.apm_lock_duration=${PHP_BLACKFIRE_APM_LOCK_DURATION}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_DISABLE_FEATURES+1}" ]; then
-		echo "blackfire.disable_features=${PHP_FPM_BLACKFIRE_DISABLE_FEATURES}"
-	elif [ -n "${PHP_BLACKFIRE_DISABLE_FEATURES+1}" ]; then
-		echo "blackfire.disable_features=${PHP_BLACKFIRE_DISABLE_FEATURES}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_ENV_ID+1}" ]; then
-		echo "blackfire.env_id=${PHP_FPM_BLACKFIRE_ENV_ID}"
-	elif [ -n "${PHP_BLACKFIRE_ENV_ID+1}" ]; then
-		echo "blackfire.env_id=${PHP_BLACKFIRE_ENV_ID}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_ENV_TOKEN+1}" ]; then
-		echo "blackfire.env_token=${PHP_FPM_BLACKFIRE_ENV_TOKEN}"
-	elif [ -n "${PHP_BLACKFIRE_ENV_TOKEN+1}" ]; then
-		echo "blackfire.env_token=${PHP_BLACKFIRE_ENV_TOKEN}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_HOSTNAME+1}" ]; then
-		echo "blackfire.hostname=${PHP_FPM_BLACKFIRE_HOSTNAME}"
-	elif [ -n "${PHP_BLACKFIRE_HOSTNAME+1}" ]; then
-		echo "blackfire.hostname=${PHP_BLACKFIRE_HOSTNAME}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_LOG_FILE+1}" ]; then
-		echo "blackfire.log_file=${PHP_FPM_BLACKFIRE_LOG_FILE}"
-	elif [ -n "${PHP_BLACKFIRE_LOG_FILE+1}" ]; then
-		echo "blackfire.log_file=${PHP_BLACKFIRE_LOG_FILE}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_LOG_LEVEL+1}" ]; then
-		echo "blackfire.log_level=${PHP_FPM_BLACKFIRE_LOG_LEVEL}"
-	elif [ -n "${PHP_BLACKFIRE_LOG_LEVEL+1}" ]; then
-		echo "blackfire.log_level=${PHP_BLACKFIRE_LOG_LEVEL}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_SERVER_ID+1}" ]; then
-		echo "blackfire.server_id=${PHP_FPM_BLACKFIRE_SERVER_ID}"
-	elif [ -n "${PHP_BLACKFIRE_SERVER_ID+1}" ]; then
-		echo "blackfire.server_id=${PHP_BLACKFIRE_SERVER_ID}"
-	fi
-	if [ -n "${PHP_FPM_BLACKFIRE_SERVER_TOKEN+1}" ]; then
-		echo "blackfire.server_token=${PHP_FPM_BLACKFIRE_SERVER_TOKEN}"
-	elif [ -n "${PHP_BLACKFIRE_SERVER_TOKEN+1}" ]; then
-		echo "blackfire.server_token=${PHP_BLACKFIRE_SERVER_TOKEN}"
-	fi
 	if [ -n "${PHP_FPM_BROWSCAP+1}" ]; then
 		echo "browscap=${PHP_FPM_BROWSCAP}"
 	elif [ -n "${PHP_BROWSCAP+1}" ]; then
@@ -1141,6 +1071,11 @@
 	elif [ -n "${PHP_MONGODB_DEBUG+1}" ]; then
 		echo "mongodb.debug=${PHP_MONGODB_DEBUG}"
 	fi
+	if [ -n "${PHP_FPM_MONGODB_MOCK_SERVICE_ID+1}" ]; then
+		echo "mongodb.mock_service_id=${PHP_FPM_MONGODB_MOCK_SERVICE_ID}"
+	elif [ -n "${PHP_MONGODB_MOCK_SERVICE_ID+1}" ]; then
+		echo "mongodb.mock_service_id=${PHP_MONGODB_MOCK_SERVICE_ID}"
+	fi
 	if [ -n "${PHP_FPM_MSGPACK_ERROR_DISPLAY+1}" ]; then
 		echo "msgpack.error_display=${PHP_FPM_MSGPACK_ERROR_DISPLAY}"
 	elif [ -n "${PHP_MSGPACK_ERROR_DISPLAY+1}" ]; then
@@ -1846,10 +1781,20 @@
 	elif [ -n "${PHP_REDIS_PCONNECT_ECHO_CHECK_LIVENESS+1}" ]; then
 		echo "redis.pconnect.echo_check_liveness=${PHP_REDIS_PCONNECT_ECHO_CHECK_LIVENESS}"
 	fi
+	if [ -n "${PHP_FPM_REDIS_PCONNECT_POOL_DETECT_DIRTY+1}" ]; then
+		echo "redis.pconnect.pool_detect_dirty=${PHP_FPM_REDIS_PCONNECT_POOL_DETECT_DIRTY}"
+	elif [ -n "${PHP_REDIS_PCONNECT_POOL_DETECT_DIRTY+1}" ]; then
+		echo "redis.pconnect.pool_detect_dirty=${PHP_REDIS_PCONNECT_POOL_DETECT_DIRTY}"
+	fi
 	if [ -n "${PHP_FPM_REDIS_PCONNECT_POOL_PATTERN+1}" ]; then
 		echo "redis.pconnect.pool_pattern=${PHP_FPM_REDIS_PCONNECT_POOL_PATTERN}"
 	elif [ -n "${PHP_REDIS_PCONNECT_POOL_PATTERN+1}" ]; then
 		echo "redis.pconnect.pool_pattern=${PHP_REDIS_PCONNECT_POOL_PATTERN}"
+	fi
+	if [ -n "${PHP_FPM_REDIS_PCONNECT_POOL_POLL_TIMEOUT+1}" ]; then
+		echo "redis.pconnect.pool_poll_timeout=${PHP_FPM_REDIS_PCONNECT_POOL_POLL_TIMEOUT}"
+	elif [ -n "${PHP_REDIS_PCONNECT_POOL_POLL_TIMEOUT+1}" ]; then
+		echo "redis.pconnect.pool_poll_timeout=${PHP_REDIS_PCONNECT_POOL_POLL_TIMEOUT}"
 	fi
 	if [ -n "${PHP_FPM_REDIS_PCONNECT_POOLING_ENABLED+1}" ]; then
 		echo "redis.pconnect.pooling_enabled=${PHP_FPM_REDIS_PCONNECT_POOLING_ENABLED}"

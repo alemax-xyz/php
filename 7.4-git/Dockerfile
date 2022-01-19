@@ -18,7 +18,13 @@ WORKDIR /rootfs
 
 RUN rm -rf \
     etc/bash_completion.d \
-    usr/share \
+    usr/share/bash-completion \
+    usr/share/doc \
+    usr/share/git-core/contrib \
+    usr/share/git-core/templates/hooks/*.sample \
+    usr/share/gitweb \
+    usr/share/lintian \
+    usr/share/perl5 \
     usr/lib/git-core/git \
     usr/lib/git-core/git-add--interactive \
     usr/lib/git-core/git-shell \

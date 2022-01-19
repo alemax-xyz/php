@@ -11,7 +11,6 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_APCU:-1}" = 0 -a -z "${PHP_CLI_MODULE_APCU}" \) -o "${PHP_CLI_MODULE_APCU:-1}" = 0 ] && rm -f $CONF/20-apcu.ini || ln -sf $MODS/apcu.ini $CONF/20-apcu.ini
 	[ \( "${PHP_MODULE_AST:-1}" = 0 -a -z "${PHP_CLI_MODULE_AST}" \) -o "${PHP_CLI_MODULE_AST:-1}" = 0 ] && rm -f $CONF/20-ast.ini || ln -sf $MODS/ast.ini $CONF/20-ast.ini
 	[ \( "${PHP_MODULE_BCMATH:-1}" = 0 -a -z "${PHP_CLI_MODULE_BCMATH}" \) -o "${PHP_CLI_MODULE_BCMATH:-1}" = 0 ] && rm -f $CONF/20-bcmath.ini || ln -sf $MODS/bcmath.ini $CONF/20-bcmath.ini
-	[ \( "${PHP_MODULE_BLACKFIRE:-1}" = 0 -a -z "${PHP_CLI_MODULE_BLACKFIRE}" \) -o "${PHP_CLI_MODULE_BLACKFIRE:-1}" = 0 ] && rm -f $CONF/90-blackfire.ini || ln -sf $MODS/blackfire.ini $CONF/90-blackfire.ini
 	[ \( "${PHP_MODULE_BZ2:-1}" = 0 -a -z "${PHP_CLI_MODULE_BZ2}" \) -o "${PHP_CLI_MODULE_BZ2:-1}" = 0 ] && rm -f $CONF/20-bz2.ini || ln -sf $MODS/bz2.ini $CONF/20-bz2.ini
 	[ \( "${PHP_MODULE_CALENDAR:-1}" = 0 -a -z "${PHP_CLI_MODULE_CALENDAR}" \) -o "${PHP_CLI_MODULE_CALENDAR:-1}" = 0 ] && rm -f $CONF/20-calendar.ini || ln -sf $MODS/calendar.ini $CONF/20-calendar.ini
 	[ \( "${PHP_MODULE_CTYPE:-1}" = 0 -a -z "${PHP_CLI_MODULE_CTYPE}" \) -o "${PHP_CLI_MODULE_CTYPE:-1}" = 0 ] && rm -f $CONF/20-ctype.ini || ln -sf $MODS/ctype.ini $CONF/20-ctype.ini
@@ -66,6 +65,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_PHAR:-1}" = 0 -a -z "${PHP_CLI_MODULE_PHAR}" \) -o "${PHP_CLI_MODULE_PHAR:-1}" = 0 ] && rm -f $CONF/20-phar.ini || ln -sf $MODS/phar.ini $CONF/20-phar.ini
 	[ \( "${PHP_MODULE_POSIX:-1}" = 0 -a -z "${PHP_CLI_MODULE_POSIX}" \) -o "${PHP_CLI_MODULE_POSIX:-1}" = 0 ] && rm -f $CONF/20-posix.ini || ln -sf $MODS/posix.ini $CONF/20-posix.ini
 	[ \( "${PHP_MODULE_PROTOBUF:-1}" = 0 -a -z "${PHP_CLI_MODULE_PROTOBUF}" \) -o "${PHP_CLI_MODULE_PROTOBUF:-1}" = 0 ] && rm -f $CONF/30-protobuf.ini || ln -sf $MODS/protobuf.ini $CONF/30-protobuf.ini
+	[ \( "${PHP_MODULE_PS:-1}" = 0 -a -z "${PHP_CLI_MODULE_PS}" \) -o "${PHP_CLI_MODULE_PS:-1}" = 0 ] && rm -f $CONF/20-ps.ini || ln -sf $MODS/ps.ini $CONF/20-ps.ini
 	[ \( "${PHP_MODULE_PSPELL:-1}" = 0 -a -z "${PHP_CLI_MODULE_PSPELL}" \) -o "${PHP_CLI_MODULE_PSPELL:-1}" = 0 ] && rm -f $CONF/20-pspell.ini || ln -sf $MODS/pspell.ini $CONF/20-pspell.ini
 	[ \( "${PHP_MODULE_PSR:-1}" = 0 -a -z "${PHP_CLI_MODULE_PSR}" \) -o "${PHP_CLI_MODULE_PSR:-1}" = 0 ] && rm -f $CONF/15-psr.ini || ln -sf $MODS/psr.ini $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RAPHF:-1}" = 0 -a -z "${PHP_CLI_MODULE_RAPHF}" \) -o "${PHP_CLI_MODULE_RAPHF:-1}" = 0 ] && rm -f $CONF/20-raphf.ini || ln -sf $MODS/raphf.ini $CONF/20-raphf.ini
@@ -106,7 +106,6 @@ else
 	[ \( "${PHP_MODULE_APCU:-0}" != 0 -a -z "${PHP_CLI_MODULE_APCU}" \) -o "${PHP_CLI_MODULE_APCU:-0}" != 0 ] && ln -sf $MODS/apcu.ini $CONF/20-apcu.ini || rm -f $CONF/20-apcu.ini
 	[ \( "${PHP_MODULE_AST:-0}" != 0 -a -z "${PHP_CLI_MODULE_AST}" \) -o "${PHP_CLI_MODULE_AST:-0}" != 0 ] && ln -sf $MODS/ast.ini $CONF/20-ast.ini || rm -f $CONF/20-ast.ini
 	[ \( "${PHP_MODULE_BCMATH:-0}" != 0 -a -z "${PHP_CLI_MODULE_BCMATH}" \) -o "${PHP_CLI_MODULE_BCMATH:-0}" != 0 ] && ln -sf $MODS/bcmath.ini $CONF/20-bcmath.ini || rm -f $CONF/20-bcmath.ini
-	[ \( "${PHP_MODULE_BLACKFIRE:-0}" != 0 -a -z "${PHP_CLI_MODULE_BLACKFIRE}" \) -o "${PHP_CLI_MODULE_BLACKFIRE:-0}" != 0 ] && ln -sf $MODS/blackfire.ini $CONF/90-blackfire.ini || rm -f $CONF/90-blackfire.ini
 	[ \( "${PHP_MODULE_BZ2:-0}" != 0 -a -z "${PHP_CLI_MODULE_BZ2}" \) -o "${PHP_CLI_MODULE_BZ2:-0}" != 0 ] && ln -sf $MODS/bz2.ini $CONF/20-bz2.ini || rm -f $CONF/20-bz2.ini
 	[ \( "${PHP_MODULE_CALENDAR:-0}" != 0 -a -z "${PHP_CLI_MODULE_CALENDAR}" \) -o "${PHP_CLI_MODULE_CALENDAR:-0}" != 0 ] && ln -sf $MODS/calendar.ini $CONF/20-calendar.ini || rm -f $CONF/20-calendar.ini
 	[ \( "${PHP_MODULE_CTYPE:-0}" != 0 -a -z "${PHP_CLI_MODULE_CTYPE}" \) -o "${PHP_CLI_MODULE_CTYPE:-0}" != 0 ] && ln -sf $MODS/ctype.ini $CONF/20-ctype.ini || rm -f $CONF/20-ctype.ini
@@ -161,6 +160,7 @@ else
 	[ \( "${PHP_MODULE_PHAR:-0}" != 0 -a -z "${PHP_CLI_MODULE_PHAR}" \) -o "${PHP_CLI_MODULE_PHAR:-0}" != 0 ] && ln -sf $MODS/phar.ini $CONF/20-phar.ini || rm -f $CONF/20-phar.ini
 	[ \( "${PHP_MODULE_POSIX:-0}" != 0 -a -z "${PHP_CLI_MODULE_POSIX}" \) -o "${PHP_CLI_MODULE_POSIX:-0}" != 0 ] && ln -sf $MODS/posix.ini $CONF/20-posix.ini || rm -f $CONF/20-posix.ini
 	[ \( "${PHP_MODULE_PROTOBUF:-0}" != 0 -a -z "${PHP_CLI_MODULE_PROTOBUF}" \) -o "${PHP_CLI_MODULE_PROTOBUF:-0}" != 0 ] && ln -sf $MODS/protobuf.ini $CONF/30-protobuf.ini || rm -f $CONF/30-protobuf.ini
+	[ \( "${PHP_MODULE_PS:-0}" != 0 -a -z "${PHP_CLI_MODULE_PS}" \) -o "${PHP_CLI_MODULE_PS:-0}" != 0 ] && ln -sf $MODS/ps.ini $CONF/20-ps.ini || rm -f $CONF/20-ps.ini
 	[ \( "${PHP_MODULE_PSPELL:-0}" != 0 -a -z "${PHP_CLI_MODULE_PSPELL}" \) -o "${PHP_CLI_MODULE_PSPELL:-0}" != 0 ] && ln -sf $MODS/pspell.ini $CONF/20-pspell.ini || rm -f $CONF/20-pspell.ini
 	[ \( "${PHP_MODULE_PSR:-0}" != 0 -a -z "${PHP_CLI_MODULE_PSR}" \) -o "${PHP_CLI_MODULE_PSR:-0}" != 0 ] && ln -sf $MODS/psr.ini $CONF/15-psr.ini || rm -f $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RAPHF:-0}" != 0 -a -z "${PHP_CLI_MODULE_RAPHF}" \) -o "${PHP_CLI_MODULE_RAPHF:-0}" != 0 ] && ln -sf $MODS/raphf.ini $CONF/20-raphf.ini || rm -f $CONF/20-raphf.ini

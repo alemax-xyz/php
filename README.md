@@ -7,8 +7,8 @@ PHP FPM pool is pre-configured in `/etc/php/{8.x,7.x,5.6}/fpm/pool.d/www.conf` t
 
 ### Available PHP modules
 
-`amqp`, `apcu`, `apcu-bc`, `ast`, `bcmath`, `blackfire`, `bz2`, `calendar`, `ctype`, `curl`, `dba`, `decimal`, `dom`,
-`ds`, `enchant`, `exif`, `facedetect`, `ffi`, `fileinfo`, `ftp`, `gd`, `gearman`, `geoip`, `gettext`, `gmagick`, `gmp`,
+`amqp`, `apcu`, `apcu-bc`, `ast`, `bcmath`, `bz2`, `calendar`, `ctype`, `curl`, `dba`, `decimal`, `dom`, `ds`,
+`enchant`, `exif`, `facedetect`, `ffi`, `fileinfo`, `ftp`, `gd`, `gearman`, `geoip`, `gettext`, `gmagick`, `gmp`,
 `gnupg`, `grpc`, `http`, `iconv`, `igbinary`, `imagick`, `imap`, `interbase`, `intl`, `json`, `lua`, `ldap`,
 `libvirt-php`, `lz4`, `mailparse`, `mbstring`, `mcrypt`, `memcache`, `memcached`, `mongo`, `mongodb`, `msgpack`,
 `mssql`, `mysql`, `mysqli`, `mysqlnd`, `oauth`, `odbc`, `opcache`, `pinba`, `psr`, `pconv`, `pdo`, `pdo-dblib`,

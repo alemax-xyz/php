@@ -27,8 +27,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && add-apt-repository -y ppa:ondrej/php \
- && wget -qO - https://packages.blackfire.io/gpg.key | apt-key add - \
- && add-apt-repository -y "deb http://packages.blackfire.io/debian any main" \
  && apt-get update
 
 RUN mkdir -p /build /rootfs
@@ -143,6 +141,7 @@ RUN apt-get download \
         librtmp1 \
         libsasl2-2 \
         libsasl2-modules-db \
+        libsnappy1v5 \
         libsodium23 \
         libsqlite3-0 \
         libssh-4 \
@@ -288,7 +287,6 @@ RUN apt-get download \
         libcap2 \
         libldb2 \
         libjansson4 \
-        blackfire-php \
         libsnmp35
 RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
 
@@ -308,8 +306,6 @@ RUN mkdir -p \
  && mv usr/lib/php/5.6/php.ini-production etc/php/5.6/fpm/php.ini \
  && mv usr/lib/php/5.6/php.ini-production.cli etc/php/5.6/cli/php.ini \
  && mv usr/share/php5.6-*/*/*.ini etc/php/5.6/mods-available \
- && mv usr/lib/blackfire-php/amd64/blackfire-20131226.so usr/lib/php/20131226/blackfire.so \
- && mv usr/lib/blackfire-php/blackfire.ini.dist etc/php/5.6/mods-available/blackfire.ini \
  && ln -s /var/lib/snmp usr/share/snmp \
  && ln -s pinentry-tty usr/bin/pinentry \
  && echo 'mibs :' > etc/snmp/snmp.conf \
@@ -336,7 +332,6 @@ RUN mkdir -p \
         usr/bin/gpg2 \
         usr/include \
         usr/lib/aspell/*-linux-gnu*/*.la \
-        usr/lib/blackfire-php \
         usr/lib/*-linux-gnu*/ImageMagick-*/modules-*/coders/*.la \
         usr/lib/*-linux-gnu*/ImageMagick-*/modules-*/filters/*.la \
         usr/lib/odbc \

@@ -296,46 +296,6 @@
 	elif [ -n "${PHP_BCMATH_SCALE+1}" ]; then
 		echo "bcmath.scale=${PHP_BCMATH_SCALE}"
 	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_AGENT_SOCKET+1}" ]; then
-		echo "blackfire.agent_socket=${PHP_CLI_BLACKFIRE_AGENT_SOCKET}"
-	elif [ -n "${PHP_BLACKFIRE_AGENT_SOCKET+1}" ]; then
-		echo "blackfire.agent_socket=${PHP_BLACKFIRE_AGENT_SOCKET}"
-	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_ENV_ID+1}" ]; then
-		echo "blackfire.env_id=${PHP_CLI_BLACKFIRE_ENV_ID}"
-	elif [ -n "${PHP_BLACKFIRE_ENV_ID+1}" ]; then
-		echo "blackfire.env_id=${PHP_BLACKFIRE_ENV_ID}"
-	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_ENV_TOKEN+1}" ]; then
-		echo "blackfire.env_token=${PHP_CLI_BLACKFIRE_ENV_TOKEN}"
-	elif [ -n "${PHP_BLACKFIRE_ENV_TOKEN+1}" ]; then
-		echo "blackfire.env_token=${PHP_BLACKFIRE_ENV_TOKEN}"
-	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_HOSTNAME+1}" ]; then
-		echo "blackfire.hostname=${PHP_CLI_BLACKFIRE_HOSTNAME}"
-	elif [ -n "${PHP_BLACKFIRE_HOSTNAME+1}" ]; then
-		echo "blackfire.hostname=${PHP_BLACKFIRE_HOSTNAME}"
-	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_LOG_FILE+1}" ]; then
-		echo "blackfire.log_file=${PHP_CLI_BLACKFIRE_LOG_FILE}"
-	elif [ -n "${PHP_BLACKFIRE_LOG_FILE+1}" ]; then
-		echo "blackfire.log_file=${PHP_BLACKFIRE_LOG_FILE}"
-	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_LOG_LEVEL+1}" ]; then
-		echo "blackfire.log_level=${PHP_CLI_BLACKFIRE_LOG_LEVEL}"
-	elif [ -n "${PHP_BLACKFIRE_LOG_LEVEL+1}" ]; then
-		echo "blackfire.log_level=${PHP_BLACKFIRE_LOG_LEVEL}"
-	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_SERVER_ID+1}" ]; then
-		echo "blackfire.server_id=${PHP_CLI_BLACKFIRE_SERVER_ID}"
-	elif [ -n "${PHP_BLACKFIRE_SERVER_ID+1}" ]; then
-		echo "blackfire.server_id=${PHP_BLACKFIRE_SERVER_ID}"
-	fi
-	if [ -n "${PHP_CLI_BLACKFIRE_SERVER_TOKEN+1}" ]; then
-		echo "blackfire.server_token=${PHP_CLI_BLACKFIRE_SERVER_TOKEN}"
-	elif [ -n "${PHP_BLACKFIRE_SERVER_TOKEN+1}" ]; then
-		echo "blackfire.server_token=${PHP_BLACKFIRE_SERVER_TOKEN}"
-	fi
 	if [ -n "${PHP_CLI_BROWSCAP+1}" ]; then
 		echo "browscap=${PHP_CLI_BROWSCAP}"
 	elif [ -n "${PHP_BROWSCAP+1}" ]; then
