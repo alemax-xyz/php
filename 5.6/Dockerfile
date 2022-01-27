@@ -415,6 +415,7 @@ RUN mkdir -p \
 
 COPY --from=base /etc/group /etc/gshadow /etc/passwd /etc/shadow etc/
 COPY init/ etc/init/
+COPY openssl.cnf etc/ssl/
 
 WORKDIR /
 
