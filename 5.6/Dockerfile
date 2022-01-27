@@ -300,12 +300,14 @@ RUN mkdir -p \
         var/log \
         var/www \
         run/php \
+        usr/lib/ssl \
         etc/php/5.6/fpm \
         etc/php/5.6/cli \
  && chmod 1777 var/lib/php/sessions \
  && mv usr/lib/php/5.6/php.ini-production etc/php/5.6/fpm/php.ini \
  && mv usr/lib/php/5.6/php.ini-production.cli etc/php/5.6/cli/php.ini \
  && mv usr/share/php5.6-*/*/*.ini etc/php/5.6/mods-available \
+ && ln -s /etc/ssl/openssl.cnf usr/lib/ssl/openssl.cnf \
  && ln -s /var/lib/snmp usr/share/snmp \
  && ln -s pinentry-tty usr/bin/pinentry \
  && echo 'mibs :' > etc/snmp/snmp.conf \

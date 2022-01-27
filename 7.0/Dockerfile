@@ -380,10 +380,12 @@ RUN mkdir -p \
         var/log \
         var/www \
         run/php \
+        usr/lib/ssl \
  && chmod 1777 var/lib/php/sessions \
  && mv usr/lib/php/7.0/php.ini-production etc/php/7.0/fpm/php.ini \
  && mv usr/lib/php/7.0/php.ini-production.cli etc/php/7.0/cli/php.ini \
  && mv usr/share/php7.0-*/*/*.ini etc/php/7.0/mods-available \
+ && ln -s /etc/ssl/openssl.cnf usr/lib/ssl/openssl.cnf \
  && ln -s /var/lib/snmp usr/share/snmp \
  && ln -s pinentry-tty usr/bin/pinentry \
  && ln -s blas/libblas.so.3 usr/lib/x86_64-linux-gnu/libblas.so.3 \
