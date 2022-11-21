@@ -60,4 +60,4 @@ For example, to set `session.save_path` INI setting for FPM use `PHP_FPM_SESSION
 
  * `{8.x,7.x,5.6}-git` are based on `{8.x,7.x,5.6}` with additional `openssh-client` and `git` binaries;
  * `{8.x,7.x,5.6}-composer` are based on `{8.x,7.x,5.6}-git`, containing pre-installed `composer`;
- * `{8.x,7.0,7.1,7.2}-contrib` are based on `{8.x,7.x,5.6}-composer` with additional `pdo_snowflake` PHP module;
+ * `{8.x,7.0,7.1,7.2}-contrib` are based on `{8.x,7.x}-composer` with additional `pdo_snowflake` PHP module;
