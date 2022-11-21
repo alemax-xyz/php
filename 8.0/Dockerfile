@@ -159,7 +159,7 @@ RUN apt-get download \
         libudev1 \
         libuuid1 \
         libunistring2 \
-#        libvirt0 \
+        libvirt0 \
         libwebp6 \
         libwebpdemux2 \
         libwebpmux3 \
@@ -214,6 +214,8 @@ RUN apt-get download \
         php8.0-maxminddb \
         php8.0-mbstring \
         php8.0-mcrypt \
+        php-libvirt-php \
+        php8.0-libvirt-php \
         php8.0-memcached \
         php8.0-mongodb \
         php8.0-msgpack \

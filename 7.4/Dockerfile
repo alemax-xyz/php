@@ -263,6 +263,7 @@ RUN apt-get download \
         php7.4-lua \
         liblua5.2-0 \
         php-libvirt-php \
+        php7.4-libvirt-php \
         php7.4-memcache \
         php7.4-memcached \
         php7.4-mongodb \

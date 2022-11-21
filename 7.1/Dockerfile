@@ -262,6 +262,7 @@ RUN apt-get download \
         liblua5.2-0 \
         php7.1-sodium \
         php-libvirt-php \
+        php7.1-libvirt-php \
         php7.1-memcache \
         php7.1-memcached \
         php7.1-mongodb \

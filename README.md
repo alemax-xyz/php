@@ -55,3 +55,9 @@ _*_ `PUID`/`PGID` could be used to preserve data volume ownership on host.
 
 _**_ The name of the `PHP_*` variable is an uppercased version of the corresponding setting with all non-alphanumeric characters replaced by `_` (underscore).
 For example, to set `session.save_path` INI setting for FPM use `PHP_FPM_SESSION_SAVE_PATH` environment variable.
+
+### Additional version tags
+
+ * `{8.x,7.x,5.6}-git` are based on `{8.x,7.x,5.6}` with additional `openssh-client` and `git` binaries;
+ * `{8.x,7.x,5.6}-composer` are based on `{8.x,7.x,5.6}-git`, containing pre-installed `composer`;
+ * `{8.x,7.0,7.1,7.2}-contrib` are based on `{8.x,7.x,5.6}-composer` with additional `pdo_snowflake` PHP module;

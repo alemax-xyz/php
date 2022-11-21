@@ -249,6 +249,7 @@ RUN apt-get download \
         php5.6-lua \
         liblua5.2-0 \
         php-libvirt-php \
+        php5.6-libvirt-php \
         php5.6-memcache \
         php5.6-memcached \
         php5.6-mongo \
