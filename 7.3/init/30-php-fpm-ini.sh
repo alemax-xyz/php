@@ -431,11 +431,6 @@
 	elif [ -n "${PHP_EXTENSION_DIR+1}" ]; then
 		echo "extension_dir=${PHP_EXTENSION_DIR}"
 	fi
-	if [ -n "${PHP_FPM_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_FPM_FACEDETECT_CASCADE}"
-	elif [ -n "${PHP_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_FACEDETECT_CASCADE}"
-	fi
 	if [ -n "${PHP_FPM_FILE_UPLOADS+1}" ]; then
 		echo "file_uploads=${PHP_FPM_FILE_UPLOADS}"
 	elif [ -n "${PHP_FILE_UPLOADS+1}" ]; then
@@ -691,26 +686,6 @@
 	elif [ -n "${PHP_LDAP_MAX_LINKS+1}" ]; then
 		echo "ldap.max_links=${PHP_LDAP_MAX_LINKS}"
 	fi
-	if [ -n "${PHP_FPM_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_FPM_LIBVIRT_IMAGE_PATH}"
-	elif [ -n "${PHP_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_LIBVIRT_IMAGE_PATH}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_FPM_LIBVIRT_ISO_PATH}"
-	elif [ -n "${PHP_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_LIBVIRT_ISO_PATH}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_FPM_LIBVIRT_LONGLONG_TO_STRING}"
-	elif [ -n "${PHP_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_LIBVIRT_LONGLONG_TO_STRING}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_FPM_LIBVIRT_MAX_CONNECTIONS}"
-	elif [ -n "${PHP_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_LIBVIRT_MAX_CONNECTIONS}"
-	fi
 	if [ -n "${PHP_FPM_LOG_ERRORS+1}" ]; then
 		echo "log_errors=${PHP_FPM_LOG_ERRORS}"
 	elif [ -n "${PHP_LOG_ERRORS+1}" ]; then
@@ -765,6 +740,11 @@
 		echo "max_input_vars=${PHP_FPM_MAX_INPUT_VARS}"
 	elif [ -n "${PHP_MAX_INPUT_VARS+1}" ]; then
 		echo "max_input_vars=${PHP_MAX_INPUT_VARS}"
+	fi
+	if [ -n "${PHP_FPM_MAX_MULTIPART_BODY_PARTS+1}" ]; then
+		echo "max_multipart_body_parts=${PHP_FPM_MAX_MULTIPART_BODY_PARTS}"
+	elif [ -n "${PHP_MAX_MULTIPART_BODY_PARTS+1}" ]; then
+		echo "max_multipart_body_parts=${PHP_MAX_MULTIPART_BODY_PARTS}"
 	fi
 	if [ -n "${PHP_FPM_MBSTRING_DETECT_ORDER+1}" ]; then
 		echo "mbstring.detect_order=${PHP_FPM_MBSTRING_DETECT_ORDER}"
@@ -1075,11 +1055,6 @@
 		echo "mongodb.debug=${PHP_FPM_MONGODB_DEBUG}"
 	elif [ -n "${PHP_MONGODB_DEBUG+1}" ]; then
 		echo "mongodb.debug=${PHP_MONGODB_DEBUG}"
-	fi
-	if [ -n "${PHP_FPM_MONGODB_MOCK_SERVICE_ID+1}" ]; then
-		echo "mongodb.mock_service_id=${PHP_FPM_MONGODB_MOCK_SERVICE_ID}"
-	elif [ -n "${PHP_MONGODB_MOCK_SERVICE_ID+1}" ]; then
-		echo "mongodb.mock_service_id=${PHP_MONGODB_MOCK_SERVICE_ID}"
 	fi
 	if [ -n "${PHP_FPM_MSGPACK_ERROR_DISPLAY+1}" ]; then
 		echo "msgpack.error_display=${PHP_FPM_MSGPACK_ERROR_DISPLAY}"
@@ -1815,6 +1790,11 @@
 		echo "redis.pconnect.pooling_enabled=${PHP_FPM_REDIS_PCONNECT_POOLING_ENABLED}"
 	elif [ -n "${PHP_REDIS_PCONNECT_POOLING_ENABLED+1}" ]; then
 		echo "redis.pconnect.pooling_enabled=${PHP_REDIS_PCONNECT_POOLING_ENABLED}"
+	fi
+	if [ -n "${PHP_FPM_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
+		echo "redis.session.early_refresh=${PHP_FPM_REDIS_SESSION_EARLY_REFRESH}"
+	elif [ -n "${PHP_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
+		echo "redis.session.early_refresh=${PHP_REDIS_SESSION_EARLY_REFRESH}"
 	fi
 	if [ -n "${PHP_FPM_REDIS_SESSION_LOCK_EXPIRE+1}" ]; then
 		echo "redis.session.lock_expire=${PHP_FPM_REDIS_SESSION_LOCK_EXPIRE}"

@@ -6,7 +6,8 @@ override PHP_TARGETS = \
     7.3 7.3-git 7.3-composer 7.3-contrib \
     7.4 7.4-git 7.4-composer 7.4-contrib \
     8.0 8.0-git 8.0-composer 8.0-contrib \
-    8.1 8.1-git 8.1-composer 8.1-contrib
+    8.1 8.1-git 8.1-composer 8.1-contrib \
+    8.2 8.2-git 8.2-composer 8.2-contrib
 
 all: ${PHP_TARGETS} latest latest-git latest-composer
 
@@ -49,7 +50,11 @@ latest latest-git latest-composer:
 8.1-composer: 8.1-git
 8.1-contrib: 8.1-composer
 
-latest: 8.1
-latest-git: 8.1-git
-latest-composer: 8.1-composer
-latest-contrib: 8.1-contrib
+8.2-git: 8.2
+8.2-composer: 8.2-git
+8.2-contrib: 8.2-composer
+
+latest: 8.2
+latest-git: 8.2-git
+latest-composer: 8.2-composer
+latest-contrib: 8.2-contrib

@@ -36,6 +36,11 @@
 	elif [ -n "${PHP_AMQP_CONNECT_TIMEOUT+1}" ]; then
 		echo "amqp.connect_timeout=${PHP_AMQP_CONNECT_TIMEOUT}"
 	fi
+	if [ -n "${PHP_FPM_AMQP_DESERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.deserialization_depth=${PHP_FPM_AMQP_DESERIALIZATION_DEPTH}"
+	elif [ -n "${PHP_AMQP_DESERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.deserialization_depth=${PHP_AMQP_DESERIALIZATION_DEPTH}"
+	fi
 	if [ -n "${PHP_FPM_AMQP_FRAME_MAX+1}" ]; then
 		echo "amqp.frame_max=${PHP_FPM_AMQP_FRAME_MAX}"
 	elif [ -n "${PHP_AMQP_FRAME_MAX+1}" ]; then
@@ -105,6 +110,11 @@
 		echo "amqp.sasl_method=${PHP_FPM_AMQP_SASL_METHOD}"
 	elif [ -n "${PHP_AMQP_SASL_METHOD+1}" ]; then
 		echo "amqp.sasl_method=${PHP_AMQP_SASL_METHOD}"
+	fi
+	if [ -n "${PHP_FPM_AMQP_SERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.serialization_depth=${PHP_FPM_AMQP_SERIALIZATION_DEPTH}"
+	elif [ -n "${PHP_AMQP_SERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.serialization_depth=${PHP_AMQP_SERIALIZATION_DEPTH}"
 	fi
 	if [ -n "${PHP_FPM_AMQP_TIMEOUT+1}" ]; then
 		echo "amqp.timeout=${PHP_FPM_AMQP_TIMEOUT}"
@@ -431,11 +441,6 @@
 	elif [ -n "${PHP_EXTENSION_DIR+1}" ]; then
 		echo "extension_dir=${PHP_EXTENSION_DIR}"
 	fi
-	if [ -n "${PHP_FPM_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_FPM_FACEDETECT_CASCADE}"
-	elif [ -n "${PHP_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_FACEDETECT_CASCADE}"
-	fi
 	if [ -n "${PHP_FPM_FFI_ENABLE+1}" ]; then
 		echo "ffi.enable=${PHP_FPM_FFI_ENABLE}"
 	elif [ -n "${PHP_FFI_ENABLE+1}" ]; then
@@ -671,6 +676,11 @@
 	elif [ -n "${PHP_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
 		echo "libvirt.max_connections=${PHP_LIBVIRT_MAX_CONNECTIONS}"
 	fi
+	if [ -n "${PHP_FPM_LIBVIRT_SIGNED_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.signed_longlong_to_string=${PHP_FPM_LIBVIRT_SIGNED_LONGLONG_TO_STRING}"
+	elif [ -n "${PHP_LIBVIRT_SIGNED_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.signed_longlong_to_string=${PHP_LIBVIRT_SIGNED_LONGLONG_TO_STRING}"
+	fi
 	if [ -n "${PHP_FPM_LOG_ERRORS+1}" ]; then
 		echo "log_errors=${PHP_FPM_LOG_ERRORS}"
 	elif [ -n "${PHP_LOG_ERRORS+1}" ]; then
@@ -725,6 +735,11 @@
 		echo "max_input_vars=${PHP_FPM_MAX_INPUT_VARS}"
 	elif [ -n "${PHP_MAX_INPUT_VARS+1}" ]; then
 		echo "max_input_vars=${PHP_MAX_INPUT_VARS}"
+	fi
+	if [ -n "${PHP_FPM_MAX_MULTIPART_BODY_PARTS+1}" ]; then
+		echo "max_multipart_body_parts=${PHP_FPM_MAX_MULTIPART_BODY_PARTS}"
+	elif [ -n "${PHP_MAX_MULTIPART_BODY_PARTS+1}" ]; then
+		echo "max_multipart_body_parts=${PHP_MAX_MULTIPART_BODY_PARTS}"
 	fi
 	if [ -n "${PHP_FPM_MBSTRING_DETECT_ORDER+1}" ]; then
 		echo "mbstring.detect_order=${PHP_FPM_MBSTRING_DETECT_ORDER}"
@@ -1040,11 +1055,6 @@
 		echo "mongodb.debug=${PHP_FPM_MONGODB_DEBUG}"
 	elif [ -n "${PHP_MONGODB_DEBUG+1}" ]; then
 		echo "mongodb.debug=${PHP_MONGODB_DEBUG}"
-	fi
-	if [ -n "${PHP_FPM_MONGODB_MOCK_SERVICE_ID+1}" ]; then
-		echo "mongodb.mock_service_id=${PHP_FPM_MONGODB_MOCK_SERVICE_ID}"
-	elif [ -n "${PHP_MONGODB_MOCK_SERVICE_ID+1}" ]; then
-		echo "mongodb.mock_service_id=${PHP_MONGODB_MOCK_SERVICE_ID}"
 	fi
 	if [ -n "${PHP_FPM_MSGPACK_ERROR_DISPLAY+1}" ]; then
 		echo "msgpack.error_display=${PHP_FPM_MSGPACK_ERROR_DISPLAY}"
@@ -1576,6 +1586,11 @@
 	elif [ -n "${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
 		echo "phalcon.orm.not_null_validations=${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
 	fi
+	if [ -n "${PHP_FPM_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
+		echo "phalcon.orm.resultset_prefetch_records=${PHP_FPM_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
+	elif [ -n "${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
+		echo "phalcon.orm.resultset_prefetch_records=${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
+	fi
 	if [ -n "${PHP_FPM_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
 		echo "phalcon.orm.update_snapshot_on_save=${PHP_FPM_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
 	elif [ -n "${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
@@ -1790,6 +1805,11 @@
 		echo "redis.pconnect.pooling_enabled=${PHP_FPM_REDIS_PCONNECT_POOLING_ENABLED}"
 	elif [ -n "${PHP_REDIS_PCONNECT_POOLING_ENABLED+1}" ]; then
 		echo "redis.pconnect.pooling_enabled=${PHP_REDIS_PCONNECT_POOLING_ENABLED}"
+	fi
+	if [ -n "${PHP_FPM_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
+		echo "redis.session.early_refresh=${PHP_FPM_REDIS_SESSION_EARLY_REFRESH}"
+	elif [ -n "${PHP_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
+		echo "redis.session.early_refresh=${PHP_REDIS_SESSION_EARLY_REFRESH}"
 	fi
 	if [ -n "${PHP_FPM_REDIS_SESSION_LOCK_EXPIRE+1}" ]; then
 		echo "redis.session.lock_expire=${PHP_FPM_REDIS_SESSION_LOCK_EXPIRE}"

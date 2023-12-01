@@ -22,7 +22,6 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_DS:-1}" = 0 -a -z "${PHP_FPM_MODULE_DS}" \) -o "${PHP_FPM_MODULE_DS:-1}" = 0 ] && rm -f $CONF/30-ds.ini || ln -sf $MODS/ds.ini $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-1}" = 0 -a -z "${PHP_FPM_MODULE_ENCHANT}" \) -o "${PHP_FPM_MODULE_ENCHANT:-1}" = 0 ] && rm -f $CONF/20-enchant.ini || ln -sf $MODS/enchant.ini $CONF/20-enchant.ini
 	[ \( "${PHP_MODULE_EXIF:-1}" = 0 -a -z "${PHP_FPM_MODULE_EXIF}" \) -o "${PHP_FPM_MODULE_EXIF:-1}" = 0 ] && rm -f $CONF/20-exif.ini || ln -sf $MODS/exif.ini $CONF/20-exif.ini
-	[ \( "${PHP_MODULE_FACEDETECT:-1}" = 0 -a -z "${PHP_FPM_MODULE_FACEDETECT}" \) -o "${PHP_FPM_MODULE_FACEDETECT:-1}" = 0 ] && rm -f $CONF/20-facedetect.ini || ln -sf $MODS/facedetect.ini $CONF/20-facedetect.ini
 	[ \( "${PHP_MODULE_FILEINFO:-1}" = 0 -a -z "${PHP_FPM_MODULE_FILEINFO}" \) -o "${PHP_FPM_MODULE_FILEINFO:-1}" = 0 ] && rm -f $CONF/20-fileinfo.ini || ln -sf $MODS/fileinfo.ini $CONF/20-fileinfo.ini
 	[ \( "${PHP_MODULE_FTP:-1}" = 0 -a -z "${PHP_FPM_MODULE_FTP}" \) -o "${PHP_FPM_MODULE_FTP:-1}" = 0 ] && rm -f $CONF/20-ftp.ini || ln -sf $MODS/ftp.ini $CONF/20-ftp.ini
 	[ \( "${PHP_MODULE_GD:-1}" = 0 -a -z "${PHP_FPM_MODULE_GD}" \) -o "${PHP_FPM_MODULE_GD:-1}" = 0 ] && rm -f $CONF/20-gd.ini || ln -sf $MODS/gd.ini $CONF/20-gd.ini
@@ -77,6 +76,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_PSR:-1}" = 0 -a -z "${PHP_FPM_MODULE_PSR}" \) -o "${PHP_FPM_MODULE_PSR:-1}" = 0 ] && rm -f $CONF/15-psr.ini || ln -sf $MODS/psr.ini $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RADIUS:-1}" = 0 -a -z "${PHP_FPM_MODULE_RADIUS}" \) -o "${PHP_FPM_MODULE_RADIUS:-1}" = 0 ] && rm -f $CONF/20-radius.ini || ln -sf $MODS/radius.ini $CONF/20-radius.ini
 	[ \( "${PHP_MODULE_RAPHF:-1}" = 0 -a -z "${PHP_FPM_MODULE_RAPHF}" \) -o "${PHP_FPM_MODULE_RAPHF:-1}" = 0 ] && rm -f $CONF/20-raphf.ini || ln -sf $MODS/raphf.ini $CONF/20-raphf.ini
+	[ \( "${PHP_MODULE_RDKAFKA:-1}" = 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-1}" = 0 ] && rm -f $CONF/30-rdkafka.ini || ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-1}" = 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-1}" = 0 ] && rm -f $CONF/20-readline.ini || ln -sf $MODS/readline.ini $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-1}" = 0 -a -z "${PHP_FPM_MODULE_RECODE}" \) -o "${PHP_FPM_MODULE_RECODE:-1}" = 0 ] && rm -f $CONF/20-recode.ini || ln -sf $MODS/recode.ini $CONF/20-recode.ini
 	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/20-redis.ini || ln -sf $MODS/redis.ini $CONF/20-redis.ini
@@ -130,7 +130,6 @@ else
 	[ \( "${PHP_MODULE_DS:-0}" != 0 -a -z "${PHP_FPM_MODULE_DS}" \) -o "${PHP_FPM_MODULE_DS:-0}" != 0 ] && ln -sf $MODS/ds.ini $CONF/30-ds.ini || rm -f $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-0}" != 0 -a -z "${PHP_FPM_MODULE_ENCHANT}" \) -o "${PHP_FPM_MODULE_ENCHANT:-0}" != 0 ] && ln -sf $MODS/enchant.ini $CONF/20-enchant.ini || rm -f $CONF/20-enchant.ini
 	[ \( "${PHP_MODULE_EXIF:-0}" != 0 -a -z "${PHP_FPM_MODULE_EXIF}" \) -o "${PHP_FPM_MODULE_EXIF:-0}" != 0 ] && ln -sf $MODS/exif.ini $CONF/20-exif.ini || rm -f $CONF/20-exif.ini
-	[ \( "${PHP_MODULE_FACEDETECT:-0}" != 0 -a -z "${PHP_FPM_MODULE_FACEDETECT}" \) -o "${PHP_FPM_MODULE_FACEDETECT:-0}" != 0 ] && ln -sf $MODS/facedetect.ini $CONF/20-facedetect.ini || rm -f $CONF/20-facedetect.ini
 	[ \( "${PHP_MODULE_FILEINFO:-0}" != 0 -a -z "${PHP_FPM_MODULE_FILEINFO}" \) -o "${PHP_FPM_MODULE_FILEINFO:-0}" != 0 ] && ln -sf $MODS/fileinfo.ini $CONF/20-fileinfo.ini || rm -f $CONF/20-fileinfo.ini
 	[ \( "${PHP_MODULE_FTP:-0}" != 0 -a -z "${PHP_FPM_MODULE_FTP}" \) -o "${PHP_FPM_MODULE_FTP:-0}" != 0 ] && ln -sf $MODS/ftp.ini $CONF/20-ftp.ini || rm -f $CONF/20-ftp.ini
 	[ \( "${PHP_MODULE_GD:-0}" != 0 -a -z "${PHP_FPM_MODULE_GD}" \) -o "${PHP_FPM_MODULE_GD:-0}" != 0 ] && ln -sf $MODS/gd.ini $CONF/20-gd.ini || rm -f $CONF/20-gd.ini
@@ -185,6 +184,7 @@ else
 	[ \( "${PHP_MODULE_PSR:-0}" != 0 -a -z "${PHP_FPM_MODULE_PSR}" \) -o "${PHP_FPM_MODULE_PSR:-0}" != 0 ] && ln -sf $MODS/psr.ini $CONF/15-psr.ini || rm -f $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RADIUS:-0}" != 0 -a -z "${PHP_FPM_MODULE_RADIUS}" \) -o "${PHP_FPM_MODULE_RADIUS:-0}" != 0 ] && ln -sf $MODS/radius.ini $CONF/20-radius.ini || rm -f $CONF/20-radius.ini
 	[ \( "${PHP_MODULE_RAPHF:-0}" != 0 -a -z "${PHP_FPM_MODULE_RAPHF}" \) -o "${PHP_FPM_MODULE_RAPHF:-0}" != 0 ] && ln -sf $MODS/raphf.ini $CONF/20-raphf.ini || rm -f $CONF/20-raphf.ini
+	[ \( "${PHP_MODULE_RDKAFKA:-0}" != 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-0}" != 0 ] && ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini || rm -f $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-0}" != 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-0}" != 0 ] && ln -sf $MODS/readline.ini $CONF/20-readline.ini || rm -f $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-0}" != 0 -a -z "${PHP_FPM_MODULE_RECODE}" \) -o "${PHP_FPM_MODULE_RECODE:-0}" != 0 ] && ln -sf $MODS/recode.ini $CONF/20-recode.ini || rm -f $CONF/20-recode.ini
 	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/20-redis.ini || rm -f $CONF/20-redis.ini

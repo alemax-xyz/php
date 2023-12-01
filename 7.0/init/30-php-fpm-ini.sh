@@ -436,11 +436,6 @@
 	elif [ -n "${PHP_EXTENSION_DIR+1}" ]; then
 		echo "extension_dir=${PHP_EXTENSION_DIR}"
 	fi
-	if [ -n "${PHP_FPM_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_FPM_FACEDETECT_CASCADE}"
-	elif [ -n "${PHP_FACEDETECT_CASCADE+1}" ]; then
-		echo "facedetect.cascade=${PHP_FACEDETECT_CASCADE}"
-	fi
 	if [ -n "${PHP_FPM_FILE_UPLOADS+1}" ]; then
 		echo "file_uploads=${PHP_FPM_FILE_UPLOADS}"
 	elif [ -n "${PHP_FILE_UPLOADS+1}" ]; then
@@ -710,6 +705,11 @@
 		echo "libvirt.max_connections=${PHP_FPM_LIBVIRT_MAX_CONNECTIONS}"
 	elif [ -n "${PHP_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
 		echo "libvirt.max_connections=${PHP_LIBVIRT_MAX_CONNECTIONS}"
+	fi
+	if [ -n "${PHP_FPM_LIBVIRT_SIGNED_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.signed_longlong_to_string=${PHP_FPM_LIBVIRT_SIGNED_LONGLONG_TO_STRING}"
+	elif [ -n "${PHP_LIBVIRT_SIGNED_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.signed_longlong_to_string=${PHP_LIBVIRT_SIGNED_LONGLONG_TO_STRING}"
 	fi
 	if [ -n "${PHP_FPM_LOG_ERRORS+1}" ]; then
 		echo "log_errors=${PHP_FPM_LOG_ERRORS}"

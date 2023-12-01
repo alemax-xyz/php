@@ -21,8 +21,8 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_DOM:-1}" = 0 -a -z "${PHP_CLI_MODULE_DOM}" \) -o "${PHP_CLI_MODULE_DOM:-1}" = 0 ] && rm -f $CONF/20-dom.ini || ln -sf $MODS/dom.ini $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_DS:-1}" = 0 -a -z "${PHP_CLI_MODULE_DS}" \) -o "${PHP_CLI_MODULE_DS:-1}" = 0 ] && rm -f $CONF/30-ds.ini || ln -sf $MODS/ds.ini $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-1}" = 0 -a -z "${PHP_CLI_MODULE_ENCHANT}" \) -o "${PHP_CLI_MODULE_ENCHANT:-1}" = 0 ] && rm -f $CONF/20-enchant.ini || ln -sf $MODS/enchant.ini $CONF/20-enchant.ini
+	[ \( "${PHP_MODULE_EXCIMER:-1}" = 0 -a -z "${PHP_CLI_MODULE_EXCIMER}" \) -o "${PHP_CLI_MODULE_EXCIMER:-1}" = 0 ] && rm -f $CONF/20-excimer.ini || ln -sf $MODS/excimer.ini $CONF/20-excimer.ini
 	[ \( "${PHP_MODULE_EXIF:-1}" = 0 -a -z "${PHP_CLI_MODULE_EXIF}" \) -o "${PHP_CLI_MODULE_EXIF:-1}" = 0 ] && rm -f $CONF/20-exif.ini || ln -sf $MODS/exif.ini $CONF/20-exif.ini
-	[ \( "${PHP_MODULE_FACEDETECT:-1}" = 0 -a -z "${PHP_CLI_MODULE_FACEDETECT}" \) -o "${PHP_CLI_MODULE_FACEDETECT:-1}" = 0 ] && rm -f $CONF/20-facedetect.ini || ln -sf $MODS/facedetect.ini $CONF/20-facedetect.ini
 	[ \( "${PHP_MODULE_FILEINFO:-1}" = 0 -a -z "${PHP_CLI_MODULE_FILEINFO}" \) -o "${PHP_CLI_MODULE_FILEINFO:-1}" = 0 ] && rm -f $CONF/20-fileinfo.ini || ln -sf $MODS/fileinfo.ini $CONF/20-fileinfo.ini
 	[ \( "${PHP_MODULE_FTP:-1}" = 0 -a -z "${PHP_CLI_MODULE_FTP}" \) -o "${PHP_CLI_MODULE_FTP:-1}" = 0 ] && rm -f $CONF/20-ftp.ini || ln -sf $MODS/ftp.ini $CONF/20-ftp.ini
 	[ \( "${PHP_MODULE_GD:-1}" = 0 -a -z "${PHP_CLI_MODULE_GD}" \) -o "${PHP_CLI_MODULE_GD:-1}" = 0 ] && rm -f $CONF/20-gd.ini || ln -sf $MODS/gd.ini $CONF/20-gd.ini
@@ -43,7 +43,6 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_INTL:-1}" = 0 -a -z "${PHP_CLI_MODULE_INTL}" \) -o "${PHP_CLI_MODULE_INTL:-1}" = 0 ] && rm -f $CONF/20-intl.ini || ln -sf $MODS/intl.ini $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_JSON:-1}" = 0 -a -z "${PHP_CLI_MODULE_JSON}" \) -o "${PHP_CLI_MODULE_JSON:-1}" = 0 ] && rm -f $CONF/20-json.ini || ln -sf $MODS/json.ini $CONF/20-json.ini
 	[ \( "${PHP_MODULE_LDAP:-1}" = 0 -a -z "${PHP_CLI_MODULE_LDAP}" \) -o "${PHP_CLI_MODULE_LDAP:-1}" = 0 ] && rm -f $CONF/20-ldap.ini || ln -sf $MODS/ldap.ini $CONF/20-ldap.ini
-	[ \( "${PHP_MODULE_LIBVIRT_PHP:-1}" = 0 -a -z "${PHP_CLI_MODULE_LIBVIRT_PHP}" \) -o "${PHP_CLI_MODULE_LIBVIRT_PHP:-1}" = 0 ] && rm -f $CONF/40-libvirt-php.ini || ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LUA:-1}" = 0 -a -z "${PHP_CLI_MODULE_LUA}" \) -o "${PHP_CLI_MODULE_LUA:-1}" = 0 ] && rm -f $CONF/20-lua.ini || ln -sf $MODS/lua.ini $CONF/20-lua.ini
 	[ \( "${PHP_MODULE_LZ4:-1}" = 0 -a -z "${PHP_CLI_MODULE_LZ4}" \) -o "${PHP_CLI_MODULE_LZ4:-1}" = 0 ] && rm -f $CONF/20-lz4.ini || ln -sf $MODS/lz4.ini $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-1}" = 0 -a -z "${PHP_CLI_MODULE_MAILPARSE}" \) -o "${PHP_CLI_MODULE_MAILPARSE:-1}" = 0 ] && rm -f $CONF/25-mailparse.ini || ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini
@@ -79,10 +78,12 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_PSR:-1}" = 0 -a -z "${PHP_CLI_MODULE_PSR}" \) -o "${PHP_CLI_MODULE_PSR:-1}" = 0 ] && rm -f $CONF/15-psr.ini || ln -sf $MODS/psr.ini $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RADIUS:-1}" = 0 -a -z "${PHP_CLI_MODULE_RADIUS}" \) -o "${PHP_CLI_MODULE_RADIUS:-1}" = 0 ] && rm -f $CONF/20-radius.ini || ln -sf $MODS/radius.ini $CONF/20-radius.ini
 	[ \( "${PHP_MODULE_RAPHF:-1}" = 0 -a -z "${PHP_CLI_MODULE_RAPHF}" \) -o "${PHP_CLI_MODULE_RAPHF:-1}" = 0 ] && rm -f $CONF/20-raphf.ini || ln -sf $MODS/raphf.ini $CONF/20-raphf.ini
+	[ \( "${PHP_MODULE_RDKAFKA:-1}" = 0 -a -z "${PHP_CLI_MODULE_RDKAFKA}" \) -o "${PHP_CLI_MODULE_RDKAFKA:-1}" = 0 ] && rm -f $CONF/30-rdkafka.ini || ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-1}" = 0 -a -z "${PHP_CLI_MODULE_READLINE}" \) -o "${PHP_CLI_MODULE_READLINE:-1}" = 0 ] && rm -f $CONF/20-readline.ini || ln -sf $MODS/readline.ini $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-1}" = 0 -a -z "${PHP_CLI_MODULE_RECODE}" \) -o "${PHP_CLI_MODULE_RECODE:-1}" = 0 ] && rm -f $CONF/20-recode.ini || ln -sf $MODS/recode.ini $CONF/20-recode.ini
 	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_CLI_MODULE_REDIS}" \) -o "${PHP_CLI_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/20-redis.ini || ln -sf $MODS/redis.ini $CONF/20-redis.ini
 	[ \( "${PHP_MODULE_RRD:-1}" = 0 -a -z "${PHP_CLI_MODULE_RRD}" \) -o "${PHP_CLI_MODULE_RRD:-1}" = 0 ] && rm -f $CONF/20-rrd.ini || ln -sf $MODS/rrd.ini $CONF/20-rrd.ini
+	[ \( "${PHP_MODULE_SASS:-1}" = 0 -a -z "${PHP_CLI_MODULE_SASS}" \) -o "${PHP_CLI_MODULE_SASS:-1}" = 0 ] && rm -f $CONF/20-sass.ini || ln -sf $MODS/sass.ini $CONF/20-sass.ini
 	[ \( "${PHP_MODULE_SHMOP:-1}" = 0 -a -z "${PHP_CLI_MODULE_SHMOP}" \) -o "${PHP_CLI_MODULE_SHMOP:-1}" = 0 ] && rm -f $CONF/20-shmop.ini || ln -sf $MODS/shmop.ini $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-1}" = 0 -a -z "${PHP_CLI_MODULE_SIMPLEXML}" \) -o "${PHP_CLI_MODULE_SIMPLEXML:-1}" = 0 ] && rm -f $CONF/20-simplexml.ini || ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini
 	[ \( "${PHP_MODULE_SMBCLIENT:-1}" = 0 -a -z "${PHP_CLI_MODULE_SMBCLIENT}" \) -o "${PHP_CLI_MODULE_SMBCLIENT:-1}" = 0 ] && rm -f $CONF/20-smbclient.ini || ln -sf $MODS/smbclient.ini $CONF/20-smbclient.ini
@@ -116,6 +117,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_YAML:-1}" = 0 -a -z "${PHP_CLI_MODULE_YAML}" \) -o "${PHP_CLI_MODULE_YAML:-1}" = 0 ] && rm -f $CONF/20-yaml.ini || ln -sf $MODS/yaml.ini $CONF/20-yaml.ini
 	[ \( "${PHP_MODULE_ZIP:-1}" = 0 -a -z "${PHP_CLI_MODULE_ZIP}" \) -o "${PHP_CLI_MODULE_ZIP:-1}" = 0 ] && rm -f $CONF/20-zip.ini || ln -sf $MODS/zip.ini $CONF/20-zip.ini
 	[ \( "${PHP_MODULE_ZMQ:-1}" = 0 -a -z "${PHP_CLI_MODULE_ZMQ}" \) -o "${PHP_CLI_MODULE_ZMQ:-1}" = 0 ] && rm -f $CONF/20-zmq.ini || ln -sf $MODS/zmq.ini $CONF/20-zmq.ini
+	[ \( "${PHP_MODULE_ZSTD:-1}" = 0 -a -z "${PHP_CLI_MODULE_ZSTD}" \) -o "${PHP_CLI_MODULE_ZSTD:-1}" = 0 ] && rm -f $CONF/30-zstd.ini || ln -sf $MODS/zstd.ini $CONF/30-zstd.ini
 else
 	[ \( "${PHP_MODULE_AMQP:-0}" != 0 -a -z "${PHP_CLI_MODULE_AMQP}" \) -o "${PHP_CLI_MODULE_AMQP:-0}" != 0 ] && ln -sf $MODS/amqp.ini $CONF/20-amqp.ini || rm -f $CONF/20-amqp.ini
 	[ \( "${PHP_MODULE_APCU:-0}" != 0 -a -z "${PHP_CLI_MODULE_APCU}" \) -o "${PHP_CLI_MODULE_APCU:-0}" != 0 ] && ln -sf $MODS/apcu.ini $CONF/20-apcu.ini || rm -f $CONF/20-apcu.ini
@@ -131,8 +133,8 @@ else
 	[ \( "${PHP_MODULE_DOM:-0}" != 0 -a -z "${PHP_CLI_MODULE_DOM}" \) -o "${PHP_CLI_MODULE_DOM:-0}" != 0 ] && ln -sf $MODS/dom.ini $CONF/20-dom.ini || rm -f $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_DS:-0}" != 0 -a -z "${PHP_CLI_MODULE_DS}" \) -o "${PHP_CLI_MODULE_DS:-0}" != 0 ] && ln -sf $MODS/ds.ini $CONF/30-ds.ini || rm -f $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-0}" != 0 -a -z "${PHP_CLI_MODULE_ENCHANT}" \) -o "${PHP_CLI_MODULE_ENCHANT:-0}" != 0 ] && ln -sf $MODS/enchant.ini $CONF/20-enchant.ini || rm -f $CONF/20-enchant.ini
+	[ \( "${PHP_MODULE_EXCIMER:-0}" != 0 -a -z "${PHP_CLI_MODULE_EXCIMER}" \) -o "${PHP_CLI_MODULE_EXCIMER:-0}" != 0 ] && ln -sf $MODS/excimer.ini $CONF/20-excimer.ini || rm -f $CONF/20-excimer.ini
 	[ \( "${PHP_MODULE_EXIF:-0}" != 0 -a -z "${PHP_CLI_MODULE_EXIF}" \) -o "${PHP_CLI_MODULE_EXIF:-0}" != 0 ] && ln -sf $MODS/exif.ini $CONF/20-exif.ini || rm -f $CONF/20-exif.ini
-	[ \( "${PHP_MODULE_FACEDETECT:-0}" != 0 -a -z "${PHP_CLI_MODULE_FACEDETECT}" \) -o "${PHP_CLI_MODULE_FACEDETECT:-0}" != 0 ] && ln -sf $MODS/facedetect.ini $CONF/20-facedetect.ini || rm -f $CONF/20-facedetect.ini
 	[ \( "${PHP_MODULE_FILEINFO:-0}" != 0 -a -z "${PHP_CLI_MODULE_FILEINFO}" \) -o "${PHP_CLI_MODULE_FILEINFO:-0}" != 0 ] && ln -sf $MODS/fileinfo.ini $CONF/20-fileinfo.ini || rm -f $CONF/20-fileinfo.ini
 	[ \( "${PHP_MODULE_FTP:-0}" != 0 -a -z "${PHP_CLI_MODULE_FTP}" \) -o "${PHP_CLI_MODULE_FTP:-0}" != 0 ] && ln -sf $MODS/ftp.ini $CONF/20-ftp.ini || rm -f $CONF/20-ftp.ini
 	[ \( "${PHP_MODULE_GD:-0}" != 0 -a -z "${PHP_CLI_MODULE_GD}" \) -o "${PHP_CLI_MODULE_GD:-0}" != 0 ] && ln -sf $MODS/gd.ini $CONF/20-gd.ini || rm -f $CONF/20-gd.ini
@@ -153,7 +155,6 @@ else
 	[ \( "${PHP_MODULE_INTL:-0}" != 0 -a -z "${PHP_CLI_MODULE_INTL}" \) -o "${PHP_CLI_MODULE_INTL:-0}" != 0 ] && ln -sf $MODS/intl.ini $CONF/20-intl.ini || rm -f $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_JSON:-0}" != 0 -a -z "${PHP_CLI_MODULE_JSON}" \) -o "${PHP_CLI_MODULE_JSON:-0}" != 0 ] && ln -sf $MODS/json.ini $CONF/20-json.ini || rm -f $CONF/20-json.ini
 	[ \( "${PHP_MODULE_LDAP:-0}" != 0 -a -z "${PHP_CLI_MODULE_LDAP}" \) -o "${PHP_CLI_MODULE_LDAP:-0}" != 0 ] && ln -sf $MODS/ldap.ini $CONF/20-ldap.ini || rm -f $CONF/20-ldap.ini
-	[ \( "${PHP_MODULE_LIBVIRT_PHP:-0}" != 0 -a -z "${PHP_CLI_MODULE_LIBVIRT_PHP}" \) -o "${PHP_CLI_MODULE_LIBVIRT_PHP:-0}" != 0 ] && ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini || rm -f $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LUA:-0}" != 0 -a -z "${PHP_CLI_MODULE_LUA}" \) -o "${PHP_CLI_MODULE_LUA:-0}" != 0 ] && ln -sf $MODS/lua.ini $CONF/20-lua.ini || rm -f $CONF/20-lua.ini
 	[ \( "${PHP_MODULE_LZ4:-0}" != 0 -a -z "${PHP_CLI_MODULE_LZ4}" \) -o "${PHP_CLI_MODULE_LZ4:-0}" != 0 ] && ln -sf $MODS/lz4.ini $CONF/20-lz4.ini || rm -f $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-0}" != 0 -a -z "${PHP_CLI_MODULE_MAILPARSE}" \) -o "${PHP_CLI_MODULE_MAILPARSE:-0}" != 0 ] && ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini || rm -f $CONF/25-mailparse.ini
@@ -189,10 +190,12 @@ else
 	[ \( "${PHP_MODULE_PSR:-0}" != 0 -a -z "${PHP_CLI_MODULE_PSR}" \) -o "${PHP_CLI_MODULE_PSR:-0}" != 0 ] && ln -sf $MODS/psr.ini $CONF/15-psr.ini || rm -f $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RADIUS:-0}" != 0 -a -z "${PHP_CLI_MODULE_RADIUS}" \) -o "${PHP_CLI_MODULE_RADIUS:-0}" != 0 ] && ln -sf $MODS/radius.ini $CONF/20-radius.ini || rm -f $CONF/20-radius.ini
 	[ \( "${PHP_MODULE_RAPHF:-0}" != 0 -a -z "${PHP_CLI_MODULE_RAPHF}" \) -o "${PHP_CLI_MODULE_RAPHF:-0}" != 0 ] && ln -sf $MODS/raphf.ini $CONF/20-raphf.ini || rm -f $CONF/20-raphf.ini
+	[ \( "${PHP_MODULE_RDKAFKA:-0}" != 0 -a -z "${PHP_CLI_MODULE_RDKAFKA}" \) -o "${PHP_CLI_MODULE_RDKAFKA:-0}" != 0 ] && ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini || rm -f $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-0}" != 0 -a -z "${PHP_CLI_MODULE_READLINE}" \) -o "${PHP_CLI_MODULE_READLINE:-0}" != 0 ] && ln -sf $MODS/readline.ini $CONF/20-readline.ini || rm -f $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-0}" != 0 -a -z "${PHP_CLI_MODULE_RECODE}" \) -o "${PHP_CLI_MODULE_RECODE:-0}" != 0 ] && ln -sf $MODS/recode.ini $CONF/20-recode.ini || rm -f $CONF/20-recode.ini
 	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_CLI_MODULE_REDIS}" \) -o "${PHP_CLI_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/20-redis.ini || rm -f $CONF/20-redis.ini
 	[ \( "${PHP_MODULE_RRD:-0}" != 0 -a -z "${PHP_CLI_MODULE_RRD}" \) -o "${PHP_CLI_MODULE_RRD:-0}" != 0 ] && ln -sf $MODS/rrd.ini $CONF/20-rrd.ini || rm -f $CONF/20-rrd.ini
+	[ \( "${PHP_MODULE_SASS:-0}" != 0 -a -z "${PHP_CLI_MODULE_SASS}" \) -o "${PHP_CLI_MODULE_SASS:-0}" != 0 ] && ln -sf $MODS/sass.ini $CONF/20-sass.ini || rm -f $CONF/20-sass.ini
 	[ \( "${PHP_MODULE_SHMOP:-0}" != 0 -a -z "${PHP_CLI_MODULE_SHMOP}" \) -o "${PHP_CLI_MODULE_SHMOP:-0}" != 0 ] && ln -sf $MODS/shmop.ini $CONF/20-shmop.ini || rm -f $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-0}" != 0 -a -z "${PHP_CLI_MODULE_SIMPLEXML}" \) -o "${PHP_CLI_MODULE_SIMPLEXML:-0}" != 0 ] && ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini || rm -f $CONF/20-simplexml.ini
 	[ \( "${PHP_MODULE_SMBCLIENT:-0}" != 0 -a -z "${PHP_CLI_MODULE_SMBCLIENT}" \) -o "${PHP_CLI_MODULE_SMBCLIENT:-0}" != 0 ] && ln -sf $MODS/smbclient.ini $CONF/20-smbclient.ini || rm -f $CONF/20-smbclient.ini
@@ -226,4 +229,5 @@ else
 	[ \( "${PHP_MODULE_YAML:-0}" != 0 -a -z "${PHP_CLI_MODULE_YAML}" \) -o "${PHP_CLI_MODULE_YAML:-0}" != 0 ] && ln -sf $MODS/yaml.ini $CONF/20-yaml.ini || rm -f $CONF/20-yaml.ini
 	[ \( "${PHP_MODULE_ZIP:-0}" != 0 -a -z "${PHP_CLI_MODULE_ZIP}" \) -o "${PHP_CLI_MODULE_ZIP:-0}" != 0 ] && ln -sf $MODS/zip.ini $CONF/20-zip.ini || rm -f $CONF/20-zip.ini
 	[ \( "${PHP_MODULE_ZMQ:-0}" != 0 -a -z "${PHP_CLI_MODULE_ZMQ}" \) -o "${PHP_CLI_MODULE_ZMQ:-0}" != 0 ] && ln -sf $MODS/zmq.ini $CONF/20-zmq.ini || rm -f $CONF/20-zmq.ini
+	[ \( "${PHP_MODULE_ZSTD:-0}" != 0 -a -z "${PHP_CLI_MODULE_ZSTD}" \) -o "${PHP_CLI_MODULE_ZSTD:-0}" != 0 ] && ln -sf $MODS/zstd.ini $CONF/30-zstd.ini || rm -f $CONF/30-zstd.ini
 fi

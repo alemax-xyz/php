@@ -28,6 +28,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_GMP:-1}" = 0 -a -z "${PHP_FPM_MODULE_GMP}" \) -o "${PHP_FPM_MODULE_GMP:-1}" = 0 ] && rm -f $CONF/20-gmp.ini || ln -sf $MODS/gmp.ini $CONF/20-gmp.ini
 	[ \( "${PHP_MODULE_GNUPG:-1}" = 0 -a -z "${PHP_FPM_MODULE_GNUPG}" \) -o "${PHP_FPM_MODULE_GNUPG:-1}" = 0 ] && rm -f $CONF/20-gnupg.ini || ln -sf $MODS/gnupg.ini $CONF/20-gnupg.ini
 	[ \( "${PHP_MODULE_GRPC:-1}" = 0 -a -z "${PHP_FPM_MODULE_GRPC}" \) -o "${PHP_FPM_MODULE_GRPC:-1}" = 0 ] && rm -f $CONF/30-grpc.ini || ln -sf $MODS/grpc.ini $CONF/30-grpc.ini
+	[ \( "${PHP_MODULE_HTTP:-1}" = 0 -a -z "${PHP_FPM_MODULE_HTTP}" \) -o "${PHP_FPM_MODULE_HTTP:-1}" = 0 ] && rm -f $CONF/25-http.ini || ln -sf $MODS/http.ini $CONF/25-http.ini
 	[ \( "${PHP_MODULE_ICONV:-1}" = 0 -a -z "${PHP_FPM_MODULE_ICONV}" \) -o "${PHP_FPM_MODULE_ICONV:-1}" = 0 ] && rm -f $CONF/20-iconv.ini || ln -sf $MODS/iconv.ini $CONF/20-iconv.ini
 	[ \( "${PHP_MODULE_IGBINARY:-1}" = 0 -a -z "${PHP_FPM_MODULE_IGBINARY}" \) -o "${PHP_FPM_MODULE_IGBINARY:-1}" = 0 ] && rm -f $CONF/20-igbinary.ini || ln -sf $MODS/igbinary.ini $CONF/20-igbinary.ini
 	[ \( "${PHP_MODULE_IMAGICK:-1}" = 0 -a -z "${PHP_FPM_MODULE_IMAGICK}" \) -o "${PHP_FPM_MODULE_IMAGICK:-1}" = 0 ] && rm -f $CONF/20-imagick.ini || ln -sf $MODS/imagick.ini $CONF/20-imagick.ini
@@ -37,7 +38,6 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_INTL:-1}" = 0 -a -z "${PHP_FPM_MODULE_INTL}" \) -o "${PHP_FPM_MODULE_INTL:-1}" = 0 ] && rm -f $CONF/20-intl.ini || ln -sf $MODS/intl.ini $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_JSON:-1}" = 0 -a -z "${PHP_FPM_MODULE_JSON}" \) -o "${PHP_FPM_MODULE_JSON:-1}" = 0 ] && rm -f $CONF/20-json.ini || ln -sf $MODS/json.ini $CONF/20-json.ini
 	[ \( "${PHP_MODULE_LDAP:-1}" = 0 -a -z "${PHP_FPM_MODULE_LDAP}" \) -o "${PHP_FPM_MODULE_LDAP:-1}" = 0 ] && rm -f $CONF/20-ldap.ini || ln -sf $MODS/ldap.ini $CONF/20-ldap.ini
-	[ \( "${PHP_MODULE_LIBVIRT_PHP:-1}" = 0 -a -z "${PHP_FPM_MODULE_LIBVIRT_PHP}" \) -o "${PHP_FPM_MODULE_LIBVIRT_PHP:-1}" = 0 ] && rm -f $CONF/40-libvirt-php.ini || ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LUA:-1}" = 0 -a -z "${PHP_FPM_MODULE_LUA}" \) -o "${PHP_FPM_MODULE_LUA:-1}" = 0 ] && rm -f $CONF/20-lua.ini || ln -sf $MODS/lua.ini $CONF/20-lua.ini
 	[ \( "${PHP_MODULE_LZ4:-1}" = 0 -a -z "${PHP_FPM_MODULE_LZ4}" \) -o "${PHP_FPM_MODULE_LZ4:-1}" = 0 ] && rm -f $CONF/20-lz4.ini || ln -sf $MODS/lz4.ini $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-1}" = 0 -a -z "${PHP_FPM_MODULE_MAILPARSE}" \) -o "${PHP_FPM_MODULE_MAILPARSE:-1}" = 0 ] && rm -f $CONF/25-mailparse.ini || ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini
@@ -52,6 +52,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_MYSQL:-1}" = 0 -a -z "${PHP_FPM_MODULE_MYSQL}" \) -o "${PHP_FPM_MODULE_MYSQL:-1}" = 0 ] && rm -f $CONF/20-mysql.ini || ln -sf $MODS/mysql.ini $CONF/20-mysql.ini
 	[ \( "${PHP_MODULE_MYSQLI:-1}" = 0 -a -z "${PHP_FPM_MODULE_MYSQLI}" \) -o "${PHP_FPM_MODULE_MYSQLI:-1}" = 0 ] && rm -f $CONF/20-mysqli.ini || ln -sf $MODS/mysqli.ini $CONF/20-mysqli.ini
 	[ \( "${PHP_MODULE_MYSQLND:-1}" = 0 -a -z "${PHP_FPM_MODULE_MYSQLND}" \) -o "${PHP_FPM_MODULE_MYSQLND:-1}" = 0 ] && rm -f $CONF/10-mysqlnd.ini || ln -sf $MODS/mysqlnd.ini $CONF/10-mysqlnd.ini
+	[ \( "${PHP_MODULE_MYSQLND_MS:-1}" = 0 -a -z "${PHP_FPM_MODULE_MYSQLND_MS}" \) -o "${PHP_FPM_MODULE_MYSQLND_MS:-1}" = 0 ] && rm -f $CONF/30-mysqlnd_ms.ini || ln -sf $MODS/mysqlnd_ms.ini $CONF/30-mysqlnd_ms.ini
 	[ \( "${PHP_MODULE_OAUTH:-1}" = 0 -a -z "${PHP_FPM_MODULE_OAUTH}" \) -o "${PHP_FPM_MODULE_OAUTH:-1}" = 0 ] && rm -f $CONF/20-oauth.ini || ln -sf $MODS/oauth.ini $CONF/20-oauth.ini
 	[ \( "${PHP_MODULE_ODBC:-1}" = 0 -a -z "${PHP_FPM_MODULE_ODBC}" \) -o "${PHP_FPM_MODULE_ODBC:-1}" = 0 ] && rm -f $CONF/20-odbc.ini || ln -sf $MODS/odbc.ini $CONF/20-odbc.ini
 	[ \( "${PHP_MODULE_OPCACHE:-1}" = 0 -a -z "${PHP_FPM_MODULE_OPCACHE}" \) -o "${PHP_FPM_MODULE_OPCACHE:-1}" = 0 ] && rm -f $CONF/10-opcache.ini || ln -sf $MODS/opcache.ini $CONF/10-opcache.ini
@@ -128,6 +129,7 @@ else
 	[ \( "${PHP_MODULE_GMP:-0}" != 0 -a -z "${PHP_FPM_MODULE_GMP}" \) -o "${PHP_FPM_MODULE_GMP:-0}" != 0 ] && ln -sf $MODS/gmp.ini $CONF/20-gmp.ini || rm -f $CONF/20-gmp.ini
 	[ \( "${PHP_MODULE_GNUPG:-0}" != 0 -a -z "${PHP_FPM_MODULE_GNUPG}" \) -o "${PHP_FPM_MODULE_GNUPG:-0}" != 0 ] && ln -sf $MODS/gnupg.ini $CONF/20-gnupg.ini || rm -f $CONF/20-gnupg.ini
 	[ \( "${PHP_MODULE_GRPC:-0}" != 0 -a -z "${PHP_FPM_MODULE_GRPC}" \) -o "${PHP_FPM_MODULE_GRPC:-0}" != 0 ] && ln -sf $MODS/grpc.ini $CONF/30-grpc.ini || rm -f $CONF/30-grpc.ini
+	[ \( "${PHP_MODULE_HTTP:-0}" != 0 -a -z "${PHP_FPM_MODULE_HTTP}" \) -o "${PHP_FPM_MODULE_HTTP:-0}" != 0 ] && ln -sf $MODS/http.ini $CONF/25-http.ini || rm -f $CONF/25-http.ini
 	[ \( "${PHP_MODULE_ICONV:-0}" != 0 -a -z "${PHP_FPM_MODULE_ICONV}" \) -o "${PHP_FPM_MODULE_ICONV:-0}" != 0 ] && ln -sf $MODS/iconv.ini $CONF/20-iconv.ini || rm -f $CONF/20-iconv.ini
 	[ \( "${PHP_MODULE_IGBINARY:-0}" != 0 -a -z "${PHP_FPM_MODULE_IGBINARY}" \) -o "${PHP_FPM_MODULE_IGBINARY:-0}" != 0 ] && ln -sf $MODS/igbinary.ini $CONF/20-igbinary.ini || rm -f $CONF/20-igbinary.ini
 	[ \( "${PHP_MODULE_IMAGICK:-0}" != 0 -a -z "${PHP_FPM_MODULE_IMAGICK}" \) -o "${PHP_FPM_MODULE_IMAGICK:-0}" != 0 ] && ln -sf $MODS/imagick.ini $CONF/20-imagick.ini || rm -f $CONF/20-imagick.ini
@@ -137,7 +139,6 @@ else
 	[ \( "${PHP_MODULE_INTL:-0}" != 0 -a -z "${PHP_FPM_MODULE_INTL}" \) -o "${PHP_FPM_MODULE_INTL:-0}" != 0 ] && ln -sf $MODS/intl.ini $CONF/20-intl.ini || rm -f $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_JSON:-0}" != 0 -a -z "${PHP_FPM_MODULE_JSON}" \) -o "${PHP_FPM_MODULE_JSON:-0}" != 0 ] && ln -sf $MODS/json.ini $CONF/20-json.ini || rm -f $CONF/20-json.ini
 	[ \( "${PHP_MODULE_LDAP:-0}" != 0 -a -z "${PHP_FPM_MODULE_LDAP}" \) -o "${PHP_FPM_MODULE_LDAP:-0}" != 0 ] && ln -sf $MODS/ldap.ini $CONF/20-ldap.ini || rm -f $CONF/20-ldap.ini
-	[ \( "${PHP_MODULE_LIBVIRT_PHP:-0}" != 0 -a -z "${PHP_FPM_MODULE_LIBVIRT_PHP}" \) -o "${PHP_FPM_MODULE_LIBVIRT_PHP:-0}" != 0 ] && ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini || rm -f $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LUA:-0}" != 0 -a -z "${PHP_FPM_MODULE_LUA}" \) -o "${PHP_FPM_MODULE_LUA:-0}" != 0 ] && ln -sf $MODS/lua.ini $CONF/20-lua.ini || rm -f $CONF/20-lua.ini
 	[ \( "${PHP_MODULE_LZ4:-0}" != 0 -a -z "${PHP_FPM_MODULE_LZ4}" \) -o "${PHP_FPM_MODULE_LZ4:-0}" != 0 ] && ln -sf $MODS/lz4.ini $CONF/20-lz4.ini || rm -f $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-0}" != 0 -a -z "${PHP_FPM_MODULE_MAILPARSE}" \) -o "${PHP_FPM_MODULE_MAILPARSE:-0}" != 0 ] && ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini || rm -f $CONF/25-mailparse.ini
@@ -152,6 +153,7 @@ else
 	[ \( "${PHP_MODULE_MYSQL:-0}" != 0 -a -z "${PHP_FPM_MODULE_MYSQL}" \) -o "${PHP_FPM_MODULE_MYSQL:-0}" != 0 ] && ln -sf $MODS/mysql.ini $CONF/20-mysql.ini || rm -f $CONF/20-mysql.ini
 	[ \( "${PHP_MODULE_MYSQLI:-0}" != 0 -a -z "${PHP_FPM_MODULE_MYSQLI}" \) -o "${PHP_FPM_MODULE_MYSQLI:-0}" != 0 ] && ln -sf $MODS/mysqli.ini $CONF/20-mysqli.ini || rm -f $CONF/20-mysqli.ini
 	[ \( "${PHP_MODULE_MYSQLND:-0}" != 0 -a -z "${PHP_FPM_MODULE_MYSQLND}" \) -o "${PHP_FPM_MODULE_MYSQLND:-0}" != 0 ] && ln -sf $MODS/mysqlnd.ini $CONF/10-mysqlnd.ini || rm -f $CONF/10-mysqlnd.ini
+	[ \( "${PHP_MODULE_MYSQLND_MS:-0}" != 0 -a -z "${PHP_FPM_MODULE_MYSQLND_MS}" \) -o "${PHP_FPM_MODULE_MYSQLND_MS:-0}" != 0 ] && ln -sf $MODS/mysqlnd_ms.ini $CONF/30-mysqlnd_ms.ini || rm -f $CONF/30-mysqlnd_ms.ini
 	[ \( "${PHP_MODULE_OAUTH:-0}" != 0 -a -z "${PHP_FPM_MODULE_OAUTH}" \) -o "${PHP_FPM_MODULE_OAUTH:-0}" != 0 ] && ln -sf $MODS/oauth.ini $CONF/20-oauth.ini || rm -f $CONF/20-oauth.ini
 	[ \( "${PHP_MODULE_ODBC:-0}" != 0 -a -z "${PHP_FPM_MODULE_ODBC}" \) -o "${PHP_FPM_MODULE_ODBC:-0}" != 0 ] && ln -sf $MODS/odbc.ini $CONF/20-odbc.ini || rm -f $CONF/20-odbc.ini
 	[ \( "${PHP_MODULE_OPCACHE:-0}" != 0 -a -z "${PHP_FPM_MODULE_OPCACHE}" \) -o "${PHP_FPM_MODULE_OPCACHE:-0}" != 0 ] && ln -sf $MODS/opcache.ini $CONF/10-opcache.ini || rm -f $CONF/10-opcache.ini

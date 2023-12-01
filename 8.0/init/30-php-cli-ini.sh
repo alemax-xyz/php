@@ -36,6 +36,11 @@
 	elif [ -n "${PHP_AMQP_CONNECT_TIMEOUT+1}" ]; then
 		echo "amqp.connect_timeout=${PHP_AMQP_CONNECT_TIMEOUT}"
 	fi
+	if [ -n "${PHP_CLI_AMQP_DESERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.deserialization_depth=${PHP_CLI_AMQP_DESERIALIZATION_DEPTH}"
+	elif [ -n "${PHP_AMQP_DESERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.deserialization_depth=${PHP_AMQP_DESERIALIZATION_DEPTH}"
+	fi
 	if [ -n "${PHP_CLI_AMQP_FRAME_MAX+1}" ]; then
 		echo "amqp.frame_max=${PHP_CLI_AMQP_FRAME_MAX}"
 	elif [ -n "${PHP_AMQP_FRAME_MAX+1}" ]; then
@@ -105,6 +110,11 @@
 		echo "amqp.sasl_method=${PHP_CLI_AMQP_SASL_METHOD}"
 	elif [ -n "${PHP_AMQP_SASL_METHOD+1}" ]; then
 		echo "amqp.sasl_method=${PHP_AMQP_SASL_METHOD}"
+	fi
+	if [ -n "${PHP_CLI_AMQP_SERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.serialization_depth=${PHP_CLI_AMQP_SERIALIZATION_DEPTH}"
+	elif [ -n "${PHP_AMQP_SERIALIZATION_DEPTH+1}" ]; then
+		echo "amqp.serialization_depth=${PHP_AMQP_SERIALIZATION_DEPTH}"
 	fi
 	if [ -n "${PHP_CLI_AMQP_TIMEOUT+1}" ]; then
 		echo "amqp.timeout=${PHP_CLI_AMQP_TIMEOUT}"
@@ -636,6 +646,31 @@
 	elif [ -n "${PHP_LDAP_MAX_LINKS+1}" ]; then
 		echo "ldap.max_links=${PHP_LDAP_MAX_LINKS}"
 	fi
+	if [ -n "${PHP_CLI_LIBVIRT_IMAGE_PATH+1}" ]; then
+		echo "libvirt.image_path=${PHP_CLI_LIBVIRT_IMAGE_PATH}"
+	elif [ -n "${PHP_LIBVIRT_IMAGE_PATH+1}" ]; then
+		echo "libvirt.image_path=${PHP_LIBVIRT_IMAGE_PATH}"
+	fi
+	if [ -n "${PHP_CLI_LIBVIRT_ISO_PATH+1}" ]; then
+		echo "libvirt.iso_path=${PHP_CLI_LIBVIRT_ISO_PATH}"
+	elif [ -n "${PHP_LIBVIRT_ISO_PATH+1}" ]; then
+		echo "libvirt.iso_path=${PHP_LIBVIRT_ISO_PATH}"
+	fi
+	if [ -n "${PHP_CLI_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.longlong_to_string=${PHP_CLI_LIBVIRT_LONGLONG_TO_STRING}"
+	elif [ -n "${PHP_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.longlong_to_string=${PHP_LIBVIRT_LONGLONG_TO_STRING}"
+	fi
+	if [ -n "${PHP_CLI_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
+		echo "libvirt.max_connections=${PHP_CLI_LIBVIRT_MAX_CONNECTIONS}"
+	elif [ -n "${PHP_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
+		echo "libvirt.max_connections=${PHP_LIBVIRT_MAX_CONNECTIONS}"
+	fi
+	if [ -n "${PHP_CLI_LIBVIRT_SIGNED_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.signed_longlong_to_string=${PHP_CLI_LIBVIRT_SIGNED_LONGLONG_TO_STRING}"
+	elif [ -n "${PHP_LIBVIRT_SIGNED_LONGLONG_TO_STRING+1}" ]; then
+		echo "libvirt.signed_longlong_to_string=${PHP_LIBVIRT_SIGNED_LONGLONG_TO_STRING}"
+	fi
 	if [ -n "${PHP_CLI_LOG_ERRORS+1}" ]; then
 		echo "log_errors=${PHP_CLI_LOG_ERRORS}"
 	elif [ -n "${PHP_LOG_ERRORS+1}" ]; then
@@ -690,6 +725,11 @@
 		echo "max_input_vars=${PHP_CLI_MAX_INPUT_VARS}"
 	elif [ -n "${PHP_MAX_INPUT_VARS+1}" ]; then
 		echo "max_input_vars=${PHP_MAX_INPUT_VARS}"
+	fi
+	if [ -n "${PHP_CLI_MAX_MULTIPART_BODY_PARTS+1}" ]; then
+		echo "max_multipart_body_parts=${PHP_CLI_MAX_MULTIPART_BODY_PARTS}"
+	elif [ -n "${PHP_MAX_MULTIPART_BODY_PARTS+1}" ]; then
+		echo "max_multipart_body_parts=${PHP_MAX_MULTIPART_BODY_PARTS}"
 	fi
 	if [ -n "${PHP_CLI_MBSTRING_DETECT_ORDER+1}" ]; then
 		echo "mbstring.detect_order=${PHP_CLI_MBSTRING_DETECT_ORDER}"
@@ -1000,11 +1040,6 @@
 		echo "mongodb.debug=${PHP_CLI_MONGODB_DEBUG}"
 	elif [ -n "${PHP_MONGODB_DEBUG+1}" ]; then
 		echo "mongodb.debug=${PHP_MONGODB_DEBUG}"
-	fi
-	if [ -n "${PHP_CLI_MONGODB_MOCK_SERVICE_ID+1}" ]; then
-		echo "mongodb.mock_service_id=${PHP_CLI_MONGODB_MOCK_SERVICE_ID}"
-	elif [ -n "${PHP_MONGODB_MOCK_SERVICE_ID+1}" ]; then
-		echo "mongodb.mock_service_id=${PHP_MONGODB_MOCK_SERVICE_ID}"
 	fi
 	if [ -n "${PHP_CLI_MSGPACK_ERROR_DISPLAY+1}" ]; then
 		echo "msgpack.error_display=${PHP_CLI_MSGPACK_ERROR_DISPLAY}"
@@ -1556,6 +1591,101 @@
 	elif [ -n "${PHP_PGSQL_MAX_PERSISTENT+1}" ]; then
 		echo "pgsql.max_persistent=${PHP_PGSQL_MAX_PERSISTENT}"
 	fi
+	if [ -n "${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
+		echo "phalcon.db.escape_identifiers=${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS}"
+	elif [ -n "${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
+		echo "phalcon.db.escape_identifiers=${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_DB_FORCE_CASTING+1}" ]; then
+		echo "phalcon.db.force_casting=${PHP_CLI_PHALCON_DB_FORCE_CASTING}"
+	elif [ -n "${PHP_PHALCON_DB_FORCE_CASTING+1}" ]; then
+		echo "phalcon.db.force_casting=${PHP_PHALCON_DB_FORCE_CASTING}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
+		echo "phalcon.orm.case_insensitive_column_map=${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP}"
+	elif [ -n "${PHP_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
+		echo "phalcon.orm.case_insensitive_column_map=${PHP_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT+1}" ]; then
+		echo "phalcon.orm.cast_last_insert_id_to_int=${PHP_CLI_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT}"
+	elif [ -n "${PHP_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT+1}" ]; then
+		echo "phalcon.orm.cast_last_insert_id_to_int=${PHP_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
+		echo "phalcon.orm.cast_on_hydrate=${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE}"
+	elif [ -n "${PHP_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
+		echo "phalcon.orm.cast_on_hydrate=${PHP_PHALCON_ORM_CAST_ON_HYDRATE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
+		echo "phalcon.orm.column_renaming=${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING}"
+	elif [ -n "${PHP_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
+		echo "phalcon.orm.column_renaming=${PHP_PHALCON_ORM_COLUMN_RENAMING}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
+		echo "phalcon.orm.disable_assign_setters=${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
+	elif [ -n "${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
+		echo "phalcon.orm.disable_assign_setters=${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
+		echo "phalcon.orm.enable_implicit_joins=${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
+	elif [ -n "${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
+		echo "phalcon.orm.enable_implicit_joins=${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
+		echo "phalcon.orm.enable_literals=${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS}"
+	elif [ -n "${PHP_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
+		echo "phalcon.orm.enable_literals=${PHP_PHALCON_ORM_ENABLE_LITERALS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_EVENTS+1}" ]; then
+		echo "phalcon.orm.events=${PHP_CLI_PHALCON_ORM_EVENTS}"
+	elif [ -n "${PHP_PHALCON_ORM_EVENTS+1}" ]; then
+		echo "phalcon.orm.events=${PHP_PHALCON_ORM_EVENTS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_metadata_save=${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE}"
+	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_metadata_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_save=${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
+	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
+		echo "phalcon.orm.ignore_unknown_columns=${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
+	elif [ -n "${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
+		echo "phalcon.orm.ignore_unknown_columns=${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
+		echo "phalcon.orm.late_state_binding=${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING}"
+	elif [ -n "${PHP_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
+		echo "phalcon.orm.late_state_binding=${PHP_PHALCON_ORM_LATE_STATE_BINDING}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
+		echo "phalcon.orm.not_null_validations=${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
+	elif [ -n "${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
+		echo "phalcon.orm.not_null_validations=${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
+		echo "phalcon.orm.resultset_prefetch_records=${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
+	elif [ -n "${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
+		echo "phalcon.orm.resultset_prefetch_records=${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
+		echo "phalcon.orm.update_snapshot_on_save=${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
+	elif [ -n "${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
+		echo "phalcon.orm.update_snapshot_on_save=${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
+		echo "phalcon.orm.virtual_foreign_keys=${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
+	elif [ -n "${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
+		echo "phalcon.orm.virtual_foreign_keys=${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_WARNING_ENABLE+1}" ]; then
+		echo "phalcon.warning.enable=${PHP_CLI_PHALCON_WARNING_ENABLE}"
+	elif [ -n "${PHP_PHALCON_WARNING_ENABLE+1}" ]; then
+		echo "phalcon.warning.enable=${PHP_PHALCON_WARNING_ENABLE}"
+	fi
 	if [ -n "${PHP_CLI_PHAR_CACHE_LIST+1}" ]; then
 		echo "phar.cache_list=${PHP_CLI_PHAR_CACHE_LIST}"
 	elif [ -n "${PHP_PHAR_CACHE_LIST+1}" ]; then
@@ -1570,6 +1700,26 @@
 		echo "phar.require_hash=${PHP_CLI_PHAR_REQUIRE_HASH}"
 	elif [ -n "${PHP_PHAR_REQUIRE_HASH+1}" ]; then
 		echo "phar.require_hash=${PHP_PHAR_REQUIRE_HASH}"
+	fi
+	if [ -n "${PHP_CLI_PINBA_AUTO_FLUSH+1}" ]; then
+		echo "pinba.auto_flush=${PHP_CLI_PINBA_AUTO_FLUSH}"
+	elif [ -n "${PHP_PINBA_AUTO_FLUSH+1}" ]; then
+		echo "pinba.auto_flush=${PHP_PINBA_AUTO_FLUSH}"
+	fi
+	if [ -n "${PHP_CLI_PINBA_ENABLED+1}" ]; then
+		echo "pinba.enabled=${PHP_CLI_PINBA_ENABLED}"
+	elif [ -n "${PHP_PINBA_ENABLED+1}" ]; then
+		echo "pinba.enabled=${PHP_PINBA_ENABLED}"
+	fi
+	if [ -n "${PHP_CLI_PINBA_RESOLVE_INTERVAL+1}" ]; then
+		echo "pinba.resolve_interval=${PHP_CLI_PINBA_RESOLVE_INTERVAL}"
+	elif [ -n "${PHP_PINBA_RESOLVE_INTERVAL+1}" ]; then
+		echo "pinba.resolve_interval=${PHP_PINBA_RESOLVE_INTERVAL}"
+	fi
+	if [ -n "${PHP_CLI_PINBA_SERVER+1}" ]; then
+		echo "pinba.server=${PHP_CLI_PINBA_SERVER}"
+	elif [ -n "${PHP_PINBA_SERVER+1}" ]; then
+		echo "pinba.server=${PHP_PINBA_SERVER}"
 	fi
 	if [ -n "${PHP_CLI_POST_MAX_SIZE+1}" ]; then
 		echo "post_max_size=${PHP_CLI_POST_MAX_SIZE}"
@@ -1735,6 +1885,11 @@
 		echo "redis.pconnect.pooling_enabled=${PHP_CLI_REDIS_PCONNECT_POOLING_ENABLED}"
 	elif [ -n "${PHP_REDIS_PCONNECT_POOLING_ENABLED+1}" ]; then
 		echo "redis.pconnect.pooling_enabled=${PHP_REDIS_PCONNECT_POOLING_ENABLED}"
+	fi
+	if [ -n "${PHP_CLI_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
+		echo "redis.session.early_refresh=${PHP_CLI_REDIS_SESSION_EARLY_REFRESH}"
+	elif [ -n "${PHP_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
+		echo "redis.session.early_refresh=${PHP_REDIS_SESSION_EARLY_REFRESH}"
 	fi
 	if [ -n "${PHP_CLI_REDIS_SESSION_LOCK_EXPIRE+1}" ]; then
 		echo "redis.session.lock_expire=${PHP_CLI_REDIS_SESSION_LOCK_EXPIRE}"
@@ -2001,6 +2156,41 @@
 	elif [ -n "${PHP_SQLITE3_EXTENSION_DIR+1}" ]; then
 		echo "sqlite3.extension_dir=${PHP_SQLITE3_EXTENSION_DIR}"
 	fi
+	if [ -n "${PHP_CLI_STOMP_DEFAULT_BROKER+1}" ]; then
+		echo "stomp.default_broker=${PHP_CLI_STOMP_DEFAULT_BROKER}"
+	elif [ -n "${PHP_STOMP_DEFAULT_BROKER+1}" ]; then
+		echo "stomp.default_broker=${PHP_STOMP_DEFAULT_BROKER}"
+	fi
+	if [ -n "${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC+1}" ]; then
+		echo "stomp.default_connection_timeout_sec=${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC}"
+	elif [ -n "${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC+1}" ]; then
+		echo "stomp.default_connection_timeout_sec=${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_SEC}"
+	fi
+	if [ -n "${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC+1}" ]; then
+		echo "stomp.default_connection_timeout_usec=${PHP_CLI_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC}"
+	elif [ -n "${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC+1}" ]; then
+		echo "stomp.default_connection_timeout_usec=${PHP_STOMP_DEFAULT_CONNECTION_TIMEOUT_USEC}"
+	fi
+	if [ -n "${PHP_CLI_STOMP_DEFAULT_PASSWORD+1}" ]; then
+		echo "stomp.default_password=${PHP_CLI_STOMP_DEFAULT_PASSWORD}"
+	elif [ -n "${PHP_STOMP_DEFAULT_PASSWORD+1}" ]; then
+		echo "stomp.default_password=${PHP_STOMP_DEFAULT_PASSWORD}"
+	fi
+	if [ -n "${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_SEC+1}" ]; then
+		echo "stomp.default_read_timeout_sec=${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_SEC}"
+	elif [ -n "${PHP_STOMP_DEFAULT_READ_TIMEOUT_SEC+1}" ]; then
+		echo "stomp.default_read_timeout_sec=${PHP_STOMP_DEFAULT_READ_TIMEOUT_SEC}"
+	fi
+	if [ -n "${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_USEC+1}" ]; then
+		echo "stomp.default_read_timeout_usec=${PHP_CLI_STOMP_DEFAULT_READ_TIMEOUT_USEC}"
+	elif [ -n "${PHP_STOMP_DEFAULT_READ_TIMEOUT_USEC+1}" ]; then
+		echo "stomp.default_read_timeout_usec=${PHP_STOMP_DEFAULT_READ_TIMEOUT_USEC}"
+	fi
+	if [ -n "${PHP_CLI_STOMP_DEFAULT_USERNAME+1}" ]; then
+		echo "stomp.default_username=${PHP_CLI_STOMP_DEFAULT_USERNAME}"
+	elif [ -n "${PHP_STOMP_DEFAULT_USERNAME+1}" ]; then
+		echo "stomp.default_username=${PHP_STOMP_DEFAULT_USERNAME}"
+	fi
 	if [ -n "${PHP_CLI_SWOOLE_DISPLAY_ERRORS+1}" ]; then
 		echo "swoole.display_errors=${PHP_CLI_SWOOLE_DISPLAY_ERRORS}"
 	elif [ -n "${PHP_SWOOLE_DISPLAY_ERRORS+1}" ]; then
@@ -2010,6 +2200,11 @@
 		echo "swoole.enable_coroutine=${PHP_CLI_SWOOLE_ENABLE_COROUTINE}"
 	elif [ -n "${PHP_SWOOLE_ENABLE_COROUTINE+1}" ]; then
 		echo "swoole.enable_coroutine=${PHP_SWOOLE_ENABLE_COROUTINE}"
+	fi
+	if [ -n "${PHP_CLI_SWOOLE_ENABLE_FIBER_MOCK+1}" ]; then
+		echo "swoole.enable_fiber_mock=${PHP_CLI_SWOOLE_ENABLE_FIBER_MOCK}"
+	elif [ -n "${PHP_SWOOLE_ENABLE_FIBER_MOCK+1}" ]; then
+		echo "swoole.enable_fiber_mock=${PHP_SWOOLE_ENABLE_FIBER_MOCK}"
 	fi
 	if [ -n "${PHP_CLI_SWOOLE_ENABLE_LIBRARY+1}" ]; then
 		echo "swoole.enable_library=${PHP_CLI_SWOOLE_ENABLE_LIBRARY}"
@@ -2051,6 +2246,11 @@
 	elif [ -n "${PHP_SYSLOG_IDENT+1}" ]; then
 		echo "syslog.ident=${PHP_SYSLOG_IDENT}"
 	fi
+	if [ -n "${PHP_CLI_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC+1}" ]; then
+		echo "tideways_xhprof.clock_use_rdtsc=${PHP_CLI_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC}"
+	elif [ -n "${PHP_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC+1}" ]; then
+		echo "tideways_xhprof.clock_use_rdtsc=${PHP_TIDEWAYS_XHPROF_CLOCK_USE_RDTSC}"
+	fi
 	if [ -n "${PHP_CLI_TIDY_CLEAN_OUTPUT+1}" ]; then
 		echo "tidy.clean_output=${PHP_CLI_TIDY_CLEAN_OUTPUT}"
 	elif [ -n "${PHP_TIDY_CLEAN_OUTPUT+1}" ]; then
@@ -2090,6 +2290,21 @@
 		echo "upload_tmp_dir=${PHP_CLI_UPLOAD_TMP_DIR}"
 	elif [ -n "${PHP_UPLOAD_TMP_DIR+1}" ]; then
 		echo "upload_tmp_dir=${PHP_UPLOAD_TMP_DIR}"
+	fi
+	if [ -n "${PHP_CLI_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE+1}" ]; then
+		echo "uploadprogress.file.contents_template=${PHP_CLI_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE}"
+	elif [ -n "${PHP_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE+1}" ]; then
+		echo "uploadprogress.file.contents_template=${PHP_UPLOADPROGRESS_FILE_CONTENTS_TEMPLATE}"
+	fi
+	if [ -n "${PHP_CLI_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE+1}" ]; then
+		echo "uploadprogress.file.filename_template=${PHP_CLI_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE}"
+	elif [ -n "${PHP_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE+1}" ]; then
+		echo "uploadprogress.file.filename_template=${PHP_UPLOADPROGRESS_FILE_FILENAME_TEMPLATE}"
+	fi
+	if [ -n "${PHP_CLI_UPLOADPROGRESS_GET_CONTENTS+1}" ]; then
+		echo "uploadprogress.get_contents=${PHP_CLI_UPLOADPROGRESS_GET_CONTENTS}"
+	elif [ -n "${PHP_UPLOADPROGRESS_GET_CONTENTS+1}" ]; then
+		echo "uploadprogress.get_contents=${PHP_UPLOADPROGRESS_GET_CONTENTS}"
 	fi
 	if [ -n "${PHP_CLI_URL_REWRITER_HOSTS+1}" ]; then
 		echo "url_rewriter.hosts=${PHP_CLI_URL_REWRITER_HOSTS}"

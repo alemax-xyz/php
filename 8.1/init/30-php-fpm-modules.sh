@@ -1,3 +1,4 @@
+PHP Warning:  PHP Startup: Unable to load dynamic library 'propro.so' (tried: /usr/lib/php/20210902/propro.so (/usr/lib/php/20210902/propro.so: undefined symbol: convert_to_explicit_type_ex), /usr/lib/php/20210902/propro.so.so (/usr/lib/php/20210902/propro.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
 #!/bin/sh
 
 BASE=/etc/php/8.1
@@ -20,6 +21,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_DOM:-1}" = 0 -a -z "${PHP_FPM_MODULE_DOM}" \) -o "${PHP_FPM_MODULE_DOM:-1}" = 0 ] && rm -f $CONF/20-dom.ini || ln -sf $MODS/dom.ini $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_DS:-1}" = 0 -a -z "${PHP_FPM_MODULE_DS}" \) -o "${PHP_FPM_MODULE_DS:-1}" = 0 ] && rm -f $CONF/30-ds.ini || ln -sf $MODS/ds.ini $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-1}" = 0 -a -z "${PHP_FPM_MODULE_ENCHANT}" \) -o "${PHP_FPM_MODULE_ENCHANT:-1}" = 0 ] && rm -f $CONF/20-enchant.ini || ln -sf $MODS/enchant.ini $CONF/20-enchant.ini
+	[ \( "${PHP_MODULE_EXCIMER:-1}" = 0 -a -z "${PHP_FPM_MODULE_EXCIMER}" \) -o "${PHP_FPM_MODULE_EXCIMER:-1}" = 0 ] && rm -f $CONF/20-excimer.ini || ln -sf $MODS/excimer.ini $CONF/20-excimer.ini
 	[ \( "${PHP_MODULE_EXIF:-1}" = 0 -a -z "${PHP_FPM_MODULE_EXIF}" \) -o "${PHP_FPM_MODULE_EXIF:-1}" = 0 ] && rm -f $CONF/20-exif.ini || ln -sf $MODS/exif.ini $CONF/20-exif.ini
 	[ \( "${PHP_MODULE_FFI:-1}" = 0 -a -z "${PHP_FPM_MODULE_FFI}" \) -o "${PHP_FPM_MODULE_FFI:-1}" = 0 ] && rm -f $CONF/20-ffi.ini || ln -sf $MODS/ffi.ini $CONF/20-ffi.ini
 	[ \( "${PHP_MODULE_FILEINFO:-1}" = 0 -a -z "${PHP_FPM_MODULE_FILEINFO}" \) -o "${PHP_FPM_MODULE_FILEINFO:-1}" = 0 ] && rm -f $CONF/20-fileinfo.ini || ln -sf $MODS/fileinfo.ini $CONF/20-fileinfo.ini
@@ -39,6 +41,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_INOTIFY:-1}" = 0 -a -z "${PHP_FPM_MODULE_INOTIFY}" \) -o "${PHP_FPM_MODULE_INOTIFY:-1}" = 0 ] && rm -f $CONF/30-inotify.ini || ln -sf $MODS/inotify.ini $CONF/30-inotify.ini
 	[ \( "${PHP_MODULE_INTL:-1}" = 0 -a -z "${PHP_FPM_MODULE_INTL}" \) -o "${PHP_FPM_MODULE_INTL:-1}" = 0 ] && rm -f $CONF/20-intl.ini || ln -sf $MODS/intl.ini $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_LDAP:-1}" = 0 -a -z "${PHP_FPM_MODULE_LDAP}" \) -o "${PHP_FPM_MODULE_LDAP:-1}" = 0 ] && rm -f $CONF/20-ldap.ini || ln -sf $MODS/ldap.ini $CONF/20-ldap.ini
+	[ \( "${PHP_MODULE_LIBVIRT_PHP:-1}" = 0 -a -z "${PHP_FPM_MODULE_LIBVIRT_PHP}" \) -o "${PHP_FPM_MODULE_LIBVIRT_PHP:-1}" = 0 ] && rm -f $CONF/40-libvirt-php.ini || ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LZ4:-1}" = 0 -a -z "${PHP_FPM_MODULE_LZ4}" \) -o "${PHP_FPM_MODULE_LZ4:-1}" = 0 ] && rm -f $CONF/20-lz4.ini || ln -sf $MODS/lz4.ini $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-1}" = 0 -a -z "${PHP_FPM_MODULE_MAILPARSE}" \) -o "${PHP_FPM_MODULE_MAILPARSE:-1}" = 0 ] && rm -f $CONF/25-mailparse.ini || ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini
 	[ \( "${PHP_MODULE_MAXMINDDB:-1}" = 0 -a -z "${PHP_FPM_MODULE_MAXMINDDB}" \) -o "${PHP_FPM_MODULE_MAXMINDDB:-1}" = 0 ] && rm -f $CONF/30-maxminddb.ini || ln -sf $MODS/maxminddb.ini $CONF/30-maxminddb.ini
@@ -62,13 +65,17 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_PDO_PGSQL:-1}" = 0 -a -z "${PHP_FPM_MODULE_PDO_PGSQL}" \) -o "${PHP_FPM_MODULE_PDO_PGSQL:-1}" = 0 ] && rm -f $CONF/20-pdo_pgsql.ini || ln -sf $MODS/pdo_pgsql.ini $CONF/20-pdo_pgsql.ini
 	[ \( "${PHP_MODULE_PDO_SQLITE:-1}" = 0 -a -z "${PHP_FPM_MODULE_PDO_SQLITE}" \) -o "${PHP_FPM_MODULE_PDO_SQLITE:-1}" = 0 ] && rm -f $CONF/20-pdo_sqlite.ini || ln -sf $MODS/pdo_sqlite.ini $CONF/20-pdo_sqlite.ini
 	[ \( "${PHP_MODULE_PGSQL:-1}" = 0 -a -z "${PHP_FPM_MODULE_PGSQL}" \) -o "${PHP_FPM_MODULE_PGSQL:-1}" = 0 ] && rm -f $CONF/20-pgsql.ini || ln -sf $MODS/pgsql.ini $CONF/20-pgsql.ini
+	[ \( "${PHP_MODULE_PHALCON:-1}" = 0 -a -z "${PHP_FPM_MODULE_PHALCON}" \) -o "${PHP_FPM_MODULE_PHALCON:-1}" = 0 ] && rm -f $CONF/35-phalcon.ini || ln -sf $MODS/phalcon.ini $CONF/35-phalcon.ini
 	[ \( "${PHP_MODULE_PHAR:-1}" = 0 -a -z "${PHP_FPM_MODULE_PHAR}" \) -o "${PHP_FPM_MODULE_PHAR:-1}" = 0 ] && rm -f $CONF/20-phar.ini || ln -sf $MODS/phar.ini $CONF/20-phar.ini
+	[ \( "${PHP_MODULE_PINBA:-1}" = 0 -a -z "${PHP_FPM_MODULE_PINBA}" \) -o "${PHP_FPM_MODULE_PINBA:-1}" = 0 ] && rm -f $CONF/20-pinba.ini || ln -sf $MODS/pinba.ini $CONF/20-pinba.ini
 	[ \( "${PHP_MODULE_POSIX:-1}" = 0 -a -z "${PHP_FPM_MODULE_POSIX}" \) -o "${PHP_FPM_MODULE_POSIX:-1}" = 0 ] && rm -f $CONF/20-posix.ini || ln -sf $MODS/posix.ini $CONF/20-posix.ini
+	[ \( "${PHP_MODULE_PROPRO:-1}" = 0 -a -z "${PHP_FPM_MODULE_PROPRO}" \) -o "${PHP_FPM_MODULE_PROPRO:-1}" = 0 ] && rm -f $CONF/20-propro.ini || ln -sf $MODS/propro.ini $CONF/20-propro.ini
 	[ \( "${PHP_MODULE_PROTOBUF:-1}" = 0 -a -z "${PHP_FPM_MODULE_PROTOBUF}" \) -o "${PHP_FPM_MODULE_PROTOBUF:-1}" = 0 ] && rm -f $CONF/30-protobuf.ini || ln -sf $MODS/protobuf.ini $CONF/30-protobuf.ini
 	[ \( "${PHP_MODULE_PS:-1}" = 0 -a -z "${PHP_FPM_MODULE_PS}" \) -o "${PHP_FPM_MODULE_PS:-1}" = 0 ] && rm -f $CONF/20-ps.ini || ln -sf $MODS/ps.ini $CONF/20-ps.ini
 	[ \( "${PHP_MODULE_PSPELL:-1}" = 0 -a -z "${PHP_FPM_MODULE_PSPELL}" \) -o "${PHP_FPM_MODULE_PSPELL:-1}" = 0 ] && rm -f $CONF/20-pspell.ini || ln -sf $MODS/pspell.ini $CONF/20-pspell.ini
 	[ \( "${PHP_MODULE_PSR:-1}" = 0 -a -z "${PHP_FPM_MODULE_PSR}" \) -o "${PHP_FPM_MODULE_PSR:-1}" = 0 ] && rm -f $CONF/15-psr.ini || ln -sf $MODS/psr.ini $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RAPHF:-1}" = 0 -a -z "${PHP_FPM_MODULE_RAPHF}" \) -o "${PHP_FPM_MODULE_RAPHF:-1}" = 0 ] && rm -f $CONF/20-raphf.ini || ln -sf $MODS/raphf.ini $CONF/20-raphf.ini
+	[ \( "${PHP_MODULE_RDKAFKA:-1}" = 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-1}" = 0 ] && rm -f $CONF/30-rdkafka.ini || ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-1}" = 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-1}" = 0 ] && rm -f $CONF/20-readline.ini || ln -sf $MODS/readline.ini $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/20-redis.ini || ln -sf $MODS/redis.ini $CONF/20-redis.ini
 	[ \( "${PHP_MODULE_RRD:-1}" = 0 -a -z "${PHP_FPM_MODULE_RRD}" \) -o "${PHP_FPM_MODULE_RRD:-1}" = 0 ] && rm -f $CONF/20-rrd.ini || ln -sf $MODS/rrd.ini $CONF/20-rrd.ini
@@ -81,13 +88,16 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_SOLR:-1}" = 0 -a -z "${PHP_FPM_MODULE_SOLR}" \) -o "${PHP_FPM_MODULE_SOLR:-1}" = 0 ] && rm -f $CONF/20-solr.ini || ln -sf $MODS/solr.ini $CONF/20-solr.ini
 	[ \( "${PHP_MODULE_SQLITE3:-1}" = 0 -a -z "${PHP_FPM_MODULE_SQLITE3}" \) -o "${PHP_FPM_MODULE_SQLITE3:-1}" = 0 ] && rm -f $CONF/20-sqlite3.ini || ln -sf $MODS/sqlite3.ini $CONF/20-sqlite3.ini
 	[ \( "${PHP_MODULE_SSH2:-1}" = 0 -a -z "${PHP_FPM_MODULE_SSH2}" \) -o "${PHP_FPM_MODULE_SSH2:-1}" = 0 ] && rm -f $CONF/20-ssh2.ini || ln -sf $MODS/ssh2.ini $CONF/20-ssh2.ini
+	[ \( "${PHP_MODULE_STOMP:-1}" = 0 -a -z "${PHP_FPM_MODULE_STOMP}" \) -o "${PHP_FPM_MODULE_STOMP:-1}" = 0 ] && rm -f $CONF/20-stomp.ini || ln -sf $MODS/stomp.ini $CONF/20-stomp.ini
 	[ \( "${PHP_MODULE_SWOOLE:-1}" = 0 -a -z "${PHP_FPM_MODULE_SWOOLE}" \) -o "${PHP_FPM_MODULE_SWOOLE:-1}" = 0 ] && rm -f $CONF/25-swoole.ini || ln -sf $MODS/swoole.ini $CONF/25-swoole.ini
 	[ \( "${PHP_MODULE_SYSVMSG:-1}" = 0 -a -z "${PHP_FPM_MODULE_SYSVMSG}" \) -o "${PHP_FPM_MODULE_SYSVMSG:-1}" = 0 ] && rm -f $CONF/20-sysvmsg.ini || ln -sf $MODS/sysvmsg.ini $CONF/20-sysvmsg.ini
 	[ \( "${PHP_MODULE_SYSVSEM:-1}" = 0 -a -z "${PHP_FPM_MODULE_SYSVSEM}" \) -o "${PHP_FPM_MODULE_SYSVSEM:-1}" = 0 ] && rm -f $CONF/20-sysvsem.ini || ln -sf $MODS/sysvsem.ini $CONF/20-sysvsem.ini
 	[ \( "${PHP_MODULE_SYSVSHM:-1}" = 0 -a -z "${PHP_FPM_MODULE_SYSVSHM}" \) -o "${PHP_FPM_MODULE_SYSVSHM:-1}" = 0 ] && rm -f $CONF/20-sysvshm.ini || ln -sf $MODS/sysvshm.ini $CONF/20-sysvshm.ini
+	[ \( "${PHP_MODULE_TIDEWAYS:-1}" = 0 -a -z "${PHP_FPM_MODULE_TIDEWAYS}" \) -o "${PHP_FPM_MODULE_TIDEWAYS:-1}" = 0 ] && rm -f $CONF/20-tideways.ini || ln -sf $MODS/tideways.ini $CONF/20-tideways.ini
 	[ \( "${PHP_MODULE_TIDY:-1}" = 0 -a -z "${PHP_FPM_MODULE_TIDY}" \) -o "${PHP_FPM_MODULE_TIDY:-1}" = 0 ] && rm -f $CONF/20-tidy.ini || ln -sf $MODS/tidy.ini $CONF/20-tidy.ini
 	[ \( "${PHP_MODULE_TOKENIZER:-1}" = 0 -a -z "${PHP_FPM_MODULE_TOKENIZER}" \) -o "${PHP_FPM_MODULE_TOKENIZER:-1}" = 0 ] && rm -f $CONF/20-tokenizer.ini || ln -sf $MODS/tokenizer.ini $CONF/20-tokenizer.ini
 	[ \( "${PHP_MODULE_UOPZ:-1}" = 0 -a -z "${PHP_FPM_MODULE_UOPZ}" \) -o "${PHP_FPM_MODULE_UOPZ:-1}" = 0 ] && rm -f $CONF/20-uopz.ini || ln -sf $MODS/uopz.ini $CONF/20-uopz.ini
+	[ \( "${PHP_MODULE_UPLOADPROGRESS:-1}" = 0 -a -z "${PHP_FPM_MODULE_UPLOADPROGRESS}" \) -o "${PHP_FPM_MODULE_UPLOADPROGRESS:-1}" = 0 ] && rm -f $CONF/20-uploadprogress.ini || ln -sf $MODS/uploadprogress.ini $CONF/20-uploadprogress.ini
 	[ \( "${PHP_MODULE_UUID:-1}" = 0 -a -z "${PHP_FPM_MODULE_UUID}" \) -o "${PHP_FPM_MODULE_UUID:-1}" = 0 ] && rm -f $CONF/20-uuid.ini || ln -sf $MODS/uuid.ini $CONF/20-uuid.ini
 	[ \( "${PHP_MODULE_VIPS:-1}" = 0 -a -z "${PHP_FPM_MODULE_VIPS}" \) -o "${PHP_FPM_MODULE_VIPS:-1}" = 0 ] && rm -f $CONF/30-vips.ini || ln -sf $MODS/vips.ini $CONF/30-vips.ini
 	[ \( "${PHP_MODULE_XDEBUG:-1}" = 0 -a -z "${PHP_FPM_MODULE_XDEBUG}" \) -o "${PHP_FPM_MODULE_XDEBUG:-1}" = 0 ] && rm -f $CONF/20-xdebug.ini || ln -sf $MODS/xdebug.ini $CONF/20-xdebug.ini
@@ -101,6 +111,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_YAML:-1}" = 0 -a -z "${PHP_FPM_MODULE_YAML}" \) -o "${PHP_FPM_MODULE_YAML:-1}" = 0 ] && rm -f $CONF/20-yaml.ini || ln -sf $MODS/yaml.ini $CONF/20-yaml.ini
 	[ \( "${PHP_MODULE_ZIP:-1}" = 0 -a -z "${PHP_FPM_MODULE_ZIP}" \) -o "${PHP_FPM_MODULE_ZIP:-1}" = 0 ] && rm -f $CONF/20-zip.ini || ln -sf $MODS/zip.ini $CONF/20-zip.ini
 	[ \( "${PHP_MODULE_ZMQ:-1}" = 0 -a -z "${PHP_FPM_MODULE_ZMQ}" \) -o "${PHP_FPM_MODULE_ZMQ:-1}" = 0 ] && rm -f $CONF/20-zmq.ini || ln -sf $MODS/zmq.ini $CONF/20-zmq.ini
+	[ \( "${PHP_MODULE_ZSTD:-1}" = 0 -a -z "${PHP_FPM_MODULE_ZSTD}" \) -o "${PHP_FPM_MODULE_ZSTD:-1}" = 0 ] && rm -f $CONF/30-zstd.ini || ln -sf $MODS/zstd.ini $CONF/30-zstd.ini
 else
 	[ \( "${PHP_MODULE_AMQP:-0}" != 0 -a -z "${PHP_FPM_MODULE_AMQP}" \) -o "${PHP_FPM_MODULE_AMQP:-0}" != 0 ] && ln -sf $MODS/amqp.ini $CONF/20-amqp.ini || rm -f $CONF/20-amqp.ini
 	[ \( "${PHP_MODULE_APCU:-0}" != 0 -a -z "${PHP_FPM_MODULE_APCU}" \) -o "${PHP_FPM_MODULE_APCU:-0}" != 0 ] && ln -sf $MODS/apcu.ini $CONF/20-apcu.ini || rm -f $CONF/20-apcu.ini
@@ -115,6 +126,7 @@ else
 	[ \( "${PHP_MODULE_DOM:-0}" != 0 -a -z "${PHP_FPM_MODULE_DOM}" \) -o "${PHP_FPM_MODULE_DOM:-0}" != 0 ] && ln -sf $MODS/dom.ini $CONF/20-dom.ini || rm -f $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_DS:-0}" != 0 -a -z "${PHP_FPM_MODULE_DS}" \) -o "${PHP_FPM_MODULE_DS:-0}" != 0 ] && ln -sf $MODS/ds.ini $CONF/30-ds.ini || rm -f $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-0}" != 0 -a -z "${PHP_FPM_MODULE_ENCHANT}" \) -o "${PHP_FPM_MODULE_ENCHANT:-0}" != 0 ] && ln -sf $MODS/enchant.ini $CONF/20-enchant.ini || rm -f $CONF/20-enchant.ini
+	[ \( "${PHP_MODULE_EXCIMER:-0}" != 0 -a -z "${PHP_FPM_MODULE_EXCIMER}" \) -o "${PHP_FPM_MODULE_EXCIMER:-0}" != 0 ] && ln -sf $MODS/excimer.ini $CONF/20-excimer.ini || rm -f $CONF/20-excimer.ini
 	[ \( "${PHP_MODULE_EXIF:-0}" != 0 -a -z "${PHP_FPM_MODULE_EXIF}" \) -o "${PHP_FPM_MODULE_EXIF:-0}" != 0 ] && ln -sf $MODS/exif.ini $CONF/20-exif.ini || rm -f $CONF/20-exif.ini
 	[ \( "${PHP_MODULE_FFI:-0}" != 0 -a -z "${PHP_FPM_MODULE_FFI}" \) -o "${PHP_FPM_MODULE_FFI:-0}" != 0 ] && ln -sf $MODS/ffi.ini $CONF/20-ffi.ini || rm -f $CONF/20-ffi.ini
 	[ \( "${PHP_MODULE_FILEINFO:-0}" != 0 -a -z "${PHP_FPM_MODULE_FILEINFO}" \) -o "${PHP_FPM_MODULE_FILEINFO:-0}" != 0 ] && ln -sf $MODS/fileinfo.ini $CONF/20-fileinfo.ini || rm -f $CONF/20-fileinfo.ini
@@ -134,6 +146,7 @@ else
 	[ \( "${PHP_MODULE_INOTIFY:-0}" != 0 -a -z "${PHP_FPM_MODULE_INOTIFY}" \) -o "${PHP_FPM_MODULE_INOTIFY:-0}" != 0 ] && ln -sf $MODS/inotify.ini $CONF/30-inotify.ini || rm -f $CONF/30-inotify.ini
 	[ \( "${PHP_MODULE_INTL:-0}" != 0 -a -z "${PHP_FPM_MODULE_INTL}" \) -o "${PHP_FPM_MODULE_INTL:-0}" != 0 ] && ln -sf $MODS/intl.ini $CONF/20-intl.ini || rm -f $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_LDAP:-0}" != 0 -a -z "${PHP_FPM_MODULE_LDAP}" \) -o "${PHP_FPM_MODULE_LDAP:-0}" != 0 ] && ln -sf $MODS/ldap.ini $CONF/20-ldap.ini || rm -f $CONF/20-ldap.ini
+	[ \( "${PHP_MODULE_LIBVIRT_PHP:-0}" != 0 -a -z "${PHP_FPM_MODULE_LIBVIRT_PHP}" \) -o "${PHP_FPM_MODULE_LIBVIRT_PHP:-0}" != 0 ] && ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini || rm -f $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LZ4:-0}" != 0 -a -z "${PHP_FPM_MODULE_LZ4}" \) -o "${PHP_FPM_MODULE_LZ4:-0}" != 0 ] && ln -sf $MODS/lz4.ini $CONF/20-lz4.ini || rm -f $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-0}" != 0 -a -z "${PHP_FPM_MODULE_MAILPARSE}" \) -o "${PHP_FPM_MODULE_MAILPARSE:-0}" != 0 ] && ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini || rm -f $CONF/25-mailparse.ini
 	[ \( "${PHP_MODULE_MAXMINDDB:-0}" != 0 -a -z "${PHP_FPM_MODULE_MAXMINDDB}" \) -o "${PHP_FPM_MODULE_MAXMINDDB:-0}" != 0 ] && ln -sf $MODS/maxminddb.ini $CONF/30-maxminddb.ini || rm -f $CONF/30-maxminddb.ini
@@ -157,13 +170,17 @@ else
 	[ \( "${PHP_MODULE_PDO_PGSQL:-0}" != 0 -a -z "${PHP_FPM_MODULE_PDO_PGSQL}" \) -o "${PHP_FPM_MODULE_PDO_PGSQL:-0}" != 0 ] && ln -sf $MODS/pdo_pgsql.ini $CONF/20-pdo_pgsql.ini || rm -f $CONF/20-pdo_pgsql.ini
 	[ \( "${PHP_MODULE_PDO_SQLITE:-0}" != 0 -a -z "${PHP_FPM_MODULE_PDO_SQLITE}" \) -o "${PHP_FPM_MODULE_PDO_SQLITE:-0}" != 0 ] && ln -sf $MODS/pdo_sqlite.ini $CONF/20-pdo_sqlite.ini || rm -f $CONF/20-pdo_sqlite.ini
 	[ \( "${PHP_MODULE_PGSQL:-0}" != 0 -a -z "${PHP_FPM_MODULE_PGSQL}" \) -o "${PHP_FPM_MODULE_PGSQL:-0}" != 0 ] && ln -sf $MODS/pgsql.ini $CONF/20-pgsql.ini || rm -f $CONF/20-pgsql.ini
+	[ \( "${PHP_MODULE_PHALCON:-0}" != 0 -a -z "${PHP_FPM_MODULE_PHALCON}" \) -o "${PHP_FPM_MODULE_PHALCON:-0}" != 0 ] && ln -sf $MODS/phalcon.ini $CONF/35-phalcon.ini || rm -f $CONF/35-phalcon.ini
 	[ \( "${PHP_MODULE_PHAR:-0}" != 0 -a -z "${PHP_FPM_MODULE_PHAR}" \) -o "${PHP_FPM_MODULE_PHAR:-0}" != 0 ] && ln -sf $MODS/phar.ini $CONF/20-phar.ini || rm -f $CONF/20-phar.ini
+	[ \( "${PHP_MODULE_PINBA:-0}" != 0 -a -z "${PHP_FPM_MODULE_PINBA}" \) -o "${PHP_FPM_MODULE_PINBA:-0}" != 0 ] && ln -sf $MODS/pinba.ini $CONF/20-pinba.ini || rm -f $CONF/20-pinba.ini
 	[ \( "${PHP_MODULE_POSIX:-0}" != 0 -a -z "${PHP_FPM_MODULE_POSIX}" \) -o "${PHP_FPM_MODULE_POSIX:-0}" != 0 ] && ln -sf $MODS/posix.ini $CONF/20-posix.ini || rm -f $CONF/20-posix.ini
+	[ \( "${PHP_MODULE_PROPRO:-0}" != 0 -a -z "${PHP_FPM_MODULE_PROPRO}" \) -o "${PHP_FPM_MODULE_PROPRO:-0}" != 0 ] && ln -sf $MODS/propro.ini $CONF/20-propro.ini || rm -f $CONF/20-propro.ini
 	[ \( "${PHP_MODULE_PROTOBUF:-0}" != 0 -a -z "${PHP_FPM_MODULE_PROTOBUF}" \) -o "${PHP_FPM_MODULE_PROTOBUF:-0}" != 0 ] && ln -sf $MODS/protobuf.ini $CONF/30-protobuf.ini || rm -f $CONF/30-protobuf.ini
 	[ \( "${PHP_MODULE_PS:-0}" != 0 -a -z "${PHP_FPM_MODULE_PS}" \) -o "${PHP_FPM_MODULE_PS:-0}" != 0 ] && ln -sf $MODS/ps.ini $CONF/20-ps.ini || rm -f $CONF/20-ps.ini
 	[ \( "${PHP_MODULE_PSPELL:-0}" != 0 -a -z "${PHP_FPM_MODULE_PSPELL}" \) -o "${PHP_FPM_MODULE_PSPELL:-0}" != 0 ] && ln -sf $MODS/pspell.ini $CONF/20-pspell.ini || rm -f $CONF/20-pspell.ini
 	[ \( "${PHP_MODULE_PSR:-0}" != 0 -a -z "${PHP_FPM_MODULE_PSR}" \) -o "${PHP_FPM_MODULE_PSR:-0}" != 0 ] && ln -sf $MODS/psr.ini $CONF/15-psr.ini || rm -f $CONF/15-psr.ini
 	[ \( "${PHP_MODULE_RAPHF:-0}" != 0 -a -z "${PHP_FPM_MODULE_RAPHF}" \) -o "${PHP_FPM_MODULE_RAPHF:-0}" != 0 ] && ln -sf $MODS/raphf.ini $CONF/20-raphf.ini || rm -f $CONF/20-raphf.ini
+	[ \( "${PHP_MODULE_RDKAFKA:-0}" != 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-0}" != 0 ] && ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini || rm -f $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-0}" != 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-0}" != 0 ] && ln -sf $MODS/readline.ini $CONF/20-readline.ini || rm -f $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/20-redis.ini || rm -f $CONF/20-redis.ini
 	[ \( "${PHP_MODULE_RRD:-0}" != 0 -a -z "${PHP_FPM_MODULE_RRD}" \) -o "${PHP_FPM_MODULE_RRD:-0}" != 0 ] && ln -sf $MODS/rrd.ini $CONF/20-rrd.ini || rm -f $CONF/20-rrd.ini
@@ -176,13 +193,16 @@ else
 	[ \( "${PHP_MODULE_SOLR:-0}" != 0 -a -z "${PHP_FPM_MODULE_SOLR}" \) -o "${PHP_FPM_MODULE_SOLR:-0}" != 0 ] && ln -sf $MODS/solr.ini $CONF/20-solr.ini || rm -f $CONF/20-solr.ini
 	[ \( "${PHP_MODULE_SQLITE3:-0}" != 0 -a -z "${PHP_FPM_MODULE_SQLITE3}" \) -o "${PHP_FPM_MODULE_SQLITE3:-0}" != 0 ] && ln -sf $MODS/sqlite3.ini $CONF/20-sqlite3.ini || rm -f $CONF/20-sqlite3.ini
 	[ \( "${PHP_MODULE_SSH2:-0}" != 0 -a -z "${PHP_FPM_MODULE_SSH2}" \) -o "${PHP_FPM_MODULE_SSH2:-0}" != 0 ] && ln -sf $MODS/ssh2.ini $CONF/20-ssh2.ini || rm -f $CONF/20-ssh2.ini
+	[ \( "${PHP_MODULE_STOMP:-0}" != 0 -a -z "${PHP_FPM_MODULE_STOMP}" \) -o "${PHP_FPM_MODULE_STOMP:-0}" != 0 ] && ln -sf $MODS/stomp.ini $CONF/20-stomp.ini || rm -f $CONF/20-stomp.ini
 	[ \( "${PHP_MODULE_SWOOLE:-0}" != 0 -a -z "${PHP_FPM_MODULE_SWOOLE}" \) -o "${PHP_FPM_MODULE_SWOOLE:-0}" != 0 ] && ln -sf $MODS/swoole.ini $CONF/25-swoole.ini || rm -f $CONF/25-swoole.ini
 	[ \( "${PHP_MODULE_SYSVMSG:-0}" != 0 -a -z "${PHP_FPM_MODULE_SYSVMSG}" \) -o "${PHP_FPM_MODULE_SYSVMSG:-0}" != 0 ] && ln -sf $MODS/sysvmsg.ini $CONF/20-sysvmsg.ini || rm -f $CONF/20-sysvmsg.ini
 	[ \( "${PHP_MODULE_SYSVSEM:-0}" != 0 -a -z "${PHP_FPM_MODULE_SYSVSEM}" \) -o "${PHP_FPM_MODULE_SYSVSEM:-0}" != 0 ] && ln -sf $MODS/sysvsem.ini $CONF/20-sysvsem.ini || rm -f $CONF/20-sysvsem.ini
 	[ \( "${PHP_MODULE_SYSVSHM:-0}" != 0 -a -z "${PHP_FPM_MODULE_SYSVSHM}" \) -o "${PHP_FPM_MODULE_SYSVSHM:-0}" != 0 ] && ln -sf $MODS/sysvshm.ini $CONF/20-sysvshm.ini || rm -f $CONF/20-sysvshm.ini
+	[ \( "${PHP_MODULE_TIDEWAYS:-0}" != 0 -a -z "${PHP_FPM_MODULE_TIDEWAYS}" \) -o "${PHP_FPM_MODULE_TIDEWAYS:-0}" != 0 ] && ln -sf $MODS/tideways.ini $CONF/20-tideways.ini || rm -f $CONF/20-tideways.ini
 	[ \( "${PHP_MODULE_TIDY:-0}" != 0 -a -z "${PHP_FPM_MODULE_TIDY}" \) -o "${PHP_FPM_MODULE_TIDY:-0}" != 0 ] && ln -sf $MODS/tidy.ini $CONF/20-tidy.ini || rm -f $CONF/20-tidy.ini
 	[ \( "${PHP_MODULE_TOKENIZER:-0}" != 0 -a -z "${PHP_FPM_MODULE_TOKENIZER}" \) -o "${PHP_FPM_MODULE_TOKENIZER:-0}" != 0 ] && ln -sf $MODS/tokenizer.ini $CONF/20-tokenizer.ini || rm -f $CONF/20-tokenizer.ini
 	[ \( "${PHP_MODULE_UOPZ:-0}" != 0 -a -z "${PHP_FPM_MODULE_UOPZ}" \) -o "${PHP_FPM_MODULE_UOPZ:-0}" != 0 ] && ln -sf $MODS/uopz.ini $CONF/20-uopz.ini || rm -f $CONF/20-uopz.ini
+	[ \( "${PHP_MODULE_UPLOADPROGRESS:-0}" != 0 -a -z "${PHP_FPM_MODULE_UPLOADPROGRESS}" \) -o "${PHP_FPM_MODULE_UPLOADPROGRESS:-0}" != 0 ] && ln -sf $MODS/uploadprogress.ini $CONF/20-uploadprogress.ini || rm -f $CONF/20-uploadprogress.ini
 	[ \( "${PHP_MODULE_UUID:-0}" != 0 -a -z "${PHP_FPM_MODULE_UUID}" \) -o "${PHP_FPM_MODULE_UUID:-0}" != 0 ] && ln -sf $MODS/uuid.ini $CONF/20-uuid.ini || rm -f $CONF/20-uuid.ini
 	[ \( "${PHP_MODULE_VIPS:-0}" != 0 -a -z "${PHP_FPM_MODULE_VIPS}" \) -o "${PHP_FPM_MODULE_VIPS:-0}" != 0 ] && ln -sf $MODS/vips.ini $CONF/30-vips.ini || rm -f $CONF/30-vips.ini
 	[ \( "${PHP_MODULE_XDEBUG:-0}" != 0 -a -z "${PHP_FPM_MODULE_XDEBUG}" \) -o "${PHP_FPM_MODULE_XDEBUG:-0}" != 0 ] && ln -sf $MODS/xdebug.ini $CONF/20-xdebug.ini || rm -f $CONF/20-xdebug.ini
@@ -196,4 +216,5 @@ else
 	[ \( "${PHP_MODULE_YAML:-0}" != 0 -a -z "${PHP_FPM_MODULE_YAML}" \) -o "${PHP_FPM_MODULE_YAML:-0}" != 0 ] && ln -sf $MODS/yaml.ini $CONF/20-yaml.ini || rm -f $CONF/20-yaml.ini
 	[ \( "${PHP_MODULE_ZIP:-0}" != 0 -a -z "${PHP_FPM_MODULE_ZIP}" \) -o "${PHP_FPM_MODULE_ZIP:-0}" != 0 ] && ln -sf $MODS/zip.ini $CONF/20-zip.ini || rm -f $CONF/20-zip.ini
 	[ \( "${PHP_MODULE_ZMQ:-0}" != 0 -a -z "${PHP_FPM_MODULE_ZMQ}" \) -o "${PHP_FPM_MODULE_ZMQ:-0}" != 0 ] && ln -sf $MODS/zmq.ini $CONF/20-zmq.ini || rm -f $CONF/20-zmq.ini
+	[ \( "${PHP_MODULE_ZSTD:-0}" != 0 -a -z "${PHP_FPM_MODULE_ZSTD}" \) -o "${PHP_FPM_MODULE_ZSTD:-0}" != 0 ] && ln -sf $MODS/zstd.ini $CONF/30-zstd.ini || rm -f $CONF/30-zstd.ini
 fi

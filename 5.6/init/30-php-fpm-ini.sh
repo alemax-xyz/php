@@ -556,6 +556,11 @@
 	elif [ -n "${PHP_HTML_ERRORS+1}" ]; then
 		echo "html_errors=${PHP_HTML_ERRORS}"
 	fi
+	if [ -n "${PHP_FPM_HTTP_ETAG_MODE+1}" ]; then
+		echo "http.etag.mode=${PHP_FPM_HTTP_ETAG_MODE}"
+	elif [ -n "${PHP_HTTP_ETAG_MODE+1}" ]; then
+		echo "http.etag.mode=${PHP_HTTP_ETAG_MODE}"
+	fi
 	if [ -n "${PHP_FPM_IBASE_ALLOW_PERSISTENT+1}" ]; then
 		echo "ibase.allow_persistent=${PHP_FPM_IBASE_ALLOW_PERSISTENT}"
 	elif [ -n "${PHP_IBASE_ALLOW_PERSISTENT+1}" ]; then
@@ -715,26 +720,6 @@
 		echo "ldap.max_links=${PHP_FPM_LDAP_MAX_LINKS}"
 	elif [ -n "${PHP_LDAP_MAX_LINKS+1}" ]; then
 		echo "ldap.max_links=${PHP_LDAP_MAX_LINKS}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_FPM_LIBVIRT_IMAGE_PATH}"
-	elif [ -n "${PHP_LIBVIRT_IMAGE_PATH+1}" ]; then
-		echo "libvirt.image_path=${PHP_LIBVIRT_IMAGE_PATH}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_FPM_LIBVIRT_ISO_PATH}"
-	elif [ -n "${PHP_LIBVIRT_ISO_PATH+1}" ]; then
-		echo "libvirt.iso_path=${PHP_LIBVIRT_ISO_PATH}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_FPM_LIBVIRT_LONGLONG_TO_STRING}"
-	elif [ -n "${PHP_LIBVIRT_LONGLONG_TO_STRING+1}" ]; then
-		echo "libvirt.longlong_to_string=${PHP_LIBVIRT_LONGLONG_TO_STRING}"
-	fi
-	if [ -n "${PHP_FPM_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_FPM_LIBVIRT_MAX_CONNECTIONS}"
-	elif [ -n "${PHP_LIBVIRT_MAX_CONNECTIONS+1}" ]; then
-		echo "libvirt.max_connections=${PHP_LIBVIRT_MAX_CONNECTIONS}"
 	fi
 	if [ -n "${PHP_FPM_LOG_ERRORS+1}" ]; then
 		echo "log_errors=${PHP_FPM_LOG_ERRORS}"
@@ -1320,6 +1305,36 @@
 		echo "mysqlnd.trace_alloc=${PHP_FPM_MYSQLND_TRACE_ALLOC}"
 	elif [ -n "${PHP_MYSQLND_TRACE_ALLOC+1}" ]; then
 		echo "mysqlnd.trace_alloc=${PHP_MYSQLND_TRACE_ALLOC}"
+	fi
+	if [ -n "${PHP_FPM_MYSQLND_MS_COLLECT_STATISTICS+1}" ]; then
+		echo "mysqlnd_ms.collect_statistics=${PHP_FPM_MYSQLND_MS_COLLECT_STATISTICS}"
+	elif [ -n "${PHP_MYSQLND_MS_COLLECT_STATISTICS+1}" ]; then
+		echo "mysqlnd_ms.collect_statistics=${PHP_MYSQLND_MS_COLLECT_STATISTICS}"
+	fi
+	if [ -n "${PHP_FPM_MYSQLND_MS_CONFIG_FILE+1}" ]; then
+		echo "mysqlnd_ms.config_file=${PHP_FPM_MYSQLND_MS_CONFIG_FILE}"
+	elif [ -n "${PHP_MYSQLND_MS_CONFIG_FILE+1}" ]; then
+		echo "mysqlnd_ms.config_file=${PHP_MYSQLND_MS_CONFIG_FILE}"
+	fi
+	if [ -n "${PHP_FPM_MYSQLND_MS_DISABLE_RW_SPLIT+1}" ]; then
+		echo "mysqlnd_ms.disable_rw_split=${PHP_FPM_MYSQLND_MS_DISABLE_RW_SPLIT}"
+	elif [ -n "${PHP_MYSQLND_MS_DISABLE_RW_SPLIT+1}" ]; then
+		echo "mysqlnd_ms.disable_rw_split=${PHP_MYSQLND_MS_DISABLE_RW_SPLIT}"
+	fi
+	if [ -n "${PHP_FPM_MYSQLND_MS_ENABLE+1}" ]; then
+		echo "mysqlnd_ms.enable=${PHP_FPM_MYSQLND_MS_ENABLE}"
+	elif [ -n "${PHP_MYSQLND_MS_ENABLE+1}" ]; then
+		echo "mysqlnd_ms.enable=${PHP_MYSQLND_MS_ENABLE}"
+	fi
+	if [ -n "${PHP_FPM_MYSQLND_MS_FORCE_CONFIG_USAGE+1}" ]; then
+		echo "mysqlnd_ms.force_config_usage=${PHP_FPM_MYSQLND_MS_FORCE_CONFIG_USAGE}"
+	elif [ -n "${PHP_MYSQLND_MS_FORCE_CONFIG_USAGE+1}" ]; then
+		echo "mysqlnd_ms.force_config_usage=${PHP_MYSQLND_MS_FORCE_CONFIG_USAGE}"
+	fi
+	if [ -n "${PHP_FPM_MYSQLND_MS_MULTI_MASTER+1}" ]; then
+		echo "mysqlnd_ms.multi_master=${PHP_FPM_MYSQLND_MS_MULTI_MASTER}"
+	elif [ -n "${PHP_MYSQLND_MS_MULTI_MASTER+1}" ]; then
+		echo "mysqlnd_ms.multi_master=${PHP_MYSQLND_MS_MULTI_MASTER}"
 	fi
 	if [ -n "${PHP_FPM_ODBC_ALLOW_PERSISTENT+1}" ]; then
 		echo "odbc.allow_persistent=${PHP_FPM_ODBC_ALLOW_PERSISTENT}"
