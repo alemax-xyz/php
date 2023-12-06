@@ -1,4 +1,3 @@
-PHP Warning:  PHP Startup: Unable to load dynamic library 'propro.so' (tried: /usr/lib/php/20210902/propro.so (/usr/lib/php/20210902/propro.so: undefined symbol: convert_to_explicit_type_ex), /usr/lib/php/20210902/propro.so.so (/usr/lib/php/20210902/propro.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
 #!/bin/sh
 
 BASE=/etc/php/8.1

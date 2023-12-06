@@ -273,7 +273,7 @@ RUN apt-get download \
         php8.1-pgsql \
         php8.1-phalcon5 \
         php8.1-pinba \
-        php8.1-propro \
+#        php8.1-propro \
         php8.1-protobuf \
         php8.1-ps \
         php8.1-pspell \
