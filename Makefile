@@ -9,9 +9,9 @@ override PHP_TARGETS = \
     8.1 8.1-git 8.1-composer 8.1-contrib \
     8.2 8.2-git 8.2-composer 8.2-contrib
 
-all: ${PHP_TARGETS} latest latest-git latest-composer
+all: ${PHP_TARGETS} latest latest-git latest-composer latest-contrib
 
-.PHONY: all ${PHP_TARGETS} latest latest-git latest-composer
+.PHONY: all ${PHP_TARGETS} latest latest-git latest-composer latest-contrib
 
 ${PHP_TARGETS}:
 	docker build -t clover/php:$@ $@
