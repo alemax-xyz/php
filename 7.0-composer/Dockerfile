@@ -1,3 +1,3 @@
 FROM clover/php:7.0-git
 
-COPY --from=composer:2.2.18 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.2.25 /usr/bin/composer /usr/bin/composer

@@ -396,6 +396,11 @@
 	elif [ -n "${PHP_ERROR_REPORTING+1}" ]; then
 		echo "error_reporting=${PHP_ERROR_REPORTING}"
 	fi
+	if [ -n "${PHP_CLI_EXCIMER_DEFAULT_MAX_DEPTH+1}" ]; then
+		echo "excimer.default_max_depth=${PHP_CLI_EXCIMER_DEFAULT_MAX_DEPTH}"
+	elif [ -n "${PHP_EXCIMER_DEFAULT_MAX_DEPTH+1}" ]; then
+		echo "excimer.default_max_depth=${PHP_EXCIMER_DEFAULT_MAX_DEPTH}"
+	fi
 	if [ -n "${PHP_CLI_EXIF_DECODE_JIS_INTEL+1}" ]; then
 		echo "exif.decode_jis_intel=${PHP_CLI_EXIF_DECODE_JIS_INTEL}"
 	elif [ -n "${PHP_EXIF_DECODE_JIS_INTEL+1}" ]; then
@@ -490,11 +495,6 @@
 		echo "grpc.grpc_verbosity=${PHP_CLI_GRPC_GRPC_VERBOSITY}"
 	elif [ -n "${PHP_GRPC_GRPC_VERBOSITY+1}" ]; then
 		echo "grpc.grpc_verbosity=${PHP_GRPC_GRPC_VERBOSITY}"
-	fi
-	if [ -n "${PHP_CLI_GRPC_LOG_FILENAME+1}" ]; then
-		echo "grpc.log_filename=${PHP_CLI_GRPC_LOG_FILENAME}"
-	elif [ -n "${PHP_GRPC_LOG_FILENAME+1}" ]; then
-		echo "grpc.log_filename=${PHP_GRPC_LOG_FILENAME}"
 	fi
 	if [ -n "${PHP_CLI_GRPC_POLL_STRATEGY+1}" ]; then
 		echo "grpc.poll_strategy=${PHP_CLI_GRPC_POLL_STRATEGY}"
@@ -901,6 +901,11 @@
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_FACTOR+1}" ]; then
 		echo "memcached.compression_factor=${PHP_MEMCACHED_COMPRESSION_FACTOR}"
 	fi
+	if [ -n "${PHP_CLI_MEMCACHED_COMPRESSION_LEVEL+1}" ]; then
+		echo "memcached.compression_level=${PHP_CLI_MEMCACHED_COMPRESSION_LEVEL}"
+	elif [ -n "${PHP_MEMCACHED_COMPRESSION_LEVEL+1}" ]; then
+		echo "memcached.compression_level=${PHP_MEMCACHED_COMPRESSION_LEVEL}"
+	fi
 	if [ -n "${PHP_CLI_MEMCACHED_COMPRESSION_THRESHOLD+1}" ]; then
 		echo "memcached.compression_threshold=${PHP_CLI_MEMCACHED_COMPRESSION_THRESHOLD}"
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_THRESHOLD+1}" ]; then
@@ -925,6 +930,11 @@
 		echo "memcached.default_consistent_hash=${PHP_CLI_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
 	elif [ -n "${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH+1}" ]; then
 		echo "memcached.default_consistent_hash=${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
+	fi
+	if [ -n "${PHP_CLI_MEMCACHED_ITEM_SIZE_LIMIT+1}" ]; then
+		echo "memcached.item_size_limit=${PHP_CLI_MEMCACHED_ITEM_SIZE_LIMIT}"
+	elif [ -n "${PHP_MEMCACHED_ITEM_SIZE_LIMIT+1}" ]; then
+		echo "memcached.item_size_limit=${PHP_MEMCACHED_ITEM_SIZE_LIMIT}"
 	fi
 	if [ -n "${PHP_CLI_MEMCACHED_SERIALIZER+1}" ]; then
 		echo "memcached.serializer=${PHP_CLI_MEMCACHED_SERIALIZER}"
@@ -1040,6 +1050,11 @@
 		echo "mongodb.debug=${PHP_CLI_MONGODB_DEBUG}"
 	elif [ -n "${PHP_MONGODB_DEBUG+1}" ]; then
 		echo "mongodb.debug=${PHP_MONGODB_DEBUG}"
+	fi
+	if [ -n "${PHP_CLI_MSGPACK_ASSOC+1}" ]; then
+		echo "msgpack.assoc=${PHP_CLI_MSGPACK_ASSOC}"
+	elif [ -n "${PHP_MSGPACK_ASSOC+1}" ]; then
+		echo "msgpack.assoc=${PHP_MSGPACK_ASSOC}"
 	fi
 	if [ -n "${PHP_CLI_MSGPACK_ERROR_DISPLAY+1}" ]; then
 		echo "msgpack.error_display=${PHP_CLI_MSGPACK_ERROR_DISPLAY}"
@@ -1591,101 +1606,6 @@
 	elif [ -n "${PHP_PGSQL_MAX_PERSISTENT+1}" ]; then
 		echo "pgsql.max_persistent=${PHP_PGSQL_MAX_PERSISTENT}"
 	fi
-	if [ -n "${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
-		echo "phalcon.db.escape_identifiers=${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS}"
-	elif [ -n "${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
-		echo "phalcon.db.escape_identifiers=${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_DB_FORCE_CASTING+1}" ]; then
-		echo "phalcon.db.force_casting=${PHP_CLI_PHALCON_DB_FORCE_CASTING}"
-	elif [ -n "${PHP_PHALCON_DB_FORCE_CASTING+1}" ]; then
-		echo "phalcon.db.force_casting=${PHP_PHALCON_DB_FORCE_CASTING}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
-		echo "phalcon.orm.case_insensitive_column_map=${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP}"
-	elif [ -n "${PHP_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
-		echo "phalcon.orm.case_insensitive_column_map=${PHP_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT+1}" ]; then
-		echo "phalcon.orm.cast_last_insert_id_to_int=${PHP_CLI_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT}"
-	elif [ -n "${PHP_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT+1}" ]; then
-		echo "phalcon.orm.cast_last_insert_id_to_int=${PHP_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
-		echo "phalcon.orm.cast_on_hydrate=${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE}"
-	elif [ -n "${PHP_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
-		echo "phalcon.orm.cast_on_hydrate=${PHP_PHALCON_ORM_CAST_ON_HYDRATE}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
-		echo "phalcon.orm.column_renaming=${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING}"
-	elif [ -n "${PHP_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
-		echo "phalcon.orm.column_renaming=${PHP_PHALCON_ORM_COLUMN_RENAMING}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
-		echo "phalcon.orm.disable_assign_setters=${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
-	elif [ -n "${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
-		echo "phalcon.orm.disable_assign_setters=${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
-		echo "phalcon.orm.enable_implicit_joins=${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
-	elif [ -n "${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
-		echo "phalcon.orm.enable_implicit_joins=${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
-		echo "phalcon.orm.enable_literals=${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS}"
-	elif [ -n "${PHP_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
-		echo "phalcon.orm.enable_literals=${PHP_PHALCON_ORM_ENABLE_LITERALS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_EVENTS+1}" ]; then
-		echo "phalcon.orm.events=${PHP_CLI_PHALCON_ORM_EVENTS}"
-	elif [ -n "${PHP_PHALCON_ORM_EVENTS+1}" ]; then
-		echo "phalcon.orm.events=${PHP_PHALCON_ORM_EVENTS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_metadata_save=${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE}"
-	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_metadata_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_save=${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
-	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
-		echo "phalcon.orm.exception_on_failed_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
-		echo "phalcon.orm.ignore_unknown_columns=${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
-	elif [ -n "${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
-		echo "phalcon.orm.ignore_unknown_columns=${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
-		echo "phalcon.orm.late_state_binding=${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING}"
-	elif [ -n "${PHP_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
-		echo "phalcon.orm.late_state_binding=${PHP_PHALCON_ORM_LATE_STATE_BINDING}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
-		echo "phalcon.orm.not_null_validations=${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
-	elif [ -n "${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
-		echo "phalcon.orm.not_null_validations=${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
-		echo "phalcon.orm.resultset_prefetch_records=${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
-	elif [ -n "${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
-		echo "phalcon.orm.resultset_prefetch_records=${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
-		echo "phalcon.orm.update_snapshot_on_save=${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
-	elif [ -n "${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
-		echo "phalcon.orm.update_snapshot_on_save=${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
-		echo "phalcon.orm.virtual_foreign_keys=${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
-	elif [ -n "${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
-		echo "phalcon.orm.virtual_foreign_keys=${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
-	fi
-	if [ -n "${PHP_CLI_PHALCON_WARNING_ENABLE+1}" ]; then
-		echo "phalcon.warning.enable=${PHP_CLI_PHALCON_WARNING_ENABLE}"
-	elif [ -n "${PHP_PHALCON_WARNING_ENABLE+1}" ]; then
-		echo "phalcon.warning.enable=${PHP_PHALCON_WARNING_ENABLE}"
-	fi
 	if [ -n "${PHP_CLI_PHAR_CACHE_LIST+1}" ]; then
 		echo "phar.cache_list=${PHP_CLI_PHAR_CACHE_LIST}"
 	elif [ -n "${PHP_PHAR_CACHE_LIST+1}" ]; then
@@ -1885,6 +1805,16 @@
 		echo "redis.pconnect.pooling_enabled=${PHP_CLI_REDIS_PCONNECT_POOLING_ENABLED}"
 	elif [ -n "${PHP_REDIS_PCONNECT_POOLING_ENABLED+1}" ]; then
 		echo "redis.pconnect.pooling_enabled=${PHP_REDIS_PCONNECT_POOLING_ENABLED}"
+	fi
+	if [ -n "${PHP_CLI_REDIS_SESSION_COMPRESSION+1}" ]; then
+		echo "redis.session.compression=${PHP_CLI_REDIS_SESSION_COMPRESSION}"
+	elif [ -n "${PHP_REDIS_SESSION_COMPRESSION+1}" ]; then
+		echo "redis.session.compression=${PHP_REDIS_SESSION_COMPRESSION}"
+	fi
+	if [ -n "${PHP_CLI_REDIS_SESSION_COMPRESSION_LEVEL+1}" ]; then
+		echo "redis.session.compression_level=${PHP_CLI_REDIS_SESSION_COMPRESSION_LEVEL}"
+	elif [ -n "${PHP_REDIS_SESSION_COMPRESSION_LEVEL+1}" ]; then
+		echo "redis.session.compression_level=${PHP_REDIS_SESSION_COMPRESSION_LEVEL}"
 	fi
 	if [ -n "${PHP_CLI_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
 		echo "redis.session.early_refresh=${PHP_CLI_REDIS_SESSION_EARLY_REFRESH}"
@@ -2196,11 +2126,6 @@
 	elif [ -n "${PHP_SWOOLE_DISPLAY_ERRORS+1}" ]; then
 		echo "swoole.display_errors=${PHP_SWOOLE_DISPLAY_ERRORS}"
 	fi
-	if [ -n "${PHP_CLI_SWOOLE_ENABLE_COROUTINE+1}" ]; then
-		echo "swoole.enable_coroutine=${PHP_CLI_SWOOLE_ENABLE_COROUTINE}"
-	elif [ -n "${PHP_SWOOLE_ENABLE_COROUTINE+1}" ]; then
-		echo "swoole.enable_coroutine=${PHP_SWOOLE_ENABLE_COROUTINE}"
-	fi
 	if [ -n "${PHP_CLI_SWOOLE_ENABLE_FIBER_MOCK+1}" ]; then
 		echo "swoole.enable_fiber_mock=${PHP_CLI_SWOOLE_ENABLE_FIBER_MOCK}"
 	elif [ -n "${PHP_SWOOLE_ENABLE_FIBER_MOCK+1}" ]; then
@@ -2400,6 +2325,11 @@
 		echo "xdebug.connect_timeout_ms=${PHP_CLI_XDEBUG_CONNECT_TIMEOUT_MS}"
 	elif [ -n "${PHP_XDEBUG_CONNECT_TIMEOUT_MS+1}" ]; then
 		echo "xdebug.connect_timeout_ms=${PHP_XDEBUG_CONNECT_TIMEOUT_MS}"
+	fi
+	if [ -n "${PHP_CLI_XDEBUG_CONTROL_SOCKET+1}" ]; then
+		echo "xdebug.control_socket=${PHP_CLI_XDEBUG_CONTROL_SOCKET}"
+	elif [ -n "${PHP_XDEBUG_CONTROL_SOCKET+1}" ]; then
+		echo "xdebug.control_socket=${PHP_XDEBUG_CONTROL_SOCKET}"
 	fi
 	if [ -n "${PHP_CLI_XDEBUG_COVERAGE_ENABLE+1}" ]; then
 		echo "xdebug.coverage_enable=${PHP_CLI_XDEBUG_COVERAGE_ENABLE}"
@@ -2865,5 +2795,20 @@
 		echo "zlib.output_handler=${PHP_CLI_ZLIB_OUTPUT_HANDLER}"
 	elif [ -n "${PHP_ZLIB_OUTPUT_HANDLER+1}" ]; then
 		echo "zlib.output_handler=${PHP_ZLIB_OUTPUT_HANDLER}"
+	fi
+	if [ -n "${PHP_CLI_ZSTD_OUTPUT_COMPRESSION+1}" ]; then
+		echo "zstd.output_compression=${PHP_CLI_ZSTD_OUTPUT_COMPRESSION}"
+	elif [ -n "${PHP_ZSTD_OUTPUT_COMPRESSION+1}" ]; then
+		echo "zstd.output_compression=${PHP_ZSTD_OUTPUT_COMPRESSION}"
+	fi
+	if [ -n "${PHP_CLI_ZSTD_OUTPUT_COMPRESSION_DICT+1}" ]; then
+		echo "zstd.output_compression_dict=${PHP_CLI_ZSTD_OUTPUT_COMPRESSION_DICT}"
+	elif [ -n "${PHP_ZSTD_OUTPUT_COMPRESSION_DICT+1}" ]; then
+		echo "zstd.output_compression_dict=${PHP_ZSTD_OUTPUT_COMPRESSION_DICT}"
+	fi
+	if [ -n "${PHP_CLI_ZSTD_OUTPUT_COMPRESSION_LEVEL+1}" ]; then
+		echo "zstd.output_compression_level=${PHP_CLI_ZSTD_OUTPUT_COMPRESSION_LEVEL}"
+	elif [ -n "${PHP_ZSTD_OUTPUT_COMPRESSION_LEVEL+1}" ]; then
+		echo "zstd.output_compression_level=${PHP_ZSTD_OUTPUT_COMPRESSION_LEVEL}"
 	fi
 ) > /etc/php/8.1/cli/conf.d/99-custom.ini

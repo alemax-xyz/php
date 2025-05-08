@@ -391,6 +391,11 @@
 	elif [ -n "${PHP_ERROR_REPORTING+1}" ]; then
 		echo "error_reporting=${PHP_ERROR_REPORTING}"
 	fi
+	if [ -n "${PHP_FPM_EXCIMER_DEFAULT_MAX_DEPTH+1}" ]; then
+		echo "excimer.default_max_depth=${PHP_FPM_EXCIMER_DEFAULT_MAX_DEPTH}"
+	elif [ -n "${PHP_EXCIMER_DEFAULT_MAX_DEPTH+1}" ]; then
+		echo "excimer.default_max_depth=${PHP_EXCIMER_DEFAULT_MAX_DEPTH}"
+	fi
 	if [ -n "${PHP_FPM_EXIF_DECODE_JIS_INTEL+1}" ]; then
 		echo "exif.decode_jis_intel=${PHP_FPM_EXIF_DECODE_JIS_INTEL}"
 	elif [ -n "${PHP_EXIF_DECODE_JIS_INTEL+1}" ]; then
@@ -475,11 +480,6 @@
 		echo "grpc.grpc_verbosity=${PHP_FPM_GRPC_GRPC_VERBOSITY}"
 	elif [ -n "${PHP_GRPC_GRPC_VERBOSITY+1}" ]; then
 		echo "grpc.grpc_verbosity=${PHP_GRPC_GRPC_VERBOSITY}"
-	fi
-	if [ -n "${PHP_FPM_GRPC_LOG_FILENAME+1}" ]; then
-		echo "grpc.log_filename=${PHP_FPM_GRPC_LOG_FILENAME}"
-	elif [ -n "${PHP_GRPC_LOG_FILENAME+1}" ]; then
-		echo "grpc.log_filename=${PHP_GRPC_LOG_FILENAME}"
 	fi
 	if [ -n "${PHP_FPM_GRPC_POLL_STRATEGY+1}" ]; then
 		echo "grpc.poll_strategy=${PHP_FPM_GRPC_POLL_STRATEGY}"
@@ -931,6 +931,11 @@
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_FACTOR+1}" ]; then
 		echo "memcached.compression_factor=${PHP_MEMCACHED_COMPRESSION_FACTOR}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHED_COMPRESSION_LEVEL+1}" ]; then
+		echo "memcached.compression_level=${PHP_FPM_MEMCACHED_COMPRESSION_LEVEL}"
+	elif [ -n "${PHP_MEMCACHED_COMPRESSION_LEVEL+1}" ]; then
+		echo "memcached.compression_level=${PHP_MEMCACHED_COMPRESSION_LEVEL}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_COMPRESSION_THRESHOLD+1}" ]; then
 		echo "memcached.compression_threshold=${PHP_FPM_MEMCACHED_COMPRESSION_THRESHOLD}"
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_THRESHOLD+1}" ]; then
@@ -955,6 +960,11 @@
 		echo "memcached.default_consistent_hash=${PHP_FPM_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
 	elif [ -n "${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH+1}" ]; then
 		echo "memcached.default_consistent_hash=${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHED_ITEM_SIZE_LIMIT+1}" ]; then
+		echo "memcached.item_size_limit=${PHP_FPM_MEMCACHED_ITEM_SIZE_LIMIT}"
+	elif [ -n "${PHP_MEMCACHED_ITEM_SIZE_LIMIT+1}" ]; then
+		echo "memcached.item_size_limit=${PHP_MEMCACHED_ITEM_SIZE_LIMIT}"
 	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SERIALIZER+1}" ]; then
 		echo "memcached.serializer=${PHP_FPM_MEMCACHED_SERIALIZER}"
@@ -1075,6 +1085,11 @@
 		echo "mongodb.mock_service_id=${PHP_FPM_MONGODB_MOCK_SERVICE_ID}"
 	elif [ -n "${PHP_MONGODB_MOCK_SERVICE_ID+1}" ]; then
 		echo "mongodb.mock_service_id=${PHP_MONGODB_MOCK_SERVICE_ID}"
+	fi
+	if [ -n "${PHP_FPM_MSGPACK_ASSOC+1}" ]; then
+		echo "msgpack.assoc=${PHP_FPM_MSGPACK_ASSOC}"
+	elif [ -n "${PHP_MSGPACK_ASSOC+1}" ]; then
+		echo "msgpack.assoc=${PHP_MSGPACK_ASSOC}"
 	fi
 	if [ -n "${PHP_FPM_MSGPACK_ERROR_DISPLAY+1}" ]; then
 		echo "msgpack.error_display=${PHP_FPM_MSGPACK_ERROR_DISPLAY}"

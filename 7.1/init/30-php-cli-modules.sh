@@ -81,7 +81,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_RDKAFKA:-1}" = 0 -a -z "${PHP_CLI_MODULE_RDKAFKA}" \) -o "${PHP_CLI_MODULE_RDKAFKA:-1}" = 0 ] && rm -f $CONF/30-rdkafka.ini || ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-1}" = 0 -a -z "${PHP_CLI_MODULE_READLINE}" \) -o "${PHP_CLI_MODULE_READLINE:-1}" = 0 ] && rm -f $CONF/20-readline.ini || ln -sf $MODS/readline.ini $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-1}" = 0 -a -z "${PHP_CLI_MODULE_RECODE}" \) -o "${PHP_CLI_MODULE_RECODE:-1}" = 0 ] && rm -f $CONF/20-recode.ini || ln -sf $MODS/recode.ini $CONF/20-recode.ini
-	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_CLI_MODULE_REDIS}" \) -o "${PHP_CLI_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/20-redis.ini || ln -sf $MODS/redis.ini $CONF/20-redis.ini
+	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_CLI_MODULE_REDIS}" \) -o "${PHP_CLI_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/25-redis.ini || ln -sf $MODS/redis.ini $CONF/25-redis.ini
 	[ \( "${PHP_MODULE_RRD:-1}" = 0 -a -z "${PHP_CLI_MODULE_RRD}" \) -o "${PHP_CLI_MODULE_RRD:-1}" = 0 ] && rm -f $CONF/20-rrd.ini || ln -sf $MODS/rrd.ini $CONF/20-rrd.ini
 	[ \( "${PHP_MODULE_SHMOP:-1}" = 0 -a -z "${PHP_CLI_MODULE_SHMOP}" \) -o "${PHP_CLI_MODULE_SHMOP:-1}" = 0 ] && rm -f $CONF/20-shmop.ini || ln -sf $MODS/shmop.ini $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-1}" = 0 -a -z "${PHP_CLI_MODULE_SIMPLEXML}" \) -o "${PHP_CLI_MODULE_SIMPLEXML:-1}" = 0 ] && rm -f $CONF/20-simplexml.ini || ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini
@@ -192,7 +192,7 @@ else
 	[ \( "${PHP_MODULE_RDKAFKA:-0}" != 0 -a -z "${PHP_CLI_MODULE_RDKAFKA}" \) -o "${PHP_CLI_MODULE_RDKAFKA:-0}" != 0 ] && ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini || rm -f $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-0}" != 0 -a -z "${PHP_CLI_MODULE_READLINE}" \) -o "${PHP_CLI_MODULE_READLINE:-0}" != 0 ] && ln -sf $MODS/readline.ini $CONF/20-readline.ini || rm -f $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-0}" != 0 -a -z "${PHP_CLI_MODULE_RECODE}" \) -o "${PHP_CLI_MODULE_RECODE:-0}" != 0 ] && ln -sf $MODS/recode.ini $CONF/20-recode.ini || rm -f $CONF/20-recode.ini
-	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_CLI_MODULE_REDIS}" \) -o "${PHP_CLI_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/20-redis.ini || rm -f $CONF/20-redis.ini
+	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_CLI_MODULE_REDIS}" \) -o "${PHP_CLI_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/25-redis.ini || rm -f $CONF/25-redis.ini
 	[ \( "${PHP_MODULE_RRD:-0}" != 0 -a -z "${PHP_CLI_MODULE_RRD}" \) -o "${PHP_CLI_MODULE_RRD:-0}" != 0 ] && ln -sf $MODS/rrd.ini $CONF/20-rrd.ini || rm -f $CONF/20-rrd.ini
 	[ \( "${PHP_MODULE_SHMOP:-0}" != 0 -a -z "${PHP_CLI_MODULE_SHMOP}" \) -o "${PHP_CLI_MODULE_SHMOP:-0}" != 0 ] && ln -sf $MODS/shmop.ini $CONF/20-shmop.ini || rm -f $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-0}" != 0 -a -z "${PHP_CLI_MODULE_SIMPLEXML}" \) -o "${PHP_CLI_MODULE_SIMPLEXML:-0}" != 0 ] && ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini || rm -f $CONF/20-simplexml.ini

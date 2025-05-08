@@ -43,6 +43,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_INTL:-1}" = 0 -a -z "${PHP_FPM_MODULE_INTL}" \) -o "${PHP_FPM_MODULE_INTL:-1}" = 0 ] && rm -f $CONF/20-intl.ini || ln -sf $MODS/intl.ini $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_JSON:-1}" = 0 -a -z "${PHP_FPM_MODULE_JSON}" \) -o "${PHP_FPM_MODULE_JSON:-1}" = 0 ] && rm -f $CONF/20-json.ini || ln -sf $MODS/json.ini $CONF/20-json.ini
 	[ \( "${PHP_MODULE_LDAP:-1}" = 0 -a -z "${PHP_FPM_MODULE_LDAP}" \) -o "${PHP_FPM_MODULE_LDAP:-1}" = 0 ] && rm -f $CONF/20-ldap.ini || ln -sf $MODS/ldap.ini $CONF/20-ldap.ini
+	[ \( "${PHP_MODULE_LIBVIRT_PHP:-1}" = 0 -a -z "${PHP_FPM_MODULE_LIBVIRT_PHP}" \) -o "${PHP_FPM_MODULE_LIBVIRT_PHP:-1}" = 0 ] && rm -f $CONF/40-libvirt-php.ini || ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LUA:-1}" = 0 -a -z "${PHP_FPM_MODULE_LUA}" \) -o "${PHP_FPM_MODULE_LUA:-1}" = 0 ] && rm -f $CONF/20-lua.ini || ln -sf $MODS/lua.ini $CONF/20-lua.ini
 	[ \( "${PHP_MODULE_LZ4:-1}" = 0 -a -z "${PHP_FPM_MODULE_LZ4}" \) -o "${PHP_FPM_MODULE_LZ4:-1}" = 0 ] && rm -f $CONF/20-lz4.ini || ln -sf $MODS/lz4.ini $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-1}" = 0 -a -z "${PHP_FPM_MODULE_MAILPARSE}" \) -o "${PHP_FPM_MODULE_MAILPARSE:-1}" = 0 ] && rm -f $CONF/25-mailparse.ini || ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini
@@ -81,9 +82,8 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_RDKAFKA:-1}" = 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-1}" = 0 ] && rm -f $CONF/30-rdkafka.ini || ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-1}" = 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-1}" = 0 ] && rm -f $CONF/20-readline.ini || ln -sf $MODS/readline.ini $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-1}" = 0 -a -z "${PHP_FPM_MODULE_RECODE}" \) -o "${PHP_FPM_MODULE_RECODE:-1}" = 0 ] && rm -f $CONF/20-recode.ini || ln -sf $MODS/recode.ini $CONF/20-recode.ini
-	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/20-redis.ini || ln -sf $MODS/redis.ini $CONF/20-redis.ini
+	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/25-redis.ini || ln -sf $MODS/redis.ini $CONF/25-redis.ini
 	[ \( "${PHP_MODULE_RRD:-1}" = 0 -a -z "${PHP_FPM_MODULE_RRD}" \) -o "${PHP_FPM_MODULE_RRD:-1}" = 0 ] && rm -f $CONF/20-rrd.ini || ln -sf $MODS/rrd.ini $CONF/20-rrd.ini
-	[ \( "${PHP_MODULE_SASS:-1}" = 0 -a -z "${PHP_FPM_MODULE_SASS}" \) -o "${PHP_FPM_MODULE_SASS:-1}" = 0 ] && rm -f $CONF/20-sass.ini || ln -sf $MODS/sass.ini $CONF/20-sass.ini
 	[ \( "${PHP_MODULE_SHMOP:-1}" = 0 -a -z "${PHP_FPM_MODULE_SHMOP}" \) -o "${PHP_FPM_MODULE_SHMOP:-1}" = 0 ] && rm -f $CONF/20-shmop.ini || ln -sf $MODS/shmop.ini $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-1}" = 0 -a -z "${PHP_FPM_MODULE_SIMPLEXML}" \) -o "${PHP_FPM_MODULE_SIMPLEXML:-1}" = 0 ] && rm -f $CONF/20-simplexml.ini || ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini
 	[ \( "${PHP_MODULE_SMBCLIENT:-1}" = 0 -a -z "${PHP_FPM_MODULE_SMBCLIENT}" \) -o "${PHP_FPM_MODULE_SMBCLIENT:-1}" = 0 ] && rm -f $CONF/20-smbclient.ini || ln -sf $MODS/smbclient.ini $CONF/20-smbclient.ini
@@ -155,6 +155,7 @@ else
 	[ \( "${PHP_MODULE_INTL:-0}" != 0 -a -z "${PHP_FPM_MODULE_INTL}" \) -o "${PHP_FPM_MODULE_INTL:-0}" != 0 ] && ln -sf $MODS/intl.ini $CONF/20-intl.ini || rm -f $CONF/20-intl.ini
 	[ \( "${PHP_MODULE_JSON:-0}" != 0 -a -z "${PHP_FPM_MODULE_JSON}" \) -o "${PHP_FPM_MODULE_JSON:-0}" != 0 ] && ln -sf $MODS/json.ini $CONF/20-json.ini || rm -f $CONF/20-json.ini
 	[ \( "${PHP_MODULE_LDAP:-0}" != 0 -a -z "${PHP_FPM_MODULE_LDAP}" \) -o "${PHP_FPM_MODULE_LDAP:-0}" != 0 ] && ln -sf $MODS/ldap.ini $CONF/20-ldap.ini || rm -f $CONF/20-ldap.ini
+	[ \( "${PHP_MODULE_LIBVIRT_PHP:-0}" != 0 -a -z "${PHP_FPM_MODULE_LIBVIRT_PHP}" \) -o "${PHP_FPM_MODULE_LIBVIRT_PHP:-0}" != 0 ] && ln -sf $MODS/libvirt-php.ini $CONF/40-libvirt-php.ini || rm -f $CONF/40-libvirt-php.ini
 	[ \( "${PHP_MODULE_LUA:-0}" != 0 -a -z "${PHP_FPM_MODULE_LUA}" \) -o "${PHP_FPM_MODULE_LUA:-0}" != 0 ] && ln -sf $MODS/lua.ini $CONF/20-lua.ini || rm -f $CONF/20-lua.ini
 	[ \( "${PHP_MODULE_LZ4:-0}" != 0 -a -z "${PHP_FPM_MODULE_LZ4}" \) -o "${PHP_FPM_MODULE_LZ4:-0}" != 0 ] && ln -sf $MODS/lz4.ini $CONF/20-lz4.ini || rm -f $CONF/20-lz4.ini
 	[ \( "${PHP_MODULE_MAILPARSE:-0}" != 0 -a -z "${PHP_FPM_MODULE_MAILPARSE}" \) -o "${PHP_FPM_MODULE_MAILPARSE:-0}" != 0 ] && ln -sf $MODS/mailparse.ini $CONF/25-mailparse.ini || rm -f $CONF/25-mailparse.ini
@@ -193,9 +194,8 @@ else
 	[ \( "${PHP_MODULE_RDKAFKA:-0}" != 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-0}" != 0 ] && ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini || rm -f $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-0}" != 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-0}" != 0 ] && ln -sf $MODS/readline.ini $CONF/20-readline.ini || rm -f $CONF/20-readline.ini
 	[ \( "${PHP_MODULE_RECODE:-0}" != 0 -a -z "${PHP_FPM_MODULE_RECODE}" \) -o "${PHP_FPM_MODULE_RECODE:-0}" != 0 ] && ln -sf $MODS/recode.ini $CONF/20-recode.ini || rm -f $CONF/20-recode.ini
-	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/20-redis.ini || rm -f $CONF/20-redis.ini
+	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/25-redis.ini || rm -f $CONF/25-redis.ini
 	[ \( "${PHP_MODULE_RRD:-0}" != 0 -a -z "${PHP_FPM_MODULE_RRD}" \) -o "${PHP_FPM_MODULE_RRD:-0}" != 0 ] && ln -sf $MODS/rrd.ini $CONF/20-rrd.ini || rm -f $CONF/20-rrd.ini
-	[ \( "${PHP_MODULE_SASS:-0}" != 0 -a -z "${PHP_FPM_MODULE_SASS}" \) -o "${PHP_FPM_MODULE_SASS:-0}" != 0 ] && ln -sf $MODS/sass.ini $CONF/20-sass.ini || rm -f $CONF/20-sass.ini
 	[ \( "${PHP_MODULE_SHMOP:-0}" != 0 -a -z "${PHP_FPM_MODULE_SHMOP}" \) -o "${PHP_FPM_MODULE_SHMOP:-0}" != 0 ] && ln -sf $MODS/shmop.ini $CONF/20-shmop.ini || rm -f $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-0}" != 0 -a -z "${PHP_FPM_MODULE_SIMPLEXML}" \) -o "${PHP_FPM_MODULE_SIMPLEXML:-0}" != 0 ] && ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini || rm -f $CONF/20-simplexml.ini
 	[ \( "${PHP_MODULE_SMBCLIENT:-0}" != 0 -a -z "${PHP_FPM_MODULE_SMBCLIENT}" \) -o "${PHP_FPM_MODULE_SMBCLIENT:-0}" != 0 ] && ln -sf $MODS/smbclient.ini $CONF/20-smbclient.ini || rm -f $CONF/20-smbclient.ini

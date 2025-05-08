@@ -29,18 +29,14 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get install -y \
         fasttrack-archive-keyring \
         curl \
-        gnupg
+        gnupg \
+ && apt-get update
 
 RUN export DEBIAN_FRONTEND=noninteractive \
- && curl https://packages.sury.org/php/apt.gpg | apt-key add - \
- && ( \
-        echo "deb http://deb.debian.org/debian/ bullseye main contrib non-free" \
-     && echo "deb http://deb.debian.org/debian/ bullseye-updates main contrib non-free" \
-     && echo "deb http://security.debian.org/debian-security bullseye-security main contrib non-free" \
-     && echo "deb http://deb.debian.org/debian/ bullseye-backports main contrib non-free" \
- )  > /etc/apt/sources.list.d/bullseye.list \
- && echo "deb https://fasttrack.debian.net/debian-fasttrack/ bullseye-fasttrack main contrib" > /etc/apt/sources.list.d/fasttrack.list \
- && echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/php.list \
+ && wget https://packages.sury.org/php/apt.gpg -O /etc/apt/trusted.gpg.d/sury-php.gpg \
+ && echo "deb https://fasttrack.debian.net/debian-fasttrack/ bookworm-fasttrack main contrib" > /etc/apt/sources.list.d/fasttrack.list \
+ && echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/php-bullseye.list \
+ && echo "deb https://packages.sury.org/php/ bookworm main" > /etc/apt/sources.list.d/php-bookworm.list \
  && apt-get update
 
 RUN mkdir -p /build /rootfs
@@ -54,20 +50,20 @@ RUN apt-get download \
         gpg-agent \
         pinentry-tty \
         imagemagick-6-common \
-        libabsl20220623 \
         libaom3 \
         libapparmor1 \
         libargon2-1 \
         libasn1-8-heimdal \
         libaspell15 \
         libassuan0 \
-        libabsl20200923 \
+        libabsl20220623 \
         libatomic1 \
-        libavif9 \
+        libavif15 \
         libavahi-client3 \
         libavahi-common3 \
         libavahi-common-data \
         libacl1 \
+        libc-ares2 \
         libattr1 \
         libbsd0 \
         libcairo2 \
@@ -78,7 +74,6 @@ RUN apt-get download \
         libcurl3-gnutls \
         libcurl4 \
         libdatrie1 \
-        libdav1d4 \
         libdav1d6 \
         libdbi1 \
         libdbus-1-3 \
@@ -90,12 +85,11 @@ RUN apt-get download \
         libevent-2.1-7 \
         libexpat1 \
         libfbclient2 \
-        libffi7 \
         libffi8 \
         libfftw3-double3 \
         libfontconfig1 \
         libfreetype6 \
-        libgav1-0 \
+        libgav1-1 \
         libgcrypt20 \
         libgd3 \
         libgearman8 \
@@ -112,7 +106,7 @@ RUN apt-get download \
         libgssapi-krb5-2 \
         libhashkit2 \
         libharfbuzz0b \
-        libhcrypto4-heimdal \
+        libhcrypto5-heimdal \
         libheif1 \
         libheimbase1-heimdal \
         libheimntlm0-heimdal \
@@ -120,9 +114,8 @@ RUN apt-get download \
         libhunspell-1.7-0 \
         libhwy1 \
         libhx509-5-heimdal \
-        libicu67 \
         libicu72 \
-        libidn11 \
+        libidn12 \
         libidn2-0 \
         libjbig0 \
         libjxl0.7 \
@@ -135,7 +128,6 @@ RUN apt-get download \
         libkrb5support0 \
         libksba8 \
         liblcms2-2 \
-        libldap-2.4-2 \
         libldap-2.5-0 \
         liblerc4 \
         liblqr-1-0 \
@@ -170,10 +162,11 @@ RUN apt-get download \
         libpsl5 \
         libqdbm14 \
         librabbitmq4 \
+        libraqm0 \
         librav1e0 \
         librdkafka1 \
         librecode0 \
-        libroken18-heimdal \
+        libroken19-heimdal \
         librrd8 \
         librtmp1 \
         libsasl2-2 \
@@ -183,7 +176,7 @@ RUN apt-get download \
         libsqlite3-0 \
         libssh-4 \
         libssh2-1 \
-        libssl1.1 \
+        libssl3 \
         libsvtav1enc1 \
         libsybdb5 \
         libsystemd0 \
@@ -192,18 +185,17 @@ RUN apt-get download \
         libthai-data \
         libtidy5deb1 \
         libtirpc3 \
-        libtiff5 \
         libtiff6 \
         libudev1 \
         libuuid1 \
         libunistring2 \
         libvirt0 \
-        libwebp6 \
         libwebp7 \
         libwebpdemux2 \
         libwebpmux3 \
         libwind0-heimdal \
-        libwmf0.2-7 \
+        libwmf-0.2-7 \
+        libwmflite-0.2-7 \
         libx11-6 \
         libx11-data \
         libx265-199 \
@@ -212,7 +204,7 @@ RUN apt-get download \
         libxcb-render0 \
         libxcb-shm0 \
         libxdmcp6 \
-        libxenstore3.0 \
+        libxenstore4 \
         libxext6 \
         libxml2 \
         libxmlrpc-epi0 \
@@ -309,8 +301,6 @@ RUN apt-get download \
         php8.1-zmq \
         php8.1-zstd \
         php-libvirt-php \
-        php-sass \
-        libsass1 \
         libprotobuf-c1 \
         libmaxminddb0 \
         libmpdec3 \
@@ -335,7 +325,6 @@ RUN apt-get download \
         libexif12 \
         libcairo-gobject2 \
         libgdk-pixbuf-2.0-0 \
-        libilmbase25 \
         libopenjp2-7 \
         libhdf5-103-1 \
         libnss3 \
@@ -391,6 +380,7 @@ RUN ARCH=$(dpkg --print-architecture | sed -e 's,i386,i386-linux-gnu,g' -e 's,am
         etc/init.d \
         etc/logcheck \
         etc/logrotate.d \
+        etc/php/5.4 \
         etc/php/5.5 \
         etc/php/5.6 \
         etc/php/7.0 \
@@ -399,15 +389,14 @@ RUN ARCH=$(dpkg --print-architecture | sed -e 's,i386,i386-linux-gnu,g' -e 's,am
         etc/php/7.3 \
         etc/php/7.4 \
         etc/php/8.0 \
+#        etc/php/8.1 \
         etc/php/8.2 \
         etc/php/8.3 \
+        etc/php/8.4 \
         lib/systemd \
         lib/udev \
         usr/bin/gpg2 \
         usr/include \
-        usr/lib/aspell/*-linux-*/*.la \
-        usr/lib/*-linux-*/ImageMagick-*/modules-*/coders/*.la \
-        usr/lib/*-linux-*/ImageMagick-*/modules-*/filters/*.la \
         usr/lib/odbc \
         usr/lib/tmpfiles.d \
         usr/lib/php/8.1 \
@@ -421,9 +410,10 @@ RUN ARCH=$(dpkg --print-architecture | sed -e 's,i386,i386-linux-gnu,g' -e 's,am
         usr/lib/php/20180731 \
         usr/lib/php/20190902 \
         usr/lib/php/20200930 \
-        usr/lib/php/20210902/*.la \
+#        usr/lib/php/20210902 \
         usr/lib/php/20220829 \
         usr/lib/php/20230831 \
+        usr/lib/php/20240924 \
         usr/lib/systemd \
         usr/lib/*-linux-*/glib-2.0/gio-launch-desktop \
         usr/sbin/addgnupghome \
@@ -437,7 +427,6 @@ RUN ARCH=$(dpkg --print-architecture | sed -e 's,i386,i386-linux-gnu,g' -e 's,am
         usr/share/locale \
         usr/share/doc-base \
         usr/share/libcrypt* \
-        usr/share/libvirt/test-screenshot.png \
         usr/share/lintian \
         usr/share/upstart \
         usr/share/firebird3.0-common \

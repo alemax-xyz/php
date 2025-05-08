@@ -401,6 +401,11 @@
 	elif [ -n "${PHP_ERROR_REPORTING+1}" ]; then
 		echo "error_reporting=${PHP_ERROR_REPORTING}"
 	fi
+	if [ -n "${PHP_FPM_EXCIMER_DEFAULT_MAX_DEPTH+1}" ]; then
+		echo "excimer.default_max_depth=${PHP_FPM_EXCIMER_DEFAULT_MAX_DEPTH}"
+	elif [ -n "${PHP_EXCIMER_DEFAULT_MAX_DEPTH+1}" ]; then
+		echo "excimer.default_max_depth=${PHP_EXCIMER_DEFAULT_MAX_DEPTH}"
+	fi
 	if [ -n "${PHP_FPM_EXIF_DECODE_JIS_INTEL+1}" ]; then
 		echo "exif.decode_jis_intel=${PHP_FPM_EXIF_DECODE_JIS_INTEL}"
 	elif [ -n "${PHP_EXIF_DECODE_JIS_INTEL+1}" ]; then
@@ -495,11 +500,6 @@
 		echo "grpc.grpc_verbosity=${PHP_FPM_GRPC_GRPC_VERBOSITY}"
 	elif [ -n "${PHP_GRPC_GRPC_VERBOSITY+1}" ]; then
 		echo "grpc.grpc_verbosity=${PHP_GRPC_GRPC_VERBOSITY}"
-	fi
-	if [ -n "${PHP_FPM_GRPC_LOG_FILENAME+1}" ]; then
-		echo "grpc.log_filename=${PHP_FPM_GRPC_LOG_FILENAME}"
-	elif [ -n "${PHP_GRPC_LOG_FILENAME+1}" ]; then
-		echo "grpc.log_filename=${PHP_GRPC_LOG_FILENAME}"
 	fi
 	if [ -n "${PHP_FPM_GRPC_POLL_STRATEGY+1}" ]; then
 		echo "grpc.poll_strategy=${PHP_FPM_GRPC_POLL_STRATEGY}"
@@ -911,6 +911,11 @@
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_FACTOR+1}" ]; then
 		echo "memcached.compression_factor=${PHP_MEMCACHED_COMPRESSION_FACTOR}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHED_COMPRESSION_LEVEL+1}" ]; then
+		echo "memcached.compression_level=${PHP_FPM_MEMCACHED_COMPRESSION_LEVEL}"
+	elif [ -n "${PHP_MEMCACHED_COMPRESSION_LEVEL+1}" ]; then
+		echo "memcached.compression_level=${PHP_MEMCACHED_COMPRESSION_LEVEL}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_COMPRESSION_THRESHOLD+1}" ]; then
 		echo "memcached.compression_threshold=${PHP_FPM_MEMCACHED_COMPRESSION_THRESHOLD}"
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_THRESHOLD+1}" ]; then
@@ -935,6 +940,11 @@
 		echo "memcached.default_consistent_hash=${PHP_FPM_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
 	elif [ -n "${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH+1}" ]; then
 		echo "memcached.default_consistent_hash=${PHP_MEMCACHED_DEFAULT_CONSISTENT_HASH}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHED_ITEM_SIZE_LIMIT+1}" ]; then
+		echo "memcached.item_size_limit=${PHP_FPM_MEMCACHED_ITEM_SIZE_LIMIT}"
+	elif [ -n "${PHP_MEMCACHED_ITEM_SIZE_LIMIT+1}" ]; then
+		echo "memcached.item_size_limit=${PHP_MEMCACHED_ITEM_SIZE_LIMIT}"
 	fi
 	if [ -n "${PHP_FPM_MEMCACHED_SERIALIZER+1}" ]; then
 		echo "memcached.serializer=${PHP_FPM_MEMCACHED_SERIALIZER}"
@@ -1050,6 +1060,11 @@
 		echo "mongodb.debug=${PHP_FPM_MONGODB_DEBUG}"
 	elif [ -n "${PHP_MONGODB_DEBUG+1}" ]; then
 		echo "mongodb.debug=${PHP_MONGODB_DEBUG}"
+	fi
+	if [ -n "${PHP_FPM_MSGPACK_ASSOC+1}" ]; then
+		echo "msgpack.assoc=${PHP_FPM_MSGPACK_ASSOC}"
+	elif [ -n "${PHP_MSGPACK_ASSOC+1}" ]; then
+		echo "msgpack.assoc=${PHP_MSGPACK_ASSOC}"
 	fi
 	if [ -n "${PHP_FPM_MSGPACK_ERROR_DISPLAY+1}" ]; then
 		echo "msgpack.error_display=${PHP_FPM_MSGPACK_ERROR_DISPLAY}"
@@ -1796,6 +1811,16 @@
 	elif [ -n "${PHP_REDIS_PCONNECT_POOLING_ENABLED+1}" ]; then
 		echo "redis.pconnect.pooling_enabled=${PHP_REDIS_PCONNECT_POOLING_ENABLED}"
 	fi
+	if [ -n "${PHP_FPM_REDIS_SESSION_COMPRESSION+1}" ]; then
+		echo "redis.session.compression=${PHP_FPM_REDIS_SESSION_COMPRESSION}"
+	elif [ -n "${PHP_REDIS_SESSION_COMPRESSION+1}" ]; then
+		echo "redis.session.compression=${PHP_REDIS_SESSION_COMPRESSION}"
+	fi
+	if [ -n "${PHP_FPM_REDIS_SESSION_COMPRESSION_LEVEL+1}" ]; then
+		echo "redis.session.compression_level=${PHP_FPM_REDIS_SESSION_COMPRESSION_LEVEL}"
+	elif [ -n "${PHP_REDIS_SESSION_COMPRESSION_LEVEL+1}" ]; then
+		echo "redis.session.compression_level=${PHP_REDIS_SESSION_COMPRESSION_LEVEL}"
+	fi
 	if [ -n "${PHP_FPM_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
 		echo "redis.session.early_refresh=${PHP_FPM_REDIS_SESSION_EARLY_REFRESH}"
 	elif [ -n "${PHP_REDIS_SESSION_EARLY_REFRESH+1}" ]; then
@@ -2106,11 +2131,6 @@
 	elif [ -n "${PHP_SWOOLE_DISPLAY_ERRORS+1}" ]; then
 		echo "swoole.display_errors=${PHP_SWOOLE_DISPLAY_ERRORS}"
 	fi
-	if [ -n "${PHP_FPM_SWOOLE_ENABLE_COROUTINE+1}" ]; then
-		echo "swoole.enable_coroutine=${PHP_FPM_SWOOLE_ENABLE_COROUTINE}"
-	elif [ -n "${PHP_SWOOLE_ENABLE_COROUTINE+1}" ]; then
-		echo "swoole.enable_coroutine=${PHP_SWOOLE_ENABLE_COROUTINE}"
-	fi
 	if [ -n "${PHP_FPM_SWOOLE_ENABLE_FIBER_MOCK+1}" ]; then
 		echo "swoole.enable_fiber_mock=${PHP_FPM_SWOOLE_ENABLE_FIBER_MOCK}"
 	elif [ -n "${PHP_SWOOLE_ENABLE_FIBER_MOCK+1}" ]; then
@@ -2310,6 +2330,11 @@
 		echo "xdebug.connect_timeout_ms=${PHP_FPM_XDEBUG_CONNECT_TIMEOUT_MS}"
 	elif [ -n "${PHP_XDEBUG_CONNECT_TIMEOUT_MS+1}" ]; then
 		echo "xdebug.connect_timeout_ms=${PHP_XDEBUG_CONNECT_TIMEOUT_MS}"
+	fi
+	if [ -n "${PHP_FPM_XDEBUG_CONTROL_SOCKET+1}" ]; then
+		echo "xdebug.control_socket=${PHP_FPM_XDEBUG_CONTROL_SOCKET}"
+	elif [ -n "${PHP_XDEBUG_CONTROL_SOCKET+1}" ]; then
+		echo "xdebug.control_socket=${PHP_XDEBUG_CONTROL_SOCKET}"
 	fi
 	if [ -n "${PHP_FPM_XDEBUG_COVERAGE_ENABLE+1}" ]; then
 		echo "xdebug.coverage_enable=${PHP_FPM_XDEBUG_COVERAGE_ENABLE}"
@@ -2775,5 +2800,20 @@
 		echo "zlib.output_handler=${PHP_FPM_ZLIB_OUTPUT_HANDLER}"
 	elif [ -n "${PHP_ZLIB_OUTPUT_HANDLER+1}" ]; then
 		echo "zlib.output_handler=${PHP_ZLIB_OUTPUT_HANDLER}"
+	fi
+	if [ -n "${PHP_FPM_ZSTD_OUTPUT_COMPRESSION+1}" ]; then
+		echo "zstd.output_compression=${PHP_FPM_ZSTD_OUTPUT_COMPRESSION}"
+	elif [ -n "${PHP_ZSTD_OUTPUT_COMPRESSION+1}" ]; then
+		echo "zstd.output_compression=${PHP_ZSTD_OUTPUT_COMPRESSION}"
+	fi
+	if [ -n "${PHP_FPM_ZSTD_OUTPUT_COMPRESSION_DICT+1}" ]; then
+		echo "zstd.output_compression_dict=${PHP_FPM_ZSTD_OUTPUT_COMPRESSION_DICT}"
+	elif [ -n "${PHP_ZSTD_OUTPUT_COMPRESSION_DICT+1}" ]; then
+		echo "zstd.output_compression_dict=${PHP_ZSTD_OUTPUT_COMPRESSION_DICT}"
+	fi
+	if [ -n "${PHP_FPM_ZSTD_OUTPUT_COMPRESSION_LEVEL+1}" ]; then
+		echo "zstd.output_compression_level=${PHP_FPM_ZSTD_OUTPUT_COMPRESSION_LEVEL}"
+	elif [ -n "${PHP_ZSTD_OUTPUT_COMPRESSION_LEVEL+1}" ]; then
+		echo "zstd.output_compression_level=${PHP_ZSTD_OUTPUT_COMPRESSION_LEVEL}"
 	fi
 ) > /etc/php/8.2/fpm/conf.d/99-custom.ini

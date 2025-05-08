@@ -81,9 +81,8 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_RAPHF:-1}" = 0 -a -z "${PHP_FPM_MODULE_RAPHF}" \) -o "${PHP_FPM_MODULE_RAPHF:-1}" = 0 ] && rm -f $CONF/20-raphf.ini || ln -sf $MODS/raphf.ini $CONF/20-raphf.ini
 	[ \( "${PHP_MODULE_RDKAFKA:-1}" = 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-1}" = 0 ] && rm -f $CONF/30-rdkafka.ini || ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-1}" = 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-1}" = 0 ] && rm -f $CONF/20-readline.ini || ln -sf $MODS/readline.ini $CONF/20-readline.ini
-	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/20-redis.ini || ln -sf $MODS/redis.ini $CONF/20-redis.ini
+	[ \( "${PHP_MODULE_REDIS:-1}" = 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-1}" = 0 ] && rm -f $CONF/25-redis.ini || ln -sf $MODS/redis.ini $CONF/25-redis.ini
 	[ \( "${PHP_MODULE_RRD:-1}" = 0 -a -z "${PHP_FPM_MODULE_RRD}" \) -o "${PHP_FPM_MODULE_RRD:-1}" = 0 ] && rm -f $CONF/20-rrd.ini || ln -sf $MODS/rrd.ini $CONF/20-rrd.ini
-	[ \( "${PHP_MODULE_SASS:-1}" = 0 -a -z "${PHP_FPM_MODULE_SASS}" \) -o "${PHP_FPM_MODULE_SASS:-1}" = 0 ] && rm -f $CONF/20-sass.ini || ln -sf $MODS/sass.ini $CONF/20-sass.ini
 	[ \( "${PHP_MODULE_SHMOP:-1}" = 0 -a -z "${PHP_FPM_MODULE_SHMOP}" \) -o "${PHP_FPM_MODULE_SHMOP:-1}" = 0 ] && rm -f $CONF/20-shmop.ini || ln -sf $MODS/shmop.ini $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-1}" = 0 -a -z "${PHP_FPM_MODULE_SIMPLEXML}" \) -o "${PHP_FPM_MODULE_SIMPLEXML:-1}" = 0 ] && rm -f $CONF/20-simplexml.ini || ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini
 	[ \( "${PHP_MODULE_SMBCLIENT:-1}" = 0 -a -z "${PHP_FPM_MODULE_SMBCLIENT}" \) -o "${PHP_FPM_MODULE_SMBCLIENT:-1}" = 0 ] && rm -f $CONF/20-smbclient.ini || ln -sf $MODS/smbclient.ini $CONF/20-smbclient.ini
@@ -192,9 +191,8 @@ else
 	[ \( "${PHP_MODULE_RAPHF:-0}" != 0 -a -z "${PHP_FPM_MODULE_RAPHF}" \) -o "${PHP_FPM_MODULE_RAPHF:-0}" != 0 ] && ln -sf $MODS/raphf.ini $CONF/20-raphf.ini || rm -f $CONF/20-raphf.ini
 	[ \( "${PHP_MODULE_RDKAFKA:-0}" != 0 -a -z "${PHP_FPM_MODULE_RDKAFKA}" \) -o "${PHP_FPM_MODULE_RDKAFKA:-0}" != 0 ] && ln -sf $MODS/rdkafka.ini $CONF/30-rdkafka.ini || rm -f $CONF/30-rdkafka.ini
 	[ \( "${PHP_MODULE_READLINE:-0}" != 0 -a -z "${PHP_FPM_MODULE_READLINE}" \) -o "${PHP_FPM_MODULE_READLINE:-0}" != 0 ] && ln -sf $MODS/readline.ini $CONF/20-readline.ini || rm -f $CONF/20-readline.ini
-	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/20-redis.ini || rm -f $CONF/20-redis.ini
+	[ \( "${PHP_MODULE_REDIS:-0}" != 0 -a -z "${PHP_FPM_MODULE_REDIS}" \) -o "${PHP_FPM_MODULE_REDIS:-0}" != 0 ] && ln -sf $MODS/redis.ini $CONF/25-redis.ini || rm -f $CONF/25-redis.ini
 	[ \( "${PHP_MODULE_RRD:-0}" != 0 -a -z "${PHP_FPM_MODULE_RRD}" \) -o "${PHP_FPM_MODULE_RRD:-0}" != 0 ] && ln -sf $MODS/rrd.ini $CONF/20-rrd.ini || rm -f $CONF/20-rrd.ini
-	[ \( "${PHP_MODULE_SASS:-0}" != 0 -a -z "${PHP_FPM_MODULE_SASS}" \) -o "${PHP_FPM_MODULE_SASS:-0}" != 0 ] && ln -sf $MODS/sass.ini $CONF/20-sass.ini || rm -f $CONF/20-sass.ini
 	[ \( "${PHP_MODULE_SHMOP:-0}" != 0 -a -z "${PHP_FPM_MODULE_SHMOP}" \) -o "${PHP_FPM_MODULE_SHMOP:-0}" != 0 ] && ln -sf $MODS/shmop.ini $CONF/20-shmop.ini || rm -f $CONF/20-shmop.ini
 	[ \( "${PHP_MODULE_SIMPLEXML:-0}" != 0 -a -z "${PHP_FPM_MODULE_SIMPLEXML}" \) -o "${PHP_FPM_MODULE_SIMPLEXML:-0}" != 0 ] && ln -sf $MODS/simplexml.ini $CONF/20-simplexml.ini || rm -f $CONF/20-simplexml.ini
 	[ \( "${PHP_MODULE_SMBCLIENT:-0}" != 0 -a -z "${PHP_FPM_MODULE_SMBCLIENT}" \) -o "${PHP_FPM_MODULE_SMBCLIENT:-0}" != 0 ] && ln -sf $MODS/smbclient.ini $CONF/20-smbclient.ini || rm -f $CONF/20-smbclient.ini

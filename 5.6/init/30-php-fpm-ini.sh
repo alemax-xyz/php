@@ -556,11 +556,6 @@
 	elif [ -n "${PHP_HTML_ERRORS+1}" ]; then
 		echo "html_errors=${PHP_HTML_ERRORS}"
 	fi
-	if [ -n "${PHP_FPM_HTTP_ETAG_MODE+1}" ]; then
-		echo "http.etag.mode=${PHP_FPM_HTTP_ETAG_MODE}"
-	elif [ -n "${PHP_HTTP_ETAG_MODE+1}" ]; then
-		echo "http.etag.mode=${PHP_HTTP_ETAG_MODE}"
-	fi
 	if [ -n "${PHP_FPM_IBASE_ALLOW_PERSISTENT+1}" ]; then
 		echo "ibase.allow_persistent=${PHP_FPM_IBASE_ALLOW_PERSISTENT}"
 	elif [ -n "${PHP_IBASE_ALLOW_PERSISTENT+1}" ]; then
