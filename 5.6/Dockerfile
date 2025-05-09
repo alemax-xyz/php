@@ -228,6 +228,7 @@ RUN apt-get download \
         php5.6-common \
         php5.6-curl \
         php5.6-dba \
+        php5.6-dio \
         php5.6-enchant \
         php5.6-fpm \
         php5.6-gd \

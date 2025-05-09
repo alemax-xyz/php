@@ -1516,6 +1516,41 @@
 	elif [ -n "${PHP_OPENSSL_CAPATH+1}" ]; then
 		echo "openssl.capath=${PHP_OPENSSL_CAPATH}"
 	fi
+	if [ -n "${PHP_CLI_OPENTELEMETRY_ALLOW_STACK_EXTENSION+1}" ]; then
+		echo "opentelemetry.allow_stack_extension=${PHP_CLI_OPENTELEMETRY_ALLOW_STACK_EXTENSION}"
+	elif [ -n "${PHP_OPENTELEMETRY_ALLOW_STACK_EXTENSION+1}" ]; then
+		echo "opentelemetry.allow_stack_extension=${PHP_OPENTELEMETRY_ALLOW_STACK_EXTENSION}"
+	fi
+	if [ -n "${PHP_CLI_OPENTELEMETRY_ATTR_HOOKS_ENABLED+1}" ]; then
+		echo "opentelemetry.attr_hooks_enabled=${PHP_CLI_OPENTELEMETRY_ATTR_HOOKS_ENABLED}"
+	elif [ -n "${PHP_OPENTELEMETRY_ATTR_HOOKS_ENABLED+1}" ]; then
+		echo "opentelemetry.attr_hooks_enabled=${PHP_OPENTELEMETRY_ATTR_HOOKS_ENABLED}"
+	fi
+	if [ -n "${PHP_CLI_OPENTELEMETRY_ATTR_POST_HANDLER_FUNCTION+1}" ]; then
+		echo "opentelemetry.attr_post_handler_function=${PHP_CLI_OPENTELEMETRY_ATTR_POST_HANDLER_FUNCTION}"
+	elif [ -n "${PHP_OPENTELEMETRY_ATTR_POST_HANDLER_FUNCTION+1}" ]; then
+		echo "opentelemetry.attr_post_handler_function=${PHP_OPENTELEMETRY_ATTR_POST_HANDLER_FUNCTION}"
+	fi
+	if [ -n "${PHP_CLI_OPENTELEMETRY_ATTR_PRE_HANDLER_FUNCTION+1}" ]; then
+		echo "opentelemetry.attr_pre_handler_function=${PHP_CLI_OPENTELEMETRY_ATTR_PRE_HANDLER_FUNCTION}"
+	elif [ -n "${PHP_OPENTELEMETRY_ATTR_PRE_HANDLER_FUNCTION+1}" ]; then
+		echo "opentelemetry.attr_pre_handler_function=${PHP_OPENTELEMETRY_ATTR_PRE_HANDLER_FUNCTION}"
+	fi
+	if [ -n "${PHP_CLI_OPENTELEMETRY_CONFLICTS+1}" ]; then
+		echo "opentelemetry.conflicts=${PHP_CLI_OPENTELEMETRY_CONFLICTS}"
+	elif [ -n "${PHP_OPENTELEMETRY_CONFLICTS+1}" ]; then
+		echo "opentelemetry.conflicts=${PHP_OPENTELEMETRY_CONFLICTS}"
+	fi
+	if [ -n "${PHP_CLI_OPENTELEMETRY_DISPLAY_WARNINGS+1}" ]; then
+		echo "opentelemetry.display_warnings=${PHP_CLI_OPENTELEMETRY_DISPLAY_WARNINGS}"
+	elif [ -n "${PHP_OPENTELEMETRY_DISPLAY_WARNINGS+1}" ]; then
+		echo "opentelemetry.display_warnings=${PHP_OPENTELEMETRY_DISPLAY_WARNINGS}"
+	fi
+	if [ -n "${PHP_CLI_OPENTELEMETRY_VALIDATE_HOOK_FUNCTIONS+1}" ]; then
+		echo "opentelemetry.validate_hook_functions=${PHP_CLI_OPENTELEMETRY_VALIDATE_HOOK_FUNCTIONS}"
+	elif [ -n "${PHP_OPENTELEMETRY_VALIDATE_HOOK_FUNCTIONS+1}" ]; then
+		echo "opentelemetry.validate_hook_functions=${PHP_OPENTELEMETRY_VALIDATE_HOOK_FUNCTIONS}"
+	fi
 	if [ -n "${PHP_CLI_OUTPUT_BUFFERING+1}" ]; then
 		echo "output_buffering=${PHP_CLI_OUTPUT_BUFFERING}"
 	elif [ -n "${PHP_OUTPUT_BUFFERING+1}" ]; then
@@ -1605,6 +1640,111 @@
 		echo "pgsql.max_persistent=${PHP_CLI_PGSQL_MAX_PERSISTENT}"
 	elif [ -n "${PHP_PGSQL_MAX_PERSISTENT+1}" ]; then
 		echo "pgsql.max_persistent=${PHP_PGSQL_MAX_PERSISTENT}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
+		echo "phalcon.db.escape_identifiers=${PHP_CLI_PHALCON_DB_ESCAPE_IDENTIFIERS}"
+	elif [ -n "${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS+1}" ]; then
+		echo "phalcon.db.escape_identifiers=${PHP_PHALCON_DB_ESCAPE_IDENTIFIERS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_DB_FORCE_CASTING+1}" ]; then
+		echo "phalcon.db.force_casting=${PHP_CLI_PHALCON_DB_FORCE_CASTING}"
+	elif [ -n "${PHP_PHALCON_DB_FORCE_CASTING+1}" ]; then
+		echo "phalcon.db.force_casting=${PHP_PHALCON_DB_FORCE_CASTING}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_FORM_STRICT_ENTITY_PROPERTY_CHECK+1}" ]; then
+		echo "phalcon.form.strict_entity_property_check=${PHP_CLI_PHALCON_FORM_STRICT_ENTITY_PROPERTY_CHECK}"
+	elif [ -n "${PHP_PHALCON_FORM_STRICT_ENTITY_PROPERTY_CHECK+1}" ]; then
+		echo "phalcon.form.strict_entity_property_check=${PHP_PHALCON_FORM_STRICT_ENTITY_PROPERTY_CHECK}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
+		echo "phalcon.orm.case_insensitive_column_map=${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP}"
+	elif [ -n "${PHP_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
+		echo "phalcon.orm.case_insensitive_column_map=${PHP_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT+1}" ]; then
+		echo "phalcon.orm.cast_last_insert_id_to_int=${PHP_CLI_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT}"
+	elif [ -n "${PHP_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT+1}" ]; then
+		echo "phalcon.orm.cast_last_insert_id_to_int=${PHP_PHALCON_ORM_CAST_LAST_INSERT_ID_TO_INT}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
+		echo "phalcon.orm.cast_on_hydrate=${PHP_CLI_PHALCON_ORM_CAST_ON_HYDRATE}"
+	elif [ -n "${PHP_PHALCON_ORM_CAST_ON_HYDRATE+1}" ]; then
+		echo "phalcon.orm.cast_on_hydrate=${PHP_PHALCON_ORM_CAST_ON_HYDRATE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
+		echo "phalcon.orm.column_renaming=${PHP_CLI_PHALCON_ORM_COLUMN_RENAMING}"
+	elif [ -n "${PHP_PHALCON_ORM_COLUMN_RENAMING+1}" ]; then
+		echo "phalcon.orm.column_renaming=${PHP_PHALCON_ORM_COLUMN_RENAMING}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
+		echo "phalcon.orm.disable_assign_setters=${PHP_CLI_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
+	elif [ -n "${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS+1}" ]; then
+		echo "phalcon.orm.disable_assign_setters=${PHP_PHALCON_ORM_DISABLE_ASSIGN_SETTERS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_DYNAMIC_UPDATE+1}" ]; then
+		echo "phalcon.orm.dynamic_update=${PHP_CLI_PHALCON_ORM_DYNAMIC_UPDATE}"
+	elif [ -n "${PHP_PHALCON_ORM_DYNAMIC_UPDATE+1}" ]; then
+		echo "phalcon.orm.dynamic_update=${PHP_PHALCON_ORM_DYNAMIC_UPDATE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
+		echo "phalcon.orm.enable_implicit_joins=${PHP_CLI_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
+	elif [ -n "${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS+1}" ]; then
+		echo "phalcon.orm.enable_implicit_joins=${PHP_PHALCON_ORM_ENABLE_IMPLICIT_JOINS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
+		echo "phalcon.orm.enable_literals=${PHP_CLI_PHALCON_ORM_ENABLE_LITERALS}"
+	elif [ -n "${PHP_PHALCON_ORM_ENABLE_LITERALS+1}" ]; then
+		echo "phalcon.orm.enable_literals=${PHP_PHALCON_ORM_ENABLE_LITERALS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_EVENTS+1}" ]; then
+		echo "phalcon.orm.events=${PHP_CLI_PHALCON_ORM_EVENTS}"
+	elif [ -n "${PHP_PHALCON_ORM_EVENTS+1}" ]; then
+		echo "phalcon.orm.events=${PHP_PHALCON_ORM_EVENTS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_metadata_save=${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE}"
+	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_metadata_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_METADATA_SAVE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_save=${PHP_CLI_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
+	elif [ -n "${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE+1}" ]; then
+		echo "phalcon.orm.exception_on_failed_save=${PHP_PHALCON_ORM_EXCEPTION_ON_FAILED_SAVE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
+		echo "phalcon.orm.ignore_unknown_columns=${PHP_CLI_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
+	elif [ -n "${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS+1}" ]; then
+		echo "phalcon.orm.ignore_unknown_columns=${PHP_PHALCON_ORM_IGNORE_UNKNOWN_COLUMNS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
+		echo "phalcon.orm.late_state_binding=${PHP_CLI_PHALCON_ORM_LATE_STATE_BINDING}"
+	elif [ -n "${PHP_PHALCON_ORM_LATE_STATE_BINDING+1}" ]; then
+		echo "phalcon.orm.late_state_binding=${PHP_PHALCON_ORM_LATE_STATE_BINDING}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
+		echo "phalcon.orm.not_null_validations=${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
+	elif [ -n "${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
+		echo "phalcon.orm.not_null_validations=${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
+		echo "phalcon.orm.resultset_prefetch_records=${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
+	elif [ -n "${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
+		echo "phalcon.orm.resultset_prefetch_records=${PHP_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
+		echo "phalcon.orm.update_snapshot_on_save=${PHP_CLI_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
+	elif [ -n "${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE+1}" ]; then
+		echo "phalcon.orm.update_snapshot_on_save=${PHP_PHALCON_ORM_UPDATE_SNAPSHOT_ON_SAVE}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
+		echo "phalcon.orm.virtual_foreign_keys=${PHP_CLI_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
+	elif [ -n "${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS+1}" ]; then
+		echo "phalcon.orm.virtual_foreign_keys=${PHP_PHALCON_ORM_VIRTUAL_FOREIGN_KEYS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_WARNING_ENABLE+1}" ]; then
+		echo "phalcon.warning.enable=${PHP_CLI_PHALCON_WARNING_ENABLE}"
+	elif [ -n "${PHP_PHALCON_WARNING_ENABLE+1}" ]; then
+		echo "phalcon.warning.enable=${PHP_PHALCON_WARNING_ENABLE}"
 	fi
 	if [ -n "${PHP_CLI_PHAR_CACHE_LIST+1}" ]; then
 		echo "phar.cache_list=${PHP_CLI_PHAR_CACHE_LIST}"

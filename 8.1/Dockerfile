@@ -229,6 +229,7 @@ RUN apt-get download \
         php8.1-curl \
         php8.1-dba \
         php8.1-decimal \
+        php8.1-dio \
         php8.1-ds \
         php8.1-enchant \
         php8.1-excimer \
@@ -261,10 +262,12 @@ RUN apt-get download \
         php8.1-oauth \
         php8.1-odbc \
         php8.1-opcache \
+        php8.1-opentelemetry \
         php8.1-pcov \
         php8.1-pgsql \
-        php8.1-phalcon5 \
+        php8.1-phalcon \
         php8.1-pinba \
+        php8.1-pq \
 #        php8.1-propro \
         php8.1-protobuf \
         php8.1-ps \

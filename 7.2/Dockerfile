@@ -231,6 +231,7 @@ RUN apt-get download \
         php7.2-curl \
         php7.2-dba \
         php7.2-decimal \
+        php7.2-dio \
         php7.2-ds \
         php7.2-enchant \
         php7.2-excimer \
@@ -271,6 +272,7 @@ RUN apt-get download \
         php7.2-phalcon3 \
         php7.2-phalcon4 \
         php7.2-pinba \
+        php7.2-pq \
         php7.2-propro \
         php7.2-protobuf \
         php7.2-ps \

@@ -15,6 +15,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_FPM_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_CTYPE:-1}" = 0 -a -z "${PHP_FPM_MODULE_CTYPE}" \) -o "${PHP_FPM_MODULE_CTYPE:-1}" = 0 ] && rm -f $CONF/20-ctype.ini || ln -sf $MODS/ctype.ini $CONF/20-ctype.ini
 	[ \( "${PHP_MODULE_CURL:-1}" = 0 -a -z "${PHP_FPM_MODULE_CURL}" \) -o "${PHP_FPM_MODULE_CURL:-1}" = 0 ] && rm -f $CONF/20-curl.ini || ln -sf $MODS/curl.ini $CONF/20-curl.ini
 	[ \( "${PHP_MODULE_DBA:-1}" = 0 -a -z "${PHP_FPM_MODULE_DBA}" \) -o "${PHP_FPM_MODULE_DBA:-1}" = 0 ] && rm -f $CONF/20-dba.ini || ln -sf $MODS/dba.ini $CONF/20-dba.ini
+	[ \( "${PHP_MODULE_DIO:-1}" = 0 -a -z "${PHP_FPM_MODULE_DIO}" \) -o "${PHP_FPM_MODULE_DIO:-1}" = 0 ] && rm -f $CONF/20-dio.ini || ln -sf $MODS/dio.ini $CONF/20-dio.ini
 	[ \( "${PHP_MODULE_DOM:-1}" = 0 -a -z "${PHP_FPM_MODULE_DOM}" \) -o "${PHP_FPM_MODULE_DOM:-1}" = 0 ] && rm -f $CONF/20-dom.ini || ln -sf $MODS/dom.ini $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_ENCHANT:-1}" = 0 -a -z "${PHP_FPM_MODULE_ENCHANT}" \) -o "${PHP_FPM_MODULE_ENCHANT:-1}" = 0 ] && rm -f $CONF/20-enchant.ini || ln -sf $MODS/enchant.ini $CONF/20-enchant.ini
 	[ \( "${PHP_MODULE_EXIF:-1}" = 0 -a -z "${PHP_FPM_MODULE_EXIF}" \) -o "${PHP_FPM_MODULE_EXIF:-1}" = 0 ] && rm -f $CONF/20-exif.ini || ln -sf $MODS/exif.ini $CONF/20-exif.ini
@@ -115,6 +116,7 @@ else
 	[ \( "${PHP_MODULE_CTYPE:-0}" != 0 -a -z "${PHP_FPM_MODULE_CTYPE}" \) -o "${PHP_FPM_MODULE_CTYPE:-0}" != 0 ] && ln -sf $MODS/ctype.ini $CONF/20-ctype.ini || rm -f $CONF/20-ctype.ini
 	[ \( "${PHP_MODULE_CURL:-0}" != 0 -a -z "${PHP_FPM_MODULE_CURL}" \) -o "${PHP_FPM_MODULE_CURL:-0}" != 0 ] && ln -sf $MODS/curl.ini $CONF/20-curl.ini || rm -f $CONF/20-curl.ini
 	[ \( "${PHP_MODULE_DBA:-0}" != 0 -a -z "${PHP_FPM_MODULE_DBA}" \) -o "${PHP_FPM_MODULE_DBA:-0}" != 0 ] && ln -sf $MODS/dba.ini $CONF/20-dba.ini || rm -f $CONF/20-dba.ini
+	[ \( "${PHP_MODULE_DIO:-0}" != 0 -a -z "${PHP_FPM_MODULE_DIO}" \) -o "${PHP_FPM_MODULE_DIO:-0}" != 0 ] && ln -sf $MODS/dio.ini $CONF/20-dio.ini || rm -f $CONF/20-dio.ini
 	[ \( "${PHP_MODULE_DOM:-0}" != 0 -a -z "${PHP_FPM_MODULE_DOM}" \) -o "${PHP_FPM_MODULE_DOM:-0}" != 0 ] && ln -sf $MODS/dom.ini $CONF/20-dom.ini || rm -f $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_ENCHANT:-0}" != 0 -a -z "${PHP_FPM_MODULE_ENCHANT}" \) -o "${PHP_FPM_MODULE_ENCHANT:-0}" != 0 ] && ln -sf $MODS/enchant.ini $CONF/20-enchant.ini || rm -f $CONF/20-enchant.ini
 	[ \( "${PHP_MODULE_EXIF:-0}" != 0 -a -z "${PHP_FPM_MODULE_EXIF}" \) -o "${PHP_FPM_MODULE_EXIF:-0}" != 0 ] && ln -sf $MODS/exif.ini $CONF/20-exif.ini || rm -f $CONF/20-exif.ini

@@ -18,6 +18,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_CURL:-1}" = 0 -a -z "${PHP_CLI_MODULE_CURL}" \) -o "${PHP_CLI_MODULE_CURL:-1}" = 0 ] && rm -f $CONF/20-curl.ini || ln -sf $MODS/curl.ini $CONF/20-curl.ini
 	[ \( "${PHP_MODULE_DBA:-1}" = 0 -a -z "${PHP_CLI_MODULE_DBA}" \) -o "${PHP_CLI_MODULE_DBA:-1}" = 0 ] && rm -f $CONF/20-dba.ini || ln -sf $MODS/dba.ini $CONF/20-dba.ini
 	[ \( "${PHP_MODULE_DECIMAL:-1}" = 0 -a -z "${PHP_CLI_MODULE_DECIMAL}" \) -o "${PHP_CLI_MODULE_DECIMAL:-1}" = 0 ] && rm -f $CONF/30-decimal.ini || ln -sf $MODS/decimal.ini $CONF/30-decimal.ini
+	[ \( "${PHP_MODULE_DIO:-1}" = 0 -a -z "${PHP_CLI_MODULE_DIO}" \) -o "${PHP_CLI_MODULE_DIO:-1}" = 0 ] && rm -f $CONF/20-dio.ini || ln -sf $MODS/dio.ini $CONF/20-dio.ini
 	[ \( "${PHP_MODULE_DOM:-1}" = 0 -a -z "${PHP_CLI_MODULE_DOM}" \) -o "${PHP_CLI_MODULE_DOM:-1}" = 0 ] && rm -f $CONF/20-dom.ini || ln -sf $MODS/dom.ini $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_DS:-1}" = 0 -a -z "${PHP_CLI_MODULE_DS}" \) -o "${PHP_CLI_MODULE_DS:-1}" = 0 ] && rm -f $CONF/30-ds.ini || ln -sf $MODS/ds.ini $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-1}" = 0 -a -z "${PHP_CLI_MODULE_ENCHANT}" \) -o "${PHP_CLI_MODULE_ENCHANT:-1}" = 0 ] && rm -f $CONF/20-enchant.ini || ln -sf $MODS/enchant.ini $CONF/20-enchant.ini
@@ -69,6 +70,7 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	[ \( "${PHP_MODULE_PHAR:-1}" = 0 -a -z "${PHP_CLI_MODULE_PHAR}" \) -o "${PHP_CLI_MODULE_PHAR:-1}" = 0 ] && rm -f $CONF/20-phar.ini || ln -sf $MODS/phar.ini $CONF/20-phar.ini
 	[ \( "${PHP_MODULE_PINBA:-1}" = 0 -a -z "${PHP_CLI_MODULE_PINBA}" \) -o "${PHP_CLI_MODULE_PINBA:-1}" = 0 ] && rm -f $CONF/20-pinba.ini || ln -sf $MODS/pinba.ini $CONF/20-pinba.ini
 	[ \( "${PHP_MODULE_POSIX:-1}" = 0 -a -z "${PHP_CLI_MODULE_POSIX}" \) -o "${PHP_CLI_MODULE_POSIX:-1}" = 0 ] && rm -f $CONF/20-posix.ini || ln -sf $MODS/posix.ini $CONF/20-posix.ini
+	[ \( "${PHP_MODULE_PQ:-1}" = 0 -a -z "${PHP_CLI_MODULE_PQ}" \) -o "${PHP_CLI_MODULE_PQ:-1}" = 0 ] && rm -f $CONF/25-pq.ini || ln -sf $MODS/pq.ini $CONF/25-pq.ini
 	[ \( "${PHP_MODULE_PROPRO:-1}" = 0 -a -z "${PHP_CLI_MODULE_PROPRO}" \) -o "${PHP_CLI_MODULE_PROPRO:-1}" = 0 ] && rm -f $CONF/20-propro.ini || ln -sf $MODS/propro.ini $CONF/20-propro.ini
 	[ \( "${PHP_MODULE_PROTOBUF:-1}" = 0 -a -z "${PHP_CLI_MODULE_PROTOBUF}" \) -o "${PHP_CLI_MODULE_PROTOBUF:-1}" = 0 ] && rm -f $CONF/30-protobuf.ini || ln -sf $MODS/protobuf.ini $CONF/30-protobuf.ini
 	[ \( "${PHP_MODULE_PS:-1}" = 0 -a -z "${PHP_CLI_MODULE_PS}" \) -o "${PHP_CLI_MODULE_PS:-1}" = 0 ] && rm -f $CONF/20-ps.ini || ln -sf $MODS/ps.ini $CONF/20-ps.ini
@@ -126,6 +128,7 @@ else
 	[ \( "${PHP_MODULE_CURL:-0}" != 0 -a -z "${PHP_CLI_MODULE_CURL}" \) -o "${PHP_CLI_MODULE_CURL:-0}" != 0 ] && ln -sf $MODS/curl.ini $CONF/20-curl.ini || rm -f $CONF/20-curl.ini
 	[ \( "${PHP_MODULE_DBA:-0}" != 0 -a -z "${PHP_CLI_MODULE_DBA}" \) -o "${PHP_CLI_MODULE_DBA:-0}" != 0 ] && ln -sf $MODS/dba.ini $CONF/20-dba.ini || rm -f $CONF/20-dba.ini
 	[ \( "${PHP_MODULE_DECIMAL:-0}" != 0 -a -z "${PHP_CLI_MODULE_DECIMAL}" \) -o "${PHP_CLI_MODULE_DECIMAL:-0}" != 0 ] && ln -sf $MODS/decimal.ini $CONF/30-decimal.ini || rm -f $CONF/30-decimal.ini
+	[ \( "${PHP_MODULE_DIO:-0}" != 0 -a -z "${PHP_CLI_MODULE_DIO}" \) -o "${PHP_CLI_MODULE_DIO:-0}" != 0 ] && ln -sf $MODS/dio.ini $CONF/20-dio.ini || rm -f $CONF/20-dio.ini
 	[ \( "${PHP_MODULE_DOM:-0}" != 0 -a -z "${PHP_CLI_MODULE_DOM}" \) -o "${PHP_CLI_MODULE_DOM:-0}" != 0 ] && ln -sf $MODS/dom.ini $CONF/20-dom.ini || rm -f $CONF/20-dom.ini
 	[ \( "${PHP_MODULE_DS:-0}" != 0 -a -z "${PHP_CLI_MODULE_DS}" \) -o "${PHP_CLI_MODULE_DS:-0}" != 0 ] && ln -sf $MODS/ds.ini $CONF/30-ds.ini || rm -f $CONF/30-ds.ini
 	[ \( "${PHP_MODULE_ENCHANT:-0}" != 0 -a -z "${PHP_CLI_MODULE_ENCHANT}" \) -o "${PHP_CLI_MODULE_ENCHANT:-0}" != 0 ] && ln -sf $MODS/enchant.ini $CONF/20-enchant.ini || rm -f $CONF/20-enchant.ini
@@ -177,6 +180,7 @@ else
 	[ \( "${PHP_MODULE_PHAR:-0}" != 0 -a -z "${PHP_CLI_MODULE_PHAR}" \) -o "${PHP_CLI_MODULE_PHAR:-0}" != 0 ] && ln -sf $MODS/phar.ini $CONF/20-phar.ini || rm -f $CONF/20-phar.ini
 	[ \( "${PHP_MODULE_PINBA:-0}" != 0 -a -z "${PHP_CLI_MODULE_PINBA}" \) -o "${PHP_CLI_MODULE_PINBA:-0}" != 0 ] && ln -sf $MODS/pinba.ini $CONF/20-pinba.ini || rm -f $CONF/20-pinba.ini
 	[ \( "${PHP_MODULE_POSIX:-0}" != 0 -a -z "${PHP_CLI_MODULE_POSIX}" \) -o "${PHP_CLI_MODULE_POSIX:-0}" != 0 ] && ln -sf $MODS/posix.ini $CONF/20-posix.ini || rm -f $CONF/20-posix.ini
+	[ \( "${PHP_MODULE_PQ:-0}" != 0 -a -z "${PHP_CLI_MODULE_PQ}" \) -o "${PHP_CLI_MODULE_PQ:-0}" != 0 ] && ln -sf $MODS/pq.ini $CONF/25-pq.ini || rm -f $CONF/25-pq.ini
 	[ \( "${PHP_MODULE_PROPRO:-0}" != 0 -a -z "${PHP_CLI_MODULE_PROPRO}" \) -o "${PHP_CLI_MODULE_PROPRO:-0}" != 0 ] && ln -sf $MODS/propro.ini $CONF/20-propro.ini || rm -f $CONF/20-propro.ini
 	[ \( "${PHP_MODULE_PROTOBUF:-0}" != 0 -a -z "${PHP_CLI_MODULE_PROTOBUF}" \) -o "${PHP_CLI_MODULE_PROTOBUF:-0}" != 0 ] && ln -sf $MODS/protobuf.ini $CONF/30-protobuf.ini || rm -f $CONF/30-protobuf.ini
 	[ \( "${PHP_MODULE_PS:-0}" != 0 -a -z "${PHP_CLI_MODULE_PS}" \) -o "${PHP_CLI_MODULE_PS:-0}" != 0 ] && ln -sf $MODS/ps.ini $CONF/20-ps.ini || rm -f $CONF/20-ps.ini

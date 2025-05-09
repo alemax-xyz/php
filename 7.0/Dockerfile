@@ -231,6 +231,7 @@ RUN apt-get download \
         php7.0-curl \
         php7.0-dba \
         php7.0-decimal \
+        php7.0-dio \
         php7.0-ds \
         php7.0-enchant \
         php7.0-fpm \
@@ -267,6 +268,7 @@ RUN apt-get download \
         php7.0-pgsql \
         php7.0-phalcon3 \
         php7.0-pinba \
+        php7.0-pq \
         php7.0-propro \
         php7.0-protobuf \
         php7.0-ps \

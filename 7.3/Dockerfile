@@ -231,6 +231,7 @@ RUN apt-get download \
         php7.3-curl \
         php7.3-dba \
         php7.3-decimal \
+        php7.3-dio \
         php7.3-ds \
         php7.3-enchant \
         php7.3-excimer \
@@ -271,6 +272,7 @@ RUN apt-get download \
         php7.3-phalcon3 \
         php7.3-phalcon4 \
         php7.3-pinba \
+        php7.3-pq \
         php7.3-propro \
         php7.3-protobuf \
         php7.3-ps \
