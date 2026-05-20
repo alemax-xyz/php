@@ -1,8 +1,5 @@
 <?php
 
-echo '#!/bin/sh', PHP_EOL;
-echo PHP_EOL;
-
 echo '(', PHP_EOL;
 foreach (ini_get_all() as $parameter => $info) {
     printf(
@@ -16,7 +13,7 @@ foreach (ini_get_all() as $parameter => $info) {
     );
 }
 printf(
-    ') > /etc/php/%s.%s/fpm/conf.d/99-custom.ini' . PHP_EOL,
+    ') | su -p -s /bin/sh -c \'cat > /etc/php/%d.%d/fpm/conf.d/99-custom.ini\'' . PHP_EOL,
     PHP_MAJOR_VERSION,
     PHP_MINOR_VERSION
 );

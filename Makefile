@@ -1,27 +1,29 @@
-override PHP_TARGETS = \
+override TARGETS = \
     5.6 5.6-git 5.6-composer \
     7.0 7.0-git 7.0-composer \
     7.1 7.1-git 7.1-composer \
-    7.2 7.2-git 7.2-composer 7.2-contrib \
-    7.3 7.3-git 7.3-composer 7.3-contrib \
-    7.4 7.4-git 7.4-composer 7.4-contrib \
-    8.0 8.0-git 8.0-composer 8.0-contrib \
-    8.1 8.1-git 8.1-composer 8.1-contrib \
-    8.2 8.2-git 8.2-composer 8.2-contrib \
-    8.3 8.3-git 8.3-composer 8.3-contrib \
-    8.4 8.4-git 8.4-composer 8.4-contrib
+    7.2 7.2-git 7.2-composer \
+    7.3 7.3-git 7.3-composer \
+    7.4 7.4-git 7.4-composer \
+    8.0 8.0-git 8.0-composer \
+    8.1 8.1-git 8.1-composer \
+    8.2 8.2-git 8.2-composer \
+    8.3 8.3-git 8.3-composer \
+    8.4 8.4-git 8.4-composer \
+    8.5 8.5-git 8.5-composer
 
-all: ${PHP_TARGETS} latest latest-git latest-composer latest-contrib
+TAG ?= clover/php
+PLATFORM ?= linux/amd64,linux/arm64/v8
 
-.PHONY: all ${PHP_TARGETS} latest latest-git latest-composer latest-contrib
+all: ${TARGETS} latest latest-git latest-composer
 
-${PHP_TARGETS}:
-	docker build -t clover/php:$@ $@
-	docker push clover/php:$@
+.PHONY: all ${TARGETS} latest latest-git latest-composer
+
+${TARGETS}:
+	docker buildx build --progress plain --platform ${PLATFORM} -t ${TAG}:$@ $@ --push
 
 latest latest-git latest-composer:
-	docker tag clover/php:$^ clover/php:$@
-	docker push clover/php:$@
+	docker buildx build --progress plain --platform ${PLATFORM} -t ${TAG}:$@ $^ --push
 
 5.6-git: 5.6
 5.6-composer: 5.6-git
@@ -34,37 +36,31 @@ latest latest-git latest-composer:
 
 7.2-git: 7.2
 7.2-composer: 7.2-git
-7.2-contrib: 7.2-composer
 
 7.3-git: 7.3
 7.3-composer: 7.3-git
-7.3-contrib: 7.3-composer
 
 7.4-git: 7.4
 7.4-composer: 7.4-git
-7.4-contrib: 7.4-composer
 
 8.0-git: 8.0
 8.0-composer: 8.0-git
-8.0-contrib: 8.0-composer
 
 8.1-git: 8.1
 8.1-composer: 8.1-git
-8.1-contrib: 8.1-composer
 
 8.2-git: 8.2
 8.2-composer: 8.2-git
-8.2-contrib: 8.2-composer
 
 8.3-git: 8.3
 8.3-composer: 8.3-git
-8.3-contrib: 8.3-composer
 
 8.4-git: 8.4
 8.4-composer: 8.4-git
-8.4-contrib: 8.4-composer
 
-latest: 8.4
-latest-git: 8.4-git
-latest-composer: 8.4-composer
-latest-contrib: 8.4-contrib
+8.5-git: 8.5
+8.5-composer: 8.5-git
+
+latest: 8.5
+latest-git: 8.5-git
+latest-composer: 8.5-composer

@@ -1,7 +1,5 @@
 <?php
 
-echo '#!/bin/sh', PHP_EOL;
-echo PHP_EOL;
 echo 'BASE=/etc/php/', PHP_MAJOR_VERSION, '.', PHP_MINOR_VERSION, PHP_EOL;
 echo 'MODS=$BASE/mods-available', PHP_EOL;
 echo 'CONF=$BASE/cli/conf.d', PHP_EOL;
@@ -26,10 +24,16 @@ echo 'if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o 
 
 if (isset($modules['IMAGICK']) && isset($modules['GMAGICK']))
     echo '	[ \( "${PHP_MODULE_IMAGICK:-1}" = 0 -a -z "${PHP_CLI_MODULE_IMAGICK}" \) -o "${PHP_CLI_MODULE_IMAGICK:-1}" = 0 ] || PHP_CLI_MODULE_GMAGICK=0', PHP_EOL, PHP_EOL;
+if (isset($modules['SWOOLE']) && isset($modules['OPENSWOOLE']))
+    echo '	[ \( "${PHP_MODULE_SWOOLE:-1}" = 0 -a -z "${PHP_CLI_MODULE_SWOOLE}" \) -o "${PHP_CLI_MODULE_SWOOLE:-1}" = 0 ] || PHP_CLI_MODULE_OPENSWOOLE=0', PHP_EOL, PHP_EOL;
 
 foreach ($modules as $module => $meta) {
     printf(
-        '	[ \( "${PHP_MODULE_%1$s:-1}" = 0 -a -z "${PHP_CLI_MODULE_%1$s}" \) -o "${PHP_CLI_MODULE_%1$s:-1}" = 0 ] && rm -f %3$s || ln -sf %2$s %3$s' . PHP_EOL,
+        '	if [ \( "${PHP_MODULE_%1$s:-1}" = 0 -a -z "${PHP_CLI_MODULE_%1$s}" \) -o "${PHP_CLI_MODULE_%1$s:-1}" = 0 ]; then' . PHP_EOL .
+        '		[ -h "%3$s" ] && suexec rm -f "%3$s"' . PHP_EOL .
+        '	else' . PHP_EOL .
+        '		[ -e "%3$s" ] || suexec ln -sf "%2$s" "%3$s"' . PHP_EOL .
+        '	fi' . PHP_EOL,
         $module,
         $meta['file'],
         $meta['link']
@@ -40,7 +44,11 @@ echo 'else', PHP_EOL;
 
 foreach ($modules as $module => $meta) {
     printf(
-        '	[ \( "${PHP_MODULE_%1$s:-0}" != 0 -a -z "${PHP_CLI_MODULE_%1$s}" \) -o "${PHP_CLI_MODULE_%1$s:-0}" != 0 ] && ln -sf %2$s %3$s || rm -f %3$s' . PHP_EOL,
+        '	if [ \( "${PHP_MODULE_%1$s:-0}" != 0 -a -z "${PHP_CLI_MODULE_%1$s}" \) -o "${PHP_CLI_MODULE_%1$s:-0}" != 0 ]; then' . PHP_EOL .
+        '		[ -e "%3$s" ] || suexec ln -sf "%2$s" "%3$s"' . PHP_EOL .
+        '	else' . PHP_EOL .
+        '		[ -h "%3$s" ] && suexec rm -f %3$s' . PHP_EOL .
+        '	fi' . PHP_EOL,
         $module,
         $meta['file'],
         $meta['link']

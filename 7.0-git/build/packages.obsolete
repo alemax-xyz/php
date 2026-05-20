@@ -1,0 +1,17 @@
+adduser
+debconf
+dictionaries-common
+dpkg
+git-man=1:2.47.3-9
+init-system-helpers
+liberror-perl
+libperl5.40
+openssl
+perl
+perl-modules-5.40
+php-imagick
+php-common
+procps
+psmisc
+systemd
+ucf

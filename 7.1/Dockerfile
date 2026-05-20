@@ -15,457 +15,120 @@ RUN groupadd \
 
 FROM library/debian:stable-slim AS build
 
-ENV LANG=C.UTF-8
+ENV LANG=C.UTF-8 \
+    SANDBOX_ROOT=/
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get update \
- && apt-get install -y \
-        wget \
-        python3-software-properties \
-        software-properties-common \
-        apt-utils
+ && apt-get install -y wget openssl ca-certificates
 
-RUN export DEBIAN_FRONTEND=noninteractive \
- && apt-get install -y \
-        fasttrack-archive-keyring \
-        curl \
-        gnupg \
- && apt-get update
-
-RUN export DEBIAN_FRONTEND=noninteractive \
- && wget https://packages.sury.org/php/apt.gpg -O /etc/apt/trusted.gpg.d/sury-php.gpg \
- && echo "deb https://fasttrack.debian.net/debian-fasttrack/ bookworm-fasttrack main contrib" > /etc/apt/sources.list.d/fasttrack.list \
- && echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/php-bullseye.list \
- && echo "deb https://packages.sury.org/php/ bookworm main" > /etc/apt/sources.list.d/php-bookworm.list \
- && apt-get update
+ADD https://github.com/alemax-xyz/misc-tools.git#main /usr/local/bin/
 
 RUN mkdir -p /build /rootfs
+
 WORKDIR /build
-RUN apt-get download \
-        firebird3.0-common \
-        freetds-common \
-        gnupg2 \
-        gnupg-agent \
-        gpg \
-        gpg-agent \
-        pinentry-tty \
-        imagemagick-6-common \
-        libaom3 \
-        libapparmor1 \
-        libargon2-1 \
-        libasn1-8-heimdal \
-        libaspell15 \
-        libassuan0 \
-        libabsl20220623 \
-        libatomic1 \
-        libavif15 \
-        libavahi-client3 \
-        libavahi-common3 \
-        libavahi-common-data \
-        libacl1 \
-        libc-ares2 \
-        libattr1 \
-        libbsd0 \
-        libcairo2 \
-        libcap-ng0 \
-        libc-client2007e \
-        libcgif0 \
-        libcom-err2 \
-        libcurl3-gnutls \
-        libcurl4 \
-        libdatrie1 \
-        libdav1d6 \
-        libdbi1 \
-        libdbus-1-3 \
-        libde265-0 \
-        libdeflate0 \
-        libdevmapper1.02.1 \
-        libedit2 \
-        libenchant-2.2 \
-        libevent-2.1-7 \
-        libexpat1 \
-        libfbclient2 \
-        libffi8 \
-        libfftw3-double3 \
-        libfontconfig1 \
-        libfreetype6 \
-        libgav1-1 \
-        libgcrypt20 \
-        libgd3 \
-        libgearman8 \
-        libgeoip1 \
-        libglib2.0-0 \
-        libgmp10 \
-        libgnutls30 \
-        libgomp1 \
-        libgpg-error0 \
-        libgpgme11 \
-        libgraphicsmagick-q16-3 \
-        libgraphite2-3 \
-        libgssapi3-heimdal \
-        libgssapi-krb5-2 \
-        libhashkit2 \
-        libharfbuzz0b \
-        libhcrypto5-heimdal \
-        libheif1 \
-        libheimbase1-heimdal \
-        libheimntlm0-heimdal \
-        libhogweed6 \
-        libhunspell-1.7-0 \
-        libhwy1 \
-        libhx509-5-heimdal \
-        libicu72 \
-        libidn12 \
-        libidn2-0 \
-        libjbig0 \
-        libjxl0.7 \
-        libgif7 \
-        libjpeg62-turbo \
-        libk5crypto3 \
-        libkeyutils1 \
-        libkrb5-26-heimdal \
-        libkrb5-3 \
-        libkrb5support0 \
-        libksba8 \
-        liblcms2-2 \
-        libldap-2.5-0 \
-        liblerc4 \
-        liblqr-1-0 \
-        libltdl7 \
-        liblua5.2-0 \
-        libmcrypt4 \
-        libmd0 \
-        liblmdb0 \
-        liblzma5 \
-        liblz4-1 \
-        libmagic1 \
-        libmagic-mgc \
-        libmagickcore-6.q16-6 \
-        libmagickcore-6.q16-6-extra \
-        libmagickwand-6.q16-6 \
-        libmemcached11 \
-        libnettle8 \
-        libnl-3-200 \
-        libnghttp2-14 \
-        libtommath1 \
-        libnpth0 \
-        libnuma1 \
-        libodbc2 \
-        libpcre2-8-0 \
-        libp11-kit0 \
-        libpango-1.0-0 \
-        libpangocairo-1.0-0 \
-        libpangoft2-1.0-0 \
-        libpgm-5.3-0 \
-        libpixman-1-0 \
-        libpng16-16 \
-        libpq5 \
-        libpsl5 \
-        libqdbm14 \
-        librabbitmq4 \
-        libraqm0 \
-        librav1e0 \
-        librdkafka1 \
-        librecode0 \
-        libroken19-heimdal \
-        librrd8 \
-        librtmp1 \
-        libsasl2-2 \
-        libsasl2-modules-db \
-        libsnappy1v5 \
-        libsodium23 \
-        libsqlite3-0 \
-        libssh-4 \
-        libssh2-1 \
-        libssl3 \
-        libsvtav1enc1 \
-        libsybdb5 \
-        libsystemd0 \
-        libtasn1-6 \
-        libthai0 \
-        libthai-data \
-        libtidy5deb1 \
-        libtirpc3 \
-        libtiff6 \
-        libudev1 \
-        libuuid1 \
-        libunistring2 \
-        libvirt0 \
-        libwebp7 \
-        libwebpdemux2 \
-        libwebpmux3 \
-        libwind0-heimdal \
-        libwmf-0.2-7 \
-        libwmflite-0.2-7 \
-        libx11-6 \
-        libx11-data \
-        libx265-199 \
-        libxau6 \
-        libxcb1 \
-        libxcb-render0 \
-        libxcb-shm0 \
-        libxdmcp6 \
-        libxenstore4 \
-        libxext6 \
-        libxml2 \
-        libxmlrpc-epi0 \
-        libxpm4 \
-        libxrender1 \
-        libxslt1.1 \
-        libyajl2 \
-        libyaml-0-2 \
-        libyuv0 \
-        libzip4 \
-        libzmq5 \
-        libnorm1 \
-        libonig5 \
-        mlock \
-        php7.1-amqp \
-        php7.1-apcu \
-        php7.1-apcu-bc \
-        php7.1-ast \
-        php7.1-bcmath \
-        php7.1-bz2 \
-        php7.1-cli \
-        php7.1-common \
-        php7.1-curl \
-        php7.1-dba \
-        php7.1-decimal \
-        php7.1-dio \
-        php7.1-ds \
-        php7.1-enchant \
-        php7.1-excimer \
-        php7.1-fpm \
-        php7.1-gd \
-        php7.1-gearman \
-        php7.1-geoip \
-        php7.1-gmagick \
-        php7.1-gmp \
-        php7.1-gnupg \
-        php7.1-grpc \
-        php7.1-http \
-        php7.1-igbinary \
-        php7.1-imagick \
-        php7.1-imap \
-        php7.1-inotify \
-        php7.1-interbase \
-        php7.1-intl \
-        php7.1-json \
-        php7.1-ldap \
-        php7.1-libvirt-php \
-        php7.1-lua \
-        php7.1-lz4 \
-        php7.1-mailparse \
-        php7.1-mbstring \
-        php7.1-mcrypt \
-        php7.1-memcache \
-        php7.1-memcached \
-        php7.1-mongodb \
-        php7.1-msgpack \
-        php7.1-mysql \
-        php7.1-oauth \
-        php7.1-odbc \
-        php7.1-opcache \
-        php7.1-pcov \
-        php7.1-pgsql \
-        php7.1-phalcon3 \
-        php7.1-pinba \
-        php7.1-pq \
-        php7.1-propro \
-        php7.1-protobuf \
-        php7.1-ps \
-        php7.1-pspell \
-        php7.1-psr \
-        php7.1-radius \
-        php7.1-raphf \
-        php7.1-rdkafka \
-        php7.1-readline \
-        php7.1-recode \
-        php7.1-redis \
-        php7.1-rrd \
-        php7.1-smbclient \
-        php7.1-snmp \
-        php7.1-soap \
-        php7.1-sodium \
-        php7.1-solr \
-        php7.1-sqlite3 \
-        php7.1-ssh2 \
-        php7.1-stomp \
-        php7.1-sybase \
-        php7.1-tideways \
-        php7.1-tidy \
-        php7.1-uopz \
-        php7.1-uploadprogress \
-        php7.1-uuid \
-        php7.1-vips \
-        php7.1-xdebug \
-        php7.1-xhprof \
-        php7.1-xml \
-        php7.1-xmlrpc \
-        php7.1-xsl \
-        php7.1-yac \
-        php7.1-yaml \
-        php7.1-zip \
-        php7.1-zmq \
-        php7.1-zstd \
-        php-libvirt-php \
-        libprotobuf-c1 \
-        libmpdec3 \
-        pslib1 \
-        libzstd1 \
-        libbrotli1 \
-        libfribidi0 \
-        libmount1 \
-        libblkid1 \
-        libvips42 \
-        libimagequant0 \
-        libimath-3-1-29 \
-        libgsf-1-114 \
-        liborc-0.4-0 \
-        librsvg2-2 \
-        libpoppler-glib8 \
-        libpoppler126 \
-        libopenexr-3-1-30 \
-        libopenslide0 \
-        libcfitsio10 \
-        libmatio11 \
-        libexif12 \
-        libcairo-gobject2 \
-        libgdk-pixbuf-2.0-0 \
-        libopenjp2-7 \
-        libhdf5-103-1 \
-        libnss3 \
-        libnspr4 \
-        libsz2 \
-        libaec0 \
-        libsmbclient \
-        samba-libs \
-        libtalloc2 \
-        libtevent0 \
-        libwbclient0 \
-        libtdb1 \
-        libcap2 \
-        libldb2 \
-        libjansson4 \
-        libsnmp40
-RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
+
+COPY build/ .
+
+COPY --from=clover/common:latest /var/lib/packages/ var/lib/packages/
+
+RUN apt-sandbox --install --verstamp \
+        --apt-config \
+            APT::Install-Recommends=false \
+            APT::Get::Upgrade==false \
+        --repository . \
+        --keyring . \
+        --installed var/lib/packages \
+        --obsolete packages.obsolete \
+        --required packages.required \
+        --optional packages.optional
 
 WORKDIR /rootfs
 
-RUN ARCH=$(dpkg --print-architecture | sed -e 's,i386,i386-linux-gnu,g' -e 's,amd64,x86_64-linux-gnu,g' -e 's,arm64,aarch64-linux-gnu,g' -e 's,armhf,arm-linux-gnueabihf,g') \
- && mkdir -p \
-        etc/snmp \
-        var/lib/php/sessions \
-        var/lib/snmp/mibs \
-        var/lib/snmp/mib_indexes \
-        var/lib/snmp/cert_indexes \
+RUN mkdir -p \
         var/log \
         var/www \
         run/php \
         usr/lib/ssl \
+        usr/share/snmp/cert_indexes \
  && chmod 1777 var/lib/php/sessions \
  && mv usr/lib/php/7.1/php.ini-production etc/php/7.1/fpm/php.ini \
  && mv usr/lib/php/7.1/php.ini-production.cli etc/php/7.1/cli/php.ini \
  && mv usr/share/php7.1-*/*/*.ini etc/php/7.1/mods-available \
- && ( \
-    echo "; priority=40"; \
-    echo "extension=libvirt-php.so" \
- ) > etc/php/7.1/mods-available/libvirt-php.ini \
  && ln -s /etc/ssl/openssl.cnf usr/lib/ssl/openssl.cnf \
- && ln -s /var/lib/snmp usr/share/snmp \
- && ln -s pinentry-tty usr/bin/pinentry \
- && ln -s blas/libblas.so.3 usr/lib/$ARCH/libblas.so.3 \
- && ln -s lapack/liblapack.so.3 usr/lib/$ARCH/liblapack.so.3 \
- && echo 'mibs :' > etc/snmp/snmp.conf \
+ && ln -s pinentry-curses usr/bin/pinentry \
  && rm -rf \
         etc/X11 \
         etc/apache2 \
+        etc/cron.d \
         etc/freetds \
         etc/fonts/conf.d/README \
         etc/gss \
-        etc/init \
         etc/init.d \
         etc/logcheck \
         etc/logrotate.d \
-        etc/php/5.4 \
-        etc/php/5.5 \
-        etc/php/5.6 \
-        etc/php/7.0 \
-#        etc/php/7.1 \
-        etc/php/7.2 \
-        etc/php/7.3 \
-        etc/php/7.4 \
-        etc/php/8.0 \
-        etc/php/8.1 \
-        etc/php/8.2 \
-        etc/php/8.3 \
-        etc/php/8.4 \
-        lib/systemd \
-        lib/udev \
-        usr/bin/gpg2 \
+        etc/sensors.d/.placeholder \
+        etc/sysctl.d \
+        usr/lib/systemd \
         usr/include \
-        usr/lib/odbc \
+        usr/lib/debug \
         usr/lib/tmpfiles.d \
         usr/lib/php/7.1 \
-        usr/lib/php/php7.1-fpm-reopenlogs \
-        usr/lib/php/20121212 \
-        usr/lib/php/20131226 \
-        usr/lib/php/20151012 \
-#        usr/lib/php/20160303 \
-        usr/lib/php/20160731 \
-        usr/lib/php/20170718 \
-        usr/lib/php/20180731 \
-        usr/lib/php/20190902 \
-        usr/lib/php/20200930 \
-        usr/lib/php/20210902 \
-        usr/lib/php/20220829 \
-        usr/lib/php/20230831 \
-        usr/lib/php/20240924 \
+        usr/lib/php/packaging \
+        usr/lib/php/php* \
+        usr/lib/php/sessionclean \
         usr/lib/systemd \
         usr/lib/*-linux-*/glib-2.0/gio-launch-desktop \
-        usr/sbin/addgnupghome \
-        usr/sbin/applygnupgdefaults \
+        usr/sbin/phpdismod \
+        usr/sbin/phpenmod \
+        usr/sbin/phpquery \
+        usr/sbin/phpdismod \
         usr/share/X11/locale \
-        usr/share/doc \
-        usr/share/man \
-        usr/share/info \
-        usr/share/apport \
         usr/share/bug \
-        usr/share/locale \
+        usr/share/doc \
         usr/share/doc-base \
+        usr/share/firebird* \
+        usr/share/gnupg/*.txt \
+        usr/share/info \
         usr/share/libcrypt* \
+        usr/share/libgcrypt* \
+        usr/share/libvirt/test** \
         usr/share/lintian \
-        usr/share/upstart \
-        usr/share/firebird3.0-common \
-        usr/share/gcc-8 \
-        usr/share/gdb \
-        usr/share/gnupg2/*.txt \
-        usr/share/gnupg2/gpg-conf.skel \
+        usr/share/locale \
+        usr/share/man \
         usr/share/php7.1-* \
+        usr/share/pkgconfig \
+        var/lib/snmp \
+ && ( [ -f usr/lib/php/20160303/libvirt-php.so ] && ( \
+            echo "; priority=40" \
+            echo "extension=libvirt-php.so" \
+            echo "[libvirt]" \
+            echo "libvirt.iso_path=/var/lib/libvirt/images" \
+            echo "libvirt.image_path=/var/lib/libvirt/images" \
+            echo "libvirt.max_connections=5" \
+    ) > etc/php/7.1/mods-available/libvirt-php.ini || true ) \
  && ln -s php7.1 usr/bin/php \
  && ln -s phar7.1 usr/bin/phar \
  && ln -s phar.phar7.1 usr/bin/phar.phar \
  && ln -s php-fpm7.1 usr/sbin/php-fpm \
  && ln -s /dev/stderr var/log/php7.1-fpm.log \
- && sed -i -r \
-        -e 's, *listen *= *.*,listen = 9000,g' \
-        -e 's, *user *= *.*,user = www,g' \
-        -e 's, *group *= *.*,group = www,g' \
-        -e 's, *listen\.owner *= *.*,listen.owner = www,g' \
-        -e 's, *listen\.group *= *.*,listen.group = www,g' \
+ && ln -s /usr/share/snmp var/lib/snmp \
+ && sed -i -E \
+        -e 's, *listen *= *.*,listen = ${PHP_FPM_POOL_LISTEN:-9000},g' \
+        -e 's, *user *= *.*,user = ${PUSER},g' \
+        -e 's, *group *= *.*,group = ${PGROUP},g' \
+        -e 's, *listen\.owner *= *.*,listen.owner = ${PUSER},g' \
+        -e 's, *listen\.group *= *.*,listen.group = ${PGROUP},g' \
         etc/php/7.1/fpm/pool.d/www.conf \
- && sed -i -r \
+ && sed -i -E \
         's,[ ;]*systemd_interval *= *.*,systemd_interval = 0,g' \
         etc/php/7.1/fpm/php-fpm.conf \
- && sed -i -r \
+ && sed -i -E \
         -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
         -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
         etc/php/7.1/fpm/php.ini \
- && sed -i -r \
-        -e 's,[ ;]*openssl[.]cafile *= *.*,openssl.cafile = /etc/ssl/certs/ca-certificates.crt,g' \
-        -e 's,[ ;]*openssl[.]capath *= *.*,openssl.capath = /usr/share/ca-certificates/mozilla,g' \
         etc/php/7.1/cli/php.ini \
- && echo "uopz.disable = 1" >> etc/php/7.1/mods-available/uopz.ini \
+ && ( [ -f etc/php/7.1/mods-available/uopz.ini ] && echo "uopz.disable = 1" >> etc/php/7.1/mods-available/uopz.ini || true ) \
  && for file in etc/php/7.1/mods-available/*.ini; do \
         module=$(basename ${file}); \
         if [ "${module}" != "gmagick.ini" ]; then \
@@ -475,20 +138,45 @@ RUN ARCH=$(dpkg --print-architecture | sed -e 's,i386,i386-linux-gnu,g' -e 's,am
             ln -s "/etc/php/7.1/mods-available/${module}" etc/php/7.1/fpm/conf.d/${priority}-${module}; \
         fi \
     done \
- && find \
-        etc/firebird/3.0/firebird.conf \
-        etc/libnl-3/* \
-        etc/magic* \
-        etc/xattr.conf \
-    | xargs -I % sed -i -r \
+ && ( [ -f etc/php/7.1/mods-available/gmacigk.ini -a -f etc/php/7.1/mods-available/imagick.ini ] && rm -f etc/php/*/*/conf.d/*-gmagick.ini || true ) \
+ && ( [ -f etc/php/7.1/mods-available/openswoole.ini -a -f etc/php/7.1/mods-available/swoole.ini ] && rm -f etc/php/*/*/conf.d/*-openswoole.ini || true ) \
+ && sed -i -r \
         -e 's,^[[:space:]]*[#;]+.*$,,g' \
         -e 's,[[:space:]]+, ,g' \
         -e '/^[[:space:]]*$/d' \
-        %
+        etc/netconfig \
+        etc/firebird/*/firebird.conf \
+        $([ -e etc/libnl-3 ] && echo etc/libnl-3/*) \
+        $([ -e etc/libvirt ] && echo etc/libvirt/*.conf) \
+        etc/snmp/snmp.conf \
+        usr/lib/*/ImageMagick*/modules*/*/*.la \
+        usr/lib/aspell/*/*.la \
+ && sed -i -E \
+        -e 's,^[[:space:]]*[#].*$,,g' \
+        -e '/^[[:space:]]*$/d' \
+         etc/sensors3.conf \
+         usr/share/freetds/freetds.conf \
+ && sed -i -E -z \
+        -e 's,<!--([^-]*|-[^-]|--[^>])*-->,,g' \
+        -e 's/[[:space:]]+\n/\n/g' \
+        -e 's/\n\n+/\n/g' \
+        etc/ImageMagick-7/*.xml \
+        etc/fonts/fonts.conf \
+        etc/fonts/conf.avail/*.conf \
+        usr/share/fontconfig/conf.avail/*.conf \
+        usr/lib/*/ImageMagick*/config-*/*.xml \
+        usr/lib/GraphicsMagick*/config/*.mgk \
+        usr/share/GraphicsMagick*/config/*.mgk \
+        usr/share/ImageMagick*/*.xml \
+        $( [ -e usr/share/libvirt ] && echo \
+            usr/share/libvirt/*/*.xml \
+            usr/share/libvirt/*/*.rng \
+        ) \
+        usr/share/mime/packages/*.xml \
+        usr/share/xml/fontconfig/fonts.dtd
 
 COPY --from=base /etc/group /etc/gshadow /etc/passwd /etc/shadow etc/
-COPY init/ etc/init/
-COPY openssl.cnf etc/ssl/
+COPY rootfs/ .
 
 WORKDIR /
 
@@ -496,12 +184,9 @@ WORKDIR /
 FROM clover/common
 
 ENV LANG=C.UTF-8
-ENV CHOWN="/var/lib/php/sessions /var/www"
 
 COPY --from=build /rootfs /
 
 WORKDIR /var/www
 
-VOLUME ["/var/lib/php/sessions"]
-
-EXPOSE 9000
+EXPOSE ${PHP_FPM_POOL_LISTEN:-9000}

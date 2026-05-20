@@ -1,0 +1,14 @@
+adduser
+debconf
+dictionaries-common
+dpkg
+init-system-helpers
+libperl5.40
+openssl
+perl
+perl-modules-5.40
+phpapi-20190902
+procps
+psmisc
+systemd
+ucf

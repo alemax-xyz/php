@@ -1,19 +1,32 @@
 FROM library/debian:stable-slim AS build
 
-ENV LANG=C.UTF-8
+ENV LANG=C.UTF-8 \
+    SANDBOX_ROOT=/
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get update \
- && apt-get install -y \
-        software-properties-common \
-        apt-utils
+ && apt-get install -y wget openssl ca-certificates
+
+ADD https://github.com/alemax-xyz/misc-tools.git#main /usr/local/bin/
 
 RUN mkdir -p /build /rootfs
+
 WORKDIR /build
-RUN apt-get download \
-    openssh-client \
-    git
-RUN find *.deb | xargs -I % dpkg-deb -x % /rootfs
+
+COPY build/ .
+
+COPY --from=clover/php:7.4 /var/lib/packages/ var/lib/packages/
+
+RUN apt-sandbox --install --verstamp \
+        --apt-config \
+            APT::Install-Recommends=false \
+            APT::Get::Upgrade==false \
+        --repository . \
+        --keyring . \
+        --installed var/lib/packages \
+        --obsolete packages.obsolete \
+        --required packages.required \
+        --optional packages.optional
 
 WORKDIR /rootfs
 
@@ -26,18 +39,27 @@ RUN rm -rf \
     usr/share/git-core/templates/hooks/*.sample \
     usr/share/gitweb \
     usr/share/lintian \
+    usr/share/locale \
     usr/share/man \
     usr/share/perl5 \
     usr/lib/git-core/git \
-    usr/lib/git-core/git-add--interactive \
+    usr/lib/git-core/git-instaweb \
+    usr/lib/git-core/git-web--browse \
     usr/lib/git-core/git-shell \
     usr/lib/git-core/git-upload-pack \
     usr/lib/git-core/mergetools \
+    usr/lib/git-core/mergetool* \
+    usr/lib/git-core/scalar \
     usr/lib/systemd \
+    usr/lib/tmpfiles.d \
  && ln -s /usr/bin/git usr/lib/git-core/git \
  && ln -s /usr/bin/git-upload-pack usr/lib/git-core/git-upload-pack \
- && ln -s /usr/bin/git-shell usr/lib/git-core/git-shell
-
+ && ln -s /usr/bin/git-shell usr/lib/git-core/git-shell \
+ && ln -s /usr/bin/scalar usr/lib/git-core/scalar \
+ && sed -i -r \
+        -e 's,^[[:space:]]*[#;]+.*$,,g' \
+        -e '/^[[:space:]]*$/d' \
+        etc/ssh/ssh_config
 
 FROM clover/php:7.4
 

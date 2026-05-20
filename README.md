@@ -1,6 +1,6 @@
 ## PHP FPM/CLI docker images
 
-The image is based on [ppa:ondrej/php](https://launchpad.net/~ondrej/+archive/ubuntu/php) builds and Ubuntu packages on top of [clover/common](https://hub.docker.com/r/clover/common/).
+The image is based on [ppa:ondrej/php](https://launchpad.net/~ondrej/+archive/ubuntu/php) builds and debian packages on top of [clover/common](https://hub.docker.com/r/clover/common/).
 
 All PHP modules are enabled by default at `/etc/php/{8.x,7.x,5.6}/{cli,fpm}/conf.d/`.
 PHP FPM pool is pre-configured in `/etc/php/{8.x,7.x,5.6}/fpm/pool.d/www.conf` to use `www` user and group.
@@ -20,12 +20,6 @@ PHP FPM pool is pre-configured in `/etc/php/{8.x,7.x,5.6}/fpm/pool.d/www.conf` t
 
 See [MODULES.md](https://github.com/alemax-xyz/php/blob/master/MODULES.md) for more details.
 
-### Data volumes
-
-| Location | Description
-| -------- | -----------
-| `/var/lib/php/sessions` | PHP sessions
-
 ### Exposed ports
 
 | Port | Description
@@ -36,10 +30,13 @@ See [MODULES.md](https://github.com/alemax-xyz/php/blob/master/MODULES.md) for m
 
 | Name | Default value | Description
 | ---- | ------------- | -----------
-| `PUID` | `50` | Desired _UID_ of the process owner _*_
-| `PGID` | primary group id of the _UID_ user (`50`) | Desired _GID_ of the process owner _*_
-| `CRON` | _not set_ | Will start _cron_ inside the container if set to `1`
-| `CHOWN` | `/var/lib/php/sessions /var/www` | Space-separated list of directories to _chown_ with `PUID`/`PGID` on start
+| `PUID` | _not set_ | desired user id of the process owner
+| `PGID` | _not set_ | desired group id of the process pwner (primary group of the `PUID` user)
+| `PUSER` | _not set_ | desired `PUID` user name
+| `PGROUP` | _not set_ | desired `PGID` group name
+| `CHOWN` | _not set_ | space-separated list of directories to change ownership to `PUID`/`PGID` during container startup
+| `CRON` | _not set_ (`0`) | will start _cron_ inside the container if set to `1`
+| `TZ` / `TIMEZONE` | _not set_ (`UTC`) | desired container timezone
 | `PHP_*` | _not set_ | Allows setting any `php.ini` setting(s). Applies to both FPM and CLI. `PHP_CLI_*` and `PHP_FPM_*` take precedence if set _**_
 | `PHP_CLI_*` | _not set_ | Allows setting any `php.ini` CLI setting(s). Will be set in `/etc/php/{8.x,7.x,5.6}/cli/conf.d/99-custom.ini` file _**_
 | `PHP_FPM_*` | _not set_ | Allows setting any `php.ini` FPM or `php-fpm.conf` setting(s). Will be set in `/etc/php/{8.x,7.x,5.6}/fpm/conf.d/99-custom.ini` or `/etc/php/{8.x,7.x,5.6}/fpm/php-fpm.conf` files _**_
@@ -60,4 +57,9 @@ For example, to set `session.save_path` INI setting for FPM use `PHP_FPM_SESSION
 
  * `{8.x,7.x,5.6}-git` are based on `{8.x,7.x,5.6}` with additional `openssh-client` and `git` binaries;
  * `{8.x,7.x,5.6}-composer` are based on `{8.x,7.x,5.6}-git`, containing pre-installed `composer`;
- * `{8.x,7.0,7.1,7.2}-contrib` are based on `{8.x,7.x}-composer` with additional `pdo_snowflake` PHP module;
+
+
+### Supported platforms
+
+ * `linux/amd64`;
+ * `linux/arm64/v8`;
