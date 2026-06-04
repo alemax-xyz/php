@@ -1,5 +1,3 @@
-#!/bin/sh
-
 BASE=/etc/php/8.4
 MODS=$BASE/mods-available
 CONF=$BASE/fpm/conf.d
