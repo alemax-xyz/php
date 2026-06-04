@@ -1,0 +1,12 @@
+dlname='pdo_snowflake.so'
+library_names='pdo_snowflake.so pdo_snowflake.so pdo_snowflake.so'
+old_library=''
+dependency_libs=''
+current=0
+age=0
+revision=0
+installed=no
+shouldnotlink=yes
+dlopen=''
+dlpreopen=''
+libdir='/root/pdo_snowflake/modules'
