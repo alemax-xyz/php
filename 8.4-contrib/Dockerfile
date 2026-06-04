@@ -15,7 +15,7 @@ WORKDIR /build
 
 COPY build/ .
 
-COPY --from=clover/php:8.4 /var/lib/packages/ var/lib/packages/
+COPY --from=clover/php:8.4-git /var/lib/packages/ var/lib/packages/
 
 RUN apt-sandbox --install --verstamp \
         --apt-config \
