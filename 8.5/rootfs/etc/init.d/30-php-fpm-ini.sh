@@ -789,6 +789,106 @@
 	elif [ -n "${PHP_MCRYPT_MODES_DIR+1}" ]; then
 		echo "mcrypt.modes_dir=${PHP_MCRYPT_MODES_DIR}"
 	fi
+	if [ -n "${PHP_FPM_MEMCACHE_ALLOW_FAILOVER+1}" ]; then
+		echo "memcache.allow_failover=${PHP_FPM_MEMCACHE_ALLOW_FAILOVER}"
+	elif [ -n "${PHP_MEMCACHE_ALLOW_FAILOVER+1}" ]; then
+		echo "memcache.allow_failover=${PHP_MEMCACHE_ALLOW_FAILOVER}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_CHUNK_SIZE+1}" ]; then
+		echo "memcache.chunk_size=${PHP_FPM_MEMCACHE_CHUNK_SIZE}"
+	elif [ -n "${PHP_MEMCACHE_CHUNK_SIZE+1}" ]; then
+		echo "memcache.chunk_size=${PHP_MEMCACHE_CHUNK_SIZE}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_COMPRESS_THRESHOLD+1}" ]; then
+		echo "memcache.compress_threshold=${PHP_FPM_MEMCACHE_COMPRESS_THRESHOLD}"
+	elif [ -n "${PHP_MEMCACHE_COMPRESS_THRESHOLD+1}" ]; then
+		echo "memcache.compress_threshold=${PHP_MEMCACHE_COMPRESS_THRESHOLD}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_DEFAULT_PORT+1}" ]; then
+		echo "memcache.default_port=${PHP_FPM_MEMCACHE_DEFAULT_PORT}"
+	elif [ -n "${PHP_MEMCACHE_DEFAULT_PORT+1}" ]; then
+		echo "memcache.default_port=${PHP_MEMCACHE_DEFAULT_PORT}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_HASH_FUNCTION+1}" ]; then
+		echo "memcache.hash_function=${PHP_FPM_MEMCACHE_HASH_FUNCTION}"
+	elif [ -n "${PHP_MEMCACHE_HASH_FUNCTION+1}" ]; then
+		echo "memcache.hash_function=${PHP_MEMCACHE_HASH_FUNCTION}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_HASH_STRATEGY+1}" ]; then
+		echo "memcache.hash_strategy=${PHP_FPM_MEMCACHE_HASH_STRATEGY}"
+	elif [ -n "${PHP_MEMCACHE_HASH_STRATEGY+1}" ]; then
+		echo "memcache.hash_strategy=${PHP_MEMCACHE_HASH_STRATEGY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_LOCK_TIMEOUT+1}" ]; then
+		echo "memcache.lock_timeout=${PHP_FPM_MEMCACHE_LOCK_TIMEOUT}"
+	elif [ -n "${PHP_MEMCACHE_LOCK_TIMEOUT+1}" ]; then
+		echo "memcache.lock_timeout=${PHP_MEMCACHE_LOCK_TIMEOUT}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_MAX_FAILOVER_ATTEMPTS+1}" ]; then
+		echo "memcache.max_failover_attempts=${PHP_FPM_MEMCACHE_MAX_FAILOVER_ATTEMPTS}"
+	elif [ -n "${PHP_MEMCACHE_MAX_FAILOVER_ATTEMPTS+1}" ]; then
+		echo "memcache.max_failover_attempts=${PHP_MEMCACHE_MAX_FAILOVER_ATTEMPTS}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.prefix_host_key=${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.prefix_host_key=${PHP_MEMCACHE_PREFIX_HOST_KEY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.prefix_host_key_remove_subdomain=${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.prefix_host_key_remove_subdomain=${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.prefix_host_key_remove_www=${PHP_FPM_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.prefix_host_key_remove_www=${PHP_MEMCACHE_PREFIX_HOST_KEY_REMOVE_WWW}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.prefix_static_key=${PHP_FPM_MEMCACHE_PREFIX_STATIC_KEY}"
+	elif [ -n "${PHP_MEMCACHE_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.prefix_static_key=${PHP_MEMCACHE_PREFIX_STATIC_KEY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_PROTOCOL+1}" ]; then
+		echo "memcache.protocol=${PHP_FPM_MEMCACHE_PROTOCOL}"
+	elif [ -n "${PHP_MEMCACHE_PROTOCOL+1}" ]; then
+		echo "memcache.protocol=${PHP_MEMCACHE_PROTOCOL}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_REDUNDANCY+1}" ]; then
+		echo "memcache.redundancy=${PHP_FPM_MEMCACHE_REDUNDANCY}"
+	elif [ -n "${PHP_MEMCACHE_REDUNDANCY+1}" ]; then
+		echo "memcache.redundancy=${PHP_MEMCACHE_REDUNDANCY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.session_prefix_host_key=${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY+1}" ]; then
+		echo "memcache.session_prefix_host_key=${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_subdomain=${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_subdomain=${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_SUBDOMAIN}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_www=${PHP_FPM_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW+1}" ]; then
+		echo "memcache.session_prefix_host_key_remove_www=${PHP_MEMCACHE_SESSION_PREFIX_HOST_KEY_REMOVE_WWW}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.session_prefix_static_key=${PHP_FPM_MEMCACHE_SESSION_PREFIX_STATIC_KEY}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_PREFIX_STATIC_KEY+1}" ]; then
+		echo "memcache.session_prefix_static_key=${PHP_MEMCACHE_SESSION_PREFIX_STATIC_KEY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_REDUNDANCY+1}" ]; then
+		echo "memcache.session_redundancy=${PHP_FPM_MEMCACHE_SESSION_REDUNDANCY}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_REDUNDANCY+1}" ]; then
+		echo "memcache.session_redundancy=${PHP_MEMCACHE_SESSION_REDUNDANCY}"
+	fi
+	if [ -n "${PHP_FPM_MEMCACHE_SESSION_SAVE_PATH+1}" ]; then
+		echo "memcache.session_save_path=${PHP_FPM_MEMCACHE_SESSION_SAVE_PATH}"
+	elif [ -n "${PHP_MEMCACHE_SESSION_SAVE_PATH+1}" ]; then
+		echo "memcache.session_save_path=${PHP_MEMCACHE_SESSION_SAVE_PATH}"
+	fi
 	if [ -n "${PHP_FPM_MEMCACHED_COMPRESSION_FACTOR+1}" ]; then
 		echo "memcached.compression_factor=${PHP_FPM_MEMCACHED_COMPRESSION_FACTOR}"
 	elif [ -n "${PHP_MEMCACHED_COMPRESSION_FACTOR+1}" ]; then
@@ -933,6 +1033,11 @@
 		echo "memcached.store_retry_count=${PHP_FPM_MEMCACHED_STORE_RETRY_COUNT}"
 	elif [ -n "${PHP_MEMCACHED_STORE_RETRY_COUNT+1}" ]; then
 		echo "memcached.store_retry_count=${PHP_MEMCACHED_STORE_RETRY_COUNT}"
+	fi
+	if [ -n "${PHP_FPM_MEMORY_HARD_LIMIT_PERCENT+1}" ]; then
+		echo "memory_hard_limit_percent=${PHP_FPM_MEMORY_HARD_LIMIT_PERCENT}"
+	elif [ -n "${PHP_MEMORY_HARD_LIMIT_PERCENT+1}" ]; then
+		echo "memory_hard_limit_percent=${PHP_MEMORY_HARD_LIMIT_PERCENT}"
 	fi
 	if [ -n "${PHP_FPM_MEMORY_LIMIT+1}" ]; then
 		echo "memory_limit=${PHP_FPM_MEMORY_LIMIT}"

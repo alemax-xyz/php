@@ -205,6 +205,11 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	else
 		[ -e "$CONF/20-mcrypt.ini" ] || suexec ln -sf "$MODS/mcrypt.ini" "$CONF/20-mcrypt.ini"
 	fi
+	if [ \( "${PHP_MODULE_MEMCACHE:-1}" = 0 -a -z "${PHP_CLI_MODULE_MEMCACHE}" \) -o "${PHP_CLI_MODULE_MEMCACHE:-1}" = 0 ]; then
+		[ -h "$CONF/20-memcache.ini" ] && suexec rm -f "$CONF/20-memcache.ini"
+	else
+		[ -e "$CONF/20-memcache.ini" ] || suexec ln -sf "$MODS/memcache.ini" "$CONF/20-memcache.ini"
+	fi
 	if [ \( "${PHP_MODULE_MEMCACHED:-1}" = 0 -a -z "${PHP_CLI_MODULE_MEMCACHED}" \) -o "${PHP_CLI_MODULE_MEMCACHED:-1}" = 0 ]; then
 		[ -h "$CONF/25-memcached.ini" ] && suexec rm -f "$CONF/25-memcached.ini"
 	else
@@ -700,6 +705,11 @@ else
 		[ -e "$CONF/20-mcrypt.ini" ] || suexec ln -sf "$MODS/mcrypt.ini" "$CONF/20-mcrypt.ini"
 	else
 		[ -h "$CONF/20-mcrypt.ini" ] && suexec rm -f $CONF/20-mcrypt.ini
+	fi
+	if [ \( "${PHP_MODULE_MEMCACHE:-0}" != 0 -a -z "${PHP_CLI_MODULE_MEMCACHE}" \) -o "${PHP_CLI_MODULE_MEMCACHE:-0}" != 0 ]; then
+		[ -e "$CONF/20-memcache.ini" ] || suexec ln -sf "$MODS/memcache.ini" "$CONF/20-memcache.ini"
+	else
+		[ -h "$CONF/20-memcache.ini" ] && suexec rm -f $CONF/20-memcache.ini
 	fi
 	if [ \( "${PHP_MODULE_MEMCACHED:-0}" != 0 -a -z "${PHP_CLI_MODULE_MEMCACHED}" \) -o "${PHP_CLI_MODULE_MEMCACHED:-0}" != 0 ]; then
 		[ -e "$CONF/25-memcached.ini" ] || suexec ln -sf "$MODS/memcached.ini" "$CONF/25-memcached.ini"

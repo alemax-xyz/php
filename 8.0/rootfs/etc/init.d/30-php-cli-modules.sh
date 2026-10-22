@@ -295,11 +295,6 @@ if [ \( "${PHP_MODULES_ALL:-1}" != 0 -a -z "${PHP_CLI_MODULES_ALL}" \) -o \( "${
 	else
 		[ -e "$CONF/20-pgsql.ini" ] || suexec ln -sf "$MODS/pgsql.ini" "$CONF/20-pgsql.ini"
 	fi
-	if [ \( "${PHP_MODULE_PHALCON:-1}" = 0 -a -z "${PHP_CLI_MODULE_PHALCON}" \) -o "${PHP_CLI_MODULE_PHALCON:-1}" = 0 ]; then
-		[ -h "$CONF/35-phalcon.ini" ] && suexec rm -f "$CONF/35-phalcon.ini"
-	else
-		[ -e "$CONF/35-phalcon.ini" ] || suexec ln -sf "$MODS/phalcon.ini" "$CONF/35-phalcon.ini"
-	fi
 	if [ \( "${PHP_MODULE_PHAR:-1}" = 0 -a -z "${PHP_CLI_MODULE_PHAR}" \) -o "${PHP_CLI_MODULE_PHAR:-1}" = 0 ]; then
 		[ -h "$CONF/20-phar.ini" ] && suexec rm -f "$CONF/20-phar.ini"
 	else
@@ -820,11 +815,6 @@ else
 		[ -e "$CONF/20-pgsql.ini" ] || suexec ln -sf "$MODS/pgsql.ini" "$CONF/20-pgsql.ini"
 	else
 		[ -h "$CONF/20-pgsql.ini" ] && suexec rm -f $CONF/20-pgsql.ini
-	fi
-	if [ \( "${PHP_MODULE_PHALCON:-0}" != 0 -a -z "${PHP_CLI_MODULE_PHALCON}" \) -o "${PHP_CLI_MODULE_PHALCON:-0}" != 0 ]; then
-		[ -e "$CONF/35-phalcon.ini" ] || suexec ln -sf "$MODS/phalcon.ini" "$CONF/35-phalcon.ini"
-	else
-		[ -h "$CONF/35-phalcon.ini" ] && suexec rm -f $CONF/35-phalcon.ini
 	fi
 	if [ \( "${PHP_MODULE_PHAR:-0}" != 0 -a -z "${PHP_CLI_MODULE_PHAR}" \) -o "${PHP_CLI_MODULE_PHAR:-0}" != 0 ]; then
 		[ -e "$CONF/20-phar.ini" ] || suexec ln -sf "$MODS/phar.ini" "$CONF/20-phar.ini"

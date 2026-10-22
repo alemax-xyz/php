@@ -15,7 +15,7 @@ WORKDIR /build
 
 COPY build/ .
 
-COPY --from=clover/php:8.4-git /var/lib/packages/ var/lib/packages/
+COPY --from=clover/php:8.4-composer /var/lib/packages/ var/lib/packages/
 
 RUN apt-sandbox --install --verstamp \
         --apt-config \
@@ -38,6 +38,6 @@ RUN rm -rf \
 
 COPY rootfs/ .
 
-FROM clover/php:8.4-git
+FROM clover/php:8.4-composer
 
 COPY --from=build /rootfs /

@@ -1024,6 +1024,11 @@
 	elif [ -n "${PHP_MEMCACHED_STORE_RETRY_COUNT+1}" ]; then
 		echo "memcached.store_retry_count=${PHP_MEMCACHED_STORE_RETRY_COUNT}"
 	fi
+	if [ -n "${PHP_CLI_MEMORY_HARD_LIMIT_PERCENT+1}" ]; then
+		echo "memory_hard_limit_percent=${PHP_CLI_MEMORY_HARD_LIMIT_PERCENT}"
+	elif [ -n "${PHP_MEMORY_HARD_LIMIT_PERCENT+1}" ]; then
+		echo "memory_hard_limit_percent=${PHP_MEMORY_HARD_LIMIT_PERCENT}"
+	fi
 	if [ -n "${PHP_CLI_MEMORY_LIMIT+1}" ]; then
 		echo "memory_limit=${PHP_CLI_MEMORY_LIMIT}"
 	elif [ -n "${PHP_MEMORY_LIMIT+1}" ]; then
@@ -1619,6 +1624,11 @@
 	elif [ -n "${PHP_PHALCON_FORM_STRICT_ENTITY_PROPERTY_CHECK+1}" ]; then
 		echo "phalcon.form.strict_entity_property_check=${PHP_PHALCON_FORM_STRICT_ENTITY_PROPERTY_CHECK}"
 	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_CALL_SETTERS_ON_HYDRATION+1}" ]; then
+		echo "phalcon.orm.call_setters_on_hydration=${PHP_CLI_PHALCON_ORM_CALL_SETTERS_ON_HYDRATION}"
+	elif [ -n "${PHP_PHALCON_ORM_CALL_SETTERS_ON_HYDRATION+1}" ]; then
+		echo "phalcon.orm.call_setters_on_hydration=${PHP_PHALCON_ORM_CALL_SETTERS_ON_HYDRATION}"
+	fi
 	if [ -n "${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
 		echo "phalcon.orm.case_insensitive_column_map=${PHP_CLI_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP}"
 	elif [ -n "${PHP_PHALCON_ORM_CASE_INSENSITIVE_COLUMN_MAP+1}" ]; then
@@ -1688,6 +1698,11 @@
 		echo "phalcon.orm.not_null_validations=${PHP_CLI_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
 	elif [ -n "${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS+1}" ]; then
 		echo "phalcon.orm.not_null_validations=${PHP_PHALCON_ORM_NOT_NULL_VALIDATIONS}"
+	fi
+	if [ -n "${PHP_CLI_PHALCON_ORM_RESULTSET_EMPTY_LEFT_JOIN_MODEL+1}" ]; then
+		echo "phalcon.orm.resultset_empty_left_join_model=${PHP_CLI_PHALCON_ORM_RESULTSET_EMPTY_LEFT_JOIN_MODEL}"
+	elif [ -n "${PHP_PHALCON_ORM_RESULTSET_EMPTY_LEFT_JOIN_MODEL+1}" ]; then
+		echo "phalcon.orm.resultset_empty_left_join_model=${PHP_PHALCON_ORM_RESULTSET_EMPTY_LEFT_JOIN_MODEL}"
 	fi
 	if [ -n "${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS+1}" ]; then
 		echo "phalcon.orm.resultset_prefetch_records=${PHP_CLI_PHALCON_ORM_RESULTSET_PREFETCH_RECORDS}"
